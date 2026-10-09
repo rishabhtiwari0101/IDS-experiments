@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2026-09-08T17:16:57.465446+00:00",
+  "git_commit": "e08366f9b41c2c77ab8d71c4d75deb3bcce2123e",
+  "canonical_commit": "f694e19",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "win32",
+  "config_sha256": "63e0ca7300c25f1ae7d18ea5c516d00ee0799a939d4ca6461f471da2f628a156",
+  "script_sha256": "0b2015378b51baa29b2eb9bfa6a94cadac1a321cce947089d8c5a59d99df8b4d",
+  "source_manifest_sha256": "1539a0fe5857f33a5e2f1aa2d3e0e59533a6814528e74dbb1200331b05fa0710",
+  "final_status": "PASS WITH EXPLICIT LIMITATIONS"
+}

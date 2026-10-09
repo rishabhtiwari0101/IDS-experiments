@@ -1,0 +1,8 @@
+{
+  "total_runtime_seconds": 197.06,
+  "best_epoch": 133,
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "torch_version": "2.7.1+cu118",
+  "timestamp_utc": "2026-09-02T10:34:10.358904+00:00"
+}

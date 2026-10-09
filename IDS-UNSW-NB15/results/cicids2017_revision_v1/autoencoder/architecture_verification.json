@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-10-06T09:17:52.817000+00:00",
+  "model_type": "Autoencoder",
+  "architecture": "69 -> 12 -> 6 -> 12 -> 69",
+  "input_dimension": 69,
+  "hidden_dim1": 12,
+  "latent_dim": 6,
+  "hidden_dim2": 12,
+  "output_dimension": 69,
+  "total_parameter_count": 1899,
+  "expected_parameter_count": 1899,
+  "parameter_count_verified": true,
+  "formula": "25 * D + 174 = 25 * 69 + 174 = 1899"
+}

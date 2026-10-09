@@ -1,0 +1,52 @@
+{
+  "re_stats": {
+    "mean": 0.2252008467912674,
+    "std": 3.644953966140747,
+    "min": 0.009684477932751179,
+    "max": 269.1618957519531,
+    "p50": 0.06588766723871231,
+    "p95": 0.5673861503601074,
+    "p99": 1.5121638774871826,
+    "p999": 10.69687557220459
+  },
+  "thresholds": {
+    "p95": {
+      "threshold_rule": "p95",
+      "percentile": 95.0,
+      "threshold_value": 0.5673861503601074,
+      "samples_above_threshold": 560,
+      "fraction_above_threshold": 0.05
+    },
+    "p99": {
+      "threshold_rule": "p99",
+      "percentile": 99.0,
+      "threshold_value": 1.5121638774871826,
+      "samples_above_threshold": 112,
+      "fraction_above_threshold": 0.01
+    },
+    "p999": {
+      "threshold_rule": "p999",
+      "percentile": 99.9,
+      "threshold_value": 10.69687557220459,
+      "samples_above_threshold": 12,
+      "fraction_above_threshold": 0.0010714285714285715
+    },
+    "mean2sigma": {
+      "threshold_rule": "mean2sigma",
+      "percentile": null,
+      "threshold_value": 7.5151087790727615,
+      "samples_above_threshold": 23,
+      "fraction_above_threshold": 0.0020535714285714285
+    },
+    "mean3sigma": {
+      "threshold_rule": "mean3sigma",
+      "percentile": null,
+      "threshold_value": 11.160062745213509,
+      "samples_above_threshold": 7,
+      "fraction_above_threshold": 0.000625
+    }
+  },
+  "primary_threshold": "DEFERRED_TO_SPRINT_8",
+  "calibration_rows": 11200,
+  "calibration_split": "Normal VALIDATION only"
+}

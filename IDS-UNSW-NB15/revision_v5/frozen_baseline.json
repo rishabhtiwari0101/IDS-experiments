@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-09-28T05:14:41Z",
+  "git_commit": "03f60d793b65183f73cdec684997c56f7fa8668d",
+  "git_status_untracked": "?? IDS_UNSW_NB15_Implementation_Blueprint_FINAL_v5 (2).md",
+  "status": "SUPERSEDED by frozen_baseline_full.json (authoritative, 342 files across 7 directories)",
+  "note": "Only the blueprint file was untracked at baseline. No other modifications existed.",
+  "frozen_directories": [
+    "data/splits",
+    "results/checkpoints",
+    "results/evaluation",
+    "results/zero_day"
+  ],
+  "file_count": 85,
+  "key_verified_hashes": {
+    "data/splits/development_test.csv": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+    "data/splits/excluded_train_backdoor.csv": "b3f6e7e60c9815a53f40eb2d41df8b67d29f884b922a487c3fe83c02e0db0a02",
+    "data/splits/protected_unseen_attack.csv": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+    "data/splits/split_metadata.json": "d48907e08f604c510ee7ff2286e20dc74bb3b074df8e6ac6cc1cceb707c13d9d",
+    "data/splits/train.csv": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+    "matches_blueprint_dev_test": "true",
+    "matches_blueprint_backdoor": "true"
+  },
+  "full_hash_file_note": "Run frozen_integrity_check.py --update-baseline to compute and store all 85 hashes into frozen_baseline_full.json"
+}

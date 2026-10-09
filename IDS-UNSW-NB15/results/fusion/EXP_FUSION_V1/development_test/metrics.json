@@ -1,0 +1,39 @@
+{
+  "selected_config": "C06",
+  "metrics": {
+    "macro_f1": 0.89244,
+    "weighted_f1": 0.894114,
+    "balanced_acc": 0.887755,
+    "fpr": 0.192243,
+    "recall": 0.967753,
+    "fnr": 0.032247,
+    "tp": 43306,
+    "fp": 7113,
+    "tn": 29887,
+    "fn": 1443,
+    "confusion_matrix": {
+      "tn": 29887,
+      "fp": 7113,
+      "fn": 1443,
+      "tp": 43306
+    }
+  },
+  "baseline_c01_metrics": {
+    "macro_f1": 0.892609,
+    "weighted_f1": 0.894279,
+    "balanced_acc": 0.887931,
+    "fpr": 0.191892,
+    "recall": 0.967753,
+    "fnr": 0.032247,
+    "tp": 43306,
+    "fp": 7100,
+    "tn": 29900,
+    "fn": 1443,
+    "confusion_matrix": {
+      "tn": 29900,
+      "fp": 7100,
+      "fn": 1443,
+      "tp": 43306
+    }
+  }
+}

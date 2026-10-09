@@ -1,0 +1,154 @@
+{
+  "timestamp_utc": "2026-10-07T11:19:50.442175+00:00",
+  "sprint": 7,
+  "overall_status": "PASS",
+  "total_gates": 12,
+  "passed_gates": 12,
+  "failed_gates": 0,
+  "gate_results": {
+    "Gate 1: UNSW Manifest Integrity": {
+      "passed": true,
+      "elapsed_seconds": 1.796,
+      "details": {
+        "passed": true,
+        "files_checked": 1261,
+        "missing": 0,
+        "mismatches": 0
+      }
+    },
+    "Gate 2: Git Diff Isolation": {
+      "passed": true,
+      "elapsed_seconds": 0.0644,
+      "details": {
+        "passed": true,
+        "modified_tracked_files": [],
+        "count": 0
+      }
+    },
+    "Gate 3: Shortcut Freeze Integrity": {
+      "passed": true,
+      "elapsed_seconds": 0.0007,
+      "details": {
+        "passed": true,
+        "expected_sha": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+        "actual_sha": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+        "expected_features": [
+          "Destination Port",
+          "Init_Win_bytes_backward"
+        ],
+        "actual_features": [
+          "Destination Port",
+          "Init_Win_bytes_backward"
+        ]
+      }
+    },
+    "Gate 4: Population Counts & Conservation": {
+      "passed": true,
+      "elapsed_seconds": 1.5445,
+      "details": {
+        "passed": true,
+        "counts": {
+          "train.csv": 340464,
+          "dev_test.csv": 743921,
+          "calibration.csv": 18500,
+          "eval_control.csv": 18500,
+          "protected_bot.csv": 1948,
+          "unseen_xss.csv": 652,
+          "unseen_infiltration.csv": 36,
+          "excluded_small.csv": 32
+        },
+        "mismatches": {},
+        "total_assigned": 1124053,
+        "total_cleaned": 2519404,
+        "total_removals": 1395351,
+        "conservation_holds": true
+      }
+    },
+    "Gate 5: Pairwise Row UID Disjointness": {
+      "passed": true,
+      "elapsed_seconds": 8.5725,
+      "details": {
+        "passed": true,
+        "overlaps": {},
+        "splits_tested": 8
+      }
+    },
+    "Gate 6: Fit-Boundary & Leakage Assertions": {
+      "passed": true,
+      "elapsed_seconds": 0.0044,
+      "details": {
+        "passed": true,
+        "boundary_checks": {
+          "base_training_rows": true,
+          "base_k_star": true,
+          "stacking_leakage_assertion": true,
+          "ae_benign_train_rows": true,
+          "if_training_rows": true,
+          "calibration_rows": true,
+          "matched_fpr_cal_pop": true,
+          "matched_fpr_eval_pop": true,
+          "matched_fpr_bot_pop": true
+        }
+      }
+    },
+    "Gate 7: Timestamp & Blinding Ordering": {
+      "passed": true,
+      "elapsed_seconds": 0.0036,
+      "details": {
+        "passed": true,
+        "t_shortcut_utc": "2026-10-06 06:44:46.095782+00:00",
+        "t_zeroday_utc": "2026-10-06 09:39:06.884569+00:00",
+        "separation_seconds": 10460.788787,
+        "separation_formatted": "2h 54m 20s"
+      }
+    },
+    "Gate 8: Model Artifact Inventory": {
+      "passed": true,
+      "elapsed_seconds": 0.0148,
+      "details": {
+        "passed": true,
+        "total_artifacts_checked": 75,
+        "missing_count": 0,
+        "empty_count": 0,
+        "missing": []
+      }
+    },
+    "Gate 9: Table-to-Result Reconciliation": {
+      "passed": true,
+      "elapsed_seconds": 0.0064,
+      "details": {
+        "passed": true,
+        "total_checks": 17,
+        "failed_checks": []
+      }
+    },
+    "Gate 10: Deployment Benchmark Integrity": {
+      "passed": true,
+      "elapsed_seconds": 0.0067,
+      "details": {
+        "passed": true,
+        "row_count": 24,
+        "disclaimer_verified": true,
+        "models_verified": true
+      }
+    },
+    "Gate 11: Figures & Reports Integrity": {
+      "passed": true,
+      "elapsed_seconds": 0.0033,
+      "details": {
+        "passed": true,
+        "figures_verified": 8,
+        "reports_verified": 9
+      }
+    },
+    "Gate 12: Hardcoded Paths Audit": {
+      "passed": true,
+      "elapsed_seconds": 0.4145,
+      "details": {
+        "passed": true,
+        "returncode": 0,
+        "output": "Scanning directory: C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\cicids2017\\src\nNote: --allow-cross-dataset enabled (UNSW/Backdoor allowed exclusively in s22, s25, s26).\nFiles scanned: 25\nPASS: Zero hardcoded paths or forbidden constants found."
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "gate_evaluations": {
+    "source_integrity": "PASS",
+    "population_resolution": "PASS",
+    "numerical_reconciliation": "PASS",
+    "cross_stage_comparability": "PASS",
+    "statistical_integrity": "PASS",
+    "anti_cherry_picking": "PASS",
+    "claims_audit": "PASS",
+    "reproducibility": "PASS",
+    "isolation": "PASS"
+  },
+  "empirical_limitations": {
+    "worms_small_sample_n44": true,
+    "primary_ae_zero_detections": true,
+    "paired_structural_degeneracy": true,
+    "exploratory_secondary_thresholds": true,
+    "single_dataset_non_causal": true
+  },
+  "decision_summary": {
+    "final_status": "PASS WITH EXPLICIT LIMITATIONS",
+    "gate_failures": [],
+    "all_gates_pass": true,
+    "active_limitations": [
+      "worms_small_sample_n44",
+      "primary_ae_zero_detections",
+      "paired_structural_degeneracy",
+      "exploratory_secondary_thresholds",
+      "single_dataset_non_causal"
+    ],
+    "decision_rationale": "Determined PASS WITH EXPLICIT LIMITATIONS because all 9 audit gates passed and 5 empirical limitation(s) are active: worms_small_sample_n44, primary_ae_zero_detections, paired_structural_degeneracy, exploratory_secondary_thresholds, single_dataset_non_causal"
+  },
+  "final_status": "PASS WITH EXPLICIT LIMITATIONS"
+}

@@ -1,0 +1,416 @@
+{
+  "dataset_name": "CIC-IDS-2017",
+  "variant": "MachineLearningCSV Original",
+  "column_count": 79,
+  "columns": [
+    {
+      "index": 0,
+      "raw_name": " Destination Port",
+      "stripped_name": "Destination Port"
+    },
+    {
+      "index": 1,
+      "raw_name": " Flow Duration",
+      "stripped_name": "Flow Duration"
+    },
+    {
+      "index": 2,
+      "raw_name": " Total Fwd Packets",
+      "stripped_name": "Total Fwd Packets"
+    },
+    {
+      "index": 3,
+      "raw_name": " Total Backward Packets",
+      "stripped_name": "Total Backward Packets"
+    },
+    {
+      "index": 4,
+      "raw_name": "Total Length of Fwd Packets",
+      "stripped_name": "Total Length of Fwd Packets"
+    },
+    {
+      "index": 5,
+      "raw_name": " Total Length of Bwd Packets",
+      "stripped_name": "Total Length of Bwd Packets"
+    },
+    {
+      "index": 6,
+      "raw_name": " Fwd Packet Length Max",
+      "stripped_name": "Fwd Packet Length Max"
+    },
+    {
+      "index": 7,
+      "raw_name": " Fwd Packet Length Min",
+      "stripped_name": "Fwd Packet Length Min"
+    },
+    {
+      "index": 8,
+      "raw_name": " Fwd Packet Length Mean",
+      "stripped_name": "Fwd Packet Length Mean"
+    },
+    {
+      "index": 9,
+      "raw_name": " Fwd Packet Length Std",
+      "stripped_name": "Fwd Packet Length Std"
+    },
+    {
+      "index": 10,
+      "raw_name": "Bwd Packet Length Max",
+      "stripped_name": "Bwd Packet Length Max"
+    },
+    {
+      "index": 11,
+      "raw_name": " Bwd Packet Length Min",
+      "stripped_name": "Bwd Packet Length Min"
+    },
+    {
+      "index": 12,
+      "raw_name": " Bwd Packet Length Mean",
+      "stripped_name": "Bwd Packet Length Mean"
+    },
+    {
+      "index": 13,
+      "raw_name": " Bwd Packet Length Std",
+      "stripped_name": "Bwd Packet Length Std"
+    },
+    {
+      "index": 14,
+      "raw_name": "Flow Bytes/s",
+      "stripped_name": "Flow Bytes/s"
+    },
+    {
+      "index": 15,
+      "raw_name": " Flow Packets/s",
+      "stripped_name": "Flow Packets/s"
+    },
+    {
+      "index": 16,
+      "raw_name": " Flow IAT Mean",
+      "stripped_name": "Flow IAT Mean"
+    },
+    {
+      "index": 17,
+      "raw_name": " Flow IAT Std",
+      "stripped_name": "Flow IAT Std"
+    },
+    {
+      "index": 18,
+      "raw_name": " Flow IAT Max",
+      "stripped_name": "Flow IAT Max"
+    },
+    {
+      "index": 19,
+      "raw_name": " Flow IAT Min",
+      "stripped_name": "Flow IAT Min"
+    },
+    {
+      "index": 20,
+      "raw_name": "Fwd IAT Total",
+      "stripped_name": "Fwd IAT Total"
+    },
+    {
+      "index": 21,
+      "raw_name": " Fwd IAT Mean",
+      "stripped_name": "Fwd IAT Mean"
+    },
+    {
+      "index": 22,
+      "raw_name": " Fwd IAT Std",
+      "stripped_name": "Fwd IAT Std"
+    },
+    {
+      "index": 23,
+      "raw_name": " Fwd IAT Max",
+      "stripped_name": "Fwd IAT Max"
+    },
+    {
+      "index": 24,
+      "raw_name": " Fwd IAT Min",
+      "stripped_name": "Fwd IAT Min"
+    },
+    {
+      "index": 25,
+      "raw_name": "Bwd IAT Total",
+      "stripped_name": "Bwd IAT Total"
+    },
+    {
+      "index": 26,
+      "raw_name": " Bwd IAT Mean",
+      "stripped_name": "Bwd IAT Mean"
+    },
+    {
+      "index": 27,
+      "raw_name": " Bwd IAT Std",
+      "stripped_name": "Bwd IAT Std"
+    },
+    {
+      "index": 28,
+      "raw_name": " Bwd IAT Max",
+      "stripped_name": "Bwd IAT Max"
+    },
+    {
+      "index": 29,
+      "raw_name": " Bwd IAT Min",
+      "stripped_name": "Bwd IAT Min"
+    },
+    {
+      "index": 30,
+      "raw_name": "Fwd PSH Flags",
+      "stripped_name": "Fwd PSH Flags"
+    },
+    {
+      "index": 31,
+      "raw_name": " Bwd PSH Flags",
+      "stripped_name": "Bwd PSH Flags"
+    },
+    {
+      "index": 32,
+      "raw_name": " Fwd URG Flags",
+      "stripped_name": "Fwd URG Flags"
+    },
+    {
+      "index": 33,
+      "raw_name": " Bwd URG Flags",
+      "stripped_name": "Bwd URG Flags"
+    },
+    {
+      "index": 34,
+      "raw_name": " Fwd Header Length",
+      "stripped_name": "Fwd Header Length"
+    },
+    {
+      "index": 35,
+      "raw_name": " Bwd Header Length",
+      "stripped_name": "Bwd Header Length"
+    },
+    {
+      "index": 36,
+      "raw_name": "Fwd Packets/s",
+      "stripped_name": "Fwd Packets/s"
+    },
+    {
+      "index": 37,
+      "raw_name": " Bwd Packets/s",
+      "stripped_name": "Bwd Packets/s"
+    },
+    {
+      "index": 38,
+      "raw_name": " Min Packet Length",
+      "stripped_name": "Min Packet Length"
+    },
+    {
+      "index": 39,
+      "raw_name": " Max Packet Length",
+      "stripped_name": "Max Packet Length"
+    },
+    {
+      "index": 40,
+      "raw_name": " Packet Length Mean",
+      "stripped_name": "Packet Length Mean"
+    },
+    {
+      "index": 41,
+      "raw_name": " Packet Length Std",
+      "stripped_name": "Packet Length Std"
+    },
+    {
+      "index": 42,
+      "raw_name": " Packet Length Variance",
+      "stripped_name": "Packet Length Variance"
+    },
+    {
+      "index": 43,
+      "raw_name": "FIN Flag Count",
+      "stripped_name": "FIN Flag Count"
+    },
+    {
+      "index": 44,
+      "raw_name": " SYN Flag Count",
+      "stripped_name": "SYN Flag Count"
+    },
+    {
+      "index": 45,
+      "raw_name": " RST Flag Count",
+      "stripped_name": "RST Flag Count"
+    },
+    {
+      "index": 46,
+      "raw_name": " PSH Flag Count",
+      "stripped_name": "PSH Flag Count"
+    },
+    {
+      "index": 47,
+      "raw_name": " ACK Flag Count",
+      "stripped_name": "ACK Flag Count"
+    },
+    {
+      "index": 48,
+      "raw_name": " URG Flag Count",
+      "stripped_name": "URG Flag Count"
+    },
+    {
+      "index": 49,
+      "raw_name": " CWE Flag Count",
+      "stripped_name": "CWE Flag Count"
+    },
+    {
+      "index": 50,
+      "raw_name": " ECE Flag Count",
+      "stripped_name": "ECE Flag Count"
+    },
+    {
+      "index": 51,
+      "raw_name": " Down/Up Ratio",
+      "stripped_name": "Down/Up Ratio"
+    },
+    {
+      "index": 52,
+      "raw_name": " Average Packet Size",
+      "stripped_name": "Average Packet Size"
+    },
+    {
+      "index": 53,
+      "raw_name": " Avg Fwd Segment Size",
+      "stripped_name": "Avg Fwd Segment Size"
+    },
+    {
+      "index": 54,
+      "raw_name": " Avg Bwd Segment Size",
+      "stripped_name": "Avg Bwd Segment Size"
+    },
+    {
+      "index": 55,
+      "raw_name": " Fwd Header Length",
+      "stripped_name": "Fwd Header Length"
+    },
+    {
+      "index": 56,
+      "raw_name": "Fwd Avg Bytes/Bulk",
+      "stripped_name": "Fwd Avg Bytes/Bulk"
+    },
+    {
+      "index": 57,
+      "raw_name": " Fwd Avg Packets/Bulk",
+      "stripped_name": "Fwd Avg Packets/Bulk"
+    },
+    {
+      "index": 58,
+      "raw_name": " Fwd Avg Bulk Rate",
+      "stripped_name": "Fwd Avg Bulk Rate"
+    },
+    {
+      "index": 59,
+      "raw_name": " Bwd Avg Bytes/Bulk",
+      "stripped_name": "Bwd Avg Bytes/Bulk"
+    },
+    {
+      "index": 60,
+      "raw_name": " Bwd Avg Packets/Bulk",
+      "stripped_name": "Bwd Avg Packets/Bulk"
+    },
+    {
+      "index": 61,
+      "raw_name": "Bwd Avg Bulk Rate",
+      "stripped_name": "Bwd Avg Bulk Rate"
+    },
+    {
+      "index": 62,
+      "raw_name": "Subflow Fwd Packets",
+      "stripped_name": "Subflow Fwd Packets"
+    },
+    {
+      "index": 63,
+      "raw_name": " Subflow Fwd Bytes",
+      "stripped_name": "Subflow Fwd Bytes"
+    },
+    {
+      "index": 64,
+      "raw_name": " Subflow Bwd Packets",
+      "stripped_name": "Subflow Bwd Packets"
+    },
+    {
+      "index": 65,
+      "raw_name": " Subflow Bwd Bytes",
+      "stripped_name": "Subflow Bwd Bytes"
+    },
+    {
+      "index": 66,
+      "raw_name": "Init_Win_bytes_forward",
+      "stripped_name": "Init_Win_bytes_forward"
+    },
+    {
+      "index": 67,
+      "raw_name": " Init_Win_bytes_backward",
+      "stripped_name": "Init_Win_bytes_backward"
+    },
+    {
+      "index": 68,
+      "raw_name": " act_data_pkt_fwd",
+      "stripped_name": "act_data_pkt_fwd"
+    },
+    {
+      "index": 69,
+      "raw_name": " min_seg_size_forward",
+      "stripped_name": "min_seg_size_forward"
+    },
+    {
+      "index": 70,
+      "raw_name": "Active Mean",
+      "stripped_name": "Active Mean"
+    },
+    {
+      "index": 71,
+      "raw_name": " Active Std",
+      "stripped_name": "Active Std"
+    },
+    {
+      "index": 72,
+      "raw_name": " Active Max",
+      "stripped_name": "Active Max"
+    },
+    {
+      "index": 73,
+      "raw_name": " Active Min",
+      "stripped_name": "Active Min"
+    },
+    {
+      "index": 74,
+      "raw_name": "Idle Mean",
+      "stripped_name": "Idle Mean"
+    },
+    {
+      "index": 75,
+      "raw_name": " Idle Std",
+      "stripped_name": "Idle Std"
+    },
+    {
+      "index": 76,
+      "raw_name": " Idle Max",
+      "stripped_name": "Idle Max"
+    },
+    {
+      "index": 77,
+      "raw_name": " Idle Min",
+      "stripped_name": "Idle Min"
+    },
+    {
+      "index": 78,
+      "raw_name": " Label",
+      "stripped_name": "Label"
+    }
+  ],
+  "label_column_index": 78,
+  "label_column_name": "Label",
+  "duplicate_columns": [
+    "Fwd Header Length"
+  ],
+  "duplicate_column_indices": [
+    34,
+    55
+  ],
+  "timestamp_present": false,
+  "ip_addresses_present": false,
+  "ports_present": [
+    "Destination Port"
+  ]
+}

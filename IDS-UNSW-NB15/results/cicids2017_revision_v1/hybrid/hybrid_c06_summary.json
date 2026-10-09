@@ -1,0 +1,160 @@
+{
+  "timestamp_utc": "2026-10-06T09:39:21.419254+00:00",
+  "sprint": 4,
+  "n_bot": 1948,
+  "n_ctrl": 18500,
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "results_by_seed": [
+    {
+      "seed": 42,
+      "n_bot": 1948,
+      "n_ctrl": 18500,
+      "Q1_both": 0,
+      "Q2_stack_only": 0,
+      "Q3_ae_rescue": 13,
+      "Q4_neither": 1935,
+      "partition_sum": 1948,
+      "c01_stack_detections": 0,
+      "c01_stack_recall": 0.0,
+      "c01_stack_recall_wilson_ci": [
+        0.0,
+        0.0019681203118900557
+      ],
+      "c01_stack_recall_cp_ci": [
+        0.0,
+        0.0018918834127528326
+      ],
+      "ae_detections": 13,
+      "ae_recall": 0.006673511293634497,
+      "ae_recall_cp_ci": [
+        0.0035580072930877496,
+        0.011384871276064483
+      ],
+      "c06_detections": 13,
+      "c06_recall": 0.006673511293634497,
+      "c06_recall_cp_ci": [
+        0.0035580072930877496,
+        0.011384871276064483
+      ],
+      "additional_rescue_Q3": 13,
+      "rescue_rate_Q3": 0.006673511293634497,
+      "rescue_rate_cp_ci": [
+        0.0035580072930877496,
+        0.011384871276064483
+      ],
+      "c01_control_fp": 11,
+      "c01_control_fpr": 0.0005945945945945946,
+      "c01_alerts_per_10k": 5.9459459459459465,
+      "c06_control_fp": 38,
+      "c06_control_fpr": 0.0020540540540540542,
+      "c06_alerts_per_10k": 20.540540540540544,
+      "incremental_control_fp": 27,
+      "delta_fpr": 0.0014594594594594596,
+      "delta_alerts_per_10k": 14.594594594594597,
+      "precision_std_c01": 0.0,
+      "precision_std_c06": 0.09301656508578099
+    },
+    {
+      "seed": 123,
+      "n_bot": 1948,
+      "n_ctrl": 18500,
+      "Q1_both": 0,
+      "Q2_stack_only": 0,
+      "Q3_ae_rescue": 11,
+      "Q4_neither": 1937,
+      "partition_sum": 1948,
+      "c01_stack_detections": 0,
+      "c01_stack_recall": 0.0,
+      "c01_stack_recall_wilson_ci": [
+        0.0,
+        0.0019681203118900557
+      ],
+      "c01_stack_recall_cp_ci": [
+        0.0,
+        0.0018918834127528326
+      ],
+      "ae_detections": 11,
+      "ae_recall": 0.005646817248459959,
+      "ae_recall_cp_ci": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "c06_detections": 11,
+      "c06_recall": 0.005646817248459959,
+      "c06_recall_cp_ci": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "additional_rescue_Q3": 11,
+      "rescue_rate_Q3": 0.005646817248459959,
+      "rescue_rate_cp_ci": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "c01_control_fp": 10,
+      "c01_control_fpr": 0.0005405405405405405,
+      "c01_alerts_per_10k": 5.405405405405405,
+      "c06_control_fp": 37,
+      "c06_control_fpr": 0.002,
+      "c06_alerts_per_10k": 20.0,
+      "incremental_control_fp": 27,
+      "delta_fpr": 0.0014594594594594594,
+      "delta_alerts_per_10k": 14.594594594594595,
+      "precision_std_c01": 0.0,
+      "precision_std_c06": 0.08183046633349722
+    },
+    {
+      "seed": 2024,
+      "n_bot": 1948,
+      "n_ctrl": 18500,
+      "Q1_both": 0,
+      "Q2_stack_only": 0,
+      "Q3_ae_rescue": 11,
+      "Q4_neither": 1937,
+      "partition_sum": 1948,
+      "c01_stack_detections": 0,
+      "c01_stack_recall": 0.0,
+      "c01_stack_recall_wilson_ci": [
+        0.0,
+        0.0019681203118900557
+      ],
+      "c01_stack_recall_cp_ci": [
+        0.0,
+        0.0018918834127528326
+      ],
+      "ae_detections": 11,
+      "ae_recall": 0.005646817248459959,
+      "ae_recall_cp_ci": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "c06_detections": 11,
+      "c06_recall": 0.005646817248459959,
+      "c06_recall_cp_ci": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "additional_rescue_Q3": 11,
+      "rescue_rate_Q3": 0.005646817248459959,
+      "rescue_rate_cp_ci": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "c01_control_fp": 11,
+      "c01_control_fpr": 0.0005945945945945946,
+      "c01_alerts_per_10k": 5.9459459459459465,
+      "c06_control_fp": 38,
+      "c06_control_fpr": 0.0020540540540540542,
+      "c06_alerts_per_10k": 20.540540540540544,
+      "incremental_control_fp": 27,
+      "delta_fpr": 0.0014594594594594596,
+      "delta_alerts_per_10k": 14.594594594594597,
+      "precision_std_c01": 0.0,
+      "precision_std_c06": 0.07984898246871229
+    }
+  ]
+}

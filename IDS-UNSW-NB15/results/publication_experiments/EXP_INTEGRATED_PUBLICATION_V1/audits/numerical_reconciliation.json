@@ -1,0 +1,130 @@
+[
+  {
+    "target": "Stage-B Stacking Seed 42 Macro-F1",
+    "prose_value": 0.8909,
+    "derived_value": 0.8909000391431565,
+    "rounded_derived": 0.8909,
+    "status": "PASS",
+    "notes": "Verified directly from predictions_dev_test.csv without hardcoding."
+  },
+  {
+    "target": "Stacking Seed 42 Macro-F1",
+    "stage_d_value": 0.8909000391431565,
+    "derived_value": 0.8909000391431565,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "RF Seed 42 Macro-F1",
+    "stage_d_value": 0.8790669176935485,
+    "derived_value": 0.8790669176935484,
+    "diff": 1.1102230246251565e-16,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "DT Seed 42 Macro-F1",
+    "stage_d_value": 0.8560141788722904,
+    "derived_value": 0.8560141788722906,
+    "diff": 2.220446049250313e-16,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "SVM Seed 42 Macro-F1",
+    "stage_d_value": 0.7938988819388962,
+    "derived_value": 0.7938988819388961,
+    "diff": 1.1102230246251565e-16,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "NN Seed 42 Macro-F1",
+    "stage_d_value": 0.8874053156892155,
+    "derived_value": 0.8874053156892154,
+    "diff": 1.1102230246251565e-16,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "Stacking Seed 123 Macro-F1",
+    "stage_d_value": 0.8864370373095554,
+    "derived_value": 0.8864370373095554,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "RF Seed 123 Macro-F1",
+    "stage_d_value": 0.878627696260577,
+    "derived_value": 0.878627696260577,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "DT Seed 123 Macro-F1",
+    "stage_d_value": 0.8555928645459008,
+    "derived_value": 0.8555928645459009,
+    "diff": 1.1102230246251565e-16,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "SVM Seed 123 Macro-F1",
+    "stage_d_value": 0.7938988819388962,
+    "derived_value": 0.7938988819388961,
+    "diff": 1.1102230246251565e-16,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "NN Seed 123 Macro-F1",
+    "stage_d_value": 0.8745560795936731,
+    "derived_value": 0.8745560795936731,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "Stacking Seed 2024 Macro-F1",
+    "stage_d_value": 0.8884147303015322,
+    "derived_value": 0.8884147303015322,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "RF Seed 2024 Macro-F1",
+    "stage_d_value": 0.8784183940668968,
+    "derived_value": 0.8784183940668968,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "DT Seed 2024 Macro-F1",
+    "stage_d_value": 0.8555848879636465,
+    "derived_value": 0.8555848879636465,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "SVM Seed 2024 Macro-F1",
+    "stage_d_value": 0.7938988819388962,
+    "derived_value": 0.7938988819388961,
+    "diff": 1.1102230246251565e-16,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  },
+  {
+    "target": "NN Seed 2024 Macro-F1",
+    "stage_d_value": 0.8783286781079328,
+    "derived_value": 0.8783286781079328,
+    "diff": 0.0,
+    "status": "PASS",
+    "notes": "Exact match with Stage-D validated table."
+  }
+]

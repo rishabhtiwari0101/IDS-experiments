@@ -1,0 +1,30 @@
+{
+  "claims_checks": [
+    {
+      "claim_id": "CLAIM_A_NO_TTL_ENSEMBLE",
+      "text": "Evaluated ensemble models showed minimal observed sensitivity under No-TTL ablation, below practical materiality.",
+      "status": "SUPPORTED_AND_BOUNDED"
+    },
+    {
+      "claim_id": "CLAIM_B_SVM_SENSITIVITY",
+      "text": "Linear SVM exhibited greater empirical sensitivity to No-TTL representation change, satisfying materiality criteria.",
+      "status": "SUPPORTED_AND_BOUNDED"
+    },
+    {
+      "claim_id": "CLAIM_C_PRIMARY_AE_ZERO_DETECTIONS",
+      "text": "Primary Autoencoder yielded 0 detections across all 4 evaluated families separately (Backdoor N=583, Worms N=44, Shellcode N=378, Analysis N=677); never implying 0% true sensitivity.",
+      "status": "SUPPORTED_AND_BOUNDED"
+    },
+    {
+      "claim_id": "CLAIM_D_THRESHOLD_TRADEOFF",
+      "text": "Secondary thresholds recover partial detections accompanied by higher benign false-positive rates; descriptive operating-point trade-off only.",
+      "status": "SUPPORTED_AND_BOUNDED"
+    },
+    {
+      "claim_id": "CLAIM_E_NO_UNIVERSAL_DEFENSE",
+      "text": "Neither system provides universal zero-day defense; real-world deployment claims strictly avoided.",
+      "status": "SUPPORTED_AND_BOUNDED"
+    }
+  ],
+  "unsupported_core_claim": false
+}

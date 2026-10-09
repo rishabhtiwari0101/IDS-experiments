@@ -1,0 +1,35 @@
+{
+  "experiment_id": "EXP_PROB_INFERENCE_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T06:51:03.928339+00:00",
+  "config_path": "revision_v5\\publication_experiments\\configs\\prob_inference.yaml",
+  "manifest_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\revision_v5\\publication_experiments\\configs\\populations.yaml",
+  "meta_feature_columns": [
+    "dt_attack_probability",
+    "rf_attack_probability",
+    "svm_decision_score",
+    "nn_attack_probability"
+  ],
+  "preprocessing": {
+    "note": "Preprocessing is re-derived from TRAIN with no model or scaler fitted (OHE categories mapping only; zero training).",
+    "feature_names_matched_selected_features": true,
+    "feature_count": 75,
+    "features_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\feature_selection\\EXP_MI_V1_1\\selected_features.json"
+  },
+  "environment": {
+    "sklearn_version": "1.6.1",
+    "multi_class_patch": "Applied multi_class='auto' patch to LogisticRegression meta-learners to support unpickling in scikit-learn",
+    "rf_n_jobs": 1
+  },
+  "output_directory": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\revision_v5\\results\\publication_experiments\\EXP_PROB_INFERENCE_V1",
+  "artifact_hashes": {
+    "dev_test_probabilities.csv": "1ae648b6f179f6c71f3a07db5ef27026a7dba703b9ff44cdf4996259d5513243",
+    "calibration_benign_probabilities.csv": "47d0d50ce8ed15c6d57ff542bcd6b21dcff1717bacb5ac2cf9b805c69ddb1ed8",
+    "zeroday_probabilities.csv": "b9cf80350655c4302546505e8cfc1a97d6e394c7cf30484bd31563d2cb824970",
+    "ae_dev_test_reconstruction_errors.csv": "1f3416741d3ac1a3a3cb69945ec6b13cd851055efee9d004ac82010180c91e2e",
+    "ae_calibration_benign_reconstruction_errors.csv": "821ae0e7cb1a4baed2a2cf3a2827301701e380f95ae4c849f19c051862c2b0ef",
+    "ae_zeroday_reconstruction_errors.csv": "c26d056c164421daf0fec1a924c743cc9372fa697dbbce27a225df98757a1a85",
+    "ae_unseen_family_reconstruction_errors.csv": "f0a7db26e1d5228f71a45cb27549a0708838045411a07ad83ed8ea6a75c3a1b0",
+    "self_check.json": "2cf9764e7c18f1d85024aba5e21fbc88e90f32897e2642a0fc8e030f292a34f5"
+  }
+}

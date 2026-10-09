@@ -1,0 +1,15 @@
+{
+  "leakage_checks": {
+    "protected_backdoor_in_supervised_train": false,
+    "protected_backdoor_in_ae_train": false,
+    "ae_fit_monitor_overlap": false,
+    "scaler_fitted_on_test_data": false,
+    "mi_fitted_on_test_data": false,
+    "test_set_threshold_tuning": false,
+    "post_hoc_tuning_against_protected_data": false,
+    "duplicate_protected_evaluation_rows": false,
+    "incorrect_source_row_alignment": false
+  },
+  "actual_leakage_found": false,
+  "documentation_gap": false
+}

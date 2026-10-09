@@ -1,0 +1,255 @@
+{
+  "experiment_id": "EXP_DISCOVERY_V1",
+  "timestamp_utc": "2026-09-28T06:15:57.620740+00:00",
+  "blueprint_version": "5.0",
+  "git_commit": "f8f97ab3fbd09c30ff0dae2397b35bd396c50c73",
+  "status": "COMPLETED_VERIFIED",
+  "step1_hashes": {
+    "hashes": {
+      "data/splits/train.csv": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+      "data/splits/validation.csv": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+      "data/splits/development_test.csv": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+      "data/splits/protected_unseen_attack.csv": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+      "data/splits/excluded_train_backdoor.csv": "b3f6e7e60c9815a53f40eb2d41df8b67d29f884b922a487c3fe83c02e0db0a02",
+      "data/splits/split_metadata.json": "d48907e08f604c510ee7ff2286e20dc74bb3b074df8e6ac6cc1cceb707c13d9d",
+      "data/splits/train_val_split_metadata.json": "b92833f41c79b1281e93ffc62ff6f65a6a72e9e5acbace0085f4488d5f0a4ea2",
+      "results/checkpoints/EXP_BASE_MODELS_V1/dt/dt_final.joblib": "748261c8106e5b12a93decb4de7df435e09dd587b03294dba3837e20c8a2e4a3",
+      "results/checkpoints/EXP_BASE_MODELS_V1/rf/rf_final.joblib": "f1f873ef4bd7f09c03885ffbbc4c9ec51306dc2aecc0f48e4584fddd7a97a68f",
+      "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_final.joblib": "f325d57525dda5bd92cc20c5393a38fa1b9ca055001b0c24fc9402bdbece990c",
+      "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_scaler.joblib": "a85eeeb74d34bed8cead09cc7506c4bbac6522bb1df0467d6904178996bdaa85",
+      "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_final.pt": "7f3dcdfa59cbd084fcd952645db3b14fa67554769500551f06737d42e5e058ae",
+      "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_scaler.joblib": "a85eeeb74d34bed8cead09cc7506c4bbac6522bb1df0467d6904178996bdaa85",
+      "results/checkpoints/EXP_AE_V1/ae_final.pt": "4ab66af8d4a6e61212ef5d78360f30a8caa68aa85dac3d54042218e010f9a1d6",
+      "results/checkpoints/EXP_AE_V1/ae_scaler.joblib": "c0128d42ed9ef5be695f261be75155e7de4ddf8e51b926e3ce516c4a88ad8211",
+      "results/checkpoints/EXP_AE_V1/threshold_config.json": "3679e65ac717de00cd1f72c4cbaa1a28e0ad823252333068f63ca7873f6a25ab",
+      "results/checkpoints/EXP_OOF_STACK_V1/seed_42/meta_learner.joblib": "e5b776680a99ffee3271624445f7f52593f8f94037d20ba56e9f4b54a848ef19",
+      "results/checkpoints/EXP_OOF_STACK_V1/seed_123/meta_learner.joblib": "f6517b59fac54864b82db07f3da35139f21f400e2a7664ef56ee29b09fcd6672",
+      "results/checkpoints/EXP_OOF_STACK_V1/seed_2024/meta_learner.joblib": "f6139a79f3e7c96bb2c6610f22907184df117a06dd110ea74d6eb1897aeada74",
+      "results/feature_selection/EXP_MI_V1_1/selected_features.json": "6a1816143a4fbe1141e406a820c5adbd0b1452b45172a9d7de8767a897db1024"
+    },
+    "status": "PASS"
+  },
+  "step2_unseen_families": {
+    "expected_counts": {
+      "Worms": 44,
+      "Shellcode": 378,
+      "Analysis": 677
+    },
+    "scan_by_split": {
+      "data/splits/development_test.csv": {
+        "Worms": 44,
+        "Shellcode": 378,
+        "Analysis": 677
+      },
+      "data/splits/train.csv": {
+        "Worms": 130,
+        "Shellcode": 1133,
+        "Analysis": 2000
+      },
+      "data/splits/validation.csv": {
+        "Worms": 0,
+        "Shellcode": 0,
+        "Analysis": 0
+      },
+      "data/splits/protected_unseen_attack.csv": {
+        "Worms": 0,
+        "Shellcode": 0,
+        "Analysis": 0
+      }
+    },
+    "resolved_source": {
+      "path": "data/splits/development_test.csv",
+      "filter": {
+        "attack_cat": [
+          "Worms",
+          "Shellcode",
+          "Analysis"
+        ]
+      },
+      "counts": {
+        "Worms": 44,
+        "Shellcode": 378,
+        "Analysis": 677
+      }
+    },
+    "s0_a7_target_ids_crosscheck": {
+      "Worms": {
+        "count": 44,
+        "target_ids_match": true
+      },
+      "Shellcode": {
+        "count": 378,
+        "target_ids_match": true
+      },
+      "Analysis": {
+        "count": 677,
+        "target_ids_match": true
+      }
+    },
+    "status": "PASS"
+  },
+  "step3_usage_audits": {
+    "val_usage_audit": {
+      "base_models_training_input": "data/splits/train.csv",
+      "base_models_used_val": false,
+      "oof_stacking_access_policy": "FORBIDDEN",
+      "oof_stacking_used_val": false,
+      "feature_selection_input": "data/splits/train.csv",
+      "feature_selection_used_val": false,
+      "ae_training_rows": 40320,
+      "ae_monitor_rows": 4480,
+      "ae_normal_train_total": 44800,
+      "ae_used_val_for_weights": false,
+      "ae_used_val_for_threshold": true,
+      "val_usage_audit_status": "CLEAN_UNTOUCHED_VAL"
+    },
+    "dev_test_usage_audit": {
+      "base_models_used_dev_test": false,
+      "oof_stacking_access_policy": "FORBIDDEN",
+      "oof_stacking_used_dev_test": false,
+      "feature_selection_used_dev_test": false,
+      "ae_used_dev_test_in_training": false,
+      "dev_test_usage_audit_status": "CLEAN_DEV_TEST"
+    },
+    "status": "PASS"
+  },
+  "step4_calibration_decision": {
+    "source_status": "untouched_val",
+    "source_path": "data/splits/validation.csv",
+    "filter": {
+      "label": 0
+    },
+    "expected_n": 11200,
+    "row_uid_list": "results/publication_experiments/EXP_POPULATIONS_V1/calibration_benign_row_uids.json",
+    "row_uid_list_sha256": "46f91f52c814a7038ede506e91b700656c99387b8cc7622a03f040721a6abe5f",
+    "tier_a_eligible": true,
+    "tier_b_eligible": true,
+    "rationale": "Audit confirms validation.csv was not used for early stopping, model selection, meta-learner fitting, feature selection, or scaler fitting. Supervised models trained exclusively on train.csv; AE trained on a 40,320/4,480 split of train.csv and refit on all 44,800 Normal train rows. Tier A (untouched_val) and Tier B (control-split) are both eligible."
+  },
+  "step5_benign_control_and_tier_b": {
+    "benign_control_n": 37000,
+    "s0_a6_set_equality_asserted": true,
+    "row_uid_list": "results/publication_experiments/EXP_POPULATIONS_V1/benign_control_row_uids.json",
+    "benign_control_row_uid_sha256": "9c87ab13a3f7f993d63aec68ab7f89b4390d11b934342952159bab791f4db7a1",
+    "tier_b_split": {
+      "split_seed": 20260928,
+      "method": "numpy.random.default_rng(split_seed) permutation of the sorted source-prefixed row IDs of the 37,000 benign control; first 18,500 = cal_control, rest = eval_control",
+      "cal_control": {
+        "expected_n": 18500,
+        "row_uid_list": "results/publication_experiments/EXP_POPULATIONS_V1/cal_control_row_uids.json",
+        "row_uid_list_sha256": "e95728c95299c21ad026b27434cc483d9b8fe7ddfb7563f0e0137decd76c7395"
+      },
+      "eval_control": {
+        "expected_n": 18500,
+        "row_uid_list": "results/publication_experiments/EXP_POPULATIONS_V1/eval_control_row_uids.json",
+        "row_uid_list_sha256": "25628d10faad090908ea4a149e1e5c3fa074c3df711b3a36bf0c865a0a0a0210"
+      },
+      "disjoint": true,
+      "union_equals_benign_control": true
+    },
+    "status": "PASS"
+  },
+  "step6_ae_reconstruction": {
+    "s0_a8_ae_fit_provenance": {
+      "phase1": "Normal AE-fit subset (40,320) + monitor (4,480) for early stopping to best_epoch=133",
+      "phase2": "Final refit on ALL 44,800 Normal TRAIN rows at best_epoch=133",
+      "weights_frozen_in_ae_final_pt": true
+    },
+    "validation_reconstruction": {
+      "n": 11200,
+      "mean": 0.2252008467912674,
+      "std": 3.644953727722168,
+      "tau_mean_plus_3sigma": 11.160062745213509,
+      "exceedances": 7,
+      "calibration_fpr": 0.000625
+    },
+    "benign_control_reconstruction": {
+      "n": 37000,
+      "tau": 11.160062745213509,
+      "false_positives": 19,
+      "control_fpr": 0.0005135135135135136
+    },
+    "dq06_comparison": {
+      "val_calibration_rate": "7/11200 = 0.000625 (0.0625%)",
+      "control_rate": "19/37000 = 0.000514 (0.0514%)",
+      "conclusion": "no discrepancy: 19/37000 = 0.051% vs 7/11200 = 0.0625%; counts too small to infer partition shift."
+    },
+    "status": "PASS"
+  },
+  "step7_population_disjointness": {
+    "population_counts": {
+      "train": 162395,
+      "calibration_benign": 11200,
+      "dev_test": 81749,
+      "backdoor": 583,
+      "benign_control": 37000,
+      "unseen_families": 1099
+    },
+    "forbidden_overlap_checks": {
+      "train_vs_calibration_benign": 0,
+      "train_vs_dev_test": 0,
+      "train_vs_backdoor": 0,
+      "calibration_benign_vs_dev_test": 0,
+      "calibration_benign_vs_backdoor": 0,
+      "dev_test_vs_backdoor": 0,
+      "backdoor_vs_unseen_families": 0
+    },
+    "intentional_subsets_verified": {
+      "benign_control_in_dev_test": true,
+      "unseen_families_in_dev_test": true,
+      "benign_control_disjoint_from_unseen_families": true
+    },
+    "status": "PASS"
+  },
+  "step8_leakage_audit": {
+    "feature_selection_train_only": true,
+    "base_models_scalers_train_only": true,
+    "ae_scaler_normal_train_subset_only": true,
+    "status": "PASS"
+  },
+  "step9_shared_sha_explanation": {
+    "target_files": {
+      "results/publication_experiments/EXP_STATS_ROBUSTNESS_V1/claims_audit/claims_audit.csv": "b76d8a355766205162c364c92d2b50eeb105be3265feb360dfd5a97b0a7da877",
+      "results/publication_experiments/EXP_STATS_ROBUSTNESS_V1/effect_sizes/effect_size_summary.csv": "b76d8a355766205162c364c92d2b50eeb105be3265feb360dfd5a97b0a7da877",
+      "results/publication_experiments/EXP_STATS_ROBUSTNESS_V1/publication_tables/table_D10.csv": "b76d8a355766205162c364c92d2b50eeb105be3265feb360dfd5a97b0a7da877"
+    },
+    "shared_sha256": "b76d8a355766205162c364c92d2b50eeb105be3265feb360dfd5a97b0a7da877",
+    "explanation": "In publication_experiments/stage_d/scripts/run_stage_d_analysis.py lines 1291, 1294, 1306, the script directly outputs the identical pd.DataFrame(claims) object to effect_size_summary.csv, claims_audit.csv, and table_D10.csv. This is an intentional multi-destination write of the same audit table.",
+    "status": "PASS"
+  },
+  "step10_git_evidence": {
+    "git_evidence": {
+      "metrics/preregistered_decisions.json": [
+        {
+          "commit": "f694e19",
+          "author_date": "2026-09-04 21:45:17 +0530",
+          "commit_date": "2026-09-04 21:45:17 +0530",
+          "subject": "feat: freeze Sprint 13 zero-day simulation"
+        }
+      ],
+      "results/publication_experiments/EXP_STATS_ROBUSTNESS_V1/audits/materiality_preregistration.json": [
+        {
+          "commit": "f187f14",
+          "author_date": "2026-09-09 09:01:09 +0530",
+          "commit_date": "2026-09-09 09:01:09 +0530",
+          "subject": "Add experiment results, metrics, figures, and logs (excluding heavy checkpoints)"
+        },
+        {
+          "commit": "81cfe1c",
+          "author_date": "2026-09-09 00:21:39 +0530",
+          "commit_date": "2026-09-09 00:21:39 +0530",
+          "subject": "feat(publication_experiments): add Stages A-F publication extension pipeline, scripts, and audits"
+        }
+      ],
+      "publication_experiments/stage_d/materiality_preregistration.json": [
+        {
+          "commit": "81cfe1c",
+          "author_date": "2026-09-09 00:21:39 +0530",
+          "commit_date": "2026-09-09 00:21:39 +0530",
+          "subject": "feat(publication_experiments): add Stages A-F publication extension pipeline, scripts, and audits"
+        }
+      ]
+    },
+    "status": "PASS"
+  }
+}

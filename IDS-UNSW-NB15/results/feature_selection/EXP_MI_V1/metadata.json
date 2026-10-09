@@ -1,0 +1,119 @@
+{
+  "experiment_id": "EXP_MI_V1",
+  "protocol_version": "1.0",
+  "dataset": "UNSW-NB15",
+  "created_at": "2026-08-31T17:47:00.399179+00:00",
+  "git_commit": "7cdc5179278169b7d11cb68b08e4f2338ead587b",
+  "input_train_file": "data/splits/train.csv",
+  "input_train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+  "input_train_row_count": 162395,
+  "input_encoded_feature_count": 193,
+  "discrete_feature_count": 154,
+  "continuous_feature_count": 39,
+  "categorical_cols": [
+    "proto",
+    "service",
+    "state"
+  ],
+  "numeric_col_count": 39,
+  "class_balance": {
+    "normal_count": 44800,
+    "attack_count": 117595,
+    "normal_pct": 27.5871,
+    "attack_pct": 72.4129,
+    "note": "No rebalancing applied. MI uses actual frozen TRAIN distribution."
+  },
+  "mi_estimator": "mutual_info_classif",
+  "mi_n_neighbors": 3,
+  "mi_random_state": 42,
+  "mi_target": "label",
+  "mi_representation": "encoded_unscaled",
+  "candidate_k": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "cv_method": "StratifiedKFold",
+  "cv_n_splits": 5,
+  "cv_shuffle": true,
+  "cv_random_state": 42,
+  "cv_stratify_on": "label",
+  "evaluator": {
+    "model": "LogisticRegression",
+    "solver": "liblinear",
+    "C": 1.0,
+    "max_iter": 1000,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "role": "Fixed K-selection evaluator only. NOT a research model."
+  },
+  "selection_metric": "macro_f1",
+  "tie_break": "smaller_k",
+  "selected_k": 50,
+  "k_selection_summary": [
+    {
+      "k": 50,
+      "mean_macro_f1": 0.9195596022615871,
+      "std_macro_f1": 0.002323491374166627
+    },
+    {
+      "k": 40,
+      "mean_macro_f1": 0.9161980424895063,
+      "std_macro_f1": 0.002121616543684624
+    },
+    {
+      "k": 30,
+      "mean_macro_f1": 0.8974419682681883,
+      "std_macro_f1": 0.0009172058055581843
+    },
+    {
+      "k": 20,
+      "mean_macro_f1": 0.8644358901566622,
+      "std_macro_f1": 0.0024279743501289023
+    },
+    {
+      "k": 10,
+      "mean_macro_f1": 0.8248515782961743,
+      "std_macro_f1": 0.003434718125413348
+    }
+  ],
+  "source_family_report": {
+    "candidate": {
+      "proto": 133,
+      "service": 13,
+      "state": 8,
+      "numeric": 39
+    },
+    "selected": {
+      "proto": 6,
+      "service": 5,
+      "state": 3,
+      "numeric": 36
+    },
+    "note": "No quota applied. Natural MI result reported."
+  },
+  "selection_sanity": {
+    "status": "REVIEW_REQUIRED",
+    "reason": "MONOTONIC: Mean macro-F1 is monotonically non-decreasing across K=[np.int64(10), np.int64(20), np.int64(30), np.int64(40), np.int64(50)] (within tolerance=0.0001). The selected K grid may not have reached a meaningful plateau. Consider whether a larger K grid would be appropriate, but do NOT change the K grid without human review.",
+    "flat_range": 0.09470802,
+    "flat_tolerance": 0.001,
+    "is_monotonic": true,
+    "monotonic_tolerance": 0.0001
+  },
+  "runtime_benchmark": {
+    "enabled": true,
+    "affects_selection": false,
+    "benchmark_duration_s": 0.082,
+    "estimated_full_runtime_s": 253.0,
+    "actual_full_runtime_s": 244.4
+  },
+  "ae_feature_space_decision": "The Autoencoder will use the SAME MI-selected feature set. MI is optimized for binary Normal-vs-Attack discrimination. Sharing this space prioritizes a common feature space and reproducibility. Tradeoff: not independently optimized for benign-manifold reconstruction.",
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.0"
+  }
+}

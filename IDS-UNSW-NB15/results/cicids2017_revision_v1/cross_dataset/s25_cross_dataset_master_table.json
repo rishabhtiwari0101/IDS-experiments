@@ -1,0 +1,150 @@
+{
+  "creation_timestamp_utc": "2026-10-07T10:04:21.095996+00:00",
+  "sprint": 6,
+  "step": "s25_cross_dataset_master_table",
+  "master_table": [
+    {
+      "dimension": "Dataset Scale & Scope",
+      "metric_description": "Total Raw Benchmark Flows",
+      "unsw_nb15_value": "254,004 (TRAIN: 162k, DEV_TEST: 82k)",
+      "cic_ids_2017_value": "1,123,383 (TRAIN: 340k, DEV_TEST: 744k)",
+      "comparability_flag": "Direct Comparison",
+      "notes": "CIC is 4.4x larger in flow volume."
+    },
+    {
+      "dimension": "Zero-Day Attack Family",
+      "metric_description": "Protected Unseen Attack Class",
+      "unsw_nb15_value": "Backdoor (N = 583 flows)",
+      "cic_ids_2017_value": "Bot / ARES Botnet (N = 1,948 flows)",
+      "comparability_flag": "Distinct Attack Classes [Footnote B]",
+      "notes": "UNSW Backdoor spans multiple protocols; CIC Bot is IRC C&C traffic."
+    },
+    {
+      "dimension": "Evaluation Prevalence",
+      "metric_description": "Natural Evaluation Attack Prevalence (pi)",
+      "unsw_nb15_value": "3.06% (583 / 19,083)",
+      "cic_ids_2017_value": "9.53% (1,948 / 20,448)",
+      "comparability_flag": "Standardization Required [Footnote A]",
+      "notes": "Natural precision is not directly comparable; standardized pi=0.0306 used."
+    },
+    {
+      "dimension": "Feature Space",
+      "metric_description": "Selected Features Count & Representation",
+      "unsw_nb15_value": "K = 75 (Baselines) / K = 50 (FT-Transformer) [Footnote C]",
+      "cic_ids_2017_value": "K* = 69 (Full) / D = 67 (Ablated)",
+      "comparability_flag": "Modality Difference [Footnote C]",
+      "notes": "UNSW includes one-hot protocol categoricals; CIC is purely numeric flow statistics."
+    },
+    {
+      "dimension": "Stacking Ensemble",
+      "metric_description": "Zero-Day Attack Detection Recall",
+      "unsw_nb15_value": "99.83% (582 / 583)",
+      "cic_ids_2017_value": "0.00% (0 / 1,948)",
+      "comparability_flag": "Dramatic Performance Divergence",
+      "notes": "Supervised ensemble generalized completely on UNSW Backdoor, but failed on CIC Bot."
+    },
+    {
+      "dimension": "Stacking Ensemble",
+      "metric_description": "Benign False Positive Rate (FPR)",
+      "unsw_nb15_value": "19.19% (1918.9 alerts/10k)",
+      "cic_ids_2017_value": "0.087% (8.74 alerts/10k)",
+      "comparability_flag": "Direct Comparison",
+      "notes": "CIC stacking maintains drastically lower operational false alarm load."
+    },
+    {
+      "dimension": "Stacking Ensemble",
+      "metric_description": "Standardized Precision (pi = 0.0306)",
+      "unsw_nb15_value": "14.11% (Natural: 7.58%)",
+      "cic_ids_2017_value": "0.00% (Natural: 0.00%)",
+      "comparability_flag": "Standardized Derived Metric [Footnote A]",
+      "notes": "Derived comparison metric per Blueprint Section 4.5."
+    },
+    {
+      "dimension": "Autoencoder Baseline",
+      "metric_description": "Zero-Day Recall at mu + 3*sigma",
+      "unsw_nb15_value": "0.00% (0 / 583)",
+      "cic_ids_2017_value": "0.60% (12.0 / 1,948)",
+      "comparability_flag": "Replicated Suppression Phenomenon",
+      "notes": "Both datasets confirm severe anomaly suppression at mu+3sigma due to heavy-tail variance."
+    },
+    {
+      "dimension": "Autoencoder Baseline",
+      "metric_description": "Control FPR at mu + 3*sigma",
+      "unsw_nb15_value": "0.049% (4.86 alerts/10k)",
+      "cic_ids_2017_value": "0.146% (14.59 alerts/10k)",
+      "comparability_flag": "Direct Comparison",
+      "notes": "Low benign FPR achieved at the expense of missing >99% of zero-day attacks."
+    },
+    {
+      "dimension": "Isolation Forest",
+      "metric_description": "Zero-Day Recall at mu + 3*sigma",
+      "unsw_nb15_value": "0.00% (0 / 583)",
+      "cic_ids_2017_value": "1.98% (34.7 / 1,948)",
+      "comparability_flag": "Direct Comparison",
+      "notes": "Isolation Forest mirrors AE anomaly blindness on zero-day attack manifolds."
+    },
+    {
+      "dimension": "Hybrid C06 Fusion",
+      "metric_description": "Additional Zero-Day Attack Rescue (Q3)",
+      "unsw_nb15_value": "+0 flows (0.0% rescue)",
+      "cic_ids_2017_value": "+37.7 flows (1.93% rescue)",
+      "comparability_flag": "Direct Comparison",
+      "notes": "OR-fusion yields negligible rescue (<2%) across both benchmark datasets."
+    },
+    {
+      "dimension": "Hybrid C06 Fusion",
+      "metric_description": "Operational Cost (Extra False Alarms on Control)",
+      "unsw_nb15_value": "+13 False Alarms (+3.5 alerts/10k)",
+      "cic_ids_2017_value": "+49.3 False Alarms (+27.4 alerts/10k)",
+      "comparability_flag": "Direct Comparison",
+      "notes": "Rescue benefit is heavily outweighed by the false alarm triage burden."
+    },
+    {
+      "dimension": "Shortcut Ablation",
+      "metric_description": "Random Forest Tree Invariant Resilience (TOST)",
+      "unsw_nb15_value": "Equivalence Supported (delta=0.01, p=0.0029, delta_recall=0.0)",
+      "cic_ids_2017_value": "Equivalence Supported (delta=0.01, mean_shift=0.00148, p<1e-5)",
+      "comparability_flag": "Replicated Structural Finding",
+      "notes": "Removing shortcut features does not materially alter RF Macro-F1 (|Delta| < 0.01)."
+    },
+    {
+      "dimension": "FT-Transformer Baseline",
+      "metric_description": "In-Distribution DEV_TEST Macro-F1",
+      "unsw_nb15_value": "0.8488 (K = 50)",
+      "cic_ids_2017_value": "0.9864 (K* = 69)",
+      "comparability_flag": "Modern Tabular DL Comparison",
+      "notes": "Strong in-distribution performance across both datasets."
+    },
+    {
+      "dimension": "FT-Transformer Baseline",
+      "metric_description": "Zero-Day Attack Detection Recall",
+      "unsw_nb15_value": "100.00% (583 / 583)",
+      "cic_ids_2017_value": "0.00% (0 / 1,948)",
+      "comparability_flag": "Asymmetry Parity",
+      "notes": "FT-Transformer identically replicates the dataset-specific zero-day behavior of trees."
+    }
+  ],
+  "mandatory_footnotes": {
+    "footnote_a_prevalence": "Natural evaluation prevalence differs substantially: UNSW-NB15 zero-day evaluation prevalence is 3.06% (583 attacks / 19,083 total flows in eval_control + protected_backdoor), whereas CIC-IDS-2017 prevalence is 9.53% (1,948 attacks / 20,448 total flows in EVAL_CONTROL + PROTECTED_BOT). Because natural precision is mathematically dependent on attack prevalence, direct cross-dataset precision comparisons must use the standardized derived metric at pi = 0.0306 per Blueprint Section 4.5.",
+    "footnote_b_protected_families": "The protected zero-day attack classes have fundamentally different network behaviors: UNSW-NB15 Backdoor traffic spans diverse ports/protocols with strong feature overlap with other known attacks, enabling high supervised transfer. CIC-IDS-2017 Bot traffic (ARES botnet) consists of subtle IRC C&C channels whose flow statistics occupy benign-adjacent manifolds.",
+    "footnote_c_feature_representation": "Feature modalities and dimensions differ: CIC-IDS-2017 uses K*=69 purely numeric flow counters. UNSW-NB15 published baselines used K=75 mutual-information selected features (EXP_MI_V1_1) including one-hot protocol categoricals (proto, service, state), whereas the exploratory UNSW FT-Transformer baseline evaluated the top K=50 mutual-information selected features (EXP_MI_V1), which is the exact prefix of the 75-feature set.",
+    "footnote_d_resolution_limits": "At the nominal matched-FPR budget alpha = 0.1%, the expected false alarm count on an 18,500-flow control set is 18.5 (< 20 expected false alarms), designating this budget as LOW_RESOLUTION per Blueprint Section 4.4."
+  },
+  "source_traceability": {
+    "unsw_sources": {
+      "stacking_and_rf": "results/zero_day/EXP_ZERODAY_V1/metrics/zero_day_metrics.csv",
+      "ae_reconstruction_and_fpr": "revision_v5/results/publication_experiments/EXP_AE_ABLATION_V1/ae_ablation_results.csv",
+      "isolation_forest": "revision_v5/results/publication_experiments/EXP_IF_V1/zero_day/backdoor_detection.csv",
+      "hybrid_q3_overlap": "results/zero_day/EXP_ZERODAY_V1/analysis/detection_overlap.csv",
+      "rf_tost_ablation": "revision_v5/results/publication_experiments/EXP_TOST_V1/tost_rf_equivalence.json",
+      "ft_transformer": "results/cicids2017_revision_v1/transformer/unsw/s22_ft_transformer_unsw_results.json"
+    },
+    "cic_sources": {
+      "supervised_baselines": "results/cicids2017_revision_v1/supervised/s10_dev_test_summary.json",
+      "zero_day_eval": "results/cicids2017_revision_v1/zero_day/zero_day_evaluation_summary.json",
+      "c06_hybrid_marker": "results/cicids2017_revision_v1/matched_fpr/s23_c06_hybrid_marker.json",
+      "shortcut_ablation": "results/cicids2017_revision_v1/ablation/s19_ablation_evaluation.json",
+      "ft_transformer": "results/cicids2017_revision_v1/ft_transformer/s21_ft_transformer_cic_results.json"
+    }
+  }
+}

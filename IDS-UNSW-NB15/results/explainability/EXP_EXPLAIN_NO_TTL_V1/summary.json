@@ -1,0 +1,373 @@
+{
+  "experiment_id": "EXP_EXPLAIN_NO_TTL_V1",
+  "source_experiment": "EXP_NO_TTL_V1",
+  "explained_seed": 42,
+  "n_features": 72,
+  "pv_gates": {
+    "PV-01": {
+      "gate_id": "PV-01",
+      "description": "NTL_RF checkpoint resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\checkpoints\\seed_42\\rf_final.joblib",
+        "size_mb": 227.6
+      }
+    },
+    "PV-02": {
+      "gate_id": "PV-02",
+      "description": "NTL_DT checkpoint resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\checkpoints\\seed_42\\dt_final.joblib"
+      }
+    },
+    "PV-03": {
+      "gate_id": "PV-03",
+      "description": "NTL_SVM checkpoint resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\checkpoints\\seed_42\\svm_final.joblib"
+      }
+    },
+    "PV-04": {
+      "gate_id": "PV-04",
+      "description": "NTL_NN checkpoint resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\checkpoints\\seed_42\\nn_final.pt"
+      }
+    },
+    "PV-05": {
+      "gate_id": "PV-05",
+      "description": "NTL_STACK meta-learner checkpoint resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\checkpoints\\seed_42\\meta_learner.joblib"
+      }
+    },
+    "PV-06": {
+      "gate_id": "PV-06",
+      "description": "Supervised scaler (72 features) resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\scalers\\supervised_scaler_72.joblib"
+      }
+    },
+    "PV-07": {
+      "gate_id": "PV-07",
+      "description": "OOF predictions (seed 42) resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\predictions\\seed_42\\oof_predictions.csv"
+      }
+    },
+    "PV-08": {
+      "gate_id": "PV-08",
+      "description": "No-TTL features JSON resolved",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\publication_experiments\\features\\no_ttl_features.json"
+      }
+    },
+    "PV-09": {
+      "gate_id": "PV-09",
+      "description": "Exact 72-feature count confirmed",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "count": 72,
+        "first_3": [
+          "sbytes",
+          "dbytes",
+          "rate"
+        ]
+      }
+    },
+    "PV-10": {
+      "gate_id": "PV-10",
+      "description": "TTL features absent from No-TTL feature list",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "ttl_found_in_list": []
+      }
+    },
+    "PV-11": {
+      "gate_id": "PV-11",
+      "description": "Class mapping confirmed (0=benign, 1=attack)",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "0": "benign",
+        "1": "attack"
+      }
+    },
+    "PV-12": {
+      "gate_id": "PV-12",
+      "description": "DEVELOPMENT_TEST row count confirmed (81,749)",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "rows": 81749,
+        "sha256": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508"
+      }
+    },
+    "PV-13": {
+      "gate_id": "PV-13",
+      "description": "Global source_row_uid uniqueness confirmed across all splits",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "total_rows": 255927,
+        "unique_uids": 255927,
+        "collisions": 0
+      }
+    },
+    "PV-14": {
+      "gate_id": "PV-14",
+      "description": "Explanation-set generation reproducible (2,000 rows, seed 42)",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "total": 2000
+      }
+    },
+    "PV-15": {
+      "gate_id": "PV-15",
+      "description": "Explanation set intersect TRAIN = zero",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "overlap_count": 0
+      }
+    },
+    "PV-16": {
+      "gate_id": "PV-16",
+      "description": "Explanation set intersect OOF-fitting population (seed 42) = zero",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "overlap_count": 0
+      }
+    },
+    "PV-17": {
+      "gate_id": "PV-17",
+      "description": "Explanation set intersect OOF-fitting population (seed 123) = zero",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "overlap_count": 0
+      }
+    },
+    "PV-18": {
+      "gate_id": "PV-18",
+      "description": "Explanation set intersect OOF-fitting population (seed 2024) = zero",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "overlap_count": 0
+      }
+    },
+    "PV-19": {
+      "gate_id": "PV-19",
+      "description": "Explanation set intersect VALIDATION / PROTECTED = zero",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "val_overlap": 0,
+        "prot_overlap": 0
+      }
+    },
+    "PV-20": {
+      "gate_id": "PV-20",
+      "description": "72-feature matrix extracted correctly",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "train_shape": [
+          162395,
+          72
+        ],
+        "dev_shape": [
+          81749,
+          72
+        ]
+      }
+    },
+    "PV-21": {
+      "gate_id": "PV-21",
+      "description": "500-row TRAIN background sampled (seed 42)",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "bg_size": 500
+      }
+    },
+    "PV-22": {
+      "gate_id": "PV-22",
+      "description": "All No-TTL models loaded",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "rf": "rf_final.joblib",
+        "dt": "dt_final.joblib",
+        "svm": "svm_final.joblib",
+        "nn": "nn_final.pt",
+        "meta": "meta_learner.joblib"
+      }
+    },
+    "PV-23": {
+      "gate_id": "PV-23",
+      "description": "RF TreeExplainer compatibility verified",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "test_shape": [
+          5,
+          72,
+          2
+        ]
+      }
+    },
+    "PV-24": {
+      "gate_id": "PV-24",
+      "description": "SVM LinearExplainer compatibility verified",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "test_shape": [
+          5,
+          72
+        ]
+      }
+    },
+    "PV-25": {
+      "gate_id": "PV-25",
+      "description": "Meta-learner LinearExplainer compatibility verified",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "test_shape": [
+          5,
+          4
+        ]
+      }
+    },
+    "PV-26": {
+      "gate_id": "PV-26",
+      "description": "NN DeepExplainer compatibility verified",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "test_shape": [
+          10,
+          72,
+          1
+        ]
+      }
+    },
+    "PV-27": {
+      "gate_id": "PV-27",
+      "description": "No retraining or tuning \u2014 all models strictly frozen",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "status": "READ_ONLY"
+      }
+    },
+    "PV-28": {
+      "gate_id": "PV-28",
+      "description": "Original EXP_EXPLAIN_V1 (Sprint 11) artifacts untouched",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "sprint11_dir": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\explainability\\EXP_EXPLAIN_V1"
+      }
+    },
+    "PV-29": {
+      "gate_id": "PV-29",
+      "description": "Output directory isolated from Sprint 11 (EXP_EXPLAIN_NO_TTL_V1)",
+      "passed": true,
+      "status": "PASS",
+      "details": {
+        "out_dir": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\explainability\\EXP_EXPLAIN_NO_TTL_V1"
+      }
+    }
+  },
+  "metrics": {},
+  "global_uid_check": {
+    "total_rows": 255927,
+    "unique_uids": 255927,
+    "collisions": 0
+  },
+  "ntl_rf_top5": [
+    {
+      "feature_name": "ackdat",
+      "feature_index": 13,
+      "mean_abs_shap": 0.0609744156069529,
+      "rank": 1
+    },
+    {
+      "feature_name": "dload",
+      "feature_index": 8,
+      "mean_abs_shap": 0.0509596283872643,
+      "rank": 2
+    },
+    {
+      "feature_name": "state_INT",
+      "feature_index": 18,
+      "mean_abs_shap": 0.0448270309273267,
+      "rank": 3
+    },
+    {
+      "feature_name": "sload",
+      "feature_index": 3,
+      "mean_abs_shap": 0.0410390696288221,
+      "rank": 4
+    },
+    {
+      "feature_name": "rate",
+      "feature_index": 2,
+      "mean_abs_shap": 0.0356429123283556,
+      "rank": 5
+    }
+  ],
+  "meta_learner_importance": [
+    {
+      "meta_feature": "rf_attack_probability",
+      "coefficient": 6.715305981144559,
+      "mean_abs_shap": 2.595260727021418,
+      "rank": 1
+    },
+    {
+      "meta_feature": "svm_decision_score",
+      "coefficient": 0.6571412875497935,
+      "mean_abs_shap": 1.0453292260707836,
+      "rank": 2
+    },
+    {
+      "meta_feature": "nn_attack_probability",
+      "coefficient": 1.5440664411601293,
+      "mean_abs_shap": 0.6162232997489764,
+      "rank": 3
+    },
+    {
+      "meta_feature": "dt_attack_probability",
+      "coefficient": 0.1945770303941549,
+      "mean_abs_shap": 0.08605837811893434,
+      "rank": 4
+    }
+  ],
+  "before_after_comparison": "COMPLETED",
+  "total_pv_gates": 29,
+  "all_pv_passed": true,
+  "completed_at": "2026-09-09T05:04:11Z"
+}

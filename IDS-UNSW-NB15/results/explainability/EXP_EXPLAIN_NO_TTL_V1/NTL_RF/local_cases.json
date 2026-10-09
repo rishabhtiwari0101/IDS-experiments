@@ -1,0 +1,346 @@
+{
+  "TP": {
+    "available_count": 979,
+    "selected_count": 5,
+    "cases": [
+      {
+        "explanation_idx": 1000,
+        "positional_row_id": 12532,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=012582",
+        "raw_id": 12582,
+        "true_label": 1,
+        "predicted_label": 1,
+        "category": "TP",
+        "top_features": {
+          "sbytes": 0.0910076245172076,
+          "ct_dst_sport_ltm": 0.06977269656849738,
+          "sload": 0.0678565793796586,
+          "rate": 0.05262847328594025,
+          "dbytes": 0.04900209665675262
+        }
+      },
+      {
+        "explanation_idx": 1001,
+        "positional_row_id": 12521,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=012571",
+        "raw_id": 12571,
+        "true_label": 1,
+        "predicted_label": 1,
+        "category": "TP",
+        "top_features": {
+          "sbytes": 0.08869299242650928,
+          "sload": 0.07085206799060927,
+          "ct_dst_sport_ltm": 0.06710243967177457,
+          "rate": 0.05440793044488243,
+          "dbytes": 0.0494604610772545
+        }
+      },
+      {
+        "explanation_idx": 1002,
+        "positional_row_id": 63981,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=064560",
+        "raw_id": 64560,
+        "true_label": 1,
+        "predicted_label": 1,
+        "category": "TP",
+        "top_features": {
+          "dbytes": 0.07492211662713716,
+          "dload": 0.06485868182183283,
+          "sload": 0.05287480539690664,
+          "ct_dst_src_ltm": 0.04791933384494325,
+          "sbytes": -0.03970937089836638
+        }
+      },
+      {
+        "explanation_idx": 1003,
+        "positional_row_id": 44699,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=044749",
+        "raw_id": 44749,
+        "true_label": 1,
+        "predicted_label": 1,
+        "category": "TP",
+        "top_features": {
+          "sload": 0.0826495885693659,
+          "dbytes": 0.08157644589744815,
+          "dload": 0.07716527967291165,
+          "rate": 0.06660710366739683,
+          "state_INT": 0.049694815617628514
+        }
+      },
+      {
+        "explanation_idx": 1004,
+        "positional_row_id": 344,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=000346",
+        "raw_id": 346,
+        "true_label": 1,
+        "predicted_label": 1,
+        "category": "TP",
+        "top_features": {
+          "ackdat": 0.13738538424913901,
+          "tcprtt": 0.06941434047812975,
+          "dmean": 0.06444656891079244,
+          "state_INT": -0.04236648533196221,
+          "synack": 0.042231296587705816
+        }
+      }
+    ]
+  },
+  "FP": {
+    "available_count": 232,
+    "selected_count": 5,
+    "cases": [
+      {
+        "explanation_idx": 4,
+        "positional_row_id": 67288,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=067872",
+        "raw_id": 67872,
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "FP",
+        "top_features": {
+          "ackdat": 0.11411723347744511,
+          "ct_srv_dst": 0.10964302470490947,
+          "tcprtt": 0.05250468833111273,
+          "ct_srv_src": 0.05155749117539411,
+          "state_INT": -0.04192710528501851
+        }
+      },
+      {
+        "explanation_idx": 20,
+        "positional_row_id": 43447,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=043497",
+        "raw_id": 43497,
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "FP",
+        "top_features": {
+          "ct_src_dport_ltm": 0.08816493558973651,
+          "sbytes": 0.05779740163280232,
+          "rate": 0.05625968951246611,
+          "dbytes": 0.043737242254362534,
+          "state_INT": 0.032180414164645975
+        }
+      },
+      {
+        "explanation_idx": 26,
+        "positional_row_id": 40149,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=040199",
+        "raw_id": 40199,
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "FP",
+        "top_features": {
+          "smean": 0.20377388082718573,
+          "dload": 0.053266616394951116,
+          "state_INT": -0.04093148987596931,
+          "ct_srv_dst": -0.03345161271899401,
+          "ackdat": -0.01804109435783728
+        }
+      },
+      {
+        "explanation_idx": 27,
+        "positional_row_id": 40263,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=040313",
+        "raw_id": 40313,
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "FP",
+        "top_features": {
+          "ackdat": 0.1436114730097641,
+          "ct_dst_ltm": 0.10727364975935144,
+          "tcprtt": 0.0704831503875715,
+          "state_INT": -0.04457617251648318,
+          "synack": 0.04384841798026558
+        }
+      },
+      {
+        "explanation_idx": 31,
+        "positional_row_id": 77914,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=078498",
+        "raw_id": 78498,
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "FP",
+        "top_features": {
+          "dbytes": 0.07199277629068383,
+          "dload": 0.05588049265703005,
+          "sload": 0.048176520964814576,
+          "sbytes": -0.04751087322659385,
+          "rate": 0.046913889975515426
+        }
+      }
+    ]
+  },
+  "FN": {
+    "available_count": 21,
+    "selected_count": 5,
+    "cases": [
+      {
+        "explanation_idx": 1009,
+        "positional_row_id": 43757,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=043807",
+        "raw_id": 43807,
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "FN",
+        "top_features": {
+          "ackdat": 0.05325237883234147,
+          "ct_dst_src_ltm": 0.03870567464107054,
+          "dbytes": -0.03817053369900309,
+          "dpkts": -0.034037416576940184,
+          "state_INT": -0.03212584395649838
+        }
+      },
+      {
+        "explanation_idx": 1077,
+        "positional_row_id": 56697,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=057146",
+        "raw_id": 57146,
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "FN",
+        "top_features": {
+          "ct_srv_dst": -0.08413124064460736,
+          "ackdat": 0.08166125237920993,
+          "state_INT": -0.04944404150131432,
+          "ct_srv_src": -0.039384922479957105,
+          "tcprtt": 0.03581959289483348
+        }
+      },
+      {
+        "explanation_idx": 1091,
+        "positional_row_id": 1845,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=001864",
+        "raw_id": 1864,
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "FN",
+        "top_features": {
+          "ackdat": 0.07925719571153007,
+          "state_INT": -0.05239363013836105,
+          "ct_srv_dst": -0.04767526922551763,
+          "synack": 0.03889698505096382,
+          "ct_dst_src_ltm": -0.03857534985137925
+        }
+      },
+      {
+        "explanation_idx": 1154,
+        "positional_row_id": 47598,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=047677",
+        "raw_id": 47677,
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "FN",
+        "top_features": {
+          "sbytes": -0.082441345514911,
+          "dbytes": 0.0701342355053883,
+          "smean": -0.06598347101518916,
+          "ct_dst_sport_ltm": -0.06125566180583053,
+          "ct_src_dport_ltm": -0.052589451728405255
+        }
+      },
+      {
+        "explanation_idx": 1195,
+        "positional_row_id": 5866,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=005900",
+        "raw_id": 5900,
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "FN",
+        "top_features": {
+          "ct_srv_dst": -0.11642435189850132,
+          "ackdat": 0.08037259107477335,
+          "ct_dst_src_ltm": -0.053294959176348196,
+          "state_INT": -0.041042482310744616,
+          "tcprtt": 0.040213360052285596
+        }
+      }
+    ]
+  },
+  "TN": {
+    "available_count": 768,
+    "selected_count": 5,
+    "cases": [
+      {
+        "explanation_idx": 0,
+        "positional_row_id": 41527,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=041577",
+        "raw_id": 41577,
+        "true_label": 0,
+        "predicted_label": 0,
+        "category": "TN",
+        "top_features": {
+          "ackdat": 0.07746399742093536,
+          "smean": -0.06099152270798323,
+          "ct_srv_dst": -0.05299221978811729,
+          "state_INT": -0.04987987183145001,
+          "sbytes": -0.04669081842653558
+        }
+      },
+      {
+        "explanation_idx": 1,
+        "positional_row_id": 79374,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=079958",
+        "raw_id": 79958,
+        "true_label": 0,
+        "predicted_label": 0,
+        "category": "TN",
+        "top_features": {
+          "smean": -0.09082731070038715,
+          "sload": -0.08897982925364997,
+          "dload": -0.06260984617041211,
+          "proto_arp": -0.06003207772932424,
+          "rate": -0.048909026066483285
+        }
+      },
+      {
+        "explanation_idx": 2,
+        "positional_row_id": 36052,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=036102",
+        "raw_id": 36102,
+        "true_label": 0,
+        "predicted_label": 0,
+        "category": "TN",
+        "top_features": {
+          "dload": -0.15315125962121381,
+          "state_INT": -0.06540002374934709,
+          "rate": -0.060115165016888,
+          "ackdat": -0.05502696015129949,
+          "sload": -0.0499657391906784
+        }
+      },
+      {
+        "explanation_idx": 3,
+        "positional_row_id": 42019,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=042069",
+        "raw_id": 42069,
+        "true_label": 0,
+        "predicted_label": 0,
+        "category": "TN",
+        "top_features": {
+          "ackdat": 0.07030136663307758,
+          "state_INT": -0.052112011094940014,
+          "smean": -0.049836620278769395,
+          "sbytes": -0.04698270941536401,
+          "ct_srv_dst": -0.0385128838192176
+        }
+      },
+      {
+        "explanation_idx": 5,
+        "positional_row_id": 42139,
+        "source_row_uid": "UNSW_NB15_testing-set.csv#id=042189",
+        "raw_id": 42189,
+        "true_label": 0,
+        "predicted_label": 0,
+        "category": "TN",
+        "top_features": {
+          "ackdat": 0.09332632831264102,
+          "ct_srv_dst": -0.08174118999102359,
+          "ct_dst_src_ltm": -0.06308839337502865,
+          "state_INT": -0.053373605308030175,
+          "ct_srv_src": -0.04760432897078053
+        }
+      }
+    ]
+  }
+}

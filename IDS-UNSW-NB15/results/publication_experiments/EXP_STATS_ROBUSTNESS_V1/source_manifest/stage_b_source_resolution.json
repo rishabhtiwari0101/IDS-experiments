@@ -1,0 +1,16 @@
+{
+  "resolved_experiment_id": "EXP_NO_TTL_V1",
+  "resolved_directory": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1",
+  "verification_checks": {
+    "stage_b_dir_exists": true,
+    "stage_b_metadata_verified": true,
+    "stage_b_feature_hash_verified": true,
+    "stage_b_seeds_verified": true,
+    "stage_b_backdoor_n583_verified": true,
+    "stage_c_dir_exists": true,
+    "stage_c_family_counts_verified": true,
+    "canonical_backdoor_n583_verified": true,
+    "canonical_seed_anti_fabrication_verified": true
+  },
+  "verification_status": "PASS"
+}

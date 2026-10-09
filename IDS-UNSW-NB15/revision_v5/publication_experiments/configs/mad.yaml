@@ -1,0 +1,13 @@
+# mad.yaml
+# Autoencoder threshold family and ablation configuration (S5, S6)
+# Blueprint reference: §16 (C5), §6 (B3)
+# Committed before S5/S6 execution per blueprint Rule 14
+
+experiment_id: EXP_MAD_THRESHOLD_V1
+calibration_re_primary: results/publication_experiments/EXP_PROB_INFERENCE_V1/ae_calibration_benign_reconstruction_errors.csv
+legacy_val_re_crosscheck: results/autoencoder/EXP_AE_V1/threshold/validation_reconstruction_errors.csv
+ae_threshold_config: results/checkpoints/EXP_AE_V1/threshold_config.json
+percentile_method: linear
+primary_rules: [p95, p99, p999, mean_plus_2sigma, mean_plus_3sigma, raw_mad_k3]
+sensitivity: {raw_mad_k: [2, 3, 4], scaled_mad_k: [2, 3, 4], scaled_mad_constant: 1.4826}
+output_dir: results/publication_experiments/EXP_MAD_THRESHOLD_V1

@@ -1,0 +1,68 @@
+# matched_fpr.yaml
+# Phase 0 skeleton — committed BEFORE S0/S3 runs (blueprint Rule 14)
+# Blueprint ref: §16, §0 Rule 15, §0.1, §18 Gate-4, §24 Phase 0 checklist
+# CRITICAL: headline_tier_rule committed here verbatim before S3 runs.
+# S9 check 16 will verify rule-text hash.
+
+experiment_id: EXP_MATCHED_FPR_V1
+created_utc: "2026-09-28T05:40:00Z"
+blueprint_version: "5.0"
+populations_manifest: publication_experiments/configs/populations.yaml
+score_dirs:
+  supervised_and_ae: results/publication_experiments/EXP_PROB_INFERENCE_V1
+  isolation_forest: results/publication_experiments/EXP_IF_V1/scores
+
+# Exact rational budgets per blueprint §0.1
+budgets: ["1/1000", "1/200", "1/100", "1/20"]
+
+# §0.1 Threshold rule
+rule: order_statistic_strict_greater
+score_direction: "larger = more attack-like"
+alert_rule: "score > t"
+threshold_index: "t = sorted_desc[k] (0-indexed)"
+k_computation: "exact_arithmetic: k = floor(budget * n_cal) using integer/Fraction arithmetic, never floats"
+
+tie_policy: >
+  Realized FPR is always reported next to nominal. Budgets that are unattainable because of score ties
+  are flagged, not interpolated. shift_affected is evaluated on realized FPR.
+
+calibration_tiers:
+  A: {calibration: populations.calibration_benign, evaluation: [zero_day.benign_control, zero_day.backdoor]}
+  B: {calibration: populations.zero_day.benign_control.tier_b_split.cal_control,
+      evaluation: [populations.zero_day.benign_control.tier_b_split.eval_control, zero_day.backdoor]}
+
+tier_b_note: >
+  Tier B splits the 37,000-row benign control (split_seed from populations.yaml)
+  into CAL_CONTROL (18,500) and EVAL_CONTROL (18,500). Calibrates on CAL_CONTROL,
+  evaluates on EVAL_CONTROL. If DEV_TEST-usage audit shows contamination, Tier B
+  results are labelled sensitivity-only.
+
+shift_diagnostic: true
+
+headline_tier_rule: >
+  A (model, seed, budget) cell is shift_affected if the nominal budget lies outside the Clopper-Pearson 95% CI of the
+  realized Tier-A held-out control FPR. If no cell is shift_affected, Tier A is the headline tier and Tier B is a
+  robustness table. If any cell is shift_affected, Tier B is the headline tier for all matched-FPR recall/F2 claims and
+  Tier A is reported as the partition-shifted operating point. Tiers are never mixed within one comparison table.
+  (Identical to Rule 15; committed before S3 runs.)
+
+tier_eligibility_rule: >
+  Tier A requires the Rule 1/13 VAL-usage audit outcome (untouched_val or alternate_clean_source). Tier B requires a
+  clean DEV_TEST-usage audit, i.e. evidence that benign DEV_TEST rows did not influence the development or selection
+  of any scored model. If Tier B is not clean it is labelled sensitivity-only and disclosed (M16). The Rule 13
+  contaminated-sensitivity fallback applies only if neither tier is eligible.
+
+models: [dt, rf, svm, nn, stacking, ae, if]
+seeded_models: {stacking: [42, 123, 2024], if: [42, 123, 2024]}
+include_oracle_columns: true           # labelled sensitivity analysis only
+
+ci_method: clopper_pearson
+ci_level: 0.95
+
+output_dir: results/publication_experiments/EXP_MATCHED_FPR_V1
+outputs:
+  matched_fpr_table: results/publication_experiments/EXP_MATCHED_FPR_V1/matched_fpr_table.csv
+  cross_model_comparison: results/publication_experiments/EXP_MATCHED_FPR_V1/cross_model_comparison.csv
+  partition_shift_diagnostic: results/publication_experiments/EXP_MATCHED_FPR_V1/partition_shift_diagnostic.csv
+  headline_tier_decision: results/publication_experiments/EXP_MATCHED_FPR_V1/headline_tier_decision.json
+  alert_budget_table: results/publication_experiments/EXP_MATCHED_FPR_V1/alert_budget_table.csv

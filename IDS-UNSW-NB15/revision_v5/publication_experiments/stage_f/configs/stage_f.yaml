@@ -1,0 +1,29 @@
+# stage_f.yaml
+# Isolation Forest baseline configuration (S7)
+# Blueprint reference: §7, §16 (C6), Req 2.1
+# Committed before S7 execution per blueprint Rule 14
+
+experiment_id: EXP_IF_V1
+populations_manifest: publication_experiments/configs/populations.yaml
+seeds: [42, 123, 2024]
+
+parameters:
+  n_estimators: 200
+  max_samples: "auto"
+  contamination: "auto"
+  max_features: 1.0
+  n_jobs: -1
+
+training:
+  train_path: data/splits/train.csv
+  filter: {label: 0}
+  expected_n: 44800
+
+features: results/feature_selection/EXP_MI_V1_1/selected_features.json
+ae_scaler: results/checkpoints/EXP_AE_V1/ae_scaler.joblib
+
+output_dirs:
+  checkpoints: results/checkpoints/EXP_IF_V1
+  results: results/publication_experiments/EXP_IF_V1
+
+prohibited: [fit_transform, backward, model.train, optim]

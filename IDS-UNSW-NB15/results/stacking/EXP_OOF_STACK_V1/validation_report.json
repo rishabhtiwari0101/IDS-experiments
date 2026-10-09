@@ -1,0 +1,353 @@
+{
+  "experiment_id": "EXP_OOF_STACK_V1",
+  "validation_timestamp_utc": "2026-09-01T18:45:36.890987+00:00",
+  "overall": "PASS",
+  "total_checks": 65,
+  "passed": 65,
+  "failed": 0,
+  "h1_seeds": [
+    42,
+    123,
+    2024
+  ],
+  "h1_results": {
+    "42": {
+      "macro_f1": 0.9469581725490128
+    },
+    "123": {
+      "macro_f1": 0.94729014828701
+    },
+    "2024": {
+      "macro_f1": 0.947476461493963
+    }
+  },
+  "mean_macro_f1": 0.9472415941099953,
+  "std_macro_f1": 0.00026253378581352256,
+  "checks": [
+    {
+      "name": "1.42: artifact files exist",
+      "passed": true,
+      "message": "All 6 artifact files present for seed 42"
+    },
+    {
+      "name": "1.123: artifact files exist",
+      "passed": true,
+      "message": "All 6 artifact files present for seed 123"
+    },
+    {
+      "name": "1.2024: artifact files exist",
+      "passed": true,
+      "message": "All 6 artifact files present for seed 2024"
+    },
+    {
+      "name": "2.42: OOF CSV has exactly 162395 rows",
+      "passed": true,
+      "message": "n=162395"
+    },
+    {
+      "name": "2.123: OOF CSV has exactly 162395 rows",
+      "passed": true,
+      "message": "n=162395"
+    },
+    {
+      "name": "2.2024: OOF CSV has exactly 162395 rows",
+      "passed": true,
+      "message": "n=162395"
+    },
+    {
+      "name": "3.42: exactly one prediction per row per model",
+      "passed": true,
+      "message": "All 4 model columns present, no NaNs"
+    },
+    {
+      "name": "3.123: exactly one prediction per row per model",
+      "passed": true,
+      "message": "All 4 model columns present, no NaNs"
+    },
+    {
+      "name": "3.2024: exactly one prediction per row per model",
+      "passed": true,
+      "message": "All 4 model columns present, no NaNs"
+    },
+    {
+      "name": "4.42: no duplicate row_ids",
+      "passed": true,
+      "message": "All 162395 row_ids unique"
+    },
+    {
+      "name": "4.123: no duplicate row_ids",
+      "passed": true,
+      "message": "All 162395 row_ids unique"
+    },
+    {
+      "name": "4.2024: no duplicate row_ids",
+      "passed": true,
+      "message": "All 162395 row_ids unique"
+    },
+    {
+      "name": "5.42: fold assignments match StratifiedKFold(n=5,seed=7)",
+      "passed": true,
+      "message": "Fold assignments match exactly"
+    },
+    {
+      "name": "5.123: fold assignments match StratifiedKFold(n=5,seed=7)",
+      "passed": true,
+      "message": "Fold assignments match exactly"
+    },
+    {
+      "name": "5.2024: fold assignments match StratifiedKFold(n=5,seed=7)",
+      "passed": true,
+      "message": "Fold assignments match exactly"
+    },
+    {
+      "name": "6: fold assignments bit-identical across seeds 42/123/2024",
+      "passed": true,
+      "message": "Bit-identical across [42, 123, 2024]"
+    },
+    {
+      "name": "7.42: no-self-prediction invariant",
+      "passed": true,
+      "message": "No self-prediction leakage across any fold"
+    },
+    {
+      "name": "7.123: no-self-prediction invariant",
+      "passed": true,
+      "message": "No self-prediction leakage across any fold"
+    },
+    {
+      "name": "7.2024: no-self-prediction invariant",
+      "passed": true,
+      "message": "No self-prediction leakage across any fold"
+    },
+    {
+      "name": "8: meta-feature columns correct (4 cols, row_id excluded)",
+      "passed": true,
+      "message": "All seeds: 4 meta-feature cols, meta-learner n_features_in_=4, row_id_excluded=True"
+    },
+    {
+      "name": "9.42: DT/RF outputs in [0, 1]",
+      "passed": true,
+      "message": "DT and RF columns in [0, 1]"
+    },
+    {
+      "name": "9.123: DT/RF outputs in [0, 1]",
+      "passed": true,
+      "message": "DT and RF columns in [0, 1]"
+    },
+    {
+      "name": "9.2024: DT/RF outputs in [0, 1]",
+      "passed": true,
+      "message": "DT and RF columns in [0, 1]"
+    },
+    {
+      "name": "10.42: SVM column is svm_decision_score (not probability)",
+      "passed": true,
+      "message": "SVM output confirmed as decision_function (svm_decision_score)"
+    },
+    {
+      "name": "10.123: SVM column is svm_decision_score (not probability)",
+      "passed": true,
+      "message": "SVM output confirmed as decision_function (svm_decision_score)"
+    },
+    {
+      "name": "10.2024: SVM column is svm_decision_score (not probability)",
+      "passed": true,
+      "message": "SVM output confirmed as decision_function (svm_decision_score)"
+    },
+    {
+      "name": "11.42: oof_fixed_epoch_count=18 in metadata",
+      "passed": true,
+      "message": "oof_fixed_epoch_count=18"
+    },
+    {
+      "name": "11.123: oof_fixed_epoch_count=18 in metadata",
+      "passed": true,
+      "message": "oof_fixed_epoch_count=18"
+    },
+    {
+      "name": "11.2024: oof_fixed_epoch_count=18 in metadata",
+      "passed": true,
+      "message": "oof_fixed_epoch_count=18"
+    },
+    {
+      "name": "12.42: oof_pos_weight correct",
+      "passed": true,
+      "message": "oof_pos_weight=0.380968578596"
+    },
+    {
+      "name": "12.123: oof_pos_weight correct",
+      "passed": true,
+      "message": "oof_pos_weight=0.380968578596"
+    },
+    {
+      "name": "12.2024: oof_pos_weight correct",
+      "passed": true,
+      "message": "oof_pos_weight=0.380968578596"
+    },
+    {
+      "name": "13.42: feature_set=EXP_MI_V1_1, feature_count=75",
+      "passed": true,
+      "message": "feature_set=EXP_MI_V1_1, feature_count=75"
+    },
+    {
+      "name": "13.123: feature_set=EXP_MI_V1_1, feature_count=75",
+      "passed": true,
+      "message": "feature_set=EXP_MI_V1_1, feature_count=75"
+    },
+    {
+      "name": "13.2024: feature_set=EXP_MI_V1_1, feature_count=75",
+      "passed": true,
+      "message": "feature_set=EXP_MI_V1_1, feature_count=75"
+    },
+    {
+      "name": "13x: selected_features.json has 75 features, id=EXP_MI_V1_1",
+      "passed": true,
+      "message": "75 features, experiment_id=EXP_MI_V1_1"
+    },
+    {
+      "name": "14.42: train_sha256 in metadata matches frozen",
+      "passed": true,
+      "message": "SHA=4a259324e604f013..."
+    },
+    {
+      "name": "14.123: train_sha256 in metadata matches frozen",
+      "passed": true,
+      "message": "SHA=4a259324e604f013..."
+    },
+    {
+      "name": "14.2024: train_sha256 in metadata matches frozen",
+      "passed": true,
+      "message": "SHA=4a259324e604f013..."
+    },
+    {
+      "name": "14x: TRAIN file on disk SHA-256 matches frozen",
+      "passed": true,
+      "message": "On-disk SHA=4a259324e604f013..."
+    },
+    {
+      "name": "15.train: path exists and SHA-256 matches Step 0",
+      "passed": true,
+      "message": "SHA=4a259324e604f013..."
+    },
+    {
+      "name": "15.validation: path exists and SHA-256 matches Step 0",
+      "passed": true,
+      "message": "SHA=13caf21a076a33f5..."
+    },
+    {
+      "name": "15.dev_test: path exists and SHA-256 matches Step 0",
+      "passed": true,
+      "message": "SHA=04725e85732ab2fc..."
+    },
+    {
+      "name": "15.protected: path exists and SHA-256 matches Step 0",
+      "passed": true,
+      "message": "SHA=6ffd23479b575e43..."
+    },
+    {
+      "name": "15.excluded: path exists and SHA-256 matches Step 0",
+      "passed": true,
+      "message": "SHA=b3f6e7e60c9815a5..."
+    },
+    {
+      "name": "16: data isolation \u2014 forbidden splits marked correctly in metadata",
+      "passed": true,
+      "message": "All seeds: train=ALLOWED, 4 forbidden splits=FORBIDDEN in metadata"
+    },
+    {
+      "name": "17: Sprint 5 base-model checkpoints exist and were reused",
+      "passed": true,
+      "message": "All 4 Sprint 5 model dirs exist with artifacts + scalers accessible"
+    },
+    {
+      "name": "18.42.metadata: both limitation texts present",
+      "passed": true,
+      "message": "Both limitation texts present and correct"
+    },
+    {
+      "name": "18.42.metrics: both limitation texts present",
+      "passed": true,
+      "message": "Both limitation texts present and correct"
+    },
+    {
+      "name": "18.123.metadata: both limitation texts present",
+      "passed": true,
+      "message": "Both limitation texts present and correct"
+    },
+    {
+      "name": "18.123.metrics: both limitation texts present",
+      "passed": true,
+      "message": "Both limitation texts present and correct"
+    },
+    {
+      "name": "18.2024.metadata: both limitation texts present",
+      "passed": true,
+      "message": "Both limitation texts present and correct"
+    },
+    {
+      "name": "18.2024.metrics: both limitation texts present",
+      "passed": true,
+      "message": "Both limitation texts present and correct"
+    },
+    {
+      "name": "18.h1_summary: both limitation texts present",
+      "passed": true,
+      "message": "Both limitation texts correct in h1_summary"
+    },
+    {
+      "name": "19a: h1_summary.json exists and loads",
+      "passed": true,
+      "message": "h1_summary.json loaded"
+    },
+    {
+      "name": "19b: h1_summary contains seeds 42/123/2024",
+      "passed": true,
+      "message": "Seeds: [42, 123, 2024]"
+    },
+    {
+      "name": "19c: h1_summary mean_macro_f1 is correctly computed from per_seed_macro_f1",
+      "passed": true,
+      "message": "mean=0.947242, std=0.000263"
+    },
+    {
+      "name": "20: Sprint 5 RF has exact frozen single-CV reference label",
+      "passed": true,
+      "message": "Sprint 5 RF label correct in h1_summary and all seed metadata"
+    },
+    {
+      "name": "21: no 'statistically significant' language in h1_summary",
+      "passed": true,
+      "message": "No statistical significance language detected"
+    },
+    {
+      "name": "22.42: all provenance fields present in metadata",
+      "passed": true,
+      "message": "All provenance fields valid"
+    },
+    {
+      "name": "22.123: all provenance fields present in metadata",
+      "passed": true,
+      "message": "All provenance fields valid"
+    },
+    {
+      "name": "22.2024: all provenance fields present in metadata",
+      "passed": true,
+      "message": "All provenance fields valid"
+    },
+    {
+      "name": "23.42: meta-learner checkpoint loads and predicts",
+      "passed": true,
+      "message": "LR loaded: solver=lbfgs, C=1.0, balanced, random_state=42, n_features=4"
+    },
+    {
+      "name": "23.123: meta-learner checkpoint loads and predicts",
+      "passed": true,
+      "message": "LR loaded: solver=lbfgs, C=1.0, balanced, random_state=123, n_features=4"
+    },
+    {
+      "name": "23.2024: meta-learner checkpoint loads and predicts",
+      "passed": true,
+      "message": "LR loaded: solver=lbfgs, C=1.0, balanced, random_state=2024, n_features=4"
+    }
+  ]
+}

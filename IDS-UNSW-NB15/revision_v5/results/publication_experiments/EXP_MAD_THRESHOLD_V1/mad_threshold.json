@@ -1,0 +1,203 @@
+{
+  "experiment_id": "EXP_MAD_THRESHOLD_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T08:39:52.418410+00:00",
+  "calibration_source": "untouched_val",
+  "calibration_population": "calibration_benign",
+  "N_cal": 11200,
+  "source_file": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\revision_v5\\results\\publication_experiments\\EXP_PROB_INFERENCE_V1\\ae_calibration_benign_reconstruction_errors.csv",
+  "source_file_sha256": "821ae0e7cb1a4baed2a2cf3a2827301701e380f95ae4c849f19c051862c2b0ef",
+  "checkpoint_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_AE_V1\\ae_final.pt",
+  "checkpoint_sha256": "4ab66af8d4a6e61212ef5d78360f30a8caa68aa85dac3d54042218e010f9a1d6",
+  "scaler_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_AE_V1\\ae_scaler.joblib",
+  "scaler_sha256": "c0128d42ed9ef5be695f261be75155e7de4ddf8e51b926e3ce516c4a88ad8211",
+  "row_id_list_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\revision_v5\\results\\publication_experiments\\EXP_POPULATIONS_V1\\calibration_benign_row_uids.json",
+  "row_id_list_sha256_file": "920517fea8bf32a1685ad70e1aa2e50de09d4b74f01b30699ce810179ac9b269",
+  "row_id_list_sha256_string": "46f91f52c814a7038ede506e91b700656c99387b8cc7622a03f040721a6abe5f",
+  "legacy_crosscheck": {
+    "legacy_file": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\autoencoder\\EXP_AE_V1\\threshold\\validation_reconstruction_errors.csv",
+    "max_absolute_difference": 3.762084384106856e-05,
+    "within_tolerance_1e4": true
+  },
+  "threshold_config_crosscheck": {
+    "mean": 0.22520084324901957,
+    "std": 3.6449541846304996,
+    "ref_mean": 0.2252008467912674,
+    "ref_std": 3.644953966140747,
+    "rel_diff_mean": 1.5729282899522926e-08,
+    "rel_diff_std": 5.994307597358539e-08,
+    "per_rule_crosscheck": {
+      "p95": {
+        "recomputed_threshold": 0.5673862021270856,
+        "ref_threshold": 0.5673861503601074,
+        "rel_diff_threshold": 9.123764849691067e-08,
+        "recomputed_samples_above": 560,
+        "ref_samples_above": 560,
+        "samples_above_match": true
+      },
+      "p99": {
+        "recomputed_threshold": 1.5121639065537278,
+        "ref_threshold": 1.5121638774871826,
+        "rel_diff_threshold": 1.9221822187066675e-08,
+        "recomputed_samples_above": 112,
+        "ref_samples_above": 112,
+        "samples_above_match": true
+      },
+      "p999": {
+        "recomputed_threshold": 10.696874897559875,
+        "ref_threshold": 10.69687557220459,
+        "rel_diff_threshold": 6.306932436953753e-08,
+        "recomputed_samples_above": 12,
+        "ref_samples_above": 12,
+        "samples_above_match": true
+      },
+      "mean_plus_2sigma": {
+        "recomputed_threshold": 7.515109212510019,
+        "ref_threshold": 7.5151087790727615,
+        "rel_diff_threshold": 5.767544694068533e-08,
+        "recomputed_samples_above": 23,
+        "ref_samples_above": 23,
+        "samples_above_match": true
+      },
+      "mean_plus_3sigma": {
+        "recomputed_threshold": 11.160063397140519,
+        "ref_threshold": 11.160062745213509,
+        "rel_diff_threshold": 5.84160703247922e-08,
+        "recomputed_samples_above": 7,
+        "ref_samples_above": 7,
+        "samples_above_match": true
+      }
+    }
+  },
+  "re_stats": {
+    "mean": 0.22520084324901957,
+    "std": 3.6449541846304996,
+    "median": 0.0658876600125583,
+    "raw_mad": 0.03601414918139185,
+    "scaled_mad": 0.05339457757633155,
+    "scaled_mad_constant": 1.4826,
+    "min": 0.0096844839990572,
+    "max": 269.16193762084384
+  },
+  "percentile_method": "linear",
+  "primary_rules": [
+    "p95",
+    "p99",
+    "p999",
+    "mean_plus_2sigma",
+    "mean_plus_3sigma",
+    "raw_mad_k3"
+  ],
+  "thresholds": {
+    "p95": {
+      "rule_name": "p95",
+      "category": "primary",
+      "threshold_value": 0.5673862021270856,
+      "samples_above_threshold": 560,
+      "calibration_fpr": 0.05,
+      "calibration_fpr_fraction": "1/20",
+      "calibration_rows": 11200,
+      "formula": "np.percentile(95.0, method='linear')"
+    },
+    "p99": {
+      "rule_name": "p99",
+      "category": "primary",
+      "threshold_value": 1.5121639065537278,
+      "samples_above_threshold": 112,
+      "calibration_fpr": 0.01,
+      "calibration_fpr_fraction": "1/100",
+      "calibration_rows": 11200,
+      "formula": "np.percentile(99.0, method='linear')"
+    },
+    "p999": {
+      "rule_name": "p999",
+      "category": "primary",
+      "threshold_value": 10.696874897559875,
+      "samples_above_threshold": 12,
+      "calibration_fpr": 0.0010714285714285715,
+      "calibration_fpr_fraction": "3/2800",
+      "calibration_rows": 11200,
+      "formula": "np.percentile(99.9, method='linear')"
+    },
+    "mean_plus_2sigma": {
+      "rule_name": "mean_plus_2sigma",
+      "category": "primary",
+      "threshold_value": 7.515109212510019,
+      "samples_above_threshold": 23,
+      "calibration_fpr": 0.0020535714285714285,
+      "calibration_fpr_fraction": "23/11200",
+      "calibration_rows": 11200,
+      "formula": "mean + 2 * std(ddof=0)"
+    },
+    "mean_plus_3sigma": {
+      "rule_name": "mean_plus_3sigma",
+      "category": "primary",
+      "threshold_value": 11.160063397140519,
+      "samples_above_threshold": 7,
+      "calibration_fpr": 0.000625,
+      "calibration_fpr_fraction": "1/1600",
+      "calibration_rows": 11200,
+      "formula": "mean + 3 * std(ddof=0)"
+    },
+    "raw_mad_k3": {
+      "rule_name": "raw_mad_k3",
+      "category": "primary",
+      "threshold_value": 0.17393010755673385,
+      "samples_above_threshold": 2234,
+      "calibration_fpr": 0.1994642857142857,
+      "calibration_fpr_fraction": "1117/5600",
+      "calibration_rows": 11200,
+      "formula": "median + 3 * raw_mad"
+    },
+    "raw_mad_k2": {
+      "rule_name": "raw_mad_k2",
+      "category": "sensitivity",
+      "threshold_value": 0.13791595837534198,
+      "samples_above_threshold": 2669,
+      "calibration_fpr": 0.23830357142857142,
+      "calibration_fpr_fraction": "2669/11200",
+      "calibration_rows": 11200,
+      "formula": "median + 2 * raw_mad"
+    },
+    "raw_mad_k4": {
+      "rule_name": "raw_mad_k4",
+      "category": "sensitivity",
+      "threshold_value": 0.2099442567381257,
+      "samples_above_threshold": 1926,
+      "calibration_fpr": 0.1719642857142857,
+      "calibration_fpr_fraction": "963/5600",
+      "calibration_rows": 11200,
+      "formula": "median + 4 * raw_mad"
+    },
+    "scaled_mad_k2": {
+      "rule_name": "scaled_mad_k2",
+      "category": "sensitivity",
+      "threshold_value": 0.1726768151652214,
+      "samples_above_threshold": 2249,
+      "calibration_fpr": 0.20080357142857144,
+      "calibration_fpr_fraction": "2249/11200",
+      "calibration_rows": 11200,
+      "formula": "median + 2 * 1.4826 * raw_mad"
+    },
+    "scaled_mad_k3": {
+      "rule_name": "scaled_mad_k3",
+      "category": "sensitivity",
+      "threshold_value": 0.22607139274155297,
+      "samples_above_threshold": 1833,
+      "calibration_fpr": 0.1636607142857143,
+      "calibration_fpr_fraction": "1833/11200",
+      "calibration_rows": 11200,
+      "formula": "median + 3 * 1.4826 * raw_mad"
+    },
+    "scaled_mad_k4": {
+      "rule_name": "scaled_mad_k4",
+      "category": "sensitivity",
+      "threshold_value": 0.2794659703178845,
+      "samples_above_threshold": 1608,
+      "calibration_fpr": 0.14357142857142857,
+      "calibration_fpr_fraction": "201/1400",
+      "calibration_rows": 11200,
+      "formula": "median + 4 * 1.4826 * raw_mad"
+    }
+  }
+}

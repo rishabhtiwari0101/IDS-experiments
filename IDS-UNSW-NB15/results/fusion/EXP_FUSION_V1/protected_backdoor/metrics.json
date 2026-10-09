@@ -1,0 +1,19 @@
+{
+  "selected_config": "C06",
+  "metrics": {
+    "detected_count": 582,
+    "missed_count": 1,
+    "detection_rate": 0.998285,
+    "n_prot": 583,
+    "pp_per_row": 0.1716,
+    "caveat": "1 row = 1/583 = 0.1716 percentage points; small differences must not be over-interpreted."
+  },
+  "baseline_c01_metrics": {
+    "detected_count": 582,
+    "missed_count": 1,
+    "detection_rate": 0.998285,
+    "n_prot": 583,
+    "pp_per_row": 0.1716,
+    "caveat": "1 row = 1/583 = 0.1716 percentage points; small differences must not be over-interpreted."
+  }
+}

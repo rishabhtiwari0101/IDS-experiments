@@ -1,0 +1,163 @@
+{
+  "experiment_id": "EXP_BASE_MODELS_V1",
+  "timestamp_utc": "2026-09-01T16:17:49.696386+00:00",
+  "n_pass": 38,
+  "n_fail": 0,
+  "n_total": 38,
+  "overall_status": "PASS",
+  "runtime_seconds": 2.27,
+  "checks": {
+    "TRAIN: SHA-256 recorded (not yet frozen)": {
+      "passed": true,
+      "detail": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c"
+    },
+    "FEATURES: selected count == 75": {
+      "passed": true,
+      "detail": "count=75"
+    },
+    "FEATURES: encoded matrix shape correct": {
+      "passed": true,
+      "detail": "shape=(100, 75)"
+    },
+    "FEATURES: OHE column names absent from raw CSV": {
+      "passed": true,
+      "detail": "ok \u2014 OHE columns are post-encoding only"
+    },
+    "DT: checkpoint exists": {
+      "passed": true,
+      "detail": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_BASE_MODELS_V1\\dt\\dt_final.joblib"
+    },
+    "DT: loadable": {
+      "passed": true,
+      "detail": ""
+    },
+    "DT: predict() returns binary": {
+      "passed": true,
+      "detail": "unique={0, 1}"
+    },
+    "DT: covers both classes": {
+      "passed": true,
+      "detail": "unique={0, 1}"
+    },
+    "DT: macro_f1 >= threshold": {
+      "passed": true,
+      "detail": "f1=1.0000"
+    },
+    "DT: n_features_in_ == 75": {
+      "passed": true,
+      "detail": "n_features_in_=75"
+    },
+    "DT: metadata.json valid": {
+      "passed": true,
+      "detail": "ok"
+    },
+    "RF: checkpoint exists": {
+      "passed": true,
+      "detail": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_BASE_MODELS_V1\\rf\\rf_final.joblib"
+    },
+    "RF: loadable": {
+      "passed": true,
+      "detail": ""
+    },
+    "RF: predict() returns binary": {
+      "passed": true,
+      "detail": "unique={0, 1}"
+    },
+    "RF: covers both classes": {
+      "passed": true,
+      "detail": "unique={0, 1}"
+    },
+    "RF: macro_f1 >= threshold": {
+      "passed": true,
+      "detail": "f1=1.0000"
+    },
+    "RF: predict_proba shape": {
+      "passed": true,
+      "detail": "shape=(100, 2)"
+    },
+    "RF: metadata.json valid": {
+      "passed": true,
+      "detail": ""
+    },
+    "SVM: checkpoint exists": {
+      "passed": true,
+      "detail": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_BASE_MODELS_V1\\svm\\svm_final.joblib"
+    },
+    "SVM: scaler exists": {
+      "passed": true,
+      "detail": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_BASE_MODELS_V1\\svm\\svm_scaler.joblib"
+    },
+    "SVM: both loadable": {
+      "passed": true,
+      "detail": ""
+    },
+    "SVM: predict() returns binary": {
+      "passed": true,
+      "detail": "unique={0, 1}"
+    },
+    "SVM: decision_function() present": {
+      "passed": true,
+      "detail": "shape=(100,)"
+    },
+    "SVM: predict_proba ABSENT (required)": {
+      "passed": true,
+      "detail": "PASS \u2014 predict_proba not present"
+    },
+    "SVM: decision_function not in [0,1] (not probabilities)": {
+      "passed": true,
+      "detail": "min=-28.7526, max=2.8527"
+    },
+    "SVM: macro_f1 >= threshold": {
+      "passed": true,
+      "detail": "f1=0.8998"
+    },
+    "SVM: metadata.json valid": {
+      "passed": true,
+      "detail": ""
+    },
+    "NN: checkpoint exists": {
+      "passed": true,
+      "detail": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_BASE_MODELS_V1\\nn\\nn_final.pt"
+    },
+    "NN: scaler exists": {
+      "passed": true,
+      "detail": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_BASE_MODELS_V1\\nn\\nn_scaler.joblib"
+    },
+    "NN: architecture.json exists": {
+      "passed": true,
+      "detail": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\checkpoints\\EXP_BASE_MODELS_V1\\nn\\nn_architecture.json"
+    },
+    "NN: net + scaler loadable": {
+      "passed": true,
+      "detail": ""
+    },
+    "NN: predict() returns binary": {
+      "passed": true,
+      "detail": "unique={0, 1}"
+    },
+    "NN: probs in [0,1]": {
+      "passed": true,
+      "detail": "min=0.0000 max=1.0000"
+    },
+    "NN: macro_f1 >= threshold": {
+      "passed": true,
+      "detail": "f1=0.9200"
+    },
+    "NN: metadata final_epoch_count present": {
+      "passed": true,
+      "detail": "18"
+    },
+    "NN: metadata.json valid": {
+      "passed": true,
+      "detail": ""
+    },
+    "LEAKAGE: validation.csv absent from preprocessing": {
+      "passed": true,
+      "detail": ""
+    },
+    "LEAKAGE: protected_unseen_attack absent from preprocessing": {
+      "passed": true,
+      "detail": ""
+    }
+  }
+}

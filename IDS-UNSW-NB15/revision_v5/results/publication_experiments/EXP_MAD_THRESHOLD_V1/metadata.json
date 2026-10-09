@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP_MAD_THRESHOLD_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T08:39:52.425907+00:00",
+  "config_path": "revision_v5\\publication_experiments\\configs\\mad.yaml",
+  "calibration_source": "untouched_val",
+  "sample_size": 11200,
+  "provenance_hashes": {
+    "primary_calibration_re": "821ae0e7cb1a4baed2a2cf3a2827301701e380f95ae4c849f19c051862c2b0ef",
+    "ae_checkpoint": "4ab66af8d4a6e61212ef5d78360f30a8caa68aa85dac3d54042218e010f9a1d6",
+    "ae_scaler": "c0128d42ed9ef5be695f261be75155e7de4ddf8e51b926e3ce516c4a88ad8211",
+    "row_id_list_file": "920517fea8bf32a1685ad70e1aa2e50de09d4b74f01b30699ce810179ac9b269",
+    "row_id_list_string": "46f91f52c814a7038ede506e91b700656c99387b8cc7622a03f040721a6abe5f"
+  },
+  "artifact_hashes": {
+    "mad_threshold.json": "273d9b922d492c69f9aac43805c309767d36cab09d6ce9424f27fc2a393e89f2",
+    "mad_thresholds.csv": "e76c38f725a6745bb0160313ba8adfe065b159b1aad130321f30669f4cceb076",
+    "self_check.json": "2cc859a8d9862912ee394ab56823a6a251de86ac2451b3d817f7ff420ad66acf"
+  },
+  "status": "PASS"
+}

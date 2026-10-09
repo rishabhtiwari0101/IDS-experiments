@@ -1,0 +1,122 @@
+[
+  {
+    "comparison_id": "COMP_SUP_RF_MACRO_F1",
+    "system_A": "Canonical RF (EXP_ZERODAY_V1)",
+    "system_B": "No-TTL RF (EXP_NO_TTL_V1)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": false,
+    "same_threshold_semantics": true,
+    "directly_comparable": "DIRECTLY_COMPARABLE",
+    "reason": "Evaluated on identical development_test population (N=81749) with Macro-F1 under identical task objective; isolating TTL ablation effect."
+  },
+  {
+    "comparison_id": "COMP_SUP_DT_MACRO_F1",
+    "system_A": "Canonical DT (EXP_ZERODAY_V1)",
+    "system_B": "No-TTL DT (EXP_NO_TTL_V1)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": false,
+    "same_threshold_semantics": true,
+    "directly_comparable": "DIRECTLY_COMPARABLE",
+    "reason": "Evaluated on identical development_test population (N=81749) with Macro-F1 under identical task objective."
+  },
+  {
+    "comparison_id": "COMP_SUP_SVM_MACRO_F1",
+    "system_A": "Canonical SVM (EXP_ZERODAY_V1)",
+    "system_B": "No-TTL SVM (EXP_NO_TTL_V1)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": false,
+    "same_threshold_semantics": true,
+    "directly_comparable": "DIRECTLY_COMPARABLE",
+    "reason": "Evaluated on identical development_test population (N=81749) with Macro-F1 under identical task objective."
+  },
+  {
+    "comparison_id": "COMP_SUP_NN_MACRO_F1",
+    "system_A": "Canonical NN (EXP_ZERODAY_V1)",
+    "system_B": "No-TTL NN (EXP_NO_TTL_V1)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": false,
+    "same_threshold_semantics": true,
+    "directly_comparable": "DIRECTLY_COMPARABLE",
+    "reason": "Evaluated on identical development_test population (N=81749) with Macro-F1 under identical task objective."
+  },
+  {
+    "comparison_id": "COMP_SUP_STACKING_MACRO_F1",
+    "system_A": "Canonical Stacking (EXP_OOF_STACK_V1)",
+    "system_B": "No-TTL Stacking (EXP_NO_TTL_V1)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": false,
+    "same_threshold_semantics": true,
+    "directly_comparable": "DIRECTLY_COMPARABLE",
+    "reason": "Evaluated on identical development_test population (N=81749) with Macro-F1 under identical task objective."
+  },
+  {
+    "comparison_id": "COMP_SUP_BACKDOOR_DETECTION",
+    "system_A": "Canonical Supervised Baseline (EXP_ZERODAY_V1)",
+    "system_B": "No-TTL Supervised Models (EXP_NO_TTL_V1)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": false,
+    "same_threshold_semantics": true,
+    "directly_comparable": "DIRECTLY_COMPARABLE",
+    "reason": "Evaluated on identical protected Backdoor population (N=583) with exact McNemar paired test; isolates TTL ablation."
+  },
+  {
+    "comparison_id": "COMP_SUP_MACRO_F1_VS_AE_FPR",
+    "system_A": "Supervised Classifiers (Macro-F1)",
+    "system_B": "Benign-Only AE (Benign FPR)",
+    "same_task": false,
+    "same_population": false,
+    "same_metric": false,
+    "same_representation": false,
+    "same_threshold_semantics": false,
+    "directly_comparable": "NOT_DIRECTLY_COMPARABLE",
+    "reason": "Incompatible objectives: multi-class discrimination (Macro-F1) vs reconstruction-based novelty thresholding (FPR). Must not be ranked or merged."
+  },
+  {
+    "comparison_id": "COMP_SUP_BACKDOOR_VS_AE_BACKDOOR",
+    "system_A": "Supervised Backdoor Detection",
+    "system_B": "AE Backdoor Detection",
+    "same_task": false,
+    "same_population": true,
+    "same_metric": false,
+    "same_representation": false,
+    "same_threshold_semantics": false,
+    "directly_comparable": "NOT_DIRECTLY_COMPARABLE",
+    "reason": "Fundamentally different detection mechanisms: supervised classification vs unsupervised reconstruction anomaly threshold. Common population N=583, but detection paradigms differ."
+  },
+  {
+    "comparison_id": "COMP_AE_CANON_VS_NEW_AE",
+    "system_A": "Canonical Historical AE (EXP_AE_V1)",
+    "system_B": "New No-TTL AE Seed 42 (EXP_AE_UNSEEN_FAMILY_V1)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": false,
+    "same_threshold_semantics": true,
+    "directly_comparable": "COMPARABLE_WITHIN_EXPERIMENT",
+    "reason": "Evaluated on identical protected Backdoor (N=583) under mean+3sigma; dynamically resolved contingency A=0, B=0, C=0, D=583 (test status: STRUCTURALLY_NON_INFORMATIVE)."
+  },
+  {
+    "comparison_id": "COMP_AE_SECONDARY_OPERATING_POINTS",
+    "system_A": "Primary AE Threshold (mean+3sigma)",
+    "system_B": "Secondary AE Thresholds (mean+2sigma, p95, p99, p999)",
+    "same_task": true,
+    "same_population": true,
+    "same_metric": true,
+    "same_representation": true,
+    "same_threshold_semantics": false,
+    "directly_comparable": "COMPARABLE_WITHIN_EXPERIMENT",
+    "reason": "Operating-point sensitivity analysis within identical AE models; trade-off characterized descriptively across evaluated cells."
+  }
+]

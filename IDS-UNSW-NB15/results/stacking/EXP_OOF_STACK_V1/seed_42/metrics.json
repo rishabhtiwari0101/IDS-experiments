@@ -1,0 +1,33 @@
+{
+  "h1_seed": 42,
+  "macro_f1": 0.9469581725490128,
+  "weighted_f1": 0.9572462047352442,
+  "balanced_accuracy": 0.954777518879113,
+  "precision_macro": 0.9399489826738842,
+  "recall_macro": 0.954777518879113,
+  "confusion": [
+    [
+      42563,
+      2237
+    ],
+    [
+      4764,
+      112831
+    ]
+  ],
+  "fpr": 0.049933035714285715,
+  "specificity": 0.9500669642857142,
+  "n_samples": 162395,
+  "in_sample_evaluation_warning": true,
+  "meta_evaluation_limitation": "H1 Macro-F1 is computed by evaluating the meta-learner on the same OOF matrix used to train it. No separate meta-learner holdout exists under the current data-isolation rules. This is in-sample evaluation at the meta-learner level and is NOT a fully held-out end-to-end generalisation estimate.",
+  "scaling_limitation": "SVM/NN OOF predictions use scaling statistics computed on the full frozen TRAIN, including rows in the OOF held-out fold. This is a bounded, label-independent leakage channel accepted for feature-space consistency.",
+  "meta_config": {
+    "solver": "lbfgs",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 1000,
+    "random_state": 42
+  },
+  "oof_runtime_seconds": 679.1780548000024,
+  "meta_runtime_seconds": 0.14403160000074422
+}

@@ -1,0 +1,37 @@
+{
+  "canonical_experiment_id": "EXP_AE_V1",
+  "canonical_checkpoint_path": "results\\checkpoints\\EXP_AE_V1\\ae_final.pt",
+  "canonical_checkpoint_hash": "4ab66af8d4a6e61212ef5d78360f30a8caa68aa85dac3d54042218e010f9a1d6",
+  "canonical_seed": 42,
+  "canonical_architecture": {
+    "input_dim": 75,
+    "encoder": [
+      75,
+      12,
+      6
+    ],
+    "bottleneck": 6,
+    "decoder": [
+      6,
+      12,
+      75
+    ],
+    "hidden_activation": "ReLU",
+    "output_activation": "Linear (none)",
+    "batchnorm": false,
+    "dropout": false,
+    "n_params": 2049
+  },
+  "canonical_scaler_path": "results\\checkpoints\\EXP_AE_V1\\ae_scaler.joblib",
+  "canonical_scaler_hash": "c0128d42ed9ef5be695f261be75155e7de4ddf8e51b926e3ce516c4a88ad8211",
+  "canonical_threshold_rule": "mean3sigma",
+  "canonical_threshold_value": 11.160062745213509,
+  "canonical_ddof": 0,
+  "canonical_backdoor_detections": "0/583",
+  "canonical_zero_day_prediction_file": "results\\zero_day\\EXP_ZERODAY_V1\\predictions\\zero_day_backdoor_predictions.csv",
+  "canonical_zero_day_prediction_hash": "515bdbe67d84ea096ffec9e9cbbbb1ac218cee35181adf7a60c74906809bfd69",
+  "canonical_monitor_split_mechanism": "src.models.autoencoder.ae_trainer.create_monitor_split(normal_indices, seed=42)",
+  "canonical_monitor_split_indices_path": "results/autoencoder/EXP_AE_V1/monitor/monitor_split_indices.csv",
+  "timestamp_inspected_utc": "2026-09-08T15:47:03.337458+00:00",
+  "status": "PASS"
+}

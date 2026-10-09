@@ -1,0 +1,10 @@
+{
+  "best_epoch": 133,
+  "final_epoch_count": 133,
+  "min_monitor_mse": 0.17115901666028158,
+  "final_ae_fit_mse": 0.18829403510169376,
+  "runtime_seconds": 111.441,
+  "device": "cuda",
+  "ae_fit_rows": 40320,
+  "monitor_rows": 4480
+}

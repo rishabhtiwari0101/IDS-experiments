@@ -1,0 +1,18 @@
+{
+  "experiment_id": "EXP_AE_ABLATION_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T08:57:58.734451+00:00",
+  "provenance_hashes": {
+    "s5_mad_threshold_json": "273d9b922d492c69f9aac43805c309767d36cab09d6ce9424f27fc2a393e89f2",
+    "ae_zeroday_reconstruction_errors": "c26d056c164421daf0fec1a924c743cc9372fa697dbbce27a225df98757a1a85",
+    "ae_unseen_family_reconstruction_errors": "f0a7db26e1d5228f71a45cb27549a0708838045411a07ad83ed8ea6a75c3a1b0",
+    "eval_control_row_uids": "0517295a27f239b2b0f6ff22cff9de837437ae67723dfcfa48fd1a818123c85f",
+    "benign_control_row_uids": "cc6e837462db9f209a018a378d726950e6097fa864ebc6488baf328f8626f1fd"
+  },
+  "artifact_hashes": {
+    "ae_ablation_results.csv": "539c10cd828aaadc32d9e2c643c2de4ef5c9e8ce521b48e2ca91d5a686d55daf",
+    "ae_ablation_results_unseen.csv": "208758018c5062a4088dcab0047583ec04a2495b632b2cd181888ca285c31d3c",
+    "self_check.json": "2bee34ef51257395c948d8d0507888487f01cef70577ebfa82f4d2696c430e6f"
+  },
+  "status": "PASS"
+}

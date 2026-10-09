@@ -1,0 +1,457 @@
+{
+  "rule": "skewness > 5.0 AND min_value >= 0.0",
+  "applied_to": "TRAIN only",
+  "total_features": 69,
+  "qualifying_count": 32,
+  "qualifying_features": [
+    "Total Fwd Packets",
+    "Total Backward Packets",
+    "Total Length of Fwd Packets",
+    "Total Length of Bwd Packets",
+    "Fwd Packet Length Max",
+    "Fwd Packet Length Min",
+    "Fwd Packet Length Mean",
+    "Fwd Packet Length Std",
+    "Bwd Packet Length Min",
+    "Bwd IAT Mean",
+    "Bwd IAT Min",
+    "Fwd PSH Flags",
+    "Fwd URG Flags",
+    "Fwd Packets/s",
+    "Bwd Packets/s",
+    "Min Packet Length",
+    "SYN Flag Count",
+    "RST Flag Count",
+    "URG Flag Count",
+    "CWE Flag Count",
+    "ECE Flag Count",
+    "Avg Fwd Segment Size",
+    "Subflow Fwd Packets",
+    "Subflow Fwd Bytes",
+    "Subflow Bwd Packets",
+    "Subflow Bwd Bytes",
+    "act_data_pkt_fwd",
+    "Active Mean",
+    "Active Std",
+    "Active Max",
+    "Active Min",
+    "Idle Std"
+  ],
+  "all_records": [
+    {
+      "feature": "Destination Port",
+      "skewness": 4.382454,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Flow Duration",
+      "skewness": 0.603103,
+      "min_value": -12.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Total Fwd Packets",
+      "skewness": 348.468318,
+      "min_value": 1.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Total Backward Packets",
+      "skewness": 347.239523,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Total Length of Fwd Packets",
+      "skewness": 303.098076,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Total Length of Bwd Packets",
+      "skewness": 348.880658,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Fwd Packet Length Max",
+      "skewness": 16.161444,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Fwd Packet Length Min",
+      "skewness": 38.191343,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Fwd Packet Length Mean",
+      "skewness": 16.450484,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Fwd Packet Length Std",
+      "skewness": 17.381297,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Bwd Packet Length Max",
+      "skewness": 0.548788,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Bwd Packet Length Min",
+      "skewness": 14.3098,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Bwd Packet Length Mean",
+      "skewness": 0.198962,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Bwd Packet Length Std",
+      "skewness": 0.803263,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Flow Bytes/s",
+      "skewness": 105.714638,
+      "min_value": -8000000.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Flow Packets/s",
+      "skewness": 12.819906,
+      "min_value": -2000000.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Flow IAT Mean",
+      "skewness": 7.214568,
+      "min_value": -12.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Flow IAT Std",
+      "skewness": 0.904841,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Flow IAT Max",
+      "skewness": 0.666748,
+      "min_value": -12.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Flow IAT Min",
+      "skewness": 19.722034,
+      "min_value": -13.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Fwd IAT Total",
+      "skewness": 0.607086,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Fwd IAT Mean",
+      "skewness": 4.163483,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Fwd IAT Std",
+      "skewness": 0.813739,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Fwd IAT Max",
+      "skewness": 0.666524,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Fwd IAT Min",
+      "skewness": 11.626544,
+      "min_value": -12.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Bwd IAT Total",
+      "skewness": 2.442311,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Bwd IAT Mean",
+      "skewness": 6.858425,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Bwd IAT Std",
+      "skewness": 2.870282,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Bwd IAT Max",
+      "skewness": 2.601157,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Bwd IAT Min",
+      "skewness": 13.852579,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Fwd PSH Flags",
+      "skewness": 7.650369,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Fwd URG Flags",
+      "skewness": 583.492931,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Fwd Header Length",
+      "skewness": -577.47647,
+      "min_value": -83885011.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Bwd Header Length",
+      "skewness": -573.711154,
+      "min_value": -83885011.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Fwd Packets/s",
+      "skewness": 14.623024,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Bwd Packets/s",
+      "skewness": 18.283886,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Min Packet Length",
+      "skewness": 16.584323,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Max Packet Length",
+      "skewness": 0.545179,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Packet Length Mean",
+      "skewness": 0.273496,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Packet Length Std",
+      "skewness": 0.564288,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Packet Length Variance",
+      "skewness": 2.039603,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "FIN Flag Count",
+      "skewness": 2.301924,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "SYN Flag Count",
+      "skewness": 7.650369,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "RST Flag Count",
+      "skewness": 141.507846,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "PSH Flag Count",
+      "skewness": 0.329224,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "ACK Flag Count",
+      "skewness": 0.396039,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "URG Flag Count",
+      "skewness": 7.143314,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "CWE Flag Count",
+      "skewness": 583.492931,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "ECE Flag Count",
+      "skewness": 141.507846,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Down/Up Ratio",
+      "skewness": 1.5709,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Average Packet Size",
+      "skewness": 0.342973,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Avg Fwd Segment Size",
+      "skewness": 16.450484,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Avg Bwd Segment Size",
+      "skewness": 0.198962,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Subflow Fwd Packets",
+      "skewness": 348.468318,
+      "min_value": 1.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Subflow Fwd Bytes",
+      "skewness": 303.098076,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Subflow Bwd Packets",
+      "skewness": 347.239523,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Subflow Bwd Bytes",
+      "skewness": 348.919078,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Init_Win_bytes_forward",
+      "skewness": 1.708565,
+      "min_value": -1.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Init_Win_bytes_backward",
+      "skewness": 10.02341,
+      "min_value": -1.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "act_data_pkt_fwd",
+      "skewness": 413.349408,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "min_seg_size_forward",
+      "skewness": -583.492928,
+      "min_value": -83885313.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Active Mean",
+      "skewness": 11.560486,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Active Std",
+      "skewness": 15.748478,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Active Max",
+      "skewness": 10.569637,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Active Min",
+      "skewness": 13.107377,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Idle Mean",
+      "skewness": 0.750434,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Idle Std",
+      "skewness": 5.321835,
+      "min_value": 0.0,
+      "qualifies_for_log1p": true
+    },
+    {
+      "feature": "Idle Max",
+      "skewness": 0.669429,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    },
+    {
+      "feature": "Idle Min",
+      "skewness": 0.825366,
+      "min_value": 0.0,
+      "qualifies_for_log1p": false
+    }
+  ],
+  "note": "No log1p transform applied in Sprint 3. This is a Sprint 4 AE input only."
+}

@@ -1,0 +1,96 @@
+{
+  "population_results": {
+    "train": {
+      "expected": 340464,
+      "actual": 340464,
+      "pass": true,
+      "sha256": "baae4da2e2aaf66a604df6bf9b1aed7c830ddbf4f55ac2a5ab1bfadaecf4ff99",
+      "label_distribution": {
+        "DoS Hulk": 120902,
+        "DDoS": 89608,
+        "PortScan": 63091,
+        "BENIGN": 44800,
+        "DoS GoldenEye": 7200,
+        "FTP-Patator": 4152,
+        "DoS slowloris": 3769,
+        "DoS Slowhttptest": 3660,
+        "SSH-Patator": 2253,
+        "Web Attack Brute Force": 1029
+      }
+    },
+    "dev_test": {
+      "expected": 743921,
+      "actual": 743921,
+      "pass": true,
+      "sha256": "7adcc73ac9014aa612a048a9d7577ce0cdf71d555e49e047bf77b680387c9a39",
+      "label_distribution": {
+        "BENIGN": 617209,
+        "DoS Hulk": 51815,
+        "DDoS": 38403,
+        "PortScan": 27039,
+        "DoS GoldenEye": 3086,
+        "FTP-Patator": 1779,
+        "DoS slowloris": 1615,
+        "DoS Slowhttptest": 1568,
+        "SSH-Patator": 966,
+        "Web Attack Brute Force": 441
+      }
+    },
+    "calibration": {
+      "expected": 18500,
+      "actual": 18500,
+      "pass": true,
+      "sha256": "945c867d525a8e17f42643008911ebdf05087283a6b44493701f8b16f7c01034",
+      "label_distribution": {
+        "BENIGN": 18500
+      }
+    },
+    "eval_control": {
+      "expected": 18500,
+      "actual": 18500,
+      "pass": true,
+      "sha256": "a72268d83996d780c8bbe9491b8423c4d57c19a7ac053f34a0a8a1c66c15bef7",
+      "label_distribution": {
+        "BENIGN": 18500
+      }
+    },
+    "protected_bot": {
+      "expected": 1948,
+      "actual": 1948,
+      "pass": true,
+      "sha256": "8755a461308afd03c1978c45b8a128bf0a3f881876860ec0eebd7350e67e829e",
+      "label_distribution": {
+        "Bot": 1948
+      }
+    },
+    "unseen_xss": {
+      "expected": 652,
+      "actual": 652,
+      "pass": true,
+      "sha256": "4622fdf32590930275cdf34f4aece4e9f47cf53fb12538c7415ccec7794b5aed",
+      "label_distribution": {
+        "Web Attack XSS": 652
+      }
+    },
+    "unseen_infiltration": {
+      "expected": 36,
+      "actual": 36,
+      "pass": true,
+      "sha256": "6035857c265457b5eb961f8df4f64d477fe8808277b2410d3705e8bf6581f31d",
+      "label_distribution": {
+        "Infiltration": 36
+      }
+    },
+    "excluded_small": {
+      "expected": 32,
+      "actual": 32,
+      "pass": true,
+      "sha256": "ae87e08e039edecef7f864d166441140b001c52ec073691299cf1e92e8f3644d",
+      "label_distribution": {
+        "Web Attack Sql Injection": 21,
+        "Heartbleed": 11
+      }
+    }
+  },
+  "all_pass": true
+}

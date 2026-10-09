@@ -1,0 +1,202 @@
+# publication_experiments/configs/ae_unseen_families.yaml
+# EXP_AE_UNSEEN_FAMILY_V1 — Benign-Only AE Unseen Attack-Family Evaluation
+# -------------------------------------------------------------------------
+# Scientific purpose: Determine whether a benign-only Autoencoder can detect
+# different attack families that were NEVER seen during AE training.
+#
+# CRITICAL DESIGN: ONE AE trained once. ONE scaler. ONE threshold.
+# Four separate family evaluations using the SAME frozen AE.
+#
+# This is NOT LOAFO. Do not call it LOAFO.
+# This is an "Unseen Attack-Family Evaluation".
+#
+# The canonical 75-feature AE (EXP_AE_V1) remains UNTOUCHED.
+# This trains a NEW 72-feature AE using the No-TTL feature set.
+
+experiment:
+  id: EXP_AE_UNSEEN_FAMILY_V1
+  parent_experiment: EXP_AE_V1           # canonical AE for reference only
+  feature_source: EXP_NO_TTL_V1          # uses 72-feature No-TTL representation
+  canonical_commit: f694e19
+  stage: C_requires_stage_B_approval     # do not run until Stage A+B approved
+
+# ── CRITICAL: One AE, one checkpoint, one threshold, four families ────────
+ae_design:
+  one_ae_policy: MANDATORY
+  checkpoint_shared_across_all_families: true
+  scaler_shared_across_all_families: true
+  threshold_shared_across_all_families: true
+  note: "Training separate AEs per family would confound family-to-family comparison."
+
+# ── Feature representation ────────────────────────────────────────────────
+features:
+  source: publication_experiments/features/no_ttl_features.json
+  canonical_count: 75
+  removed:
+    - sttl
+    - ct_state_ttl
+    - dttl
+  final_count: 72
+
+# ── AE Architecture ───────────────────────────────────────────────────────
+# Derivation rule (documented before execution, not post-hoc):
+#   Canonical ratios: 12/75 ≈ 16%, 6/75 ≈ 8%
+#   For 72 features: round(72*0.16) = 12, round(72*0.08) = 6
+#   Result: 72 → 12 → 6 → 12 → 72  (hidden widths unchanged by rounding)
+ae_architecture:
+  input_dim: 72
+  encoder_sizes:
+    - 12
+    - 6
+  decoder_sizes:
+    - 12
+    - 72
+  bottleneck: 6
+  activation: ReLU
+  output_activation: Linear
+  batchnorm: false
+  dropout: false
+  derivation_note: "ratio-based from canonical 75→12→6, round(72*0.16)=12, round(72*0.08)=6"
+
+# ── AE Training (benign-only — NON-NEGOTIABLE) ─────────────────────────────
+ae_training:
+  training_data: BENIGN_TRAIN_ONLY      # label == 0 from train.csv
+  attack_data_in_training: FORBIDDEN
+  known_benign_train_count: 44800       # verified from train_val_split_metadata.json
+  monitor_fraction: 0.10                # 10% → ~4,480 monitor rows (internal split)
+  seeds:
+    - 42
+    - 123
+    - 2024
+  primary_seed: 42                      # for canonical feature-ablation comparison
+  max_epochs: 150
+  patience: 5
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: Adam
+  loss: MSELoss
+
+# ── Scaler ────────────────────────────────────────────────────────────────
+# NEW 72-feature StandardScaler fitted on BENIGN AE-FIT SUBSET ONLY
+# (Matches canonical Sprint 7 EXP_AE_V1 policy tested in test_ae_leakage.py)
+ae_scaler:
+  type: StandardScaler
+  fit_population: BENIGN_TRAIN_AE_FIT_SUBSET  # 40,320 rows (split.ae_fit_indices)
+  fit_count_expected: 40320                   # 90% of 44,800 Normal TRAIN
+  monitor_count_expected: 4480                # 10% of 44,800 Normal TRAIN (transformed only, NEVER fitted)
+  total_benign_train: 44800
+  feature_count: 72
+  cannot_reuse_canonical: true
+  reason: "Canonical AE scaler has n_features_in_=75; new 72-feature scaler required"
+  fitting_policy:
+    phase_1: "Fit scaler ONLY on 40,320 Normal AE-fit rows. Transform 4,480 Normal monitor rows."
+    monitor_leakage_guard: "Monitor rows MUST NOT enter scaler.fit() (enforced by test_scaler_fit_only_on_ae_fit_subset)"
+    phase_2_refit: "Transform all 44,800 Normal rows using the 40,320-fitted scaler for final refit"
+    validation_transform: "Transform 11,200 Normal VALIDATION rows using the 40,320-fitted scaler for threshold calibration"
+
+# ── Threshold Calibration (benign-only — NON-NEGOTIABLE) ──────────────────
+# Section 28 Comparability Rule: Canonical AE used mean+3sigma (0/583 Backdoor).
+# Primary new 72-feature AE must use SAME primary rule (mean+3sigma) for clean feature ablation.
+# Secondary sensitivity rules (p95, p99, p999, mean2sigma) evaluated separately.
+threshold:
+  calibration_data: BENIGN_VALIDATION_ONLY  # validation.csv (11,200 rows)
+  attack_data_in_calibration: FORBIDDEN
+  primary_rule: mean3sigma              # matches canonical EXP_AE_V1 for 1-variable feature comparability
+  secondary_rules:
+    - p95
+    - p99
+    - p999
+    - mean2sigma
+  status: PREDECLARED_FROZEN
+  predeclared_timestamp_utc: "2026-09-08T12:00:00Z"
+  proof_of_predeclaration:
+    canonical_split_history: "Sprint 7 EXP_AE_V1 selected mean+3sigma (tau=11.160063) on 11,200 Normal VALIDATION rows"
+    comparability_intent: "Ensures 1-variable ablation (75-feat + mean3sigma vs 72-feat + mean3sigma) without threshold confounding"
+    zero_attack_in_calibration: "validation.csv has label==0 for all 11,200 rows; no attack samples exist in calibration data"
+    independence: "mean3sigma is computed purely from benign validation reconstruction error distribution (mean + 3*std)"
+  note: >
+    Primary threshold predeclared as mean+3sigma to match canonical AE baseline.
+    Secondary sensitivity rules (p95, p99, p999, mean2sigma) computed from benign validation.
+    Family detection rates MUST NOT influence threshold selection.
+
+# ── Target Families ───────────────────────────────────────────────────────
+# Each evaluated INDEPENDENTLY with the SAME frozen AE + scaler + threshold.
+# No family result influences AE training or threshold for another family.
+target_families:
+  BACKDOOR:
+    source: data/splits/protected_unseen_attack.csv
+    expected_count: 583
+    in_ae_train: false                  # VERIFIED: Backdoor excluded from TRAIN
+    in_ae_validation: false             # VERIFIED: validation.csv is benign-only
+    protection_status: PROTECTED
+    note: "Same 583 flows as canonical EXP_ZERODAY_V1 evaluation"
+
+  WORMS:
+    source: data/splits/development_test.csv
+    filter_column: attack_cat
+    filter_value: Worms
+    expected_count: 44
+    in_ae_train: false                  # Worms ARE in TRAIN (130 rows) — AE is benign-only
+    in_ae_validation: false
+    small_n_warning: true
+    note: >
+      CRITICAL: Worms appear in TRAIN (130 rows as ATTACK) but AE is benign-only.
+      AE never trains on attack data, so Worms training attacks do NOT contaminate AE.
+      Evaluation uses 44 DEV_TEST Worms rows. N=44 is below supervised eligibility
+      threshold (50), so interpret with appropriate caution.
+
+  SHELLCODE:
+    source: data/splits/development_test.csv
+    filter_column: attack_cat
+    filter_value: Shellcode
+    expected_count: 378
+    in_ae_train: false                  # Shellcode in TRAIN as ATTACK, not in benign AE training
+    in_ae_validation: false
+    small_n_warning: false
+
+  ANALYSIS:
+    source: data/splits/development_test.csv
+    filter_column: attack_cat
+    filter_value: Analysis
+    expected_count: 677
+    in_ae_train: false
+    in_ae_validation: false
+    small_n_warning: false
+
+# ── Benign Reference for FPR ─────────────────────────────────────────────
+# SAME fixed benign DEV-TEST reference across ALL four family evaluations
+benign_reference:
+  source: data/splits/development_test.csv
+  filter_column: attack_cat
+  filter_value: Normal
+  expected_count: 37000
+  use_same_for_all_families: MANDATORY
+  note: "Ensures fair family-to-family FPR comparison"
+
+# ── Output Paths (ISOLATION MANDATE: All write destinations under publication_experiments) ─
+output:
+  base: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1
+  model: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/model
+  scaler: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/scaler
+  threshold: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/threshold
+  metadata: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/metadata.json
+  config_used: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/config_used.yaml
+  evaluations:
+    BACKDOOR: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/BACKDOOR
+    WORMS: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/WORMS
+    SHELLCODE: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/SHELLCODE
+    ANALYSIS: results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/ANALYSIS
+
+# ── Frozen Artifact Protection ────────────────────────────────────────────
+frozen_artifact_protection:
+  enforce_destination_isolation: true
+  allowed_output_prefix: results/publication_experiments/
+  forbidden_overwrite_targets:
+    - results/checkpoints/
+    - results/zero_day/
+    - results/autoencoder/
+    - results/oof_stacking/
+    - results/explainability/
+    - results/feature_selection/
+    - data/splits/

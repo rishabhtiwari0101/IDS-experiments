@@ -1,0 +1,10 @@
+{
+  "all_sources_resolved": true,
+  "exact_populations_verified": true,
+  "dev_test_N": 81749,
+  "backdoor_N": 583,
+  "benign_dev_test_N": 37000,
+  "no_duplicate_rows": true,
+  "no_missing_predictions": true,
+  "status": "PASS"
+}

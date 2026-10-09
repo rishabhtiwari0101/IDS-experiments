@@ -1,0 +1,68 @@
+{
+  "timestamp_utc": "2026-09-08T17:16:54.178261+00:00",
+  "ground_truth_source": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\protected_unseen_attack.csv",
+  "ground_truth_population_n": 583,
+  "artifacts_audited": [
+    {
+      "artifact_name": "canonical_backdoor_predictions",
+      "artifact_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\zero_day\\EXP_ZERODAY_V1\\predictions\\zero_day_backdoor_predictions.csv",
+      "experiment_id": "EXP_ZERODAY_V1",
+      "row_id_column": "source_row_uid",
+      "prediction_columns": [
+        "dt_prediction",
+        "rf_prediction",
+        "svm_prediction",
+        "nn_prediction",
+        "stacking_prediction",
+        "ae_flag"
+      ],
+      "ground_truth_source": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\protected_unseen_attack.csv",
+      "row_count": 583,
+      "unique_row_ids": 583,
+      "missing_predictions": 0,
+      "invalid_predictions": 0,
+      "population_verified": "protected_unseen_attack.csv N=583",
+      "alignment_eligible": true,
+      "status": "PASS"
+    },
+    {
+      "artifact_name": "nottl_seed42_predictions",
+      "artifact_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\predictions\\seed_42\\predictions_protected_backdoor.csv",
+      "experiment_id": "EXP_NO_TTL_V1",
+      "row_id_column": "id",
+      "prediction_columns": [
+        "dt_pred",
+        "rf_pred",
+        "svm_pred",
+        "nn_pred",
+        "stacking_pred"
+      ],
+      "ground_truth_source": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\protected_unseen_attack.csv",
+      "row_count": 583,
+      "unique_row_ids": 583,
+      "missing_predictions": 0,
+      "invalid_predictions": 0,
+      "population_verified": "protected_unseen_attack.csv N=583",
+      "alignment_eligible": true,
+      "status": "PASS"
+    },
+    {
+      "artifact_name": "stage_c_ae_seed42_backdoor_predictions",
+      "artifact_path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_AE_UNSEEN_FAMILY_V1\\evaluations\\seed_42\\BACKDOOR\\predictions.csv",
+      "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+      "row_id_column": "raw_id",
+      "prediction_columns": [
+        "ae_prediction"
+      ],
+      "ground_truth_source": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\protected_unseen_attack.csv",
+      "row_count": 583,
+      "unique_row_ids": 583,
+      "missing_predictions": 0,
+      "invalid_predictions": 0,
+      "population_verified": "protected_unseen_attack.csv N=583",
+      "alignment_eligible": true,
+      "status": "PASS"
+    }
+  ],
+  "gate_status": "ALL_PASS"
+}

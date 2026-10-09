@@ -1,0 +1,15 @@
+{
+  "ae_fit_count": 40320,
+  "monitor_count": 4480,
+  "split_seed": 42,
+  "ae_fit_fraction": 0.9,
+  "monitor_fraction": 0.1,
+  "monitor_split_seed": 42,
+  "normal_train_total": 44800,
+  "invariants": {
+    "ae_fit_count": 40320,
+    "monitor_count": 4480,
+    "total": 44800,
+    "disjoint": true
+  }
+}

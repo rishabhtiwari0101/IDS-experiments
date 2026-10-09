@@ -1,0 +1,202 @@
+{
+  "creation_timestamp_utc": "2026-10-06T16:39:52.642206+00:00",
+  "sprint": 5,
+  "step": "s22_train_ft_transformer_unsw",
+  "dataset": "UNSW-NB15",
+  "unsw_frozen_status": "READ-ONLY \u2014 no UNSW models or data were modified",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "K_unsw": 50,
+  "unsw_features": [
+    "sbytes",
+    "sttl",
+    "dbytes",
+    "ct_state_ttl",
+    "dttl",
+    "rate",
+    "sload",
+    "dur",
+    "smean",
+    "dmean",
+    "dinpkt",
+    "dload",
+    "dpkts",
+    "sinpkt",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "sjit",
+    "spkts",
+    "djit",
+    "dloss",
+    "state_INT",
+    "ct_dst_sport_ltm",
+    "sloss",
+    "ct_dst_ltm",
+    "ct_srv_dst",
+    "ct_dst_src_ltm",
+    "ct_src_ltm",
+    "ct_srv_src",
+    "ct_src_dport_ltm",
+    "state_CON",
+    "swin",
+    "stcpb",
+    "dwin",
+    "dtcpb",
+    "proto_tcp",
+    "state_FIN",
+    "response_body_len",
+    "proto_unas",
+    "service_dns",
+    "is_sm_ips_ports",
+    "proto_arp",
+    "proto_udp",
+    "service_-",
+    "service_ssh",
+    "service_ftp-data",
+    "proto_ospf",
+    "trans_depth",
+    "proto_sctp",
+    "service_pop3"
+  ],
+  "architecture": {
+    "d_model": 64,
+    "n_heads": 4,
+    "n_blocks": 3,
+    "ffn_dim": 128,
+    "dropout": 0.1,
+    "cls_token": true,
+    "input_norm": "StandardScaler",
+    "seq_len": 51,
+    "note": "Architecture identical to s21 CIC FT-Transformer"
+  },
+  "training": {
+    "lr": 0.0001,
+    "wd": 1e-05,
+    "batch": 512,
+    "epochs": 30
+  },
+  "device": "cuda",
+  "per_seed_results": {
+    "42": {
+      "dev_test_metrics": {
+        "macro_f1": 0.8662916938752956,
+        "precision": 0.8175268996425727,
+        "recall": 0.9864801448077052,
+        "f1_attack": 0.8940919125838008,
+        "fpr": 0.2662972972972973,
+        "n_tp": 44144,
+        "n_fp": 9853,
+        "n_fn": 605,
+        "n_tn": 27147,
+        "confusion_matrix": [
+          [
+            27147,
+            9853
+          ],
+          [
+            605,
+            44144
+          ]
+        ]
+      },
+      "zero_day_backdoor": {
+        "n_attack": 583,
+        "detected": 583,
+        "missed": 0,
+        "recall": 1.0,
+        "wilson_ci_95": [
+          0.9934540091485461,
+          1.0
+        ]
+      },
+      "training_time_seconds": 473.63302739999926,
+      "model_sha256": "77d883846f21540515005674d5535eb0358b2c5c46518525c51d100f3d48920a",
+      "artifact": "cicids2017\\models\\transformer\\unsw\\seed_42\\ft_model.pt",
+      "D": 50,
+      "seq_len": 51
+    },
+    "123": {
+      "dev_test_metrics": {
+        "macro_f1": 0.8367705172161952,
+        "precision": 0.7852820612922116,
+        "recall": 0.9889159534291269,
+        "f1_attack": 0.875412949298728,
+        "fpr": 0.327027027027027,
+        "n_tp": 44253,
+        "n_fp": 12100,
+        "n_fn": 496,
+        "n_tn": 24900,
+        "confusion_matrix": [
+          [
+            24900,
+            12100
+          ],
+          [
+            496,
+            44253
+          ]
+        ]
+      },
+      "zero_day_backdoor": {
+        "n_attack": 583,
+        "detected": 583,
+        "missed": 0,
+        "recall": 1.0,
+        "wilson_ci_95": [
+          0.9934540091485461,
+          1.0
+        ]
+      },
+      "training_time_seconds": 468.15241130000504,
+      "model_sha256": "fbe451c5858938d7e9ea90f20959bd734f91dad8e1700114dbea0dd59b2d1d67",
+      "artifact": "cicids2017\\models\\transformer\\unsw\\seed_123\\ft_model.pt",
+      "D": 50,
+      "seq_len": 51
+    },
+    "2024": {
+      "dev_test_metrics": {
+        "macro_f1": 0.8434652280509056,
+        "precision": 0.7916301842288656,
+        "recall": 0.9900109499653623,
+        "f1_attack": 0.8797759949161966,
+        "fpr": 0.31516216216216214,
+        "n_tp": 44302,
+        "n_fp": 11661,
+        "n_fn": 447,
+        "n_tn": 25339,
+        "confusion_matrix": [
+          [
+            25339,
+            11661
+          ],
+          [
+            447,
+            44302
+          ]
+        ]
+      },
+      "zero_day_backdoor": {
+        "n_attack": 583,
+        "detected": 583,
+        "missed": 0,
+        "recall": 1.0,
+        "wilson_ci_95": [
+          0.9934540091485461,
+          1.0
+        ]
+      },
+      "training_time_seconds": 631.2298873000036,
+      "model_sha256": "762d7dd40b4b7a80b2ed50aa153b613a9240945ba96e3b44b8f2416c638ceecb",
+      "artifact": "cicids2017\\models\\transformer\\unsw\\seed_2024\\ft_model.pt",
+      "D": 50,
+      "seq_len": 51
+    }
+  },
+  "mean_dev_test_macro_f1": 0.8488424797141322,
+  "std_dev_test_macro_f1": 0.01263753917031074,
+  "note": "FT-Transformer reported as representative modern deep tabular baseline. Not an exhaustive NIDS survey. Hyperparameters fixed; not tuned. Evaluated on UNSW development_test (threshold=0.5) for cross-dataset reference."
+}

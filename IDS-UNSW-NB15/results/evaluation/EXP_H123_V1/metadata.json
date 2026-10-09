@@ -1,0 +1,39 @@
+{
+  "git_commit_hash": "not_frozen_yet",
+  "git_tags": [],
+  "dataset_sha256": {
+    "train": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+    "validation": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+    "development_test": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+    "protected_backdoor": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91"
+  },
+  "checkpoint_sha256": {
+    "EXP_BASE_MODELS_V1": {
+      "dt_final_joblib": "748261c8106e5b12a93decb4de7df435e09dd587b03294dba3837e20c8a2e4a3",
+      "rf_final_joblib": "f1f873ef4bd7f09c03885ffbbc4c9ec51306dc2aecc0f48e4584fddd7a97a68f",
+      "svm_final_joblib": "f325d57525dda5bd92cc20c5393a38fa1b9ca055001b0c24fc9402bdbece990c",
+      "svm_scaler_joblib": "a85eeeb74d34bed8cead09cc7506c4bbac6522bb1df0467d6904178996bdaa85",
+      "nn_final_pt": "7f3dcdfa59cbd084fcd952645db3b14fa67554769500551f06737d42e5e058ae",
+      "nn_scaler_joblib": "a85eeeb74d34bed8cead09cc7506c4bbac6522bb1df0467d6904178996bdaa85"
+    },
+    "EXP_OOF_STACK_V1": {
+      "seed_42_meta_learner_joblib": "e5b776680a99ffee3271624445f7f52593f8f94037d20ba56e9f4b54a848ef19",
+      "seed_123_meta_learner_joblib": "f6517b59fac54864b82db07f3da35139f21f400e2a7664ef56ee29b09fcd6672",
+      "seed_2024_meta_learner_joblib": "f6139a79f3e7c96bb2c6610f22907184df117a06dd110ea74d6eb1897aeada74"
+    },
+    "EXP_AE_V1": {
+      "ae_final_pt": "4ab66af8d4a6e61212ef5d78360f30a8caa68aa85dac3d54042218e010f9a1d6",
+      "ae_scaler_joblib": "c0128d42ed9ef5be695f261be75155e7de4ddf8e51b926e3ce516c4a88ad8211",
+      "threshold_calibration_json": "29bd47b8a0dd886383d312e1364320c9ada62d78989c4c5f847a96f8c1882971"
+    }
+  },
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "library_versions": {
+    "sklearn": "1.5.0",
+    "torch": "2.7.1+cu118",
+    "numpy": "2.4.6",
+    "pandas": "3.0.5"
+  },
+  "provenance_note": "Original Sprint 9 result artifacts were generated using the pre-correction implementation of evaluate_sprint9.py. A non-verdict-affecting H1 boundary defect (elif diff < 0 instead of elif diff < -epsilon) was subsequently corrected to implement DD-7 exactly. The observed Sprint 9 diff (0.01222799051528034) lies outside the affected interval (-0.005, 0), so the correction does not change the stored H1 verdict. A subsequent identical deterministic verification run was performed using the corrected implementation solely to verify reproducibility and future-evaluation correctness. T-DETERMINISTIC: PASS (17/17 fields match within tolerance 1e-8).",
+  "h1_std_ddof_note": "stacking_std_macro_f1 is computed with numpy ddof=0 (population standard deviation). Value: 0.0004912372482943444. stacking_std_macro_f1 is reported for transparency only and does not participate in the locked H1 verdict function."
+}

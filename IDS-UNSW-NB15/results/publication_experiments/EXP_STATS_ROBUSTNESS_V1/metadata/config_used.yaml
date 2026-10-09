@@ -1,0 +1,43 @@
+experiment_id: EXP_STATS_ROBUSTNESS_V1
+
+confidence_interval:
+  method: clopper_pearson
+  confidence_level: 0.95
+
+paired_test:
+  method: exact_mcnemar
+  continuity_correction: false
+
+multiple_testing:
+  method: holm
+  family_1:
+    - DT
+    - RF
+    - SVM
+    - NN
+    - Stacking
+  family_2:
+    name: canonical_AE_vs_new_AE
+    correction: none
+
+materiality:
+  macro_f1_absolute_delta: 0.01
+  backdoor_rate_absolute_delta: 0.01
+  backdoor_detection_count: 6
+
+small_n_warning_threshold: 50
+
+primary_ae_threshold:
+  rule: mean_plus_3sigma
+  ddof: 0
+
+secondary_thresholds:
+  - mean_plus_2sigma
+  - mean_plus_3sigma
+  - p95
+  - p99
+  - p999
+
+paired_backdoor_population:
+  source: data/splits/protected_unseen_attack.csv
+  N: 583

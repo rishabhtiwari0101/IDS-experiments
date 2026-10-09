@@ -1,0 +1,9 @@
+{
+  "family": "SHELLCODE",
+  "target_count": 378,
+  "ae_train_count": 40320,
+  "ae_val_count": 11200,
+  "target_in_ae_train": 0,
+  "target_in_ae_val": 0,
+  "all_pass": true
+}

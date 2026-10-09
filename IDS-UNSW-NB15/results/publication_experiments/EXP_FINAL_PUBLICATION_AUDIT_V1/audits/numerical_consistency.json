@@ -1,0 +1,158 @@
+{
+  "audit_records": [
+    {
+      "metric": "Stage-B Stacking Seed-42 Macro-F1",
+      "source_artifact": "results\\publication_experiments\\EXP_NO_TTL_V1\\predictions\\seed_42\\predictions_dev_test.csv",
+      "source_field": "f1_score(true_label, stacking_pred, average='macro')",
+      "verified_value": 0.8909000391431565,
+      "rounded_value": 0.8909,
+      "verification_method": "PROGRAMMATIC_DERIVATION_FROM_RAW_PREDICTIONS",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E1: DT Canonical vs No-TTL",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E1.csv",
+      "source_field": "model=DT",
+      "verified_value": "Canon_F1=0.8499, NoTTL_F1=0.856, Canon_BD=577, NoTTL_BD=581",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E1: RF Canonical vs No-TTL",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E1.csv",
+      "source_field": "model=RF",
+      "verified_value": "Canon_F1=0.8807, NoTTL_F1=0.8791, Canon_BD=582, NoTTL_BD=582",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E1: SVM Canonical vs No-TTL",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E1.csv",
+      "source_field": "model=SVM",
+      "verified_value": "Canon_F1=0.8236, NoTTL_F1=0.7939, Canon_BD=577, NoTTL_BD=566",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E1: NN Canonical vs No-TTL",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E1.csv",
+      "source_field": "model=NN",
+      "verified_value": "Canon_F1=0.8943, NoTTL_F1=0.8874, Canon_BD=578, NoTTL_BD=572",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E1: Stacking Canonical vs No-TTL",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E1.csv",
+      "source_field": "model=Stacking",
+      "verified_value": "Canon_F1=0.8926, NoTTL_F1=0.8909, Canon_BD=582, NoTTL_BD=580",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary BACKDOOR (Seed 42)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=BACKDOOR, seed=42",
+      "verified_value": "N=583, Detections=0, CI_Upper=0.6307433113897553",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary WORMS (Seed 42)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=WORMS, seed=42",
+      "verified_value": "N=44, Detections=0, CI_Upper=8.041993976377046",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary SHELLCODE (Seed 42)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=SHELLCODE, seed=42",
+      "verified_value": "N=378, Detections=0, CI_Upper=0.97114764210867",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary ANALYSIS (Seed 42)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=ANALYSIS, seed=42",
+      "verified_value": "N=677, Detections=0, CI_Upper=0.5434043701514888",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary BACKDOOR (Seed 123)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=BACKDOOR, seed=123",
+      "verified_value": "N=583, Detections=0, CI_Upper=0.6307433113897553",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary WORMS (Seed 123)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=WORMS, seed=123",
+      "verified_value": "N=44, Detections=0, CI_Upper=8.041993976377046",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary SHELLCODE (Seed 123)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=SHELLCODE, seed=123",
+      "verified_value": "N=378, Detections=0, CI_Upper=0.97114764210867",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary ANALYSIS (Seed 123)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=ANALYSIS, seed=123",
+      "verified_value": "N=677, Detections=0, CI_Upper=0.5434043701514888",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary BACKDOOR (Seed 2024)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=BACKDOOR, seed=2024",
+      "verified_value": "N=583, Detections=0, CI_Upper=0.6307433113897553",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary WORMS (Seed 2024)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=WORMS, seed=2024",
+      "verified_value": "N=44, Detections=0, CI_Upper=8.041993976377046",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary SHELLCODE (Seed 2024)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=SHELLCODE, seed=2024",
+      "verified_value": "N=378, Detections=0, CI_Upper=0.97114764210867",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Table E3: AE Primary ANALYSIS (Seed 2024)",
+      "source_artifact": "results\\publication_experiments\\EXP_INTEGRATED_PUBLICATION_V1\\publication_tables\\table_E3.csv",
+      "source_field": "family=ANALYSIS, seed=2024",
+      "verified_value": "N=677, Detections=0, CI_Upper=0.5434043701514888",
+      "verification_method": "MACHINE_READABLE_TABLE_LOAD",
+      "status": "MATCH"
+    },
+    {
+      "metric": "Family-2 Paired Contingency (Canonical AE vs New AE)",
+      "source_artifact": "results\\publication_experiments\\EXP_STATS_ROBUSTNESS_V1\\publication_tables\\table_D9.csv",
+      "source_field": "analysis_id=PAIRED_AE_CANON_VS_NEW",
+      "verified_value": "A=0, B=0, C=0, D=583",
+      "verification_method": "STAGE_D_VALIDATED_TABLE_LOOKUP",
+      "status": "MATCH"
+    }
+  ],
+  "critical_failure": false
+}

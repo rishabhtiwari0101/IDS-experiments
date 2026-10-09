@@ -1,0 +1,16 @@
+{
+  "total_seconds": 3.64119291305542,
+  "timestamps": {
+    "start": 1788403490.556968,
+    "step1_done": 1788403491.1695442,
+    "dev_test_access": 1788403492.799312,
+    "end": 1788403494.198161
+  },
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "library_versions": {
+    "sklearn": "1.5.0",
+    "torch": "2.7.1+cu118",
+    "numpy": "2.4.6",
+    "pandas": "3.0.5"
+  }
+}

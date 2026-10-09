@@ -1,0 +1,51 @@
+{
+  "experiment_id": "EXP_AE_ABLATION_V1",
+  "timestamp_utc": "2026-09-28T08:57:58.731896+00:00",
+  "zero_training_guard": "PASS",
+  "s5_threshold_source_sha256": "273d9b922d492c69f9aac43805c309767d36cab09d6ce9424f27fc2a393e89f2",
+  "n_threshold_rules": 11,
+  "n_primary_rules": 6,
+  "frozen_run_assertion": {
+    "rule": "mean_plus_3sigma",
+    "threshold": 11.160063397140519,
+    "expected_backdoor_detections": 0,
+    "actual_backdoor_detections": 0,
+    "expected_control_fp_n37000": 19,
+    "actual_control_fp_n37000": 19,
+    "status": "PASS"
+  },
+  "populations_evaluated": {
+    "eval_control_tier_b": {
+      "n": 18500,
+      "metric": "fpr"
+    },
+    "benign_control_full": {
+      "n": 37000,
+      "metric": "fpr"
+    },
+    "backdoor_zeroday": {
+      "n": 583,
+      "metric": "recall"
+    },
+    "unseen_families_combined": {
+      "n": 1099,
+      "metric": "recall"
+    },
+    "unseen_worms": {
+      "n": 44,
+      "metric": "recall"
+    },
+    "unseen_shellcode": {
+      "n": 378,
+      "metric": "recall"
+    },
+    "unseen_analysis": {
+      "n": 677,
+      "metric": "recall"
+    }
+  },
+  "eval_control_subset_of_benign_control": true,
+  "strict_detection_rule": "> (strict greater than)",
+  "ci_method": "Clopper-Pearson 95%",
+  "overall_status": "PASS"
+}

@@ -1,0 +1,64 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Raw and partitioned datasets (large CSVs)
+data/raw/
+data/splits/
+# data/audit/ and results/ are tracked (except checkpoints below)
+*.egg-info/
+
+# Operating System & Office Temporary files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+~$*.docx
+~$*.xlsx
+~$*.pptx
+*.tmp
+
+# Heavy model checkpoints and serialized weights (exceeds GitHub 100MB limit)
+*.joblib
+*.pt
+*.pth
+*.onnx
+**/checkpoints/
+
+# LaTeX Intermediate Build Artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+
+# Test scripts scratch outputs & rendered preview folders
+publication/pages_rendered_6page/
+publication/pages_rendered_word/
+publication/word_rendered_6page.pdf
+publication/test_*.docx
+publication/test_*.pdf
+publication/test_*.png
+
+# IDE Settings & Local Secrets
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example

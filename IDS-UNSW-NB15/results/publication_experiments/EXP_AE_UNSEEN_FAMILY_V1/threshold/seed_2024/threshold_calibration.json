@@ -1,0 +1,41 @@
+{
+  "seed": 2024,
+  "calibration_rows": 11200,
+  "ddof": 0,
+  "mean_re": 0.21926234662532806,
+  "std_re": 3.7907614707946777,
+  "primary_rule": "mean3sigma",
+  "primary_threshold": 11.591546759009361,
+  "thresholds": {
+    "mean3sigma": {
+      "rule": "mean3sigma",
+      "threshold": 11.591546759009361,
+      "val_samples_above": 3,
+      "val_fpr": 0.00026785714285714287
+    },
+    "mean2sigma": {
+      "rule": "mean2sigma",
+      "threshold": 7.8007852882146835,
+      "val_samples_above": 33,
+      "val_fpr": 0.0029464285714285716
+    },
+    "p95": {
+      "rule": "p95",
+      "threshold": 0.5326301455497742,
+      "val_samples_above": 560,
+      "val_fpr": 0.05
+    },
+    "p99": {
+      "rule": "p99",
+      "threshold": 1.5363410711288452,
+      "val_samples_above": 112,
+      "val_fpr": 0.01
+    },
+    "p999": {
+      "rule": "p999",
+      "threshold": 10.292250633239746,
+      "val_samples_above": 12,
+      "val_fpr": 0.0010714285714285715
+    }
+  }
+}

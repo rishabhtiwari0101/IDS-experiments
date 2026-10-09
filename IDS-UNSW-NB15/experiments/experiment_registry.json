@@ -1,0 +1,684 @@
+{
+  "experiments": [
+    {
+      "id": "EXP_DATA_ACQUISITION_AUDIT",
+      "purpose": "Download official UNSW-NB15 pre-split CSV files, compute file hashes, audit schema, attack_cat values, label distribution, cross-split overlap, and withheld-attack candidate eligibility.",
+      "protocol_version": "1.0",
+      "seed": 42,
+      "dataset": "UNSW-NB15",
+      "config_file": "configs/project_config.yaml",
+      "script": "scripts/run_data_audit.py",
+      "log": "results/logs/EXP_DATA_ACQUISITION_AUDIT/run.log",
+      "expected_outputs": [
+        "data/audit/file_hashes.json",
+        "data/audit/dataset_schema.json",
+        "data/audit/attack_cat_raw_strings.json",
+        "data/audit/attack_cat_raw_distribution.json",
+        "data/audit/canonicalization_map.json",
+        "data/audit/label_distribution.json",
+        "data/audit/attack_cat_distribution.json",
+        "data/audit/overlap_report.json",
+        "data/audit/withheld_candidates.json",
+        "data/audit/audit_report.md"
+      ],
+      "observed_results": {
+        "train_rows": 175341,
+        "train_cols": 45,
+        "test_rows": 82332,
+        "test_cols": 45,
+        "train_sha256": "bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa",
+        "test_sha256": "734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559",
+        "null_values": 0,
+        "duplicate_rows": 0,
+        "exact_train_test_overlap": 0,
+        "attack_cat_raw_values": ["Analysis","Backdoor","DoS","Exploits","Fuzzers","Generic","Normal","Reconnaissance","Shellcode","Worms"],
+        "canonicalization_needed": false,
+        "backdoor_test_count": 583,
+        "eligible_candidates": 8,
+        "worms_ineligible_count": 44
+      },
+      "status": "FROZEN",
+      "created_at": "2026-08-31T15:17:54.748328+00:00",
+      "frozen_at": "2026-08-31T15:33:00+00:00",
+      "freeze_tag": "EXP_DATA_ACQUISITION_UNSEEN_RESERVATION_V1"
+    },
+    {
+      "id": "EXP_UNSEEN_RESERVATION",
+      "purpose": "Partition the official TEST file into protected_unseen_attack (all Backdoor rows) and development_test (all non-Backdoor rows). Validate row conservation and exact reconstruction.",
+      "protocol_version": "1.0",
+      "seed": null,
+      "dataset": "UNSW-NB15",
+      "config_file": "configs/project_config.yaml",
+      "script": "scripts/run_unseen_reservation.py",
+      "log": "results/logs/EXP_UNSEEN_RESERVATION/run.log",
+      "expected_outputs": [
+        "data/splits/protected_unseen_attack.csv",
+        "data/splits/development_test.csv",
+        "data/splits/split_metadata.json"
+      ],
+      "observed_results": {
+        "withheld_target": "Backdoor",
+        "selection_rule": "fixed_named_target",
+        "protected_rows": 583,
+        "development_test_rows": 81749,
+        "original_test_rows": 82332,
+        "row_conservation": "PASS",
+        "reconstruction_verified": "PASS",
+        "source_hash_unchanged": "PASS",
+        "protected_sha256": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+        "development_test_sha256": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+        "determinism": "PASS",
+        "validation_checks_passed": 6
+      },
+      "status": "FROZEN",
+      "created_at": "2026-08-31T15:18:08.821399+00:00",
+      "frozen_at": "2026-08-31T15:33:00+00:00",
+      "freeze_tag": "EXP_DATA_ACQUISITION_UNSEEN_RESERVATION_V1"
+    },
+    {
+      "id": "EXP_PREPROCESSING_V1",
+      "purpose": "Leakage-safe preprocessing pipeline: OHE encoding (handle_unknown=ignore), StandardScaler fitted on TRAIN only, two model views (unscaled for DT/RF, scaled for SVM/NN/AE), typed ProcessedDataset result, fail-loud non-finite policy.",
+      "protocol_version": "1.0",
+      "seed": null,
+      "dataset": "UNSW-NB15",
+      "config_file": "configs/project_config.yaml",
+      "script": "scripts/run_preprocessing_smoke_test.py",
+      "log": "results/logs/EXP_PREPROCESSING_V1/run.log",
+      "expected_outputs": [
+        "src/preprocessing/exceptions.py",
+        "src/preprocessing/cleaning.py",
+        "src/preprocessing/encoding.py",
+        "src/preprocessing/scaling.py",
+        "src/preprocessing/processed_dataset.py",
+        "src/preprocessing/preprocessing_pipeline.py",
+        "tests/test_cleaning.py",
+        "tests/test_encoding.py",
+        "tests/test_scaling.py",
+        "tests/test_processed_dataset.py",
+        "tests/test_preprocessing_pipeline.py",
+        "tests/test_preprocessing_leakage.py"
+      ],
+      "observed_results": {
+        "n_features": 194,
+        "categorical_cols": ["proto", "service", "state"],
+        "numeric_col_count": 39,
+        "train_rows": 175341,
+        "dev_test_rows": 81749,
+        "protected_rows": 583,
+        "backdoor_in_dev_test": 0,
+        "protected_all_backdoor": true,
+        "raw_train_hash_unchanged": true,
+        "raw_test_hash_unchanged": true,
+        "protected_csv_unchanged": true,
+        "leakage_tests": "PASS",
+        "all_tests": "234/234 PASS",
+        "smoke_test": "ALL PASS",
+        "ml_fit_calls_in_source": 0,
+        "scaler_leakage_tolerance": "rtol=1e-7, atol=1e-9 vs independently reconstructed encoded TRAIN matrix",
+        "feature_name_verification": "element-by-element on every transform call",
+        "row_ordering_tested": true,
+        "note": "Official EXP_PREPROCESSING_V1 checkpoint intentionally NOT created. Will be created at the Sprint 3 split-protocol freeze when TRAIN/VAL split is finalised."
+      },
+      "status": "FROZEN",
+      "created_at": "2026-08-31T15:59:00+00:00",
+      "frozen_at": "2026-08-31T16:11:00+00:00",
+      "freeze_tag": "EXP_PREPROCESSING_V1"
+    },
+    {
+      "id": "EXP_TRAIN_VAL_SPLIT_V1",
+      "purpose": "Official TRAIN/VALIDATION split from UNSW-NB15 training file. Backdoor training rows archived. Normal 80/20 split (seed=42). All non-Backdoor attack rows -> TRAIN. VALIDATION = Normal only (zero attack rows).",
+      "protocol_version": "1.0",
+      "seed": 42,
+      "dataset": "UNSW-NB15",
+      "config_file": "configs/project_config.yaml",
+      "script": "scripts/run_train_val_split.py",
+      "log": "results/logs/EXP_TRAIN_VAL_SPLIT_V1/run.log",
+      "expected_outputs": [
+        "data/splits/train.csv",
+        "data/splits/validation.csv",
+        "data/splits/excluded_train_backdoor.csv",
+        "data/splits/train_val_split_metadata.json",
+        "src/preprocessing/split_protocol.py",
+        "tests/test_split_protocol.py",
+        "tests/test_split_leakage.py"
+      ],
+      "observed_results": {
+        "input_rows": 175341,
+        "train_rows": 162395,
+        "validation_rows": 11200,
+        "excluded_backdoor_rows": 1746,
+        "normal_train_count": 44800,
+        "normal_validation_count": 11200,
+        "non_backdoor_attack_train_count": 117595,
+        "validation_attack_count": 0,
+        "backdoor_train_count": 0,
+        "backdoor_validation_count": 0,
+        "row_conservation": "PASS",
+        "exact_reconstruction": "PASS",
+        "pairwise_disjointness": "ALL ZERO (PASS)",
+        "source_hash_unchanged_train": "PASS",
+        "source_hash_unchanged_test": "PASS",
+        "protected_unseen_unchanged": "PASS",
+        "development_test_unchanged": "PASS",
+        "integrity_checks_all_pass": true,
+        "no_fitting_in_source": true,
+        "sprint3_targeted_tests": "74/74 PASS",
+        "all_tests": "308/308 PASS",
+        "train_csv_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+        "validation_csv_sha256": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+        "excluded_backdoor_csv_sha256": "b3f6e7e60c9815a53f40eb2d41df8b67d29f884b922a487c3fe83c02e0db0a02",
+        "git_commit_at_run": "59e9f872eee6573dc8fd1311ce96b9a3d827bffb",
+        "data_access_boundary": "Read ONLY data/raw/UNSW_NB15_training-set.csv. Did NOT read protected_unseen_attack.csv or development_test.csv.",
+        "validation_percentile_adequacy": {
+          "n_benign_validation": 11200,
+          "p90_tail": 1120,
+          "p95_tail": 560,
+          "p97_5_tail": 280,
+          "p99_tail": 112,
+          "note": "Descriptive empirical-support counts. NOT confidence intervals."
+        }
+      },
+      "status": "FROZEN",
+      "created_at": "2026-08-31T16:45:00+00:00",
+      "frozen_at": "2026-08-31T17:12:00+00:00",
+      "freeze_tag": "EXP_TRAIN_VAL_SPLIT_V1"
+    },
+    {
+      "id": "EXP_MI_V1",
+      "purpose": "Mutual Information feature selection. Rank all encoded TRAIN features by MI against binary label. Use 5-fold inner CV to select optimal K from {10,20,30,40,50}. Final MI refit on complete frozen TRAIN. Output frozen feature list for all downstream models and AE.",
+      "protocol_version": "1.0",
+      "seed": 42,
+      "dataset": "UNSW-NB15",
+      "config_file": "results/feature_selection/EXP_MI_V1/config.yaml",
+      "script": "scripts/run_mi_feature_selection.py",
+      "log": "results/logs/EXP_MI_V1/run.log",
+      "expected_outputs": [
+        "results/feature_selection/EXP_MI_V1/mi_scores.csv",
+        "results/feature_selection/EXP_MI_V1/feature_ranking.csv",
+        "results/feature_selection/EXP_MI_V1/selected_features.json",
+        "results/feature_selection/EXP_MI_V1/k_selection_results.csv",
+        "results/feature_selection/EXP_MI_V1/metadata.json",
+        "results/feature_selection/EXP_MI_V1/config.yaml"
+      ],
+      "source_modules": [
+        "src/feature_selection/mi_selector.py",
+        "src/feature_selection/k_selector.py",
+        "src/feature_selection/__init__.py",
+        "scripts/run_mi_feature_selection.py"
+      ],
+      "test_modules": [
+        "tests/test_mi_selector.py",
+        "tests/test_k_selector.py",
+        "tests/test_mi_leakage.py"
+      ],
+      "mi_config": {
+        "estimator": "mutual_info_classif",
+        "n_neighbors": 3,
+        "random_state": 42,
+        "target": "label",
+        "representation": "encoded_unscaled"
+      },
+      "inner_cv_config": {
+        "method": "StratifiedKFold",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "candidate_k": [10, 20, 30, 40, 50],
+        "selection_metric": "macro_f1",
+        "tie_break": "smaller_k",
+        "evaluator": "LogisticRegression(solver=liblinear, C=1.0, max_iter=1000, class_weight=balanced, random_state=42)",
+        "evaluator_scaling": "StandardScaler fitted on inner_train_only"
+      },
+      "data_access_boundary": "Reads data/splits/train.csv ONLY. Never reads validation.csv, development_test.csv, protected_unseen_attack.csv, or excluded_train_backdoor.csv.",
+      "observed_results": null,
+      "status": "IMPLEMENTED",
+      "created_at": "2026-08-31T17:30:00+00:00",
+      "frozen_at": null,
+      "freeze_tag": null
+    },
+    {
+      "id": "EXP_MI_V1_1",
+      "protocol_version": "1.1",
+      "purpose": "Sprint 4 MI feature selection — Protocol v1.1. Protocol amendment: K grid extended from {10,20,30,40,50} to {10,20,30,40,50,75,100,150} after v1.0 produced a monotonic sanity flag (REVIEW_REQUIRED). All other methodology parameters are identical to EXP_MI_V1.",
+      "dataset": "UNSW-NB15",
+      "config_file": "results/feature_selection/EXP_MI_V1_1/config.yaml",
+      "script": "scripts/run_mi_feature_selection_v1_1.py",
+      "log": "results/logs/EXP_MI_V1_1/run.log",
+      "protocol_amendment": {
+        "file": "results/feature_selection/EXP_MI_V1_1/protocol_amendment.md",
+        "previous_experiment_id": "EXP_MI_V1",
+        "previous_candidate_k": [10, 20, 30, 40, 50],
+        "new_candidate_k": [10, 20, 30, 40, 50, 75, 100, 150],
+        "reason": "Initial K grid produced a monotonic mean inner-CV Macro-F1 curve through its upper boundary; the project sanity check therefore required human review. The grid was expanded once to include higher-dimensional candidate feature sets before final K selection.",
+        "timing": "Before rerunning the expanded K-selection experiment; no TEST, outer VALIDATION, protected Backdoor, or archived Backdoor data were used.",
+        "human_approved": true
+      },
+      "expected_outputs": [
+        "results/feature_selection/EXP_MI_V1_1/mi_scores.csv",
+        "results/feature_selection/EXP_MI_V1_1/feature_ranking.csv",
+        "results/feature_selection/EXP_MI_V1_1/selected_features.json",
+        "results/feature_selection/EXP_MI_V1_1/k_selection_results.csv",
+        "results/feature_selection/EXP_MI_V1_1/metadata.json",
+        "results/feature_selection/EXP_MI_V1_1/config.yaml",
+        "results/feature_selection/EXP_MI_V1_1/protocol_amendment.md"
+      ],
+      "source_modules": [
+        "src/feature_selection/mi_selector.py",
+        "src/feature_selection/k_selector.py",
+        "src/feature_selection/__init__.py",
+        "scripts/run_mi_feature_selection_v1_1.py"
+      ],
+      "test_modules": [
+        "tests/test_mi_v1_1.py",
+        "tests/test_mi_selector.py",
+        "tests/test_k_selector.py",
+        "tests/test_mi_leakage.py"
+      ],
+      "mi_config": {
+        "estimator": "mutual_info_classif",
+        "n_neighbors": 3,
+        "random_state": 42,
+        "target": "label",
+        "representation": "encoded_unscaled"
+      },
+      "inner_cv_config": {
+        "method": "StratifiedKFold",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "candidate_k": [10, 20, 30, 40, 50, 75, 100, 150],
+        "selection_metric": "macro_f1",
+        "tie_break": "smaller_k",
+        "evaluator": "LogisticRegression(solver=liblinear, C=1.0, max_iter=1000, class_weight=balanced, random_state=42)",
+        "evaluator_scaling": "StandardScaler fitted on inner_train_only"
+      },
+      "data_access_boundary": "Reads data/splits/train.csv ONLY. Never reads validation.csv, development_test.csv, protected_unseen_attack.csv, or excluded_train_backdoor.csv.",
+      "observed_results": {
+        "k_selection_summary": [
+          {"k": 10,  "mean_macro_f1": 0.824852, "std_macro_f1": 0.003435},
+          {"k": 20,  "mean_macro_f1": 0.864436, "std_macro_f1": 0.002428},
+          {"k": 30,  "mean_macro_f1": 0.897442, "std_macro_f1": 0.000917},
+          {"k": 40,  "mean_macro_f1": 0.916198, "std_macro_f1": 0.002122},
+          {"k": 50,  "mean_macro_f1": 0.919560, "std_macro_f1": 0.002323},
+          {"k": 75,  "mean_macro_f1": 0.919799, "std_macro_f1": null},
+          {"k": 100, "mean_macro_f1": 0.919775, "std_macro_f1": null},
+          {"k": 150, "mean_macro_f1": 0.919750, "std_macro_f1": null}
+        ],
+        "selected_k": 75,
+        "sanity_status": "REVIEW_REQUIRED",
+        "sanity_condition": "MONOTONIC",
+        "human_review": "APPROVED",
+        "top5_features": ["sbytes", "sttl", "dbytes", "ct_state_ttl", "dttl"],
+        "source_family_selected": {"proto": 25, "service": 6, "state": 5, "numeric": 39},
+        "total_encoded_features": 193,
+        "selected_feature_count": 75,
+        "train_rows": 162395,
+        "train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c"
+      },
+      "human_review": {
+        "decision": "APPROVED",
+        "rationale": "K=75 has highest mean inner-CV macro-F1 (0.919799). Practical plateau begins at K=75. Improvements K=75->100->150 are negligible (<0.0001). MONOTONIC flag retained as documented sanity condition.",
+        "sanity_status_retained": "REVIEW_REQUIRED"
+      },
+      "status": "FROZEN",
+      "created_at": "2026-08-31T18:00:00+00:00",
+      "frozen_at": "2026-08-31T18:30:00+00:00",
+      "freeze_tag": "EXP_MI_V1_1"
+    },
+    {
+      "id": "EXP_BASE_MODELS_V1",
+      "purpose": "Sprint 5 individual base models. Four classifiers (DT, RF, LinearSVC, PyTorch NN) trained and tuned on frozen TRAIN using 5-fold StratifiedKFold CV. Macro-F1 is the sole selection metric. Final models refit on complete frozen TRAIN. No validation or test data accessed.",
+      "protocol_version": "1.0",
+      "sprint": 5,
+      "seed": {
+        "cv_seed": 0,
+        "model_seed": 42,
+        "nn_seed_policy": "set_all_seeds(42): Python, NumPy, PyTorch, CUDA"
+      },
+      "dataset": "UNSW-NB15",
+      "feature_set": "EXP_MI_V1_1",
+      "feature_count": 75,
+      "train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+      "train_rows": 162395,
+      "class_counts": {
+        "normal": 44800,
+        "attack": 117595
+      },
+      "cv": {
+        "method": "StratifiedKFold",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 0,
+        "stratify": "label"
+      },
+      "selection_metric": "macro_f1",
+      "comparator_tolerance": 1e-6,
+      "scripts": {
+        "benchmark": "scripts/run_base_models_benchmark.py",
+        "baseline": "scripts/run_base_models_baseline.py",
+        "tuning": "scripts/run_base_models_tuning.py",
+        "refit": "scripts/run_base_models_refit.py",
+        "validation": "scripts/validate_base_models.py"
+      },
+      "selected_configs": {
+        "dt": {
+          "criterion": "entropy",
+          "max_depth": null,
+          "min_samples_leaf": 1,
+          "class_weight": "balanced",
+          "random_state": 42,
+          "cv_mean_macro_f1": 0.9388952272152782,
+          "cv_std_macro_f1": 0.002022534185433608
+        },
+        "rf": {
+          "n_estimators": 300,
+          "criterion": "gini",
+          "max_depth": null,
+          "min_samples_leaf": 1,
+          "max_features": 0.3,
+          "class_weight": "balanced",
+          "random_state": 42,
+          "n_jobs": -1,
+          "cv_mean_macro_f1": 0.9508532447968256,
+          "cv_std_macro_f1": 0.0020002077505539163
+        },
+        "svm": {
+          "C": 0.1,
+          "class_weight": "balanced",
+          "max_iter": 5000,
+          "random_state": 42,
+          "cv_mean_macro_f1": 0.9202929348313965,
+          "cv_std_macro_f1": 0.001702636282124847
+        },
+        "nn": {
+          "hidden_sizes": [128, 64],
+          "learning_rate": 0.001,
+          "weight_decay": 0.0001,
+          "pos_weight": 0.38096857859602873,
+          "final_epoch_count": 18,
+          "cv_mean_macro_f1": 0.9242675746647988,
+          "cv_std_macro_f1": 0.004916534820245159
+        }
+      },
+      "result_artifacts": {
+        "results_dir": "results/base_models/EXP_BASE_MODELS_V1",
+        "baseline_results": "results/base_models/EXP_BASE_MODELS_V1/baseline_results.csv",
+        "tuning_results": "results/base_models/EXP_BASE_MODELS_V1/tuning_results.csv",
+        "fold_results": "results/base_models/EXP_BASE_MODELS_V1/fold_results.csv",
+        "selected_configs": "results/base_models/EXP_BASE_MODELS_V1/selected_configs.json",
+        "metadata": "results/base_models/EXP_BASE_MODELS_V1/metadata.json",
+        "validation_report": "results/base_models/EXP_BASE_MODELS_V1/validation_report.json",
+        "quality_review": "results/base_models/EXP_BASE_MODELS_V1/quality_review.md"
+      },
+      "checkpoint_artifacts": {
+        "root": "results/checkpoints/EXP_BASE_MODELS_V1",
+        "dt": "results/checkpoints/EXP_BASE_MODELS_V1/dt/dt_final.joblib",
+        "rf": "results/checkpoints/EXP_BASE_MODELS_V1/rf/rf_final.joblib",
+        "svm": "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_final.joblib",
+        "svm_scaler": "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_scaler.joblib",
+        "nn": "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_final.pt",
+        "nn_scaler": "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_scaler.joblib",
+        "nn_architecture": "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_architecture.json"
+      },
+      "data_access_boundary": "Reads data/splits/train.csv ONLY during training, tuning, and refit. Does NOT access validation.csv, development_test.csv, protected_unseen_attack.csv, or excluded_train_backdoor.csv.",
+      "validation_checks": "38/38 PASS",
+      "observed_results": {
+        "model_ranking": "RF > DT > NN > SVM",
+        "rf_cv_mean_macro_f1": 0.9508532447968256,
+        "dt_cv_mean_macro_f1": 0.9388952272152782,
+        "nn_cv_mean_macro_f1": 0.9242675746647988,
+        "svm_cv_mean_macro_f1": 0.9202929348313965
+      },
+      "status": "FROZEN",
+      "created_at": "2026-09-01T10:00:00+00:00",
+      "frozen_at": null,
+      "freeze_tag": null
+    },
+    {
+      "id": "EXP_OOF_STACK_V1",
+      "purpose": "Sprint 6 OOF stacking ensemble. Four frozen Sprint 5 base models (DT, RF, LinearSVC, PyTorch NN) produce out-of-fold predictions via 5-fold StratifiedKFold (seed=7) over the full TRAIN split. A Logistic Regression meta-learner is trained on the resulting OOF meta-feature matrix. Three H1 seeds (42, 123, 2024) provide a within-experiment variance estimate. No validation, test, or protected Backdoor data are used.",
+      "protocol_version": "1.0",
+      "sprint": 6,
+      "dataset": "UNSW-NB15",
+      "feature_set": "EXP_MI_V1_1",
+      "feature_count": 75,
+      "train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+      "train_rows": 162395,
+      "class_counts": {
+        "normal": 44800,
+        "attack": 117595
+      },
+      "oof_config": {
+        "method": "StratifiedKFold",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 7,
+        "folds_created": "ONCE — reused identically for all H1 seeds",
+        "no_self_prediction": "VERIFIED — PASS"
+      },
+      "h1_seeds": [42, 123, 2024],
+      "h1_seed_policy": "For each H1 seed S: DT random_state=S, RF random_state=S, SVM random_state=S, set_all_seeds(S) for NN (Python/NumPy/PyTorch/CUDA), meta-learner random_state=S. All other Sprint 5 hyperparameters unchanged.",
+      "base_models": {
+        "dt": {
+          "checkpoint": "results/checkpoints/EXP_BASE_MODELS_V1/dt/dt_final.joblib",
+          "refit": false,
+          "oof_output": "predict_proba()[:,1]",
+          "oof_column": "dt_attack_probability"
+        },
+        "rf": {
+          "checkpoint": "results/checkpoints/EXP_BASE_MODELS_V1/rf/rf_final.joblib",
+          "refit": false,
+          "oof_output": "predict_proba()[:,1]",
+          "oof_column": "rf_attack_probability"
+        },
+        "svm": {
+          "checkpoint": "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_final.joblib",
+          "scaler": "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_scaler.joblib",
+          "refit": false,
+          "oof_output": "decision_function() [unbounded real, NOT probability]",
+          "oof_column": "svm_decision_score"
+        },
+        "nn": {
+          "checkpoint": "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_final.pt",
+          "scaler": "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_scaler.joblib",
+          "refit": false,
+          "oof_output": "sigmoid(logit) — probability",
+          "oof_column": "nn_attack_probability",
+          "oof_fixed_epoch_count": 18,
+          "oof_pos_weight": 0.38096857859602873,
+          "oof_pos_weight_formula": "44800 / 117595 (full-TRAIN constant, NOT per-fold)"
+        }
+      },
+      "meta_learner": {
+        "model": "LogisticRegression",
+        "solver": "lbfgs",
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "random_state": "<H1 seed — varies per run: 42 / 123 / 2024>",
+        "meta_features": [
+          "dt_attack_probability",
+          "rf_attack_probability",
+          "svm_decision_score",
+          "nn_attack_probability"
+        ],
+        "row_id_excluded": true,
+        "hyperparameter_search": "NONE — frozen configuration"
+      },
+      "scaling_limitation": "SVM/NN OOF predictions use scaling statistics computed on the full frozen TRAIN, including rows in the OOF held-out fold. This is a bounded, label-independent leakage channel accepted for feature-space consistency.",
+      "meta_evaluation_limitation": "H1 Macro-F1 is computed by evaluating the meta-learner on the same OOF matrix used to train it. No separate meta-learner holdout exists under the current data-isolation rules. This is in-sample evaluation at the meta-learner level and is NOT a fully held-out end-to-end generalisation estimate.",
+      "h1_results": {
+        "seed_42":   {"macro_f1": 0.9469581725490128, "weighted_f1": 0.9572462047352442, "balanced_accuracy": 0.954777518879113,  "oof_runtime_seconds": 679.178},
+        "seed_123":  {"macro_f1": 0.9472901482870100, "weighted_f1": 0.9575143721928769, "balanced_accuracy": 0.9551027783198083, "oof_runtime_seconds": 628.873},
+        "seed_2024": {"macro_f1": 0.9474764614939630, "weighted_f1": 0.9576658507213086, "balanced_accuracy": 0.9552643460188723, "oof_runtime_seconds": 683.807}
+      },
+      "h1_summary": {
+        "mean_macro_f1": 0.9472415941099953,
+        "std_macro_f1_ddof1": 0.00026253378581352256,
+        "evaluation": "IN-SAMPLE (meta-learner trained and evaluated on same OOF matrix)"
+      },
+      "sprint5_reference": {
+        "model": "RF",
+        "macro_f1": 0.9508532447968256,
+        "label": "Frozen Sprint 5 single-CV reference; not a matched 3-seed H1 baseline.",
+        "note": "NOT statistically matched to H1 stacking mean. Different evaluation protocols. No significance test performed."
+      },
+      "two_reporting_units_statement": "Two reporting units are used: (a) three-seed H1 stacking mean\u00b1std; (b) frozen Sprint 5 single-CV base-model reference. These are not statistically matched quantities.",
+      "data_access_boundary": "Reads data/splits/train.csv ONLY (hash verified at runtime). Does NOT access validation.csv, development_test.csv, protected_unseen_attack.csv, or excluded_train_backdoor.csv.",
+      "scripts": {
+        "benchmark": "scripts/run_oof_stacking_benchmark.py",
+        "run_seed": "scripts/run_oof_stacking.py",
+        "h1_summary": "scripts/run_oof_h1_summary.py",
+        "validation": "scripts/validate_oof_stacking.py"
+      },
+      "source_modules": [
+        "src/models/stacking/__init__.py",
+        "src/models/stacking/oof_runner.py",
+        "src/models/stacking/meta_learner.py",
+        "src/models/stacking/artifacts.py"
+      ],
+      "test_modules": [
+        "tests/test_oof_runner.py",
+        "tests/test_oof_stacking_leakage.py",
+        "tests/test_meta_learner.py"
+      ],
+      "result_artifacts": {
+        "root": "results/stacking/EXP_OOF_STACK_V1",
+        "h1_summary": "results/stacking/EXP_OOF_STACK_V1/h1_summary.json",
+        "runtime_report": "results/stacking/EXP_OOF_STACK_V1/runtime_report.json",
+        "validation_report": "results/stacking/EXP_OOF_STACK_V1/validation_report.json",
+        "quality_review": "results/stacking/EXP_OOF_STACK_V1/quality_review.md",
+        "seed_42": {
+          "oof_predictions": "results/stacking/EXP_OOF_STACK_V1/seed_42/oof_predictions.csv",
+          "fold_assignments": "results/stacking/EXP_OOF_STACK_V1/seed_42/fold_assignments.csv",
+          "metrics": "results/stacking/EXP_OOF_STACK_V1/seed_42/metrics.json",
+          "metadata": "results/stacking/EXP_OOF_STACK_V1/seed_42/metadata.json"
+        },
+        "seed_123": {
+          "oof_predictions": "results/stacking/EXP_OOF_STACK_V1/seed_123/oof_predictions.csv",
+          "fold_assignments": "results/stacking/EXP_OOF_STACK_V1/seed_123/fold_assignments.csv",
+          "metrics": "results/stacking/EXP_OOF_STACK_V1/seed_123/metrics.json",
+          "metadata": "results/stacking/EXP_OOF_STACK_V1/seed_123/metadata.json"
+        },
+        "seed_2024": {
+          "oof_predictions": "results/stacking/EXP_OOF_STACK_V1/seed_2024/oof_predictions.csv",
+          "fold_assignments": "results/stacking/EXP_OOF_STACK_V1/seed_2024/fold_assignments.csv",
+          "metrics": "results/stacking/EXP_OOF_STACK_V1/seed_2024/metrics.json",
+          "metadata": "results/stacking/EXP_OOF_STACK_V1/seed_2024/metadata.json"
+        }
+      },
+      "checkpoint_artifacts": {
+        "root": "results/checkpoints/EXP_OOF_STACK_V1",
+        "seed_42_meta_learner": "results/checkpoints/EXP_OOF_STACK_V1/seed_42/meta_learner.joblib",
+        "seed_42_metadata": "results/checkpoints/EXP_OOF_STACK_V1/seed_42/metadata.json",
+        "seed_123_meta_learner": "results/checkpoints/EXP_OOF_STACK_V1/seed_123/meta_learner.joblib",
+        "seed_123_metadata": "results/checkpoints/EXP_OOF_STACK_V1/seed_123/metadata.json",
+        "seed_2024_meta_learner": "results/checkpoints/EXP_OOF_STACK_V1/seed_2024/meta_learner.joblib",
+        "seed_2024_metadata": "results/checkpoints/EXP_OOF_STACK_V1/seed_2024/metadata.json"
+      },
+      "validation_checks": "65/65 PASS",
+      "regression_tests": "802/802 PASS",
+      "git_commit": "0443d6d",
+      "quality_review_status": "READY_TO_FREEZE",
+      "status": "IMPLEMENTED",
+      "created_at": "2026-09-02T00:13:00+00:00",
+      "frozen_at": null,
+      "freeze_tag": null
+    },
+    {
+      "id": "EXP_AE_V1",
+      "purpose": "Benign-Only Autoencoder for anomaly detection using EXP_MI_V1_1 75 features",
+      "sprint": 7,
+      "status": "FROZEN",
+      "feature_set": "EXP_MI_V1_1",
+      "feature_count": 75,
+      "train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+      "validation_sha256": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+      "ae_seed": 42,
+      "monitor_split_seed": 42,
+      "normal_train_total": 44800,
+      "training_rows": 40320,
+      "monitor_rows": 4480,
+      "calibration_rows": 11200,
+      "architecture": {
+        "input_dim": 75,
+        "encoder": [75, 12, 6],
+        "bottleneck": 6,
+        "decoder": [6, 12, 75],
+        "hidden_activation": "ReLU",
+        "output_activation": "Linear (none)",
+        "batchnorm": false,
+        "dropout": false,
+        "n_params": 2049
+      },
+      "loss": "MSELoss",
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "max_epochs": 150,
+      "patience": 5,
+      "best_epoch": 133,
+      "final_epoch_count": 133,
+      "decision_4_revision": "Decision 4 (Revised): max_epochs raised from 100 to 150 based on the EXP_AE_V1 diagnostic showing early stopping at epoch 138 with best_epoch=133.",
+      "scaler_source": "new StandardScaler fit on Normal AE-fit subset only (40320 rows)",
+      "threshold_candidates": ["p95", "p99", "p999", "mean2sigma", "mean3sigma"],
+      "primary_threshold": "DEFERRED_TO_SPRINT_8",
+      "validation_checks": "78/78 PASS",
+      "ae_unit_tests": "76/76 PASS",
+      "regression_tests": "878/878 PASS",
+      "quality_review_status": "READY_TO_FREEZE",
+      "frozen_at": "2026-09-02T16.37.07+05:30",
+      "freeze_tag": "EXP_AE_V1",
+      "freeze_commit": "8dd9645e7f7741d8a4fd91559d1c86d38755fc2c"
+    },
+    {
+      "id": "EXP_FUSION_V1",
+      "purpose": "2x2 Fusion evaluation combining frozen EXP_OOF_STACK_V1 seed-42 supervised signal with frozen EXP_AE_V1 anomaly signal",
+      "sprint": 8,
+      "status": "FROZEN",
+      "upstream_experiments": [
+        "EXP_MI_V1_1",
+        "EXP_BASE_MODELS_V1",
+        "EXP_OOF_STACK_V1",
+        "EXP_AE_V1"
+      ],
+      "feature_set": "EXP_MI_V1_1",
+      "feature_count": 75,
+      "supervised_checkpoint": "EXP_OOF_STACK_V1/seed_42",
+      "supervised_decision": "LogisticRegression.predict() at frozen 0.5 boundary",
+      "ae_checkpoint": "EXP_AE_V1/ae_final.pt",
+      "ae_seed": 42,
+      "fpr_gate": 0.05,
+      "rule_priority": "OR > AND > Supervised-only",
+      "within_rule_priority": "conservative-first (largest tau)",
+      "candidate_count": 11,
+      "selected_config": "C06",
+      "selected_rule": "OR",
+      "selected_threshold": "mean+3sigma",
+      "selected_tau": 11.160062745213509,
+      "validation_fpr": 0.0475,
+      "n_passing": 9,
+      "fallback_triggered": false,
+      "h_fusion": "FALSE",
+      "h_prot_backdoor": "FALSE",
+      "dev_test_macro_f1": 0.89244,
+      "dev_test_recall": 0.967753,
+      "dev_test_fpr": 0.192243,
+      "protected_backdoor_detected": 582,
+      "protected_backdoor_missed": 1,
+      "protected_backdoor_n": 583,
+      "protected_backdoor_detection_rate": 0.998285,
+      "protected_backdoor_pp_per_row": 0.1716,
+      "focused_tests": "29/29 PASS",
+      "regression_tests": "907/907 PASS",
+      "exploratory_all_11": true,
+      "exploratory_note": "INFORMATIONAL ONLY - post-hoc, no backward influence",
+      "quality_review_status": "READY_TO_FREEZE",
+      "frozen_at": "2026-09-02T18.36.45+05:30",
+      "freeze_tag": "EXP_FUSION_V1",
+      "freeze_commit": "1231dd61eeb94539377b4ed94e006c8d00621d76",
+      "created_at": "2026-09-02T18:26:48+05:30"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "audit_timestamp": "2026-09-08T17:57:48.548962+00:00",
+  "supervised_models_included": {
+    "DT": "Included in Table E1, E2, E7, Figures E1, E2, E3",
+    "RF": "Included in Table E1, E2, E7, Figures E1, E2, E3",
+    "SVM": "Included in Table E1, E2, E7, Figures E1, E2, E3",
+    "NN": "Included in Table E1, E2, E7, Figures E1, E2, E3",
+    "Stacking": "Included in Table E1, E2, E7, Figures E1, E2, E3",
+    "status": "PASS (All 5 supervised models retained)"
+  },
+  "no_ttl_seeds_included": {
+    "seed_42": "Included across all supervised and AE tables",
+    "seed_123": "Included across all supervised and AE tables",
+    "seed_2024": "Included across all supervised and AE tables",
+    "status": "PASS (All 3 seeds retained)"
+  },
+  "canonical_baseline_included": {
+    "seed_42_historical": "Preserved individually and distinctly (anti-fabrication guard verified)",
+    "status": "PASS (Historical canonical seed 42 retained; no fabricated seeds)"
+  },
+  "ae_unseen_families_included": {
+    "BACKDOOR": "Included in Tables E3, E4, E5, E6, Figures E4, E6, E7 (N=583)",
+    "WORMS": "Included in Tables E3, E4, E5, E6, Figures E4, E6, E7 (N=44, [SMALL-N WARNING])",
+    "SHELLCODE": "Included in Tables E3, E4, E5, E6, Figures E4, E6, E7 (N=378)",
+    "ANALYSIS": "Included in Tables E3, E4, E5, E6, Figures E4, E6, E7 (N=677)",
+    "status": "PASS (All 4 AE-unseen families retained)"
+  },
+  "threshold_rules_included": {
+    "mean_plus_3sigma": "Retained as primary threshold",
+    "mean_plus_2sigma": "Retained in complete secondary matrix",
+    "p95": "Retained in complete secondary matrix",
+    "p99": "Retained in complete secondary matrix",
+    "p999": "Retained in complete secondary matrix",
+    "status": "PASS (All 5 preregistered threshold rules retained without cherry-picking)"
+  },
+  "unfavorable_results_retained": {
+    "primary_ae_zero_detections": "Fully reported (0/583, 0/44, 0/378, 0/677) with exact CIs",
+    "rf_structural_degeneracy": "Fully reported as non-informative (B=0, C=0)",
+    "canonical_vs_new_ae_degeneracy": "Fully reported (A=0, B=0, C=0, D=583, status=STRUCTURALLY_NON_INFORMATIVE)",
+    "svm_sensitivity": "Fully reported with material degradation",
+    "high_fpr_under_relaxed_thresholds": "Fully reported up to 8.60% (3,182 false alarms per 37,000 flows)",
+    "status": "PASS (All unfavorable and null results prominently documented)"
+  },
+  "overall_anti_cherry_picking_status": "PASS"
+}

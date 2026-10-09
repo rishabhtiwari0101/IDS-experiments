@@ -1,0 +1,414 @@
+{
+  "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+  "protocol_stage": "Stage C",
+  "title": "UNSW-NB15 Benign-Only AE Unseen Attack-Family Evaluation",
+  "timestamp_utc": "2026-09-08T15:53:24.424416+00:00",
+  "total_runtime_seconds": 381.19,
+  "audit_metadata": {
+    "phase1": {
+      "split_hashes": {
+        "train": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+        "validation": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+        "development_test": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+        "protected_backdoor": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91"
+      },
+      "feature_count": 72,
+      "feature_hash": "21c949fc5709c21d3568a420559f3bc42ba52f26e4be95ee551901b7de9bbe96",
+      "output_isolation": true,
+      "status": "PASS"
+    },
+    "phase2": {
+      "canonical_experiment_id": "EXP_AE_V1",
+      "canonical_checkpoint_path": "results\\checkpoints\\EXP_AE_V1\\ae_final.pt",
+      "canonical_checkpoint_hash": "4ab66af8d4a6e61212ef5d78360f30a8caa68aa85dac3d54042218e010f9a1d6",
+      "canonical_seed": 42,
+      "canonical_architecture": {
+        "input_dim": 75,
+        "encoder": [
+          75,
+          12,
+          6
+        ],
+        "bottleneck": 6,
+        "decoder": [
+          6,
+          12,
+          75
+        ],
+        "hidden_activation": "ReLU",
+        "output_activation": "Linear (none)",
+        "batchnorm": false,
+        "dropout": false,
+        "n_params": 2049
+      },
+      "canonical_scaler_path": "results\\checkpoints\\EXP_AE_V1\\ae_scaler.joblib",
+      "canonical_scaler_hash": "c0128d42ed9ef5be695f261be75155e7de4ddf8e51b926e3ce516c4a88ad8211",
+      "canonical_threshold_rule": "mean3sigma",
+      "canonical_threshold_value": 11.160062745213509,
+      "canonical_ddof": 0,
+      "canonical_backdoor_detections": "0/583",
+      "canonical_zero_day_prediction_file": "results\\zero_day\\EXP_ZERODAY_V1\\predictions\\zero_day_backdoor_predictions.csv",
+      "canonical_zero_day_prediction_hash": "515bdbe67d84ea096ffec9e9cbbbb1ac218cee35181adf7a60c74906809bfd69",
+      "canonical_monitor_split_mechanism": "src.models.autoencoder.ae_trainer.create_monitor_split(normal_indices, seed=42)",
+      "canonical_monitor_split_indices_path": "results/autoencoder/EXP_AE_V1/monitor/monitor_split_indices.csv",
+      "timestamp_inspected_utc": "2026-09-08T15:47:03.337458+00:00",
+      "status": "PASS"
+    },
+    "phase3": {
+      "BACKDOOR": {
+        "evaluated_in_canonical": true,
+        "source": "results/zero_day/EXP_ZERODAY_V1/predictions/zero_day_backdoor_predictions.csv",
+        "canonical_detections": "0/583",
+        "comparable_feature_ablation": true
+      },
+      "WORMS": {
+        "evaluated_in_canonical": false,
+        "source": null,
+        "canonical_detections": null,
+        "statement": "No canonical AE baseline exists for this family. The Stage-C result is a standalone AE-unseen-family finding.",
+        "comparable_feature_ablation": false
+      },
+      "SHELLCODE": {
+        "evaluated_in_canonical": false,
+        "source": null,
+        "canonical_detections": null,
+        "statement": "No canonical AE baseline exists for this family. The Stage-C result is a standalone AE-unseen-family finding.",
+        "comparable_feature_ablation": false
+      },
+      "ANALYSIS": {
+        "evaluated_in_canonical": false,
+        "source": null,
+        "canonical_detections": null,
+        "statement": "No canonical AE baseline exists for this family. The Stage-C result is a standalone AE-unseen-family finding.",
+        "comparable_feature_ablation": false
+      }
+    },
+    "phase4": {
+      "seed_42_verified": true,
+      "mean3sigma_value": 11.160062745213509,
+      "ddof": 0,
+      "status": "PASS"
+    },
+    "phase8": {
+      "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+      "input_dim": 72,
+      "architecture": "72 \u2192 12 \u2192 6 \u2192 12 \u2192 72",
+      "encoder": [
+        72,
+        12,
+        6
+      ],
+      "bottleneck": 6,
+      "decoder": [
+        6,
+        12,
+        72
+      ],
+      "hidden_activation": "ReLU",
+      "output_activation": "Linear (none)",
+      "batchnorm": false,
+      "dropout": false,
+      "n_params": 1974,
+      "derivation_rule": "Ratio-based matching canonical 75\u219212\u21926: round(72 * 12/75)=12, round(72 * 6/75)=6",
+      "rounding_rule": "ROUND HALF UP TO NEAREST INTEGER",
+      "seed_list": [
+        42,
+        123,
+        2024
+      ],
+      "primary_seed": 42,
+      "configuration_hash": "6b055c6e683ca614a229009b81c9c9fb91b9f9843f979e0d5dc69f57dc9853fc",
+      "git_commit": "f694e19",
+      "timestamp_utc": "2026-09-08T15:47:03.340310+00:00",
+      "preregistered_before_training": true,
+      "status": "PASS"
+    },
+    "phase9": {
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 256,
+      "max_epochs": 150,
+      "patience": 5,
+      "loss": "MSELoss",
+      "identical_to_canonical": true,
+      "status": "PASS"
+    },
+    "phase10": {
+      "create_monitor_split_compatible": true,
+      "status": "PASS"
+    },
+    "phase11": {
+      "train_rows": 162395,
+      "normal_train_rows": 44800,
+      "val_rows": 11200,
+      "dev_test_rows": 81749,
+      "protected_rows": 583,
+      "status": "PASS"
+    },
+    "phase5": {
+      "stage_c_benign_train_ids_count": 44800,
+      "canonical_benign_train_ids_count": 44800,
+      "intersection": 44800,
+      "stage_c_only": 0,
+      "canonical_only": 0,
+      "all_labels_zero": true,
+      "all_categories_normal": true,
+      "status": "PASS"
+    },
+    "phase6": {
+      "canonical_ae_fit_count": 40320,
+      "canonical_monitor_count": 4480,
+      "bitwise_reproducibility": true,
+      "status": "PASS"
+    },
+    "seed_42_convergence": {
+      "seed": 42,
+      "best_epoch": 59,
+      "best_monitor_mse": 0.16593888870307377,
+      "final_epochs_trained": 59,
+      "losses_finite": true,
+      "no_nan": true,
+      "no_inf": true,
+      "checkpoint_loads": true,
+      "architecture_matches": true,
+      "re_finite": true,
+      "re_non_degenerate": true,
+      "status": "PASS"
+    },
+    "disjointness_seed_42": {
+      "seed": 42,
+      "ae_fit_count": 40320,
+      "monitor_count": 4480,
+      "validation_count": 11200,
+      "fit_monitor_overlap": 0,
+      "fit_val_overlap": 0,
+      "monitor_val_overlap": 0,
+      "pairwise_disjoint": true,
+      "status": "PASS"
+    },
+    "seed_123_convergence": {
+      "seed": 123,
+      "best_epoch": 109,
+      "best_monitor_mse": 0.30841327054159984,
+      "final_epochs_trained": 109,
+      "losses_finite": true,
+      "no_nan": true,
+      "no_inf": true,
+      "checkpoint_loads": true,
+      "architecture_matches": true,
+      "re_finite": true,
+      "re_non_degenerate": true,
+      "status": "PASS"
+    },
+    "disjointness_seed_123": {
+      "seed": 123,
+      "ae_fit_count": 40320,
+      "monitor_count": 4480,
+      "validation_count": 11200,
+      "fit_monitor_overlap": 0,
+      "fit_val_overlap": 0,
+      "monitor_val_overlap": 0,
+      "pairwise_disjoint": true,
+      "status": "PASS"
+    },
+    "seed_2024_convergence": {
+      "seed": 2024,
+      "best_epoch": 99,
+      "best_monitor_mse": 0.1652894573552268,
+      "final_epochs_trained": 99,
+      "losses_finite": true,
+      "no_nan": true,
+      "no_inf": true,
+      "checkpoint_loads": true,
+      "architecture_matches": true,
+      "re_finite": true,
+      "re_non_degenerate": true,
+      "status": "PASS"
+    },
+    "disjointness_seed_2024": {
+      "seed": 2024,
+      "ae_fit_count": 40320,
+      "monitor_count": 4480,
+      "validation_count": 11200,
+      "fit_monitor_overlap": 0,
+      "fit_val_overlap": 0,
+      "monitor_val_overlap": 0,
+      "pairwise_disjoint": true,
+      "status": "PASS"
+    },
+    "phase18": {
+      "42": {
+        "n_samples_seen": 40320,
+        "n_features_in": 72,
+        "status": "PASS"
+      },
+      "123": {
+        "n_samples_seen": 40320,
+        "n_features_in": 72,
+        "status": "PASS"
+      },
+      "2024": {
+        "n_samples_seen": 40320,
+        "n_features_in": 72,
+        "status": "PASS"
+      }
+    },
+    "phase22": {
+      "canonical_ae_provenance_verified": true,
+      "canonical_ae_seed_verified": true,
+      "canonical_ae_checkpoint_verified": true,
+      "canonical_ae_threshold_verified": true,
+      "canonical_ae_family_coverage_verified": true,
+      "canonical_ae_0_n_provenance_verified": true,
+      "canonical_new_same_seed_eligibility_resolved": true,
+      "canonical_new_ae_fit_population_resolved": true,
+      "architecture_preregistered_before_training": true,
+      "72_feature_manifest_verified": true,
+      "feature_hash_verified": true,
+      "all_surviving_ae_seeds_trained_successfully": true,
+      "ae_training_hyperparameters_match_canonical": true,
+      "scaler_fitted_only_on_ae_fit_rows": true,
+      "ae_fit_monitor_val_ids_pairwise_disjoint": true,
+      "44800_benign_population_identity_verified": true,
+      "threshold_uses_benign_validation_only": true,
+      "primary_threshold_formula_and_ddof_verified": true,
+      "checkpoint_hashes_recorded": true,
+      "scaler_hashes_recorded": true,
+      "threshold_hashes_recorded": true,
+      "canonical_frozen_directories_unchanged": true,
+      "ALL_PASS": true
+    },
+    "phase23": {
+      "dev_test_total": 81749,
+      "dev_test_normal": 37000,
+      "dev_test_attack": 44749,
+      "dev_test_attack_category_counts": {
+        "Normal": 37000,
+        "Generic": 18871,
+        "Exploits": 11132,
+        "Fuzzers": 6062,
+        "DoS": 4089,
+        "Reconnaissance": 3496,
+        "Analysis": 677,
+        "Shellcode": 378,
+        "Worms": 44
+      },
+      "target_counts": {
+        "BACKDOOR": 583,
+        "WORMS": 44,
+        "SHELLCODE": 378,
+        "ANALYSIS": 677
+      },
+      "common_benign_devtest_reference_count": 37000,
+      "status": "PASS"
+    },
+    "phase28_29": {
+      "comparison": "Canonical Seed 42 (75-feat) vs New Seed 42 (72-feat No-TTL)",
+      "family": "BACKDOOR",
+      "sample_size": 583,
+      "contingency_table": {
+        "both_detected": 0,
+        "canon_only_detected (B)": 0,
+        "new_only_detected (C)": 0,
+        "neither_detected": 583
+      },
+      "canonical_detection_rate": "0/583 (0.0000%)",
+      "new_detection_rate": "0/583 (0.0000%)",
+      "structural_degeneracy_disclosed": true,
+      "structural_degeneracy_details": "Canonical AE achieved 0/583 detections (0% sensitivity) on Backdoor under mean+3\u03c3 threshold. Therefore B=0 structurally. New AE Seed 42 also achieved 0/583 detections (C=0).",
+      "statistical_test": "Exact binomial test on discordant pairs (McNemar)",
+      "test_informativeness": "NON-INFORMATIVE due to zero discordance (B=0, C=0)",
+      "framing_explanation": "The exact McNemar / binomial test could not distinguish the two models because there were zero discordant pairs to test (B = 0, C = 0). This is a structural consequence of both models detecting 0/583 under the mean+3\u03c3 threshold, NOT a statistical finding or hypothesis-test conclusion of 'no difference'.",
+      "null_hypothesis": "P(C) = P(B) = 0.5 (evaluated only when discordant pairs > 0)",
+      "alternative_hypothesis": "P(C) > P(B)",
+      "total_discordant_pairs": 0,
+      "p_value_greater": null,
+      "p_value_two_sided": null,
+      "status": "PASS (NON-INFORMATIVE)"
+    },
+    "phase30": {
+      "total_cells": 60,
+      "status": "PASS"
+    },
+    "task_provenance_note": "Results derive solely from verified task-1186 execution. An earlier run (task-1014) was discarded due to a script-level logging/architecture string discrepancy and isolation audit exception."
+  },
+  "cross_seed_summary": {
+    "BACKDOOR": {
+      "mean_detection_rate": 0.0,
+      "std_detection_rate": 0.0,
+      "min_detection_rate": 0.0,
+      "max_detection_rate": 0.0,
+      "per_seed_rates": {
+        "42": 0.0,
+        "123": 0.0,
+        "2024": 0.0
+      },
+      "mean_fpr": 0.0003963963963963964,
+      "std_fpr": 0.0001799548140129566
+    },
+    "WORMS": {
+      "mean_detection_rate": 0.0,
+      "std_detection_rate": 0.0,
+      "min_detection_rate": 0.0,
+      "max_detection_rate": 0.0,
+      "per_seed_rates": {
+        "42": 0.0,
+        "123": 0.0,
+        "2024": 0.0
+      },
+      "mean_fpr": 0.0003963963963963964,
+      "std_fpr": 0.0001799548140129566
+    },
+    "SHELLCODE": {
+      "mean_detection_rate": 0.0,
+      "std_detection_rate": 0.0,
+      "min_detection_rate": 0.0,
+      "max_detection_rate": 0.0,
+      "per_seed_rates": {
+        "42": 0.0,
+        "123": 0.0,
+        "2024": 0.0
+      },
+      "mean_fpr": 0.0003963963963963964,
+      "std_fpr": 0.0001799548140129566
+    },
+    "ANALYSIS": {
+      "mean_detection_rate": 0.0,
+      "std_detection_rate": 0.0,
+      "min_detection_rate": 0.0,
+      "max_detection_rate": 0.0,
+      "per_seed_rates": {
+        "42": 0.0,
+        "123": 0.0,
+        "2024": 0.0
+      },
+      "mean_fpr": 0.0003963963963963964,
+      "std_fpr": 0.0001799548140129566
+    }
+  },
+  "mcnemar_backdoor_comparison": {
+    "comparison": "Canonical Seed 42 (75-feat) vs New Seed 42 (72-feat No-TTL)",
+    "family": "BACKDOOR",
+    "sample_size": 583,
+    "contingency_table": {
+      "both_detected": 0,
+      "canon_only_detected (B)": 0,
+      "new_only_detected (C)": 0,
+      "neither_detected": 583
+    },
+    "canonical_detection_rate": "0/583 (0.0000%)",
+    "new_detection_rate": "0/583 (0.0000%)",
+    "structural_degeneracy_disclosed": true,
+    "structural_degeneracy_details": "Canonical AE achieved 0/583 detections (0% sensitivity) on Backdoor under mean+3\u03c3 threshold. Therefore B=0 structurally. New AE Seed 42 also achieved 0/583 detections (C=0).",
+    "statistical_test": "Exact binomial test on discordant pairs (McNemar)",
+    "test_informativeness": "NON-INFORMATIVE due to zero discordance (B=0, C=0)",
+    "framing_explanation": "The exact McNemar / binomial test could not distinguish the two models because there were zero discordant pairs to test (B = 0, C = 0). This is a structural consequence of both models detecting 0/583 under the mean+3\u03c3 threshold, NOT a statistical finding or hypothesis-test conclusion of 'no difference'.",
+    "null_hypothesis": "P(C) = P(B) = 0.5 (evaluated only when discordant pairs > 0)",
+    "alternative_hypothesis": "P(C) > P(B)",
+    "total_discordant_pairs": 0,
+    "p_value_greater": null,
+    "p_value_two_sided": null,
+    "status": "PASS (NON-INFORMATIVE)"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "dataset_name": "CIC-IDS2017",
+  "variant": "Original Official UNB MachineLearningCSV Release",
+  "generated_utc": "2026-10-06T03:58:26.849130+00:00",
+  "total_shards": 8,
+  "total_bytes": 884645759,
+  "files": [
+    {
+      "filename": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "size_bytes": 77123859,
+      "md5": "b2b2764e4c8a4c390506de7ee81c32ee",
+      "sha256": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee",
+      "copy_timestamp": "2026-10-06T03:58:22.759804+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    },
+    {
+      "filename": "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "size_bytes": 76906168,
+      "md5": "4892380364f9c7ef297d3094d19f26bf",
+      "sha256": "ca1824c51bfbb7b3c72290a11be04366ba8815878c6a1cc5c44cb1cee269e99b",
+      "copy_timestamp": "2026-10-06T03:58:23.097754+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    },
+    {
+      "filename": "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "size_bytes": 58316725,
+      "md5": "134224ec64782709ae1078379f72c4fa",
+      "sha256": "53a41c24d570ea83b7ac55b2e94df94e7a8216aeb80a2af0246b6bc8bb543000",
+      "copy_timestamp": "2026-10-06T03:58:23.360403+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    },
+    {
+      "filename": "Monday-WorkingHours.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Monday-WorkingHours.pcap_ISCX.csv",
+      "size_bytes": 176927918,
+      "md5": "12ca72e319041856f6410e9a14d40581",
+      "sha256": "852c4beb34eda186f32561fa79df7a0747e92e1a6535b01270820dd9ffe17f34",
+      "copy_timestamp": "2026-10-06T03:58:24.112149+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    },
+    {
+      "filename": "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "size_bytes": 83102436,
+      "md5": "29ab45bfe378d983552a801d0a90cac8",
+      "sha256": "6bcda3857c2504676034e3ea57762d38393cc734cb377a726bd5cb153961b1b5",
+      "copy_timestamp": "2026-10-06T03:58:24.481453+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    },
+    {
+      "filename": "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "size_bytes": 52023263,
+      "md5": "13e1c70d2b380bf5d90f82e60e7befb1",
+      "sha256": "d67066211fb1689c78406f1506f4c44704ecb92088353d5c96d96d6474eb819d",
+      "copy_timestamp": "2026-10-06T03:58:24.747154+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    },
+    {
+      "filename": "Tuesday-WorkingHours.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Tuesday-WorkingHours.pcap_ISCX.csv",
+      "size_bytes": 135078995,
+      "md5": "df16dccfd59a4ee126690fd6b71ee0a4",
+      "sha256": "52b8692ae8c7d2ed04671fe2b98335693c0a92c7ab157d8c8b534d6523080851",
+      "copy_timestamp": "2026-10-06T03:58:25.372702+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    },
+    {
+      "filename": "Wednesday-workingHours.pcap_ISCX.csv",
+      "source_path": "cicids2017/DATA/MachineLearningCSV/MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv",
+      "destination_path": "cicids2017/DATA/raw/Wednesday-workingHours.pcap_ISCX.csv",
+      "size_bytes": 225166395,
+      "md5": "bf0dd7e9d991987df4e13ea58a1b409c",
+      "sha256": "893c27dc968bf7a8adef1689f90be55ca4a4dc3088fb63d6ff247ac56856df2a",
+      "copy_timestamp": "2026-10-06T03:58:26.848373+00:00",
+      "dataset_variant": "Original Official CIC-IDS-2017 MachineLearningCSV (uncompressed)",
+      "official_reference_archive_md5": "4f83860afbf29cac8163854095bf6cf7"
+    }
+  ]
+}

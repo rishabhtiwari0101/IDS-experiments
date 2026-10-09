@@ -1,0 +1,14 @@
+{
+  "experiment_id": "EXP_TOST_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T08:21:02.605747+00:00",
+  "config_path": "revision_v5\\publication_experiments\\configs\\tost.yaml",
+  "population": "protected_backdoor",
+  "sample_size": 583,
+  "model": "RF",
+  "artifact_hashes": {
+    "tost_rf_equivalence.json": "c8d0a932a9e703565910a9c472773d7bd65e727424a46dff8182ff3736481ff6",
+    "self_check.json": "622b1f3d73243d180bc098a0d6d455a11f9b0bb75eb84d98a12c35d49f2c0f67"
+  },
+  "status": "PASS"
+}

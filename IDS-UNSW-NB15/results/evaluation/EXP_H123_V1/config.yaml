@@ -1,0 +1,13 @@
+experiment_id: EXP_H123_V1
+upstream_experiments: ['EXP_MI_V1_1', 'EXP_BASE_MODELS_V1', 'EXP_OOF_STACK_V1', 'EXP_AE_V1', 'EXP_FUSION_V1']
+h1_seeds: [42, 123, 2024]
+h1_epsilon: 0.005
+h2_tau: 11.160062745213509
+h2_threshold_id: mean+3sigma
+h2_multiplier: 3
+h3_fpr_cap: 0.02
+n_features: 75
+feature_set: EXP_MI_V1_1
+n_dev_test: 81749
+n_prot: 583
+n_validation: 11200

@@ -1,0 +1,36 @@
+{
+  "overall_isolation_status": "PASS",
+  "pre_execution_state": {
+    "total_frozen_files": 427,
+    "git_records_count": 5,
+    "git_records": [
+      "M UNSW_NB15_Complete_Research_Report.md",
+      "M UNSW_NB15_Complete_Research_Report.pdf",
+      "?? RESEARCH_PAPER_MANUSCRIPT.md",
+      "?? SPRINT_AUDIT_AND_LEAKAGE_REPORT.md",
+      "?? publication_experiments/"
+    ]
+  },
+  "post_execution_state": {
+    "total_frozen_files": 427,
+    "git_records_count": 5,
+    "git_records": [
+      "M UNSW_NB15_Complete_Research_Report.md",
+      "M UNSW_NB15_Complete_Research_Report.pdf",
+      "?? RESEARCH_PAPER_MANUSCRIPT.md",
+      "?? SPRINT_AUDIT_AND_LEAKAGE_REPORT.md",
+      "?? publication_experiments/"
+    ]
+  },
+  "hash_snapshot_comparison": {
+    "pre_file_count": 427,
+    "post_file_count": 427,
+    "mismatches": [],
+    "added_files": [],
+    "deleted_files": [],
+    "snapshot_verified": true
+  },
+  "frozen_paths_git_violations": [],
+  "hash_isolation_verified": true,
+  "git_isolation_verified": true
+}

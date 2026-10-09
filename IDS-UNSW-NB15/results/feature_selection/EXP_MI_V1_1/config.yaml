@@ -1,0 +1,48 @@
+experiment_id: EXP_MI_V1_1
+protocol_version: '1.1'
+protocol_amendment: results/feature_selection/EXP_MI_V1_1/protocol_amendment.md
+mi:
+  method: mutual_info_classif
+  n_neighbors: 3
+  random_state: 42
+candidate_k:
+- 10
+- 20
+- 30
+- 40
+- 50
+- 75
+- 100
+- 150
+previous_candidate_k:
+- 10
+- 20
+- 30
+- 40
+- 50
+inner_cv:
+  method: StratifiedKFold
+  n_splits: 5
+  shuffle: true
+  random_state: 42
+  stratify_on: label
+evaluator:
+  model: LogisticRegression
+  solver: liblinear
+  C: 1.0
+  max_iter: 1000
+  class_weight: balanced
+  random_state: 42
+evaluator_scaling:
+  method: StandardScaler
+  fit_scope: inner_train_only
+selection:
+  metric: macro_f1
+  tie_break: smaller_k
+runtime_benchmark:
+  enabled: true
+  affects_selection: false
+selection_sanity:
+  flat_range_tolerance: 0.001
+  monotonic_tolerance: 0.0001
+  stop_if_still_monotonic_at_k150: true

@@ -1,0 +1,36 @@
+{
+  "experiment_id": "EXP_MATCHED_FPR_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T07:36:47.222616+00:00",
+  "config_path": "revision_v5\\publication_experiments\\configs\\matched_fpr.yaml",
+  "headline_tier": "B",
+  "models_evaluated": [
+    "dt",
+    "rf",
+    "svm",
+    "nn",
+    "stacking_seed_42",
+    "stacking_seed_123",
+    "stacking_seed_2024",
+    "ae",
+    "if_seed_42",
+    "if_seed_123",
+    "if_seed_2024"
+  ],
+  "budgets_evaluated": [
+    "1/1000",
+    "1/200",
+    "1/100",
+    "1/20"
+  ],
+  "artifact_hashes": {
+    "matched_fpr_table.csv": "dead5a0bd363610e137d007811a0512fbfd66c6d99a1902858ba31126b19229f",
+    "matched_fpr_tier_a.csv": "dcb0edec5d33780ffecba1502e657e43ac921c4bacb0661df60ad95d1f0ad11d",
+    "matched_fpr_tier_b.csv": "29289d2b1a17638070d54a4c017befa6be53c4a3730a666a35e83961a3d9fcc1",
+    "cross_model_comparison.csv": "29289d2b1a17638070d54a4c017befa6be53c4a3730a666a35e83961a3d9fcc1",
+    "partition_shift_diagnostic.csv": "8490f25ade06cd5fa6b8054a930fb89076d08af9649eb62344762d2d5ed37cba",
+    "headline_tier_decision.json": "37c8140407e8973f92d12ef9d6007616979e3bf84341d9431570d0934504f52b",
+    "ae_unseen_families_recall.csv": "53f4cdeb5d2a2641e95f18f3f6cd87798e626c3c75ce44a910e8dd4d277e8533"
+  },
+  "status": "PASS"
+}

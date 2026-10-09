@@ -1,0 +1,19 @@
+{
+  "family": "BACKDOOR",
+  "target_count": 583,
+  "detected_count": 0,
+  "missed_count": 583,
+  "detection_rate": 0.0,
+  "benign_val_fpr": 0.00026785714285714287,
+  "benign_devtest_fp": 9,
+  "benign_devtest_n": 37000,
+  "benign_devtest_fpr": 0.00024324324324324323,
+  "threshold_rule": "mean3sigma",
+  "threshold_value": 11.591546759009361,
+  "ae_training_rows": 40320,
+  "feature_count": 72,
+  "architecture": "72\u219212\u21926\u219212\u219272",
+  "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+  "ae_checkpoint_hash": "28605a262bfa619a542babaebdba4f2cd682628c3b3f191d4078b88f6481db9a",
+  "small_n_warning": false
+}

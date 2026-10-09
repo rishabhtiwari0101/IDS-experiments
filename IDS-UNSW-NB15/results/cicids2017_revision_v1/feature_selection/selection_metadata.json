@@ -1,0 +1,9 @@
+{
+  "selected_features_sha256": "6fc304d041a6704bf45ac9d2533e8c4ac65c8216e0ac7751395d412f5759203c",
+  "selected_features_path": "results\\cicids2017_revision_v1\\feature_selection\\selected_features.json",
+  "plateau_table_path": "results\\cicids2017_revision_v1\\feature_selection\\mi_plateau_table.csv",
+  "mi_scores_path": "results\\cicids2017_revision_v1\\feature_selection\\mi_scores.csv",
+  "D_original": 69,
+  "K_star": 69,
+  "reduction_achieved": false
+}

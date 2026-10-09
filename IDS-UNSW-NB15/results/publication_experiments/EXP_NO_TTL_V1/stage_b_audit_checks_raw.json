@@ -1,0 +1,128 @@
+{
+  "feature_verification": {
+    "canonical_count": 75,
+    "removed_features": [
+      "sttl",
+      "ct_state_ttl",
+      "dttl"
+    ],
+    "removed_count": 3,
+    "final_count": 72,
+    "feature_hash": "21c949fc5709c21d3568a420559f3bc42ba52f26e4be95ee551901b7de9bbe96",
+    "hash_match": true,
+    "sttl_absent": true,
+    "ct_state_ttl_absent": true,
+    "dttl_absent": true,
+    "count_eq_72": true
+  },
+  "scaler": {
+    "n_features_in_": 72,
+    "correct_72": true
+  },
+  "nn_checkpoint_dims": {
+    "42": {
+      "input_dim": 72,
+      "hidden1_dim": 128,
+      "correct": true
+    },
+    "123": {
+      "input_dim": 72,
+      "hidden1_dim": 128,
+      "correct": true
+    },
+    "2024": {
+      "input_dim": 72,
+      "hidden1_dim": 128,
+      "correct": true
+    }
+  },
+  "meta_learner_dims": {
+    "42": {
+      "n_features_in_": 4,
+      "correct_4": true,
+      "coefs": [
+        0.1945770303941549,
+        6.715305981144559,
+        0.6571412875497935,
+        1.5440664411601293
+      ],
+      "intercept": -4.751304271111389
+    },
+    "123": {
+      "n_features_in_": 4,
+      "correct_4": true,
+      "coefs": [
+        0.18182723129660056,
+        6.874224627904522,
+        0.648780706170232,
+        1.4030932437508963
+      ],
+      "intercept": -4.748868445591018
+    },
+    "2024": {
+      "n_features_in_": 4,
+      "correct_4": true,
+      "coefs": [
+        0.19808773877527375,
+        6.942384193849192,
+        0.6681706435060419,
+        1.2532264107834437
+      ],
+      "intercept": -4.72637194247165
+    }
+  },
+  "row_alignment": {
+    "backdoor_rows_in_split": 583,
+    "backdoor_unique_ids": true,
+    "canon_id_count": 583,
+    "nottl_id_count": 583,
+    "canon_vs_split_exact_match": true,
+    "nottl_vs_split_exact_match": true,
+    "all_three_identical": true,
+    "labels_all_attack": true,
+    "sorted_id_match": true
+  },
+  "canonical_dataset_hashes": {
+    "train": {
+      "expected": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+      "actual": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+      "match": true
+    },
+    "validation": {
+      "expected": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+      "actual": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+      "match": true
+    },
+    "dev_test": {
+      "expected": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+      "actual": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+      "match": true
+    },
+    "protected_backdoor": {
+      "expected": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+      "actual": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+      "match": true
+    }
+  },
+  "canonical_provenance": {
+    "source_file": "results/zero_day/EXP_ZERODAY_V1/predictions/zero_day_backdoor_predictions.csv",
+    "seed": 42,
+    "total_rows": 583,
+    "stacking_detected": 582,
+    "rf_detected": 582,
+    "dt_detected": 577,
+    "svm_detected": 577,
+    "nn_detected": 578,
+    "stacking_rate": "582/583 (99.83%)",
+    "headline_582_confirmed": true
+  },
+  "canonical_feature_file_hash": {
+    "path": "results/feature_selection/EXP_MI_V1_1/selected_features.json",
+    "sha256": "6a1816143a4fbe1141e406a820c5adbd0b1452b45172a9d7de8767a897db1024"
+  },
+  "isolation_check": {
+    "all_outputs_in_publication_experiments": true,
+    "no_forbidden_dir_pollution": true,
+    "forbidden_dir_pollution": []
+  }
+}

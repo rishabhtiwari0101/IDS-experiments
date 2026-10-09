@@ -1,0 +1,364 @@
+{
+  "baseline": {
+    "config": {
+      "hidden_sizes": [
+        128,
+        64
+      ],
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    },
+    "best_epochs": [
+      18,
+      17,
+      21,
+      26,
+      16
+    ],
+    "best_val_losses": [
+      0.07265666127204895,
+      0.0700172483921051,
+      0.06795226037502289,
+      0.06511741876602173,
+      0.0709780678153038
+    ],
+    "final_epochs": [
+      23,
+      22,
+      26,
+      31,
+      21
+    ],
+    "mean_best_epoch": 19.6,
+    "median_best_epoch": 18.0,
+    "std_best_epoch": 4.03732584763727,
+    "min_best_epoch": 16,
+    "max_best_epoch": 26,
+    "range_best_epoch": 10,
+    "range_median_ratio": 0.5555555555555556,
+    "diagnostic_flag": false,
+    "final_epoch_count": 18
+  },
+  "tuning": {
+    "{\"hidden_sizes\": [128, 64], \"learning_rate\": 0.001, \"weight_decay\": 0.0001}": {
+      "config": {
+        "hidden_sizes": [
+          128,
+          64
+        ],
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001
+      },
+      "best_epochs": [
+        18,
+        17,
+        21,
+        26,
+        16
+      ],
+      "best_val_losses": [
+        0.07265666127204895,
+        0.0700172483921051,
+        0.06795226037502289,
+        0.06511741876602173,
+        0.0709780678153038
+      ],
+      "final_epochs": [
+        23,
+        22,
+        26,
+        31,
+        21
+      ],
+      "mean_best_epoch": 19.6,
+      "median_best_epoch": 18.0,
+      "std_best_epoch": 4.03732584763727,
+      "min_best_epoch": 16,
+      "max_best_epoch": 26,
+      "range_best_epoch": 10,
+      "range_median_ratio": 0.5555555555555556,
+      "diagnostic_flag": false,
+      "final_epoch_count": 18
+    },
+    "{\"hidden_sizes\": [128, 64], \"learning_rate\": 0.001, \"weight_decay\": 0.001}": {
+      "config": {
+        "hidden_sizes": [
+          128,
+          64
+        ],
+        "learning_rate": 0.001,
+        "weight_decay": 0.001
+      },
+      "best_epochs": [
+        5,
+        10,
+        18,
+        25,
+        6
+      ],
+      "best_val_losses": [
+        0.07855941355228424,
+        0.07584410905838013,
+        0.07346364110708237,
+        0.06986348330974579,
+        0.07758931815624237
+      ],
+      "final_epochs": [
+        10,
+        15,
+        23,
+        30,
+        11
+      ],
+      "mean_best_epoch": 12.8,
+      "median_best_epoch": 10.0,
+      "std_best_epoch": 8.526429498916883,
+      "min_best_epoch": 5,
+      "max_best_epoch": 25,
+      "range_best_epoch": 20,
+      "range_median_ratio": 2.0,
+      "diagnostic_flag": true,
+      "final_epoch_count": 10
+    },
+    "{\"hidden_sizes\": [128, 64], \"learning_rate\": 0.0001, \"weight_decay\": 0.0001}": {
+      "config": {
+        "hidden_sizes": [
+          128,
+          64
+        ],
+        "learning_rate": 0.0001,
+        "weight_decay": 0.0001
+      },
+      "best_epochs": [
+        52,
+        60,
+        63,
+        42,
+        49
+      ],
+      "best_val_losses": [
+        0.0727936401963234,
+        0.07044421136379242,
+        0.06931864470243454,
+        0.06694328784942627,
+        0.07138639688491821
+      ],
+      "final_epochs": [
+        57,
+        65,
+        68,
+        47,
+        54
+      ],
+      "mean_best_epoch": 53.2,
+      "median_best_epoch": 52.0,
+      "std_best_epoch": 8.46758525200662,
+      "min_best_epoch": 42,
+      "max_best_epoch": 63,
+      "range_best_epoch": 21,
+      "range_median_ratio": 0.40384615384615385,
+      "diagnostic_flag": false,
+      "final_epoch_count": 52
+    },
+    "{\"hidden_sizes\": [128, 64], \"learning_rate\": 0.0001, \"weight_decay\": 0.001}": {
+      "config": {
+        "hidden_sizes": [
+          128,
+          64
+        ],
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001
+      },
+      "best_epochs": [
+        41,
+        37,
+        40,
+        39,
+        56
+      ],
+      "best_val_losses": [
+        0.07644014805555344,
+        0.07539589703083038,
+        0.07366985082626343,
+        0.07083260267972946,
+        0.0750836431980133
+      ],
+      "final_epochs": [
+        46,
+        42,
+        45,
+        44,
+        61
+      ],
+      "mean_best_epoch": 42.6,
+      "median_best_epoch": 40.0,
+      "std_best_epoch": 7.63544366752843,
+      "min_best_epoch": 37,
+      "max_best_epoch": 56,
+      "range_best_epoch": 19,
+      "range_median_ratio": 0.475,
+      "diagnostic_flag": false,
+      "final_epoch_count": 40
+    },
+    "{\"hidden_sizes\": [256, 128], \"learning_rate\": 0.001, \"weight_decay\": 0.0001}": {
+      "config": {
+        "hidden_sizes": [
+          256,
+          128
+        ],
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001
+      },
+      "best_epochs": [
+        16,
+        10,
+        23,
+        21,
+        42
+      ],
+      "best_val_losses": [
+        0.07188030332326889,
+        0.07104873657226562,
+        0.06751960515975952,
+        0.06500774621963501,
+        0.06853386759757996
+      ],
+      "final_epochs": [
+        21,
+        15,
+        28,
+        26,
+        47
+      ],
+      "mean_best_epoch": 22.4,
+      "median_best_epoch": 21.0,
+      "std_best_epoch": 12.054044964243332,
+      "min_best_epoch": 10,
+      "max_best_epoch": 42,
+      "range_best_epoch": 32,
+      "range_median_ratio": 1.5238095238095237,
+      "diagnostic_flag": true,
+      "final_epoch_count": 21
+    },
+    "{\"hidden_sizes\": [256, 128], \"learning_rate\": 0.001, \"weight_decay\": 0.001}": {
+      "config": {
+        "hidden_sizes": [
+          256,
+          128
+        ],
+        "learning_rate": 0.001,
+        "weight_decay": 0.001
+      },
+      "best_epochs": [
+        9,
+        17,
+        18,
+        9,
+        28
+      ],
+      "best_val_losses": [
+        0.07719574868679047,
+        0.07503584772348404,
+        0.0725584477186203,
+        0.07136733829975128,
+        0.07517917454242706
+      ],
+      "final_epochs": [
+        14,
+        22,
+        23,
+        14,
+        33
+      ],
+      "mean_best_epoch": 16.2,
+      "median_best_epoch": 17.0,
+      "std_best_epoch": 7.854934754662192,
+      "min_best_epoch": 9,
+      "max_best_epoch": 28,
+      "range_best_epoch": 19,
+      "range_median_ratio": 1.1176470588235294,
+      "diagnostic_flag": true,
+      "final_epoch_count": 17
+    },
+    "{\"hidden_sizes\": [256, 128], \"learning_rate\": 0.0001, \"weight_decay\": 0.0001}": {
+      "config": {
+        "hidden_sizes": [
+          256,
+          128
+        ],
+        "learning_rate": 0.0001,
+        "weight_decay": 0.0001
+      },
+      "best_epochs": [
+        29,
+        64,
+        31,
+        42,
+        52
+      ],
+      "best_val_losses": [
+        0.07416059821844101,
+        0.06948499381542206,
+        0.07074854522943497,
+        0.06610104441642761,
+        0.07087988406419754
+      ],
+      "final_epochs": [
+        34,
+        69,
+        36,
+        47,
+        57
+      ],
+      "mean_best_epoch": 43.6,
+      "median_best_epoch": 42.0,
+      "std_best_epoch": 14.673104647619741,
+      "min_best_epoch": 29,
+      "max_best_epoch": 64,
+      "range_best_epoch": 35,
+      "range_median_ratio": 0.8333333333333334,
+      "diagnostic_flag": false,
+      "final_epoch_count": 42
+    },
+    "{\"hidden_sizes\": [256, 128], \"learning_rate\": 0.0001, \"weight_decay\": 0.001}": {
+      "config": {
+        "hidden_sizes": [
+          256,
+          128
+        ],
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001
+      },
+      "best_epochs": [
+        40,
+        24,
+        48,
+        35,
+        38
+      ],
+      "best_val_losses": [
+        0.07569488137960434,
+        0.07554825395345688,
+        0.07296186685562134,
+        0.07004433870315552,
+        0.07547245919704437
+      ],
+      "final_epochs": [
+        45,
+        29,
+        53,
+        40,
+        43
+      ],
+      "mean_best_epoch": 37.0,
+      "median_best_epoch": 38.0,
+      "std_best_epoch": 8.717797887081348,
+      "min_best_epoch": 24,
+      "max_best_epoch": 48,
+      "range_best_epoch": 24,
+      "range_median_ratio": 0.631578947368421,
+      "diagnostic_flag": false,
+      "final_epoch_count": 38
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "verification_timestamp_utc": "2026-10-06T09:40:05.448558+00:00",
+  "sprint": 4,
+  "all_invariants_pass": true,
+  "unsw_benchmark_manifest": {
+    "pass": true,
+    "total_files": 1261,
+    "missing_count": 0,
+    "mismatches_count": 0
+  },
+  "shortcut_freeze_verification": {
+    "pass": true,
+    "actual_sha": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+    "expected_sha": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+    "frozen_set": [
+      "Destination Port",
+      "Init_Win_bytes_backward"
+    ],
+    "expected_set": [
+      "Destination Port",
+      "Init_Win_bytes_backward"
+    ]
+  },
+  "populations_verification": {
+    "pass": true,
+    "details": {
+      "train": {
+        "expected_count": 340464,
+        "actual_count": 340464,
+        "count_pass": true,
+        "sha_pass": true
+      },
+      "calibration": {
+        "expected_count": 18500,
+        "actual_count": 18500,
+        "count_pass": true,
+        "sha_pass": true
+      },
+      "eval_control": {
+        "expected_count": 18500,
+        "actual_count": 18500,
+        "count_pass": true,
+        "sha_pass": true
+      },
+      "dev_test": {
+        "expected_count": 743921,
+        "actual_count": 743921,
+        "count_pass": true,
+        "sha_pass": true
+      },
+      "protected_bot": {
+        "expected_count": 1948,
+        "actual_count": 1948,
+        "count_pass": true,
+        "sha_pass": true
+      },
+      "unseen_xss": {
+        "expected_count": 652,
+        "actual_count": 652,
+        "count_pass": true,
+        "sha_pass": true
+      },
+      "unseen_infiltration": {
+        "expected_count": 36,
+        "actual_count": 36,
+        "count_pass": true,
+        "sha_pass": true
+      },
+      "excluded_small": {
+        "expected_count": 32,
+        "actual_count": 32,
+        "count_pass": true,
+        "sha_pass": true
+      }
+    }
+  },
+  "sprint4_artifacts_verification": {
+    "pass": true,
+    "total_required": 26,
+    "missing_count": 0,
+    "empty_count": 0,
+    "missing": [],
+    "empty": []
+  },
+  "model_architecture_verification": {
+    "pass": true,
+    "input_dim": 69,
+    "expected_input_dim": 69,
+    "total_params": 1899,
+    "expected_total_params": 1899
+  },
+  "hybrid_partition_invariant": {
+    "pass": true,
+    "details": {
+      "42": {
+        "Q1": 0,
+        "Q2": 0,
+        "Q3": 13,
+        "Q4": 1935,
+        "total": 1948,
+        "expected": 1948,
+        "pass": true
+      },
+      "123": {
+        "Q1": 0,
+        "Q2": 0,
+        "Q3": 11,
+        "Q4": 1937,
+        "total": 1948,
+        "expected": 1948,
+        "pass": true
+      },
+      "2024": {
+        "Q1": 0,
+        "Q2": 0,
+        "Q3": 11,
+        "Q4": 1937,
+        "total": 1948,
+        "expected": 1948,
+        "pass": true
+      }
+    }
+  }
+}

@@ -1,0 +1,521 @@
+{
+  "creation_timestamp_utc": "2026-10-06T10:23:22.405544+00:00",
+  "sprint": 5,
+  "step": "s17_train_ablated_base_models",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "k_star_original": 69,
+  "frozen_shortcuts": [
+    "Destination Port",
+    "Init_Win_bytes_backward"
+  ],
+  "shortcut_sha256_verified": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+  "D_ablated": 67,
+  "ablated_features": [
+    "Average Packet Size",
+    "Packet Length Std",
+    "Packet Length Variance",
+    "Packet Length Mean",
+    "Total Length of Bwd Packets",
+    "Subflow Bwd Bytes",
+    "Max Packet Length",
+    "Avg Bwd Segment Size",
+    "Bwd Packet Length Mean",
+    "Init_Win_bytes_forward",
+    "Bwd Packet Length Max",
+    "Subflow Fwd Bytes",
+    "Total Length of Fwd Packets",
+    "Fwd Packet Length Max",
+    "Fwd IAT Max",
+    "Fwd IAT Total",
+    "Fwd Header Length",
+    "Fwd IAT Mean",
+    "Flow IAT Max",
+    "Bwd Header Length",
+    "Bwd IAT Max",
+    "Fwd Packet Length Mean",
+    "Avg Fwd Segment Size",
+    "Flow Bytes/s",
+    "Flow Duration",
+    "Bwd IAT Total",
+    "Bwd Packet Length Std",
+    "Bwd Packets/s",
+    "Bwd IAT Mean",
+    "Fwd Packets/s",
+    "Flow Packets/s",
+    "Bwd Packet Length Min",
+    "Fwd Packet Length Min",
+    "Min Packet Length",
+    "Subflow Bwd Packets",
+    "Total Backward Packets",
+    "Flow IAT Mean",
+    "Fwd Packet Length Std",
+    "Flow IAT Std",
+    "Total Fwd Packets",
+    "Subflow Fwd Packets",
+    "Fwd IAT Std",
+    "Active Min",
+    "Active Mean",
+    "Active Max",
+    "Idle Max",
+    "Bwd IAT Std",
+    "Bwd IAT Min",
+    "Idle Min",
+    "Idle Mean",
+    "Flow IAT Min",
+    "Fwd IAT Min",
+    "act_data_pkt_fwd",
+    "Idle Std",
+    "Active Std",
+    "URG Flag Count",
+    "min_seg_size_forward",
+    "Down/Up Ratio",
+    "PSH Flag Count",
+    "FIN Flag Count",
+    "ACK Flag Count",
+    "Fwd PSH Flags",
+    "SYN Flag Count",
+    "RST Flag Count",
+    "CWE Flag Count",
+    "ECE Flag Count",
+    "Fwd URG Flags"
+  ],
+  "train_rows": 340464,
+  "n_benign": 44800,
+  "n_attack": 295664,
+  "device": "cuda",
+  "canonical_hyperparameters": {
+    "DT": {
+      "criterion": "entropy",
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "class_weight": "balanced"
+    },
+    "RF": {
+      "n_estimators": 300,
+      "criterion": "gini",
+      "max_features": 0.3,
+      "max_depth": null,
+      "bootstrap": true,
+      "class_weight": "balanced",
+      "n_jobs": -1
+    },
+    "SVM": {
+      "C": 0.1,
+      "loss": "squared_hinge",
+      "penalty": "l2",
+      "dual": "auto",
+      "class_weight": "balanced",
+      "max_iter": 2000
+    },
+    "IDSNet": {
+      "lr": 0.001,
+      "wd": 1e-05,
+      "batch": 256,
+      "epochs": 18,
+      "pos_weight": null,
+      "architecture": "Input(D_ablated)->Linear(128)->BN->ReLU->Dropout(0.3)->Linear(64)->BN->ReLU->Dropout(0.2)->Linear(1)"
+    }
+  },
+  "per_seed_results": {
+    "42": {
+      "dt": {
+        "params": {
+          "criterion": "entropy",
+          "max_depth": null,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "class_weight": "balanced",
+          "random_state": 42
+        },
+        "train_metrics": {
+          "macro_f1": 0.9999485907602358,
+          "precision": 0.9999797069686269,
+          "recall": 0.9999932355646951,
+          "f1_attack": 0.9999864712209047,
+          "fpr": 0.00013392857142857144,
+          "confusion_matrix": [
+            [
+              44794,
+              6
+            ],
+            [
+              2,
+              295662
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_42\\dt_model.pkl",
+        "sha256": "5729630a44151928793bd59ef297a3590bb7bb268d83a422cd3a586d290a7d43",
+        "train_time_s": 12.335367799998494
+      },
+      "rf": {
+        "params": {
+          "n_estimators": 300,
+          "criterion": "gini",
+          "max_features": 0.3,
+          "max_depth": null,
+          "bootstrap": true,
+          "class_weight": "balanced",
+          "n_jobs": -1,
+          "random_state": 42
+        },
+        "train_metrics": {
+          "macro_f1": 0.9997430316688425,
+          "precision": 0.9999797047720846,
+          "recall": 0.999885004599816,
+          "f1_attack": 0.999932352443768,
+          "fpr": 0.00013392857142857144,
+          "confusion_matrix": [
+            [
+              44794,
+              6
+            ],
+            [
+              34,
+              295630
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_42\\rf_model.pkl",
+        "sha256": "e7e9cafbd49ec538cc8508ccdad63dd825247126548fdc0fcac4b093e74a4ec6",
+        "train_time_s": 148.37352060000194
+      },
+      "svm": {
+        "params": {
+          "C": 0.1,
+          "loss": "squared_hinge",
+          "penalty": "l2",
+          "dual": "auto",
+          "class_weight": "balanced",
+          "max_iter": 2000,
+          "random_state": 42
+        },
+        "train_metrics": {
+          "macro_f1": 0.9309994162430858,
+          "precision": 0.9836038850777695,
+          "recall": 0.9795984631202987,
+          "f1_attack": 0.9815970880696261,
+          "fpr": 0.10776785714285714,
+          "confusion_matrix": [
+            [
+              39972,
+              4828
+            ],
+            [
+              6032,
+              289632
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_42\\svm_model.pkl",
+        "sha256": "37be5f661baf808d6690328ed9bba40acec686d69f8c4c901da1c54fc837bf54",
+        "train_time_s": 397.64923190000263
+      },
+      "nn": {
+        "params": {
+          "lr": 0.001,
+          "wd": 1e-05,
+          "batch": 256,
+          "epochs": 18,
+          "pos_weight": null,
+          "input_dim": 67
+        },
+        "train_metrics": {
+          "macro_f1": 0.974700843749041,
+          "precision": 0.9890534924252581,
+          "recall": 0.9980721359380919,
+          "f1_attack": 0.9935423484573014,
+          "fpr": 0.07290178571428571,
+          "confusion_matrix": [
+            [
+              41534,
+              3266
+            ],
+            [
+              570,
+              295094
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_42\\nn_model.pt",
+        "sha256": "e4b4376eb5f635fe641bf0a8c3697990b4fb8a4e42066af51f2c0fc57322f316"
+      }
+    },
+    "123": {
+      "dt": {
+        "params": {
+          "criterion": "entropy",
+          "max_depth": null,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "class_weight": "balanced",
+          "random_state": 123
+        },
+        "train_metrics": {
+          "macro_f1": 0.9999485907602358,
+          "precision": 0.9999797069686269,
+          "recall": 0.9999932355646951,
+          "f1_attack": 0.9999864712209047,
+          "fpr": 0.00013392857142857144,
+          "confusion_matrix": [
+            [
+              44794,
+              6
+            ],
+            [
+              2,
+              295662
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_123\\dt_model.pkl",
+        "sha256": "a417aa5f86c73a0ad7ce43027bf2e376170433202c9389cf868ea0ba95fc301d",
+        "train_time_s": 12.264645399998699
+      },
+      "rf": {
+        "params": {
+          "n_estimators": 300,
+          "criterion": "gini",
+          "max_features": 0.3,
+          "max_depth": null,
+          "bootstrap": true,
+          "class_weight": "balanced",
+          "n_jobs": -1,
+          "random_state": 123
+        },
+        "train_metrics": {
+          "macro_f1": 0.9997494535054339,
+          "precision": 0.9999797048407337,
+          "recall": 0.9998883868174685,
+          "f1_attack": 0.9999340437442182,
+          "fpr": 0.00013392857142857144,
+          "confusion_matrix": [
+            [
+              44794,
+              6
+            ],
+            [
+              33,
+              295631
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_123\\rf_model.pkl",
+        "sha256": "d9b179f9fef8c4a8a0a73dc59f7af36dc97088c43c474fb26eea03058f1ce322",
+        "train_time_s": 267.1544200999997
+      },
+      "svm": {
+        "params": {
+          "C": 0.1,
+          "loss": "squared_hinge",
+          "penalty": "l2",
+          "dual": "auto",
+          "class_weight": "balanced",
+          "max_iter": 2000,
+          "random_state": 123
+        },
+        "train_metrics": {
+          "macro_f1": 0.9309994162430858,
+          "precision": 0.9836038850777695,
+          "recall": 0.9795984631202987,
+          "f1_attack": 0.9815970880696261,
+          "fpr": 0.10776785714285714,
+          "confusion_matrix": [
+            [
+              39972,
+              4828
+            ],
+            [
+              6032,
+              289632
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_123\\svm_model.pkl",
+        "sha256": "8a7022f5362f37398e0d1e0cce8ec8041b9c6e15eec1d425ee3241454d2f3da0",
+        "train_time_s": 399.97564820000116
+      },
+      "nn": {
+        "params": {
+          "lr": 0.001,
+          "wd": 1e-05,
+          "batch": 256,
+          "epochs": 18,
+          "pos_weight": null,
+          "input_dim": 67
+        },
+        "train_metrics": {
+          "macro_f1": 0.9776460399400992,
+          "precision": 0.9913612213329747,
+          "recall": 0.9971149683424427,
+          "f1_attack": 0.9942297704723427,
+          "fpr": 0.05734375,
+          "confusion_matrix": [
+            [
+              42231,
+              2569
+            ],
+            [
+              853,
+              294811
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_123\\nn_model.pt",
+        "sha256": "4a411161bf2a50313b6e9a7096ed633030517809bc41fa980e050c06b4f3398c"
+      }
+    },
+    "2024": {
+      "dt": {
+        "params": {
+          "criterion": "entropy",
+          "max_depth": null,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "class_weight": "balanced",
+          "random_state": 2024
+        },
+        "train_metrics": {
+          "macro_f1": 0.9999485907602358,
+          "precision": 0.9999797069686269,
+          "recall": 0.9999932355646951,
+          "f1_attack": 0.9999864712209047,
+          "fpr": 0.00013392857142857144,
+          "confusion_matrix": [
+            [
+              44794,
+              6
+            ],
+            [
+              2,
+              295662
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_2024\\dt_model.pkl",
+        "sha256": "0d5e85336d47d7a9bde5b8e04af6b84871305604db89d3b31dd4c276b3188d56",
+        "train_time_s": 9.295139999998355
+      },
+      "rf": {
+        "params": {
+          "n_estimators": 300,
+          "criterion": "gini",
+          "max_features": 0.3,
+          "max_depth": null,
+          "bootstrap": true,
+          "class_weight": "balanced",
+          "n_jobs": -1,
+          "random_state": 2024
+        },
+        "train_metrics": {
+          "macro_f1": 0.999736609953819,
+          "precision": 0.999979704703435,
+          "recall": 0.9998816223821635,
+          "f1_attack": 0.9999306611375971,
+          "fpr": 0.00013392857142857144,
+          "confusion_matrix": [
+            [
+              44794,
+              6
+            ],
+            [
+              35,
+              295629
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_2024\\rf_model.pkl",
+        "sha256": "161770d9885026d573ce2eac85982b17466b95f09273467311182688ecb752ab",
+        "train_time_s": 266.7385322000009
+      },
+      "svm": {
+        "params": {
+          "C": 0.1,
+          "loss": "squared_hinge",
+          "penalty": "l2",
+          "dual": "auto",
+          "class_weight": "balanced",
+          "max_iter": 2000,
+          "random_state": 2024
+        },
+        "train_metrics": {
+          "macro_f1": 0.9309994162430858,
+          "precision": 0.9836038850777695,
+          "recall": 0.9795984631202987,
+          "f1_attack": 0.9815970880696261,
+          "fpr": 0.10776785714285714,
+          "confusion_matrix": [
+            [
+              39972,
+              4828
+            ],
+            [
+              6032,
+              289632
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_2024\\svm_model.pkl",
+        "sha256": "12a2d99750a508d18f828bd6309f9e38c57be212b8dd96a05b371eec9abb74e9",
+        "train_time_s": 396.4367490000004
+      },
+      "nn": {
+        "params": {
+          "lr": 0.001,
+          "wd": 1e-05,
+          "batch": 256,
+          "epochs": 18,
+          "pos_weight": null,
+          "input_dim": 67
+        },
+        "train_metrics": {
+          "macro_f1": 0.9767197095501239,
+          "precision": 0.9908552569669431,
+          "recall": 0.9971690838248823,
+          "f1_attack": 0.9940021442587136,
+          "fpr": 0.06073660714285714,
+          "confusion_matrix": [
+            [
+              42079,
+              2721
+            ],
+            [
+              837,
+              294827
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\ablated\\seed_2024\\nn_model.pt",
+        "sha256": "01aa280eeda1735e3c916f59f902443ec7e10d6650fb2d657b25b258097bff2e"
+      }
+    }
+  },
+  "model_artifacts": {
+    "42": {
+      "seed_dir": "cicids2017\\models\\ablated\\seed_42",
+      "dt_sha256": "5729630a44151928793bd59ef297a3590bb7bb268d83a422cd3a586d290a7d43",
+      "rf_sha256": "e7e9cafbd49ec538cc8508ccdad63dd825247126548fdc0fcac4b093e74a4ec6",
+      "svm_sha256": "37be5f661baf808d6690328ed9bba40acec686d69f8c4c901da1c54fc837bf54",
+      "nn_sha256": "e4b4376eb5f635fe641bf0a8c3697990b4fb8a4e42066af51f2c0fc57322f316"
+    },
+    "123": {
+      "seed_dir": "cicids2017\\models\\ablated\\seed_123",
+      "dt_sha256": "a417aa5f86c73a0ad7ce43027bf2e376170433202c9389cf868ea0ba95fc301d",
+      "rf_sha256": "d9b179f9fef8c4a8a0a73dc59f7af36dc97088c43c474fb26eea03058f1ce322",
+      "svm_sha256": "8a7022f5362f37398e0d1e0cce8ec8041b9c6e15eec1d425ee3241454d2f3da0",
+      "nn_sha256": "4a411161bf2a50313b6e9a7096ed633030517809bc41fa980e050c06b4f3398c"
+    },
+    "2024": {
+      "seed_dir": "cicids2017\\models\\ablated\\seed_2024",
+      "dt_sha256": "0d5e85336d47d7a9bde5b8e04af6b84871305604db89d3b31dd4c276b3188d56",
+      "rf_sha256": "161770d9885026d573ce2eac85982b17466b95f09273467311182688ecb752ab",
+      "svm_sha256": "12a2d99750a508d18f828bd6309f9e38c57be212b8dd96a05b371eec9abb74e9",
+      "nn_sha256": "01aa280eeda1735e3c916f59f902443ec7e10d6650fb2d657b25b258097bff2e"
+    }
+  }
+}

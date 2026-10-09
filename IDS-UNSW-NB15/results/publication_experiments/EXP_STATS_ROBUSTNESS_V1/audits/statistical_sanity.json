@@ -1,0 +1,10 @@
+{
+  "paired_sum_equals_583_all_models": true,
+  "ae_paired_sum_equals_583": true,
+  "rates_between_0_and_1": true,
+  "fpr_between_0_and_1": true,
+  "ci_bounds_valid": true,
+  "all_reconstruction_errors_finite": true,
+  "all_p_values_bounded": true,
+  "status": "PASS"
+}

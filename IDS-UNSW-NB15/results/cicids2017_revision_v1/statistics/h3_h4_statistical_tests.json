@@ -1,0 +1,121 @@
+{
+  "timestamp_utc": "2026-10-06T09:39:21.425620+00:00",
+  "sprint": 4,
+  "H3_autoencoder_evaluation": [
+    {
+      "seed": 42,
+      "hypothesis": "H3",
+      "detector": "Autoencoder_Standard(mu+3sigma)",
+      "test_population": "PROTECTED_BOT",
+      "n_samples": 1948,
+      "observed_detections": 13,
+      "observed_recall": 0.006673511293634497,
+      "exact_95_ci_lower": 0.0035580072930877496,
+      "exact_95_ci_upper": 0.011384871276064483,
+      "verdict": "PARTIALLY_SUPPORTED",
+      "formulation": "Observed detections: 13/1948 (recall=0.0067), exact 95% CI [0.003558, 0.011385]."
+    },
+    {
+      "seed": 123,
+      "hypothesis": "H3",
+      "detector": "Autoencoder_Standard(mu+3sigma)",
+      "test_population": "PROTECTED_BOT",
+      "n_samples": 1948,
+      "observed_detections": 11,
+      "observed_recall": 0.005646817248459959,
+      "exact_95_ci_lower": 0.002822140447885311,
+      "exact_95_ci_upper": 0.010081204319175864,
+      "verdict": "PARTIALLY_SUPPORTED",
+      "formulation": "Observed detections: 11/1948 (recall=0.0056), exact 95% CI [0.002822, 0.010081]."
+    },
+    {
+      "seed": 2024,
+      "hypothesis": "H3",
+      "detector": "Autoencoder_Standard(mu+3sigma)",
+      "test_population": "PROTECTED_BOT",
+      "n_samples": 1948,
+      "observed_detections": 11,
+      "observed_recall": 0.005646817248459959,
+      "exact_95_ci_lower": 0.002822140447885311,
+      "exact_95_ci_upper": 0.010081204319175864,
+      "verdict": "PARTIALLY_SUPPORTED",
+      "formulation": "Observed detections: 11/1948 (recall=0.0056), exact 95% CI [0.002822, 0.010081]."
+    }
+  ],
+  "H4_hybrid_rescue_evaluation": [
+    {
+      "seed": 42,
+      "hypothesis": "H4",
+      "fusion": "C06 (Stacking OR AE)",
+      "test_population": "PROTECTED_BOT",
+      "n_samples": 1948,
+      "Q1_both": 0,
+      "Q2_stack_only": 0,
+      "Q3_ae_rescue": 13,
+      "Q4_neither": 1935,
+      "discordant_pairs": 13,
+      "mcnemar_test_type": "EXACT_BINOMIAL",
+      "mcnemar_statistic": 11.076923076923077,
+      "mcnemar_raw_p": 0.000244140625,
+      "q3_exact_ci_95": [
+        0.0035580072930877496,
+        0.011384871276064483
+      ],
+      "incremental_false_positives_ctrl": 27,
+      "verdict": "NOT_SUPPORTED",
+      "interpretation": "AE rescue Q3=13 (1.14% max plausible rescue) while incurring +27 false alarms on benign control. Paired McNemar discordant pairs=13 (p=0.00024). H4 verdict: NOT_SUPPORTED.",
+      "mcnemar_holm_p": 0.000732421875
+    },
+    {
+      "seed": 123,
+      "hypothesis": "H4",
+      "fusion": "C06 (Stacking OR AE)",
+      "test_population": "PROTECTED_BOT",
+      "n_samples": 1948,
+      "Q1_both": 0,
+      "Q2_stack_only": 0,
+      "Q3_ae_rescue": 11,
+      "Q4_neither": 1937,
+      "discordant_pairs": 11,
+      "mcnemar_test_type": "EXACT_BINOMIAL",
+      "mcnemar_statistic": 9.090909090909092,
+      "mcnemar_raw_p": 0.0009765625,
+      "q3_exact_ci_95": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "incremental_false_positives_ctrl": 27,
+      "verdict": "NOT_SUPPORTED",
+      "interpretation": "AE rescue Q3=11 (1.01% max plausible rescue) while incurring +27 false alarms on benign control. Paired McNemar discordant pairs=11 (p=0.00098). H4 verdict: NOT_SUPPORTED.",
+      "mcnemar_holm_p": 0.001953125
+    },
+    {
+      "seed": 2024,
+      "hypothesis": "H4",
+      "fusion": "C06 (Stacking OR AE)",
+      "test_population": "PROTECTED_BOT",
+      "n_samples": 1948,
+      "Q1_both": 0,
+      "Q2_stack_only": 0,
+      "Q3_ae_rescue": 11,
+      "Q4_neither": 1937,
+      "discordant_pairs": 11,
+      "mcnemar_test_type": "EXACT_BINOMIAL",
+      "mcnemar_statistic": 9.090909090909092,
+      "mcnemar_raw_p": 0.0009765625,
+      "q3_exact_ci_95": [
+        0.002822140447885311,
+        0.010081204319175864
+      ],
+      "incremental_false_positives_ctrl": 27,
+      "verdict": "NOT_SUPPORTED",
+      "interpretation": "AE rescue Q3=11 (1.01% max plausible rescue) while incurring +27 false alarms on benign control. Paired McNemar discordant pairs=11 (p=0.00098). H4 verdict: NOT_SUPPORTED.",
+      "mcnemar_holm_p": 0.001953125
+    }
+  ],
+  "methodology": {
+    "exact_ci": "Clopper-Pearson 95% via scipy.stats.binomtest",
+    "paired_test": "Exact two-sided McNemar binomial test on discordant pairs",
+    "multiple_testing": "Holm-Bonferroni step-down correction"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "objections": [
+    {
+      "objection_id": "REV_01_SINGLE_DATASET",
+      "topic": "Single-dataset evaluation scope (UNSW-NB15)",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage-E limitation L1 explicitly documents single-dataset scope and limits generalizability claims.",
+      "manuscript_gap_description": "Manuscript currently lacks limitation L1 discussing single-dataset boundaries and cross-testbed variance."
+    },
+    {
+      "objection_id": "REV_02_WORMS_SAMPLE_SIZE",
+      "topic": "Small sample size for Worms (N=44, 95% CI [0.00%, 8.04%])",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E explicitly bounds Worms N=44 with [SMALL-N WARNING] and exact Clopper-Pearson 95% CI [0.00%, 8.04%].",
+      "manuscript_gap_description": "Manuscript lacks the Worms small-sample size warning and wide binomial confidence interval annotation."
+    },
+    {
+      "objection_id": "REV_03_PRIMARY_AE_DETECTION",
+      "topic": "Zero primary AE detections across 4 separate families (Backdoor 583, Worms 44, Shellcode 378, Analysis 677)",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E independently audits 4 attack families with exact Clopper-Pearson CIs, disclaiming 0% true sensitivity with no cross-family pooling.",
+      "manuscript_gap_description": "Manuscript only documents canonical Backdoor 0/583; lacks four-family independent reporting and Clopper-Pearson bounds."
+    },
+    {
+      "objection_id": "REV_04_THRESHOLD_SENSITIVITY",
+      "topic": "AE secondary threshold sensitivity (high benign FPR at relaxed thresholds)",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E provides 60-cell secondary threshold matrix, documenting relaxed thresholds as descriptive trade-offs with elevated benign FPR.",
+      "manuscript_gap_description": "Manuscript lacks the secondary threshold exploration matrix (Tables E4/E5) and benign FPR trade-off curves."
+    },
+    {
+      "objection_id": "REV_05_STRUCTURAL_DEGENERACY",
+      "topic": "Paired test structural degeneracy (B=0, C=0 for RF and Canon vs New AE)",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E classifies paired contingency tables with B=0, C=0 as STRUCTURALLY_NON_INFORMATIVE without claiming equivalence.",
+      "manuscript_gap_description": "Manuscript does not address structural degeneracy in paired McNemar tests for zero-discordant comparisons."
+    },
+    {
+      "objection_id": "REV_06_TTL_CAUSALITY",
+      "topic": "Controlled feature ablation isolates representation but cannot prove causal network dynamics",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E limitation L5 disclaims causal network dynamics, clarifying feature ablation isolates representation importance.",
+      "manuscript_gap_description": "Manuscript lacks the controlled No-TTL ablation results and explicit non-causal representation caveats."
+    },
+    {
+      "objection_id": "REV_07_SEED_VARIATION",
+      "topic": "Three-seed descriptive replication does not constitute formal population-level invariance",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E limitation L4 documents seeds 42, 123, 2024 as descriptive multi-seed replication.",
+      "manuscript_gap_description": "Manuscript currently presents only Seed 42 results and lacks the three-seed replication summary."
+    },
+    {
+      "objection_id": "REV_08_EXTERNAL_VALIDATION",
+      "topic": "Lack of multi-testbed external cross-dataset evaluation",
+      "evidence_risk_classification": "EXPLICITLY LIMITED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E explicitly acknowledges absence of external cross-dataset validation under limitation L5.",
+      "manuscript_gap_description": "Manuscript does not discuss cross-dataset generalization limits or multi-testbed evaluation needs."
+    },
+    {
+      "objection_id": "REV_09_ZERO_DAY_DEFINITION",
+      "topic": "Evaluated Backdoor family represents benchmark zero-day, not arbitrary polymorphic in-the-wild zero-days",
+      "evidence_risk_classification": "ALREADY CONTROLLED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Experimental protocol strictly isolates protected Backdoor family as benchmark held-out attack.",
+      "manuscript_gap_description": "Manuscript must explicitly clarify that benchmark held-out family evaluation does not imply generalized in-the-wild zero-day defense."
+    },
+    {
+      "objection_id": "REV_10_DEPLOYMENT_CLAIMS",
+      "topic": "Operational viability in multi-gigabit networks with high false alarm costs",
+      "evidence_risk_classification": "ALREADY CONTROLLED",
+      "manuscript_wording_classification": "REQUIRES MANUSCRIPT REVISION",
+      "final_classification": "REQUIRES MANUSCRIPT REVISION",
+      "manuscript_silent": true,
+      "evidence_rationale": "Stage E and protocol avoid production deployment recommendations, emphasizing high false alarm costs.",
+      "manuscript_gap_description": "Manuscript should explicitly document operational deployment boundaries and false alarm burdens."
+    }
+  ],
+  "aggregate_verdict": "PASS WITH REVISION",
+  "critical_risk": false,
+  "G9_pass": true,
+  "reviewer_risk_requires_revision": true,
+  "objections_requiring_revision": [
+    "REV_01_SINGLE_DATASET",
+    "REV_02_WORMS_SAMPLE_SIZE",
+    "REV_03_PRIMARY_AE_DETECTION",
+    "REV_04_THRESHOLD_SENSITIVITY",
+    "REV_05_STRUCTURAL_DEGENERACY",
+    "REV_06_TTL_CAUSALITY",
+    "REV_07_SEED_VARIATION",
+    "REV_08_EXTERNAL_VALIDATION",
+    "REV_09_ZERO_DAY_DEFINITION",
+    "REV_10_DEPLOYMENT_CLAIMS"
+  ],
+  "note": "G9=True confirms no CRITICAL reviewer risks exist in the evidence base; it does NOT imply zero reviewer concerns. Objections requiring manuscript text additions are tracked via reviewer_risk_requires_revision."
+}

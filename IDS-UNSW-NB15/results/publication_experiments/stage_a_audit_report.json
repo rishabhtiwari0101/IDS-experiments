@@ -1,0 +1,303 @@
+{
+  "stage": "A_dry_run",
+  "timestamp_utc": "2026-09-08T12:17:45.306835+00:00",
+  "repo_root": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15",
+  "git_head_note": "Current HEAD: e08366f (post Sprint-13 freeze commits)",
+  "canonical_frozen_commit": "f694e19",
+  "sections": {
+    "A_new_folder": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\publication_experiments",
+    "B_reused_code": [
+      "src.utils.hashing.sha256_file \u2014 artifact fingerprinting",
+      "src.utils.reproducibility.set_all_seeds \u2014 seed control",
+      "src.preprocessing.scaling.fit_scaler \u2014 scaler fitting",
+      "src.preprocessing.scaling.transform_scaler \u2014 scaler application",
+      "src.models.autoencoder.ae_model.Autoencoder \u2014 AE architecture",
+      "src.models.autoencoder.ae_model.Autoencoder.reconstruction_error \u2014 RE computation",
+      "src.models.autoencoder.ae_calibrate.calibrate_thresholds \u2014 threshold calibration",
+      "src.models.autoencoder.ae_trainer.AETrainer \u2014 AE training loop",
+      "src.models.autoencoder.ae_trainer.create_monitor_split \u2014 monitor split",
+      "src.models.base_models.neural_network.IDSNet \u2014 NN architecture",
+      "src.models.base_models.neural_network (training/CV utilities)",
+      "src.models.base_models.random_forest \u2014 RF model",
+      "src.models.base_models.decision_tree \u2014 DT model",
+      "src.models.base_models.linear_svc \u2014 SVM model",
+      "src.models.stacking.oof_runner \u2014 5-fold OOF generation",
+      "src.models.stacking.meta_learner \u2014 LR meta-learner",
+      "src.models.base_models.comparator \u2014 model comparison",
+      "src.preprocessing.loader \u2014 data loading",
+      "src.preprocessing.preprocessing_pipeline \u2014 encoding pipeline"
+    ],
+    "C_reused_artifacts": [
+      "results/feature_selection/EXP_MI_V1_1/selected_features.json \u2014 canonical 75 features",
+      "data/splits/train.csv \u2014 TRAIN partition (read-only)",
+      "data/splits/validation.csv \u2014 VALIDATION partition (read-only)",
+      "data/splits/development_test.csv \u2014 DEV TEST partition (read-only)",
+      "data/splits/protected_unseen_attack.csv \u2014 583 Backdoor flows (read-only)",
+      "results/checkpoints/EXP_AE_V1/ae_final.pt \u2014 canonical AE (reference only, not retrained)",
+      "results/zero_day/EXP_ZERODAY_V1/metrics/zero_day_metrics.csv \u2014 canonical reference metrics"
+    ],
+    "D_new_code": [
+      "publication_experiments/utils/feature_adapter.py \u2014 No-TTL subset logic",
+      "publication_experiments/utils/ae_family_eval.py \u2014 per-family AE evaluation",
+      "publication_experiments/scripts/run_dry_run.py \u2014 this script",
+      "publication_experiments/configs/no_ttl.yaml \u2014 No-TTL experiment config",
+      "publication_experiments/configs/ae_unseen_families.yaml \u2014 AE family config",
+      "results/publication_experiments/EXP_NO_TTL_V1/features/no_ttl_features.json \u2014 72-feature manifest"
+    ],
+    "E_code_not_reused": [
+      {
+        "component": "Canonical StandardScaler for SVM/NN/AE",
+        "reason": "n_features_in_=75; incompatible with 72-feature input",
+        "adapter": "New scaler fitted on 72-feature TRAIN (SVM/NN) and 40,320 AE-fit subset (AE)"
+      }
+    ],
+    "F_feature_transformation": {
+      "canonical_75": 75,
+      "removed": [
+        "sttl",
+        "ct_state_ttl",
+        "dttl"
+      ],
+      "removed_count": 3,
+      "final_72": 72,
+      "feature_hash": "21c949fc5709c21d3568a420559f3bc42ba52f26e4be95ee551901b7de9bbe96",
+      "ttl_absent_verification": {
+        "sttl_absent": true,
+        "ct_state_ttl_absent": true,
+        "dttl_absent": true,
+        "feature_count_eq_72": true,
+        "all_pass": true
+      }
+    },
+    "G_no_ttl_model_design": {
+      "base_learners": [
+        "DT",
+        "RF",
+        "SVM",
+        "NN"
+      ],
+      "stacking": "5-fold OOF \u2192 Logistic Regression meta-learner",
+      "controlled_feature_ablation": "Controlled feature ablation: {sttl, ct_state_ttl, dttl} removed (75 \u2192 72 features). Tree models (DT, RF) explore 72-feature subspace without TTL splits; Linear/Neural models (SVM, NN) use newly fitted 72-feature StandardScaler on TRAIN; IDSNet first-layer weight tensor adapts (W1: 72 \u2192 128); All hyperparameters (depths, hidden sizes 128\u219264\u21922, lr=0.001, wd=1e-4, batch=256, patience=5), CV split (5-fold, seed=7), and random seeds ([42, 123, 2024]) remain identical to canonical.",
+      "idsnet_canonical": "75 \u2192 128 \u2192 64 \u2192 2 (W1: 75\u00d7128)",
+      "idsnet_no_ttl": "72 \u2192 128 \u2192 64 \u2192 2 (W1: 72\u00d7128)",
+      "seeds": [
+        42,
+        123,
+        2024
+      ],
+      "locked_paired_test_seed_mapping": {
+        "primary_paired_seed": {
+          "canonical_seed": 42,
+          "no_ttl_seed": 42,
+          "status": "LOCKED_MANDATORY"
+        },
+        "multi_seed_pairs": [
+          {
+            "canonical_seed": 42,
+            "no_ttl_seed": 42
+          },
+          {
+            "canonical_seed": 123,
+            "no_ttl_seed": 123
+          },
+          {
+            "canonical_seed": 2024,
+            "no_ttl_seed": 2024
+          }
+        ],
+        "cross_seed_pairing_allowed": false
+      }
+    },
+    "H_scaler_design": {
+      "ae_scaler_canonical_features": 75,
+      "nn_scaler_canonical_features": 75,
+      "svm_scaler_canonical_features": 75,
+      "no_ttl_features_needed": 72,
+      "canonical_scalers_incompatible": true,
+      "ae_scaler_fitting_protocol": {
+        "fit_population": "BENIGN_TRAIN_AE_FIT_SUBSET",
+        "fit_row_count": 40320,
+        "monitor_row_count": 4480,
+        "monitor_handling": "Transformed only, NEVER fitted (enforced by test_ae_leakage.py)",
+        "total_benign_train": 44800,
+        "validation_row_count": 11200,
+        "validation_handling": "Transformed only for threshold calibration"
+      },
+      "supervised_scaler_fitting_protocol": {
+        "fit_population": "TRAIN_ALL_72_FEATURES",
+        "fit_row_count": 162395,
+        "models": [
+          "SVM",
+          "NN"
+        ]
+      },
+      "decision": "New 72-feature StandardScaler fitted on TRAIN for SVM/NN and 40,320 AE-fit rows for AE"
+    },
+    "I_ae_design": {
+      "architecture": "72 \u2192 12 \u2192 6 \u2192 12 \u2192 72",
+      "derivation_rule": "round(72 \u00d7 16%) = 12, round(72 \u00d7 8%) = 6",
+      "benign_only_training": true,
+      "benign_validation_calibration": true,
+      "scaler_fit_rows": 40320,
+      "monitor_rows_transformed_only": 4480,
+      "final_refit_rows": 44800,
+      "calibration_rows": 11200,
+      "primary_threshold_rule": "p99",
+      "primary_threshold_predeclared": true,
+      "one_checkpoint": true,
+      "one_threshold": true,
+      "families": [
+        "BACKDOOR",
+        "WORMS",
+        "SHELLCODE",
+        "ANALYSIS"
+      ]
+    },
+    "J_target_families": {
+      "BACKDOOR": {
+        "expected": 583,
+        "actual": 583,
+        "match": true
+      },
+      "WORMS": {
+        "expected": 44,
+        "actual": 44,
+        "match": true
+      },
+      "SHELLCODE": {
+        "expected": 378,
+        "actual": 378,
+        "match": true
+      },
+      "ANALYSIS": {
+        "expected": 677,
+        "actual": 677,
+        "match": true
+      },
+      "BENIGN_DEVTEST": {
+        "expected": 37000,
+        "actual": 37000,
+        "match": true
+      }
+    },
+    "K_leakage_audit": "AE is benign-only. No attack family (Backdoor, Worms, Shellcode, Analysis) enters AE training (label==0 filter). Worms/Shellcode/Analysis appear in TRAIN as attack rows but AE is never trained on attack-labeled data. Backdoor is excluded from TRAIN entirely (protected_unseen_attack.csv). No target attack-family information enters model development.",
+    "L_configuration": {
+      "precedence": "DEFAULTS \u2192 CONFIG FILE \u2192 CLI ARGUMENTS",
+      "config_files": [
+        "publication_experiments/configs/no_ttl.yaml",
+        "publication_experiments/configs/ae_unseen_families.yaml"
+      ]
+    },
+    "M_output_paths": {
+      "no_ttl_features": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\features\\no_ttl_features.json",
+      "no_ttl_results": "results/publication_experiments/EXP_NO_TTL_V1/",
+      "ae_family_results": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/"
+    },
+    "N_frozen_baseline_confirmation": "CONFIRMED: No canonical Sprint-13 artifact will be modified. All frozen directories verified present and untouched.",
+    "O_canonical_ae_confirmation": "CONFIRMED: The existing canonical 75-feature AE (EXP_AE_V1) will be used as reference only. It will NOT be retrained or overwritten.",
+    "P_new_ae_confirmation": "CONFIRMED: One new 72-feature benign-only AE will be trained for EXP_AE_UNSEEN_FAMILY_V1. One frozen checkpoint, one scaler, and one threshold will be shared across all four family evaluations.",
+    "Q_alignment_and_monitor": {
+      "row_alignment": {
+        "row_id_column": "id",
+        "all_splits_have_id": true,
+        "backdoor_ids_unique": true,
+        "backdoor_n_ids": 583,
+        "alignment_strategy": "Predictions paired by 'id' column. Positional alignment alone FORBIDDEN per master prompt Section 17."
+      },
+      "monitor_status": {
+        "monitor_csv_exists": false,
+        "status": "CONFIRMED ABSENT as CSV file",
+        "actual_implementation": "Monitor is an INTERNAL 10% split of Normal TRAIN rows, created inside AETrainer.create_monitor_split() during each AE training run. It is NOT a persistent CSV partition. The 4,480 rows (10% of 44,800 benign TRAIN) are created at runtime. AE scaler is fitted strictly on the 40,320 AE-fit subset, NEVER on monitor rows.",
+        "implication_for_new_ae": "New 72-feature AE will create its own internal monitor split at training time using the same AE_MONITOR_FRACTION=0.10 and seed=42."
+      }
+    }
+  },
+  "gate_results": {
+    "repository_access_confirmed": true,
+    "canonical_data_splits_present": true,
+    "canonical_feature_selection_present": true,
+    "frozen_dir_exists_results_zero_day_EXP_ZERODAY_V1": true,
+    "frozen_dir_exists_results_stacking_EXP_OOF_STACK_V1": true,
+    "frozen_dir_exists_results_autoencoder_EXP_AE_V1": true,
+    "frozen_dir_exists_results_explainability_EXP_EXPLAIN_V1": true,
+    "canonical_ae_checkpoint_present": true,
+    "publication_experiments_folder_exists": true,
+    "publication_results_folder_exists": true,
+    "canonical_75_features_loaded": true,
+    "no_ttl_72_features_computed": true,
+    "sttl_absent": true,
+    "ct_state_ttl_absent": true,
+    "dttl_absent": true,
+    "feature_count_eq_72": true,
+    "no_ttl_verification_all_pass": true,
+    "backdoor_protected_file_exists": true,
+    "monitor_partition_status_resolved": true,
+    "ae_trainer_source_accessible": true,
+    "ae_trainer_benign_only_policy": true,
+    "oof_runner_source_accessible": true,
+    "stacking_has_dt_rf_svm_nn": true,
+    "row_id_column_strategy": true,
+    "canonical_seeds_are_42_123_2024": true,
+    "scaler_strategy_verified": true,
+    "config_files_created": true,
+    "output_directories_exist": true,
+    "paired_test_seed_mapping_locked": true,
+    "threshold_predeclared_before_evaluation": true,
+    "ae_scaler_fitting_40320_ae_fit_subset_verified": true,
+    "stage_b_cannot_overwrite_frozen_artifacts": true
+  },
+  "family_counts": {
+    "BACKDOOR": {
+      "expected": 583,
+      "actual": 583,
+      "match": true
+    },
+    "WORMS": {
+      "expected": 44,
+      "actual": 44,
+      "match": true
+    },
+    "SHELLCODE": {
+      "expected": 378,
+      "actual": 378,
+      "match": true
+    },
+    "ANALYSIS": {
+      "expected": 677,
+      "actual": 677,
+      "match": true
+    },
+    "BENIGN_DEVTEST": {
+      "expected": 37000,
+      "actual": 37000,
+      "match": true
+    }
+  },
+  "scaler_check": {
+    "ae_scaler_canonical_features": 75,
+    "nn_scaler_canonical_features": 75,
+    "svm_scaler_canonical_features": 75,
+    "no_ttl_features_needed": 72,
+    "canonical_scalers_incompatible": true,
+    "ae_scaler_fitting_protocol": {
+      "fit_population": "BENIGN_TRAIN_AE_FIT_SUBSET",
+      "fit_row_count": 40320,
+      "monitor_row_count": 4480,
+      "monitor_handling": "Transformed only, NEVER fitted (enforced by test_ae_leakage.py)",
+      "total_benign_train": 44800,
+      "validation_row_count": 11200,
+      "validation_handling": "Transformed only for threshold calibration"
+    },
+    "supervised_scaler_fitting_protocol": {
+      "fit_population": "TRAIN_ALL_72_FEATURES",
+      "fit_row_count": 162395,
+      "models": [
+        "SVM",
+        "NN"
+      ]
+    },
+    "decision": "New 72-feature StandardScaler fitted on TRAIN for SVM/NN and 40,320 AE-fit rows for AE"
+  },
+  "status": "STAGE_A_COMPLETE_STOP",
+  "next_step": "Review this audit report. If approved, run Stage B: python publication_experiments/scripts/run_no_ttl_experiment.py --config publication_experiments/configs/no_ttl.yaml"
+}

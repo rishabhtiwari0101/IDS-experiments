@@ -1,0 +1,24 @@
+{
+  "preregistration_id": "PREREG_STAGE_D_MATERIALITY_V1",
+  "timestamp_utc": "2026-09-08T16:47:34.093253+00:00",
+  "git_commit": "e08366f9b41c2c77ab8d71c4d75deb3bcce2123e",
+  "canonical_commit": "f694e19",
+  "config_file": "publication_experiments/stage_d/configs/stage_d.yaml",
+  "config_sha256": "63e0ca7300c25f1ae7d18ea5c516d00ee0799a939d4ca6461f471da2f628a156",
+  "exact_materiality_rules": {
+    "macro_f1": {
+      "metric": "Macro-F1",
+      "absolute_delta_threshold": 0.01,
+      "rule": "|delta_macro_f1| >= 0.01 is considered material; |delta_macro_f1| < 0.01 is considered below predeclared materiality threshold"
+    },
+    "backdoor_detection": {
+      "metric": "Protected Backdoor Detections",
+      "population_n": 583,
+      "percentage_point_threshold": 1.0,
+      "count_threshold": 6,
+      "derivation": "ceil(583 * 0.01) = 6 detections",
+      "rule": "|delta_backdoor_detections| >= 6 is considered material; |delta_backdoor_detections| < 6 is considered below predeclared practical materiality threshold"
+    }
+  },
+  "interpretation_contract": "Practical effect materiality thresholds are distinct from statistical significance p-values and must not be altered post hoc."
+}

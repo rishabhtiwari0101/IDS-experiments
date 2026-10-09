@@ -1,0 +1,62 @@
+[
+  {
+    "experiment_id": "EXP_ZERODAY_V1",
+    "path": "results\\zero_day\\EXP_ZERODAY_V1\\predictions\\zero_day_backdoor_predictions.csv",
+    "source_class": "CANONICAL_SUPERVISED",
+    "hash": "515bdbe67d84ea096ffec9e9cbbbb1ac218cee35181adf7a60c74906809bfd69",
+    "population": "protected_unseen_attack (Backdoor)",
+    "row_count": 583,
+    "role_in_stage_e": "Historical canonical Backdoor baseline (Seed 42)",
+    "verification_status": "VERIFIED"
+  },
+  {
+    "experiment_id": "EXP_NO_TTL_V1",
+    "path": "results\\publication_experiments\\EXP_NO_TTL_V1",
+    "source_class": "STAGE_B_ABLATION",
+    "hash": "fd6b133c7f0e4ecdc3554c52e39994e9c1150c75d9a4f999db4919aedc32338f",
+    "population": "development_test (81749) + protected Backdoor (583)",
+    "row_count": 81749,
+    "role_in_stage_e": "Controlled No-TTL feature ablation across seeds 42, 123, 2024",
+    "verification_status": "VERIFIED"
+  },
+  {
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "path": "results\\publication_experiments\\EXP_AE_UNSEEN_FAMILY_V1",
+    "source_class": "STAGE_C_AE_UNSEEN",
+    "hash": "ad73f06c3dfd4e36f5c87ea29348f7132758e1d67bc88167e20e8dbfb4bc3e4d",
+    "population": "4 AE-unseen attack families + benign dev-test (37000)",
+    "row_count": 38682,
+    "role_in_stage_e": "Multi-seed benign-only AE evaluation across seeds 42, 123, 2024",
+    "verification_status": "VERIFIED"
+  },
+  {
+    "experiment_id": "EXP_STATS_ROBUSTNESS_V1",
+    "path": "results\\publication_experiments\\EXP_STATS_ROBUSTNESS_V1",
+    "source_class": "STAGE_D_STATISTICS",
+    "hash": "2526a2c92573cf03b3bf10894eb95b2782018e628458bfd88f8785433312f890",
+    "population": "All combined evaluation populations",
+    "row_count": "N/A (Derived statistics layer)",
+    "role_in_stage_e": "Validated statistical evidence layer (CIs, McNemar, Holm p-values, materiality)",
+    "verification_status": "VERIFIED"
+  },
+  {
+    "experiment_id": "DATA_SPLIT_DEV_TEST",
+    "path": "data\\splits\\development_test.csv",
+    "source_class": "DATA_SPLIT",
+    "hash": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+    "population": "development_test",
+    "row_count": 81749,
+    "role_in_stage_e": "Supervised development-test evaluation population",
+    "verification_status": "VERIFIED"
+  },
+  {
+    "experiment_id": "DATA_SPLIT_BACKDOOR",
+    "path": "data\\splits\\protected_unseen_attack.csv",
+    "source_class": "DATA_SPLIT",
+    "hash": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+    "population": "protected_unseen_attack",
+    "row_count": 583,
+    "role_in_stage_e": "Globally held-out / zero-day Backdoor evaluation population",
+    "verification_status": "VERIFIED"
+  }
+]

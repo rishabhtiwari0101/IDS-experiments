@@ -1,0 +1,31 @@
+{
+  "experiment_id": "EXP_ROC_PR_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T07:58:12.097060+00:00",
+  "config_path": "revision_v5\\publication_experiments\\configs\\roc_pr.yaml",
+  "population": "ZERO_DAY_TIER_B_EVAL",
+  "population_label": "Tier B Eval Half (EVAL_CONTROL + Backdoor, N=19,083)",
+  "population_size": 19083,
+  "prevalence": 0.030550751978200494,
+  "headline_tier": "B",
+  "models_evaluated": [
+    "dt",
+    "rf",
+    "svm",
+    "nn",
+    "stacking_seed_42",
+    "stacking_seed_123",
+    "stacking_seed_2024",
+    "ae",
+    "if_seed_42",
+    "if_seed_123",
+    "if_seed_2024"
+  ],
+  "artifact_hashes": {
+    "roc_pr_metrics_summary.csv": "a9328c4f2ea8e255214b6807c385ba8dfebb0483eb65337eecf8babd793efe9b",
+    "roc_pr_curve_points.csv": "92b6249183f56fe7612a846fc7cf07178be8c51eca0b60d45b6862a2c9b6c12e",
+    "fig_roc_pr_zeroday.png": "9e01b048ad5900a85c06552d35f26bb130d7539aa558b5a7421acb2a40137de1",
+    "self_check.json": "14f193fe88ff5d5d65f422afad51c309fcd19657971dd8b5048ec5cb5fd2bced"
+  },
+  "status": "PASS"
+}

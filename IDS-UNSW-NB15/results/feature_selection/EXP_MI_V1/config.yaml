@@ -1,0 +1,40 @@
+experiment_id: EXP_MI_V1
+mi:
+  method: mutual_info_classif
+  n_neighbors: 3
+  random_state: 42
+candidate_k:
+- 10
+- 20
+- 30
+- 40
+- 50
+inner_cv:
+  method: StratifiedKFold
+  n_splits: 5
+  shuffle: true
+  random_state: 42
+  stratify_on: label
+evaluator:
+  model: LogisticRegression
+  solver: liblinear
+  C: 1.0
+  max_iter: 1000
+  class_weight: balanced
+  random_state: 42
+evaluator_scaling:
+  method: StandardScaler
+  fit_scope: inner_train_only
+selection:
+  metric: macro_f1
+  tie_break: smaller_k
+runtime_benchmark:
+  enabled: true
+  affects_selection: false
+selection_sanity:
+  flat_range_tolerance: 0.001
+  flat_range_tolerance_note: REVIEW_REQUIRED if max(mean_macro_f1) - min(mean_macro_f1)
+    <= 0.001
+  monotonic_tolerance: 0.0001
+  monotonic_tolerance_note: REVIEW_REQUIRED if F1 is non-decreasing across all K within
+    tolerance of 1e-4 per step

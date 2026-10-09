@@ -1,0 +1,164 @@
+{
+  "run_timestamp": "2026-09-03T13:57:52.790996Z",
+  "fp_tolerance": 1e-08,
+  "t_deterministic": "PASS",
+  "total_fields": 17,
+  "pass_count": 17,
+  "fail_count": 0,
+  "fields": [
+    {
+      "field": "h1.stacking_macro_f1_seed_42",
+      "original": 0.8926091690431182,
+      "rerun": 0.8926091690431182,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h1.stacking_macro_f1_seed_123",
+      "original": 0.8926186397931948,
+      "rerun": 0.8926186397931948,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h1.stacking_macro_f1_seed_2024",
+      "original": 0.8936559437082856,
+      "rerun": 0.8936559437082856,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h1.stacking_mean_macro_f1",
+      "original": 0.8929612508481996,
+      "rerun": 0.8929612508481996,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h1.stacking_std_macro_f1",
+      "original": 0.0004912372482943444,
+      "rerun": 0.0004912372482943444,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h1.rf_dev_test_macro_f1",
+      "original": 0.8807332603329192,
+      "rerun": 0.8807332603329192,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h1.diff",
+      "original": 0.01222799051528034,
+      "rerun": 0.01222799051528034,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h1.h1_verdict",
+      "original": "SUPPORTED",
+      "rerun": "SUPPORTED",
+      "match": true,
+      "diff": null,
+      "tolerance": "exact",
+      "status": "PASS"
+    },
+    {
+      "field": "h1.epsilon",
+      "original": 0.005,
+      "rerun": 0.005,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h2.ae_detected_count",
+      "original": 0,
+      "rerun": 0,
+      "match": true,
+      "diff": null,
+      "tolerance": "exact",
+      "status": "PASS"
+    },
+    {
+      "field": "h2.tau",
+      "original": 11.160062745213509,
+      "rerun": 11.160062745213509,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h2.ae_val_fpr_recomputed",
+      "original": 0.000625,
+      "rerun": 0.000625,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h2.h2_verdict",
+      "original": "NOT_SUPPORTED",
+      "rerun": "NOT_SUPPORTED",
+      "match": true,
+      "diff": null,
+      "tolerance": "exact",
+      "status": "PASS"
+    },
+    {
+      "field": "h3.c01_detected",
+      "original": 582,
+      "rerun": 582,
+      "match": true,
+      "diff": null,
+      "tolerance": "exact",
+      "status": "PASS"
+    },
+    {
+      "field": "h3.c06_detected",
+      "original": 582,
+      "rerun": 582,
+      "match": true,
+      "diff": null,
+      "tolerance": "exact",
+      "status": "PASS"
+    },
+    {
+      "field": "h3.fpr_delta",
+      "original": 0.0003509999999999902,
+      "rerun": 0.0003509999999999902,
+      "match": true,
+      "diff": 0.0,
+      "tolerance": 1e-08,
+      "status": "PASS"
+    },
+    {
+      "field": "h3.h3_verdict",
+      "original": "NOT_SUPPORTED",
+      "rerun": "NOT_SUPPORTED",
+      "match": true,
+      "diff": null,
+      "tolerance": "exact",
+      "status": "PASS"
+    }
+  ],
+  "provenance_note": "Original Sprint 9 result artifacts were generated using the pre-correction implementation of evaluate_sprint9.py. A non-verdict-affecting H1 boundary defect was subsequently corrected to implement DD-7 exactly. The observed Sprint 9 diff (0.01222799051528034) lies outside the affected interval (-0.005, 0), so the correction does not change the stored H1 verdict. This deterministic verification run was performed using the corrected implementation solely to verify reproducibility and future-evaluation correctness."
+}

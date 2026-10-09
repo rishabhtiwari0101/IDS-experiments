@@ -1,0 +1,12 @@
+{
+  "statistical_checks": {
+    "paired_comparison_row_aligned": true,
+    "mcnemar_exact_binomial_used": true,
+    "holm_step_down_m5_verified": true,
+    "clopper_pearson_exact_ci_used": true,
+    "structural_degeneracy_b_plus_c_zero_acknowledged": true,
+    "heterogeneous_metrics_properly_isolated": true,
+    "no_heterogeneous_averaging_or_ranking": true
+  },
+  "critical_failure": false
+}

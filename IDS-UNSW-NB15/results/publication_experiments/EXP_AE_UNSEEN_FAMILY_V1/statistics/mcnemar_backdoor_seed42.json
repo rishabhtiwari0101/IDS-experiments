@@ -1,0 +1,24 @@
+{
+  "comparison": "Canonical Seed 42 (75-feat) vs New Seed 42 (72-feat No-TTL)",
+  "family": "BACKDOOR",
+  "sample_size": 583,
+  "contingency_table": {
+    "both_detected": 0,
+    "canon_only_detected (B)": 0,
+    "new_only_detected (C)": 0,
+    "neither_detected": 583
+  },
+  "canonical_detection_rate": "0/583 (0.0000%)",
+  "new_detection_rate": "0/583 (0.0000%)",
+  "structural_degeneracy_disclosed": true,
+  "structural_degeneracy_details": "Canonical AE achieved 0/583 detections (0% sensitivity) on Backdoor under mean+3\u03c3 threshold. Therefore B=0 structurally. New AE Seed 42 also achieved 0/583 detections (C=0).",
+  "statistical_test": "Exact binomial test on discordant pairs (McNemar)",
+  "test_informativeness": "NON-INFORMATIVE due to zero discordance (B=0, C=0)",
+  "framing_explanation": "The exact McNemar / binomial test could not distinguish the two models because there were zero discordant pairs to test (B = 0, C = 0). This is a structural consequence of both models detecting 0/583 under the mean+3\u03c3 threshold, NOT a statistical finding or hypothesis-test conclusion of 'no difference'.",
+  "null_hypothesis": "P(C) = P(B) = 0.5 (evaluated only when discordant pairs > 0)",
+  "alternative_hypothesis": "P(C) > P(B)",
+  "total_discordant_pairs": 0,
+  "p_value_greater": null,
+  "p_value_two_sided": null,
+  "status": "PASS (NON-INFORMATIVE)"
+}

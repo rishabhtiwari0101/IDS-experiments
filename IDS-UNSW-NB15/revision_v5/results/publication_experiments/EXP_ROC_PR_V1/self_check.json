@@ -1,0 +1,45 @@
+{
+  "experiment_id": "EXP_ROC_PR_V1",
+  "zero_training_guard": "PASS",
+  "population": "ZERO_DAY_TIER_B_EVAL",
+  "population_label": "Tier B Eval Half (EVAL_CONTROL + Backdoor, N=19,083)",
+  "population_size": 19083,
+  "prevalence": 0.030550751978200494,
+  "positive_count": 583,
+  "negative_count": 18500,
+  "headline_tier": "B",
+  "models_evaluated": [
+    "dt",
+    "rf",
+    "svm",
+    "nn",
+    "stacking_seed_42",
+    "stacking_seed_123",
+    "stacking_seed_2024",
+    "ae",
+    "if_seed_42",
+    "if_seed_123",
+    "if_seed_2024"
+  ],
+  "operating_points_count": 44,
+  "operating_points_marked": true,
+  "auc_range_check": {
+    "dt": true,
+    "rf": true,
+    "svm": true,
+    "nn": true,
+    "stacking_seed_42": true,
+    "stacking_seed_123": true,
+    "stacking_seed_2024": true,
+    "ae": true,
+    "if_seed_42": true,
+    "if_seed_123": true,
+    "if_seed_2024": true
+  },
+  "nan_inf_check": {
+    "summary_df": true,
+    "roc_curve_points": true,
+    "pr_curve_points": true
+  },
+  "overall_status": "PASS"
+}

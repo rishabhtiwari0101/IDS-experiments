@@ -1,0 +1,29 @@
+{
+  "experiment_id": "EXP_TOST_V1",
+  "model": "RF",
+  "comparison": "75-feature (canonical) vs 72-feature (no-TTL)",
+  "population": "protected_backdoor N=583",
+  "equivalence_margin": 0.01,
+  "margin_units": "proportion",
+  "margin_status": "specified after the paired counts were observed (post-hoc); committed before S4 execution",
+  "materiality_reference_detections": 6,
+  "materiality_reference_rate": 0.0102916,
+  "A": 582,
+  "B": 0,
+  "C": 0,
+  "D": 1,
+  "p_canonical": 0.9982847341337907,
+  "p_no_ttl": 0.9982847341337907,
+  "observed_delta": 0.0,
+  "discordant_proportion_q_hat": 0.0,
+  "alpha": 0.05,
+  "conservative_exact_p_value": 0.00285310956917081,
+  "q_upper_bound_one_sided_cp95": 0.005125297922243234,
+  "q_interval_two_sided_cp95": [
+    0.0,
+    0.006307433113897528
+  ],
+  "equivalence_conclusion": "Equivalence supported at margin delta=1.0 pp (one-sided exact p=0.002853 < alpha=0.05; one-sided 95% Clopper-Pearson upper bound=0.513% < 1.0%).",
+  "limitation": "Zero discordant pairs; margin specified post-hoc; Backdoor recall only.",
+  "timestamp_utc": "2026-09-28T08:21:02.602350+00:00"
+}

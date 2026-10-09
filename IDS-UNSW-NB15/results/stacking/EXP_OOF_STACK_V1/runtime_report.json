@@ -1,0 +1,26 @@
+{
+  "experiment_id": "EXP_OOF_STACK_V1",
+  "benchmark": {
+    "n_rows": 10000,
+    "n_folds": 2,
+    "h1_seed": 42,
+    "elapsed_seconds": 7.799081299999671
+  },
+  "extrapolation": {
+    "full_n_rows": 162395,
+    "full_n_folds": 5,
+    "full_n_seeds": 3,
+    "estimated_per_seed_seconds": 316.63295192836165,
+    "estimated_per_seed_minutes": 5.277215865472694,
+    "estimated_3seed_minutes": 15.831647596418083,
+    "threshold_minutes": 240.0,
+    "within_threshold": true
+  },
+  "environment": {
+    "torch": "2.7.1+cu118",
+    "sklearn": "1.9.0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "total_benchmark_runtime_seconds": 9.885464399998455
+}

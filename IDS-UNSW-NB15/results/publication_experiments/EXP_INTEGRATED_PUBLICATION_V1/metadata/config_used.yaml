@@ -1,0 +1,50 @@
+canonical_supervised:
+  evaluated_seeds:
+  - 42
+  historical_backdoor_seed_count: 1
+comparability:
+  incompatible_metrics: not_directly_comparable
+experiment_id: EXP_INTEGRATED_PUBLICATION_V1
+families:
+- BACKDOOR
+- WORMS
+- SHELLCODE
+- ANALYSIS
+models:
+- DT
+- RF
+- SVM
+- NN
+- Stacking
+populations:
+  development_test:
+    N: 81749
+    attack_N: 44749
+    benign_N: 37000
+    source: data/splits/development_test.csv
+  paired_backdoor:
+    N: 583
+    source: data/splits/protected_unseen_attack.csv
+primary_analysis:
+  stage_b_controlled_ablation: true
+  stage_c_primary_threshold: mean_plus_3sigma
+secondary_analysis:
+  materiality_status: descriptive_only
+  threshold_rules:
+  - mean_plus_2sigma
+  - mean_plus_3sigma
+  - p95
+  - p99
+  - p999
+seeds:
+- 42
+- 123
+- 2024
+source_experiments:
+  canonical_ae: EXP_AE_V1
+  canonical_supervised:
+    oof_stack: EXP_OOF_STACK_V1
+    zeroday: EXP_ZERODAY_V1
+  stage_b: EXP_NO_TTL_V1
+  stage_c: EXP_AE_UNSEEN_FAMILY_V1
+  stage_d: EXP_STATS_ROBUSTNESS_V1

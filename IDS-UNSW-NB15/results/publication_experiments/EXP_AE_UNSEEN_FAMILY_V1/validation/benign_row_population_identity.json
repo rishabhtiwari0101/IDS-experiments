@@ -1,0 +1,10 @@
+{
+  "stage_c_benign_train_ids_count": 44800,
+  "canonical_benign_train_ids_count": 44800,
+  "intersection": 44800,
+  "stage_c_only": 0,
+  "canonical_only": 0,
+  "all_labels_zero": true,
+  "all_categories_normal": true,
+  "status": "PASS"
+}

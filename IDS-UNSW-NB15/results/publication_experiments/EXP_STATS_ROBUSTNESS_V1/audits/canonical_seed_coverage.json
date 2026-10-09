@@ -1,0 +1,8 @@
+{
+  "canonical_supervised_backdoor_available_seeds": [
+    42
+  ],
+  "canonical_supervised_backdoor_seed_count": 1,
+  "anti_fabrication_assertion": "Canonical historical supervised Backdoor evaluation exists strictly for Seed 42. Seed 123 and Seed 2024 canonical Backdoor evaluations were never performed historically and must NOT be fabricated or computed.",
+  "status": "PASS"
+}

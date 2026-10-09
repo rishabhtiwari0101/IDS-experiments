@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "item": "TRAIN/VAL/TEST/PROTECTED split separation",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "TRAIN-only preprocessing and MI feature selection",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "Canonical 75-feature vs 72-feature No-TTL ablation",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "5-fold OOF Stacking meta-model calibration",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "Canonical Seed 42 historical baseline (anti-fabrication N=1)",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "Three-seed Stage-B replication (descriptive only)",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "Benign-only AE training with fit/monitor separation",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "Primary threshold calibration on benign validation (mean+3sigma)",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "Secondary threshold analysis framed strictly as descriptive trade-off",
+      "status": "SUPPORTED"
+    },
+    {
+      "item": "Materiality preregistration (|delta_F1|>=0.01, |delta_BD|>=6)",
+      "status": "SUPPORTED"
+    }
+  ],
+  "critical_failure": false
+}

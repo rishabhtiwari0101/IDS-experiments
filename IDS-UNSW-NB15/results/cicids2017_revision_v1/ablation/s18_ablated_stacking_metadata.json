@@ -1,0 +1,234 @@
+{
+  "creation_timestamp_utc": "2026-10-06T11:13:10.225134+00:00",
+  "sprint": 5,
+  "step": "s18_ablated_oof_stacking",
+  "D_ablated": 67,
+  "frozen_shortcuts": [
+    "Destination Port",
+    "Init_Win_bytes_backward"
+  ],
+  "shortcut_sha256_verified": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+  "protocol": {
+    "oof_n_splits": 5,
+    "oof_cv_seed": 42,
+    "meta_params": {
+      "C": 1.0,
+      "solver": "lbfgs",
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "penalty": "l2"
+    },
+    "seeds": [
+      42,
+      123,
+      2024
+    ]
+  },
+  "leakage_assertions_passed": true,
+  "per_seed_results": {
+    "42": {
+      "fold_records": [
+        {
+          "fold": 1,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 2,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 3,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 4,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 5,
+          "train_n": 272372,
+          "val_n": 68092,
+          "val_benign": 8960,
+          "val_attack": 59132
+        }
+      ],
+      "meta_lr_params": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "random_state": 42
+      },
+      "meta_in_sample_metrics": {
+        "macro_f1": 0.9984017486377598,
+        "precision": 0.9997800673332319,
+        "recall": 0.9993776719519455,
+        "f1_attack": 0.9995788291450232,
+        "fpr": 0.0014508928571428572,
+        "confusion_matrix": [
+          [
+            44735,
+            65
+          ],
+          [
+            184,
+            295480
+          ]
+        ]
+      },
+      "oof_csv": "results\\cicids2017_revision_v1\\ablation\\oof_abl_seed42.csv",
+      "oof_csv_sha256": "e160a4cc5c657d5d1fe785ddd80c492084771aba04d80b0462ec22c1654c1df8",
+      "meta_lr_artifact": "cicids2017\\models\\ablated\\seed_42\\meta_lr.pkl",
+      "meta_lr_sha256": "9ad6a6df07385695b6298c411c912e3b3d878af9aab3b66ffb23f05d4130e0fe"
+    },
+    "123": {
+      "fold_records": [
+        {
+          "fold": 1,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 2,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 3,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 4,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 5,
+          "train_n": 272372,
+          "val_n": 68092,
+          "val_benign": 8960,
+          "val_attack": 59132
+        }
+      ],
+      "meta_lr_params": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "random_state": 123
+      },
+      "meta_in_sample_metrics": {
+        "macro_f1": 0.9984275125595067,
+        "precision": 0.9997969811090922,
+        "recall": 0.999374289734293,
+        "f1_attack": 0.9995855907361769,
+        "fpr": 0.0013392857142857143,
+        "confusion_matrix": [
+          [
+            44740,
+            60
+          ],
+          [
+            185,
+            295479
+          ]
+        ]
+      },
+      "oof_csv": "results\\cicids2017_revision_v1\\ablation\\oof_abl_seed123.csv",
+      "oof_csv_sha256": "8816739b3f65af69402d95341308ce58e314b185699806efc207c5684758a158",
+      "meta_lr_artifact": "cicids2017\\models\\ablated\\seed_123\\meta_lr.pkl",
+      "meta_lr_sha256": "3039de7eba6436ee8b174237a060ff0ae85e3846e5f358a120f60bd5f82ca987"
+    },
+    "2024": {
+      "fold_records": [
+        {
+          "fold": 1,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 2,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 3,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 4,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 5,
+          "train_n": 272372,
+          "val_n": 68092,
+          "val_benign": 8960,
+          "val_attack": 59132
+        }
+      ],
+      "meta_lr_params": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "random_state": 2024
+      },
+      "meta_in_sample_metrics": {
+        "macro_f1": 0.9984467821913826,
+        "precision": 0.9998037477414072,
+        "recall": 0.9993776719519455,
+        "f1_attack": 0.9995906644429484,
+        "fpr": 0.001294642857142857,
+        "confusion_matrix": [
+          [
+            44742,
+            58
+          ],
+          [
+            184,
+            295480
+          ]
+        ]
+      },
+      "oof_csv": "results\\cicids2017_revision_v1\\ablation\\oof_abl_seed2024.csv",
+      "oof_csv_sha256": "b43a9fda68618a7355bfdcf0a4f486e27b1a99518909e176a3843af98e7b80b9",
+      "meta_lr_artifact": "cicids2017\\models\\ablated\\seed_2024\\meta_lr.pkl",
+      "meta_lr_sha256": "4459b49e26af3217b4cbbbcdf8d7aee786312268616646684563abfc2d6da308"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "experiment_id": "EXP_CROSS_CHECK_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T09:52:33.600610+00:00",
+  "overall_status": "PASS",
+  "checks_executed": 9,
+  "checks_passed": 9,
+  "detailed_results": {
+    "frozen_baseline_integrity": {
+      "status": "PASS",
+      "matched_files": 342,
+      "total_baseline_files": 342,
+      "critical_splits_verified": [
+        "data/splits/development_test.csv",
+        "data/splits/protected_unseen_attack.csv"
+      ]
+    },
+    "headline_tier_decision": {
+      "status": "PASS",
+      "expected_hash": "f663657c93046446d0753f56de95fe79f5bbf279b965056082b258801752751f",
+      "yaml_rule_hash": "f663657c93046446d0753f56de95fe79f5bbf279b965056082b258801752751f",
+      "decision_rule_hash": "f663657c93046446d0753f56de95fe79f5bbf279b965056082b258801752751f",
+      "headline_tier": "B"
+    },
+    "s4_vs_mcnemar": {
+      "status": "PASS",
+      "counts": {
+        "A": 582,
+        "B": 0,
+        "C": 0,
+        "D": 1,
+        "total": 583
+      },
+      "tost_equivalence_margin": 0.01,
+      "tost_exact_p_value": 0.00285310956917081
+    },
+    "s3_ae_vs_s6": {
+      "status": "PASS",
+      "p95_threshold_s3": 0.567381313167554,
+      "p95_threshold_s6": 0.5673862021270856,
+      "p95_rel_diff": 8.6166345131723e-06,
+      "p95_gap_samples": 0,
+      "p95_control_fp": 1993,
+      "p95_backdoor_tp": 38,
+      "p99_threshold_s3": 1.5121637795000156,
+      "p99_threshold_s6": 1.5121639065537278,
+      "p99_rel_diff": 8.402112473860886e-08,
+      "p99_gap_samples": 0,
+      "p99_control_fp": 504,
+      "p99_backdoor_tp": 24
+    },
+    "s1_vs_s3": {
+      "status": "PASS",
+      "rows_checked": 44,
+      "mismatches": 0
+    },
+    "historical_zeroday_metrics": {
+      "status": "PASS",
+      "stacking_tp": 582,
+      "stacking_fp": 7100,
+      "ae_tp": 0,
+      "ae_fp": 19,
+      "ae_tau": 11.160062745213509
+    },
+    "stacking_h1_results": {
+      "status": "PASS",
+      "stacking_macro_f1": {
+        "seed_42": 0.8926091690431182,
+        "seed_123": 0.8926186397931948,
+        "seed_2024": 0.8936559437082856
+      },
+      "mean_macro_f1": 0.8929612508481996
+    },
+    "population_partitions": {
+      "status": "PASS",
+      "cal_control_n": 18500,
+      "eval_control_n": 18500,
+      "benign_control_n": 37000,
+      "unseen_family_counts": {
+        "unseen_worms": 44,
+        "unseen_shellcode": 378,
+        "unseen_analysis": 677
+      }
+    },
+    "alert_budget_outputs": {
+      "status": "PASS",
+      "rows": 44,
+      "budgets": [
+        0.001,
+        0.005,
+        0.01,
+        0.05
+      ],
+      "tie_unattainable_carried": true,
+      "max_diff_realized": 5.684341886080802e-14
+    }
+  }
+}

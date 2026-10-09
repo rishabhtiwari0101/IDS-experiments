@@ -1,0 +1,9 @@
+{
+  "experiment_id": "EXP_CROSS_CHECK_V1",
+  "timestamp_utc": "2026-09-28T09:52:33.600610+00:00",
+  "artifact_hashes": {
+    "cross_check_report.json": "d7e4f1f7e9257eea464b080b502c4421daa797b93f0f95051aba080cd648020f",
+    "self_check.json": "b5969755cba476e6f9df13f7045ef27ccbe7fb3e37b750b8a0ab1f2a58f47c73"
+  },
+  "status": "PASS"
+}

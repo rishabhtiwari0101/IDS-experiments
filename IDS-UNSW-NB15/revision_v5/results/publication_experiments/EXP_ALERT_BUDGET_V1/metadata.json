@@ -1,0 +1,15 @@
+{
+  "experiment_id": "EXP_ALERT_BUDGET_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T09:20:40.959761+00:00",
+  "provenance_hashes": {
+    "matched_fpr_tier_b_csv": "29289d2b1a17638070d54a4c017befa6be53c4a3730a666a35e83961a3d9fcc1",
+    "headline_tier_decision_json": "37c8140407e8973f92d12ef9d6007616979e3bf84341d9431570d0934504f52b"
+  },
+  "artifact_hashes": {
+    "alert_budget_table.csv": "0905a38924fb6722989ea7399033865ea48fda772520af5a89a9d96416815860",
+    "alert_budget_summary.json": "d360c65a0da59c981445f9e2e72f16861706f291121582dc7fbf8e54ab977975",
+    "self_check.json": "1e6ce5869fa2a8b6ae2a0ccfc6ef89c4e176de5998c76274c251f2f0c2db6744"
+  },
+  "status": "PASS"
+}

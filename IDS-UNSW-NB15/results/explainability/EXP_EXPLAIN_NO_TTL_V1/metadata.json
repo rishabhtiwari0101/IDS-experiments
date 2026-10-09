@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP_EXPLAIN_NO_TTL_V1",
+  "source_experiment": "EXP_NO_TTL_V1",
+  "explained_seed": 42,
+  "n_features": 72,
+  "removed_features": [
+    "sttl",
+    "ct_state_ttl",
+    "dttl"
+  ],
+  "created_at": "2026-09-09T05:04:11Z",
+  "targets": [
+    "NTL_RF",
+    "NTL_STACK"
+  ],
+  "explanation_set_size": 2000,
+  "background_set_size": 500,
+  "total_pv_gates": 29,
+  "all_pv_passed": true,
+  "original_sprint11_unchanged": true
+}

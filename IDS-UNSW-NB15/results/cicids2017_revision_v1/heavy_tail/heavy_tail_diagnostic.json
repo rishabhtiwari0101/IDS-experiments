@@ -1,0 +1,85 @@
+{
+  "timestamp_utc": "2026-10-06T09:38:22.796290+00:00",
+  "diagnostic_table": [
+    {
+      "model_label": "AE_Standard",
+      "seed": 42,
+      "n_samples": 18500,
+      "mean": 0.2096298336982727,
+      "sigma_full": 2.8155887126922607,
+      "sigma_trimmed_p99": 0.2510939836502075,
+      "sigma_reduction_pct": 91.08200773364686,
+      "p99": 2.38435435295105,
+      "mu_plus_3sigma": 8.656395971775055,
+      "diagnostic_ratio": 3.630498948724325,
+      "heavy_tail_inflated": true
+    },
+    {
+      "model_label": "AE_Standard",
+      "seed": 123,
+      "n_samples": 18500,
+      "mean": 0.23019973933696747,
+      "sigma_full": 3.100900173187256,
+      "sigma_trimmed_p99": 0.2726867198944092,
+      "sigma_reduction_pct": 91.20620772470309,
+      "p99": 2.614123582839966,
+      "mu_plus_3sigma": 9.532900258898735,
+      "diagnostic_ratio": 3.6466907385236387,
+      "heavy_tail_inflated": true
+    },
+    {
+      "model_label": "AE_Standard",
+      "seed": 2024,
+      "n_samples": 18500,
+      "mean": 0.22837083041667938,
+      "sigma_full": 3.0156431198120117,
+      "sigma_trimmed_p99": 0.27757492661476135,
+      "sigma_reduction_pct": 90.79549815456728,
+      "p99": 2.822331666946411,
+      "mu_plus_3sigma": 9.275300189852715,
+      "diagnostic_ratio": 3.2863962440984187,
+      "heavy_tail_inflated": true
+    },
+    {
+      "model_label": "AE_Log1p",
+      "seed": 42,
+      "n_samples": 18500,
+      "mean": 0.17614363133907318,
+      "sigma_full": 1.0209287405014038,
+      "sigma_trimmed_p99": 0.17956183850765228,
+      "sigma_reduction_pct": 82.41191266498532,
+      "p99": 1.1888318061828613,
+      "mu_plus_3sigma": 3.2389298528432846,
+      "diagnostic_ratio": 2.7244643321269666,
+      "heavy_tail_inflated": true
+    },
+    {
+      "model_label": "AE_Log1p",
+      "seed": 123,
+      "n_samples": 18500,
+      "mean": 0.16780763864517212,
+      "sigma_full": 0.8861929774284363,
+      "sigma_trimmed_p99": 0.1696615070104599,
+      "sigma_reduction_pct": 80.85501563070547,
+      "p99": 1.1041795015335083,
+      "mu_plus_3sigma": 2.826386570930481,
+      "diagnostic_ratio": 2.5597165741667314,
+      "heavy_tail_inflated": true
+    },
+    {
+      "model_label": "AE_Log1p",
+      "seed": 2024,
+      "n_samples": 18500,
+      "mean": 0.176550954580307,
+      "sigma_full": 0.8139655590057373,
+      "sigma_trimmed_p99": 0.20272260904312134,
+      "sigma_reduction_pct": 75.09444880066573,
+      "p99": 1.4842082262039185,
+      "mu_plus_3sigma": 2.618447631597519,
+      "diagnostic_ratio": 1.764205039002233,
+      "heavy_tail_inflated": true
+    }
+  ],
+  "ratio_formula": "(mu + 3*sigma) / p99",
+  "interpretation": "A ratio > 1.5 indicates extreme tail inflation of sigma, pushing the mu+3sigma threshold far past the 99th percentile and suppressing detection sensitivity."
+}

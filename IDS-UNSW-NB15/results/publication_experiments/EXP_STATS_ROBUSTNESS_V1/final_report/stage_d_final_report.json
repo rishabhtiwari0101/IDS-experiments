@@ -1,0 +1,263 @@
+{
+  "timestamp_utc": "2026-09-08T17:16:57.426107+00:00",
+  "canonical_commit": "f694e19",
+  "git_commit": "e08366f9b41c2c77ab8d71c4d75deb3bcce2123e",
+  "final_status": "PASS WITH EXPLICIT LIMITATIONS",
+  "decisions": {
+    "no_ttl_practical_robustness": {
+      "title": "No-TTL Practical Robustness",
+      "verdict": "SUPPORTED",
+      "evidence": "Stacking and RF changes fell below practical materiality thresholds (|delta_Backdoor| < 6, |delta_Macro-F1| < 0.01).",
+      "supporting_artifacts": [
+        "publication_tables/table_D1.csv",
+        "publication_tables/table_D12.csv"
+      ]
+    },
+    "rf_practical_stability": {
+      "title": "RF Practical Stability",
+      "verdict": "SUPPORTED",
+      "evidence": "RF Backdoor detection and Macro-F1 showed zero observed change under Seed 42, remaining below practical materiality thresholds.",
+      "supporting_artifacts": [
+        "publication_tables/table_D1.csv",
+        "publication_tables/table_D2.csv"
+      ]
+    },
+    "stacking_practical_stability": {
+      "title": "Stacking Practical Stability",
+      "verdict": "SUPPORTED",
+      "evidence": "Stacking showed delta Backdoor = -2 (< 6) and delta Macro-F1 = -0.0017 (< 0.01).",
+      "supporting_artifacts": [
+        "publication_tables/table_D1.csv",
+        "publication_tables/table_D2.csv"
+      ]
+    },
+    "svm_greater_representation_sensitivity": {
+      "title": "SVM Representation Sensitivity",
+      "verdict": "SUPPORTED DESCRIPTIVELY",
+      "evidence": "Linear SVM exhibited material drops (delta Backdoor = -11 >= 6, delta Macro-F1 = -0.0184 >= 0.01).",
+      "supporting_artifacts": [
+        "publication_tables/table_D2.csv",
+        "publication_tables/table_D9.csv"
+      ]
+    },
+    "ae_primary_threshold_unseen_family_detection": {
+      "title": "AE Primary-Threshold Detection",
+      "verdict": "NOT SUPPORTED",
+      "evidence": "0 detections observed across all 4 AE-unseen attack families under primary threshold mean+3sigma.",
+      "supporting_artifacts": [
+        "publication_tables/table_D4.csv",
+        "publication_tables/table_D11.csv"
+      ]
+    },
+    "threshold_tradeoff": {
+      "title": "Threshold Trade-Off",
+      "verdict": "SUPPORTED DESCRIPTIVELY",
+      "evidence": "Several relaxed threshold operating points increased observed detections for selected AE-unseen attack families, accompanied in the corresponding evaluated settings by higher benign false-positive rates.",
+      "supporting_artifacts": [
+        "publication_tables/table_D6.csv",
+        "publication_tables/table_D7.csv",
+        "publication_tables/table_D8.csv"
+      ]
+    },
+    "three_seed_characterization": {
+      "title": "Three-Seed Characterization",
+      "verdict": "DESCRIPTIVE ONLY",
+      "evidence": "The three evaluated seeds (42, 123, 2024) are summarized descriptively. Observed seed-to-seed variation is reported using mean, SD, minimum, maximum, and range. No formal preregistered criterion for seed \u201cconsistency\u201d was defined; therefore the analysis does not establish formal seed robustness.",
+      "supporting_artifacts": [
+        "publication_tables/table_D1.csv",
+        "stage_b_statistics/seed_robustness.csv"
+      ]
+    },
+    "canonical_ae_vs_new_ae_equivalence": {
+      "title": "Canonical AE vs New AE Equivalence",
+      "verdict": "NOT ESTABLISHED \u2014 STRUCTURAL DEGENERACY",
+      "evidence": "Computed contingency table A=0, B=0, C=0, D=583 (discordant pairs=0).",
+      "supporting_artifacts": [
+        "publication_tables/table_D9.csv",
+        "paired_tests/mcnemar_results.csv"
+      ]
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "CLAIM_A",
+      "claim": "No-TTL removal materially harms ensemble performance.",
+      "source_result": "Stacking delta Backdoor=-2, delta Macro-F1=-0.0017",
+      "statistical_support": "Exact McNemar p=0.5000 (Holm p=1.0000)",
+      "effect_size": "|delta_Backdoor|=2 < 6, |delta_Macro-F1|=0.0017 < 0.01",
+      "materiality_status": "BELOW_PREDECLARED_MATERIALITY_THRESHOLD",
+      "allowed_wording": "Observed differences in Stacking Backdoor detection and Macro-F1 fell below the predeclared practical materiality thresholds under the evaluated ablation.",
+      "forbidden_wording": "No-TTL removal materially degrades the stacking ensemble.",
+      "stage_d_action": "EVALUATED_AGAINST_PREREGISTERED_MATERIALITY",
+      "status": "NOT SUPPORTED"
+    },
+    {
+      "claim_id": "CLAIM_B",
+      "claim": "No-TTL removal has little effect on RF.",
+      "source_result": "RF delta Backdoor=0, delta Macro-F1=0.0000",
+      "statistical_support": "Computed A=582, B=0, C=0, D=1; status=STRUCTURALLY_NON_INFORMATIVE.",
+      "effect_size": "|delta_Backdoor|=0 < 6",
+      "materiality_status": "BELOW_PREDECLARED_MATERIALITY_THRESHOLD",
+      "allowed_wording": "RF Backdoor detection and Macro-F1 showed no observed change under Seed 42, remaining below practical materiality thresholds.",
+      "forbidden_wording": "RF is statistically proven to be unaffected by TTL features.",
+      "stage_d_action": "EVALUATED_AGAINST_PREREGISTERED_MATERIALITY",
+      "status": "SUPPORTED (DESCRIPTIVELY)"
+    },
+    {
+      "claim_id": "CLAIM_C",
+      "claim": "SVM is more sensitive to TTL-related representation changes.",
+      "source_result": "SVM delta Backdoor=-11, delta Macro-F1=-0.0184",
+      "statistical_support": "Raw McNemar p=0.01273, Holm-adjusted p=0.06363",
+      "effect_size": "|delta_Backdoor|=11 >= 6 (MATERIAL), |delta_Macro-F1|=0.0184 >= 0.01 (MATERIAL)",
+      "materiality_status": "MATERIAL_DIFFERENCE_CONFIRMED",
+      "allowed_wording": "The linear SVM exhibited greater sensitivity to the evaluated No-TTL representation change than the ensemble models.",
+      "forbidden_wording": "TTL features causally determine SVM performance.",
+      "stage_d_action": "EVALUATED_AGAINST_PREREGISTERED_MATERIALITY",
+      "status": "SUPPORTED DESCRIPTIVELY"
+    },
+    {
+      "claim_id": "CLAIM_D",
+      "claim": "AE robustly detects unseen attack families.",
+      "source_result": "AE primary threshold (mean+3sigma) yielded 0 detections across all 4 evaluated families and all 3 seeds.",
+      "statistical_support": "0/583 Backdoor, 0/44 Worms, 0/378 Shellcode, 0/677 Analysis.",
+      "effect_size": "Detection rate = 0.0% across all evaluated families.",
+      "materiality_status": "ZERO_DETECTIONS_OBSERVED",
+      "allowed_wording": "No detections were observed for the evaluated AE-unseen families under the conservative primary mean+3sigma threshold.",
+      "forbidden_wording": "AE robustly defends against unseen zero-day attacks.",
+      "stage_d_action": "REJECTED_BASED_ON_EMPIRICAL_DATA",
+      "status": "NOT SUPPORTED"
+    },
+    {
+      "claim_id": "CLAIM_E",
+      "claim": "Relaxed thresholds recover some anomaly signal.",
+      "source_result": "Under p95, AE detected 35/583 Backdoor, 6/44 Worms, 9/378 Shellcode, 27/677 Analysis (Seed 42).",
+      "statistical_support": "Confirmed in complete 60-cell secondary threshold matrix.",
+      "effect_size": "Detection rates increased up to 6.0% (Backdoor), 13.6% (Worms), 4.0% (Analysis).",
+      "materiality_status": "EMPIRICALLY_CONFIRMED_IN_SECONDARY_ANALYSIS",
+      "allowed_wording": "Relaxed threshold rules revealed limited family-dependent anomaly signal across selected operating points.",
+      "forbidden_wording": "Relaxed thresholds completely solve zero-day detection.",
+      "stage_d_action": "DESCRIPTIVELY_CONFIRMED",
+      "status": "SUPPORTED DESCRIPTIVELY"
+    },
+    {
+      "claim_id": "CLAIM_F",
+      "claim": "Relaxed thresholds improve detection at an FPR cost.",
+      "source_result": "At p95, benign dev-test FPR increased from ~0.035% to 5.62% (Seed 42) and 8.60% (Seed 123).",
+      "statistical_support": "Confirmed across evaluated cells of the benign FPR matrix.",
+      "effect_size": "FPR increases up to 8.60% (3,182 false alarms per 37,000 flows).",
+      "materiality_status": "TRADE_OFF_CONFIRMED_DESCRIPTIVELY",
+      "allowed_wording": "Several relaxed threshold operating points increased observed detections for selected AE-unseen attack families, accompanied in the corresponding evaluated settings by higher benign false-positive rates.",
+      "forbidden_wording": "Relaxing the threshold always increases detection at the cost of FPR across all settings.",
+      "stage_d_action": "CONFIRMED_BY_TRADE_OFF_ANALYSIS",
+      "status": "SUPPORTED DESCRIPTIVELY"
+    },
+    {
+      "claim_id": "CLAIM_G",
+      "claim": "The AE has zero sensitivity.",
+      "source_result": "0/583, 0/44, 0/378, 0/677 under primary threshold.",
+      "statistical_support": "Exact Clopper-Pearson 95% upper bounds: 0.63% (Backdoor), 8.04% (Worms), 0.97% (Shellcode), 0.54% (Analysis).",
+      "effect_size": "Non-zero upper confidence bounds.",
+      "materiality_status": "STATISTICAL_UNCERTAINTY_PRESERVED",
+      "allowed_wording": "0 detections were observed in the evaluated samples under the primary threshold.",
+      "forbidden_wording": "The AE has 0% true sensitivity.",
+      "stage_d_action": "FORBIDDEN_WORDING_REPLACED",
+      "status": "REPLACED WITH EXACT UNCERTAINTY"
+    },
+    {
+      "claim_id": "CLAIM_H",
+      "claim": "The canonical and No-TTL AEs are equivalent.",
+      "source_result": "Computed paired contingency: A=0, B=0, C=0, D=583.",
+      "statistical_support": "Computed discordant pairs=0; status=STRUCTURALLY_NON_INFORMATIVE.",
+      "effect_size": "Discordant pairs = 0.",
+      "materiality_status": "COMPUTED_CONTINGENCY_EVALUATED",
+      "allowed_wording": "No discordant detections were observed in the paired comparison; this does not establish equivalence.",
+      "forbidden_wording": "Canonical and No-TTL AEs are equivalent.",
+      "stage_d_action": "FORBIDDEN_WORDING_REPLACED",
+      "status": "NOT ESTABLISHED \u2014 STRUCTURAL DEGENERACY"
+    },
+    {
+      "claim_id": "CLAIM_I",
+      "claim": "mean+3sigma is outlier-resistant.",
+      "source_result": "Empirical threshold values (~10.56 to 11.59) are strongly influenced by long-tailed benign validation errors.",
+      "statistical_support": "Sample mean and variance are inherently sensitive to distribution tail.",
+      "effect_size": "High threshold driven by benign reconstruction variance.",
+      "materiality_status": "METHODOLOGICALLY_INACCURATE_PHRASING",
+      "allowed_wording": "The conservative mean+3sigma threshold is influenced by the empirical reconstruction-error distribution.",
+      "forbidden_wording": "mean+3sigma is outlier-resistant.",
+      "stage_d_action": "FORBIDDEN_WORDING_REPLACED",
+      "status": "REPLACED WITH METHODOLOGICALLY ACCURATE LANGUAGE"
+    },
+    {
+      "claim_id": "PRE_C_LANGUAGE_001",
+      "claim": "Stage-C frozen report uses 'outlier-resistant mean+3sigma' wording.",
+      "source_result": "Stage-C final report text (results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/stage_c_final_report.md).",
+      "statistical_support": "N/A (textual wording audit)",
+      "effect_size": "N/A",
+      "materiality_status": "PRE_EXISTING_STAGE_C_WORDING_ISSUE",
+      "allowed_wording": "Flagged for future manuscript revision: replace with 'conservative threshold dependent on empirical error distribution'.",
+      "forbidden_wording": "outlier-resistant mean+3sigma",
+      "stage_d_action": "FLAG ONLY (FROZEN ARTIFACT UNTOUCHED)",
+      "status": "PRE-EXISTING STAGE-C LANGUAGE \u2014 FUTURE MANUSCRIPT FIX REQUIRED"
+    },
+    {
+      "claim_id": "PRE_C_LANGUAGE_002",
+      "claim": "Stage-C frozen report phrasing potentially interpreted as asserting 0% true sensitivity.",
+      "source_result": "Stage-C final report tables and text.",
+      "statistical_support": "Exact Clopper-Pearson upper bounds (0.63% to 8.04%).",
+      "effect_size": "N/A",
+      "materiality_status": "PRE_EXISTING_STAGE_C_WORDING_ISSUE",
+      "allowed_wording": "Flagged for future manuscript revision: report observed sample counts x/N with exact confidence intervals.",
+      "forbidden_wording": "0% true sensitivity",
+      "stage_d_action": "FLAG ONLY (FROZEN ARTIFACT UNTOUCHED)",
+      "status": "PRE-EXISTING STAGE-C LANGUAGE \u2014 FUTURE MANUSCRIPT FIX REQUIRED"
+    },
+    {
+      "claim_id": "THREE_SEED_CLAIM",
+      "claim": "Supervised model performance is consistent across seeds.",
+      "source_result": "Seeds 42, 123, 2024 evaluated for Stage-B supervised models.",
+      "statistical_support": "Observed variation summarized by mean, SD, min, max, and range. No formal preregistered criterion for consistency was defined.",
+      "effect_size": "Macro-F1 ranges: DT 0.0017, RF 0.0012, SVM 0.0055, NN 0.0044, Stacking 0.0006.",
+      "materiality_status": "DESCRIPTIVE_ONLY",
+      "allowed_wording": "The three evaluated seeds (42, 123, 2024) are summarized descriptively. Observed seed-to-seed variation is reported using mean, SD, minimum, maximum, and range. No formal preregistered criterion for seed 'consistency' was defined; therefore the analysis does not establish formal seed robustness.",
+      "forbidden_wording": "Performance is statistically proven robust, stable, or generalizable across seeds.",
+      "stage_d_action": "REVISED_FROM_CONSISTENCY_CLAIM_TO_DESCRIPTIVE_CHARACTERIZATION",
+      "status": "DESCRIPTIVE ONLY"
+    },
+    {
+      "claim_id": "THRESHOLD_TRADEOFF_CLAIM",
+      "claim": "Relaxing threshold increases detection at the cost of FPR.",
+      "source_result": "60-cell secondary threshold detection matrix and 15-cell benign dev-test FPR matrix.",
+      "statistical_support": "At p95 (Seed 42), Backdoor det reaches 6.00% (vs 0%), but FPR rises to 5.62% (vs 0.035%).",
+      "effect_size": "FPR increases up to 8.60% (3,182 false alarms / 37,000 flows).",
+      "materiality_status": "DESCRIPTIVE_TRADE_OFF_AT_OBSERVED_POINTS",
+      "allowed_wording": "Several relaxed threshold operating points increased observed detections for selected AE-unseen attack families, accompanied in the corresponding evaluated settings by higher benign false-positive rates.",
+      "forbidden_wording": "Relaxing the threshold always increases detection at the cost of FPR across all settings, families, and thresholds.",
+      "stage_d_action": "QUALIFIED_AS_DESCRIPTIVE_AND_LIMITED_TO_OBSERVED_OPERATING_POINTS",
+      "status": "SUPPORTED DESCRIPTIVELY"
+    },
+    {
+      "claim_id": "RF_DEGENERACY",
+      "claim": "Random Forest McNemar paired test is structurally non-informative.",
+      "source_result": "Computed paired contingency table from row-level predictions: A=582, B=0, C=0, D=1 on Backdoor N=583.",
+      "statistical_support": "Computed discordant pairs B+C = 0. Structural degeneracy confirmed directly from data.",
+      "effect_size": "Discordant pairs = 0. Raw p = 1.00000, Holm-adjusted p = 1.00000.",
+      "materiality_status": "DATA_DERIVED_STRUCTURAL_DEGENERACY_NOT_NET_DIFFERENCE",
+      "allowed_wording": "For RF, row-level paired comparison revealed A=582, B=0, C=0, D=1 (B+C=0). The test is structurally non-informative and cannot evaluate difference or establish equivalence.",
+      "forbidden_wording": "RF has B=0, C=0 inferred merely from equal aggregate detection counts.",
+      "stage_d_action": "RECONSTRUCTED_FROM_ROW_LEVEL_PREDICTIONS",
+      "status": "STRUCTURALLY_NON_INFORMATIVE (CONFIRMED VIA ROW ALIGNMENT)"
+    }
+  ],
+  "gate_results": {
+    "gate_source_verified": true,
+    "gate_prediction_semantics_verified": true,
+    "gate_population_verified": true,
+    "gate_statistics_verified": true,
+    "gate_materiality_verified": true,
+    "gate_canonical_seed_integrity": true,
+    "gate_interpretation_verified": true,
+    "gate_reproducibility_verified": true,
+    "gate_isolation_verified": true,
+    "computed_final_status": "PASS WITH EXPLICIT LIMITATIONS"
+  }
+}

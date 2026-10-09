@@ -1,0 +1,28 @@
+{
+  "total_backdoor_rows": 583,
+  "DT": {
+    "detected": 581,
+    "detection_rate": 0.9965694682675815,
+    "missed": 2
+  },
+  "RF": {
+    "detected": 582,
+    "detection_rate": 0.9982847341337907,
+    "missed": 1
+  },
+  "SVM": {
+    "detected": 566,
+    "detection_rate": 0.9708404802744426,
+    "missed": 17
+  },
+  "NN": {
+    "detected": 581,
+    "detection_rate": 0.9965694682675815,
+    "missed": 2
+  },
+  "Stacking": {
+    "detected": 582,
+    "detection_rate": 0.9982847341337907,
+    "missed": 1
+  }
+}

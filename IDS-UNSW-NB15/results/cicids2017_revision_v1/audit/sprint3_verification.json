@@ -1,0 +1,52 @@
+{
+  "verification_timestamp_utc": "2026-10-06T08:58:19.681900+00:00",
+  "sprint": 3,
+  "all_invariants_pass": true,
+  "frozen_benchmark_manifest": {
+    "pass": true,
+    "total_files": 1261,
+    "missing_count": 0,
+    "mismatches_count": 0,
+    "missing_files": [],
+    "mismatches": []
+  },
+  "zero_day_splits_integrity": {
+    "pass": true,
+    "details": {
+      "protected_bot": {
+        "expected_sha": "8755a461308afd03c1978c45b8a128bf0a3f881876860ec0eebd7350e67e829e",
+        "actual_sha": "8755a461308afd03c1978c45b8a128bf0a3f881876860ec0eebd7350e67e829e",
+        "pass": true
+      },
+      "unseen_xss": {
+        "expected_sha": "4622fdf32590930275cdf34f4aece4e9f47cf53fb12538c7415ccec7794b5aed",
+        "actual_sha": "4622fdf32590930275cdf34f4aece4e9f47cf53fb12538c7415ccec7794b5aed",
+        "pass": true
+      },
+      "unseen_infiltration": {
+        "expected_sha": "6035857c265457b5eb961f8df4f64d477fe8808277b2410d3705e8bf6581f31d",
+        "actual_sha": "6035857c265457b5eb961f8df4f64d477fe8808277b2410d3705e8bf6581f31d",
+        "pass": true
+      }
+    }
+  },
+  "shortcut_freeze_verification": {
+    "pass": true,
+    "actual_sha": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+    "expected_sha": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+    "frozen_set": [
+      "Destination Port",
+      "Init_Win_bytes_backward"
+    ],
+    "expected_set": [
+      "Destination Port",
+      "Init_Win_bytes_backward"
+    ]
+  },
+  "pipeline_artifacts_verification": {
+    "pass": true,
+    "total_required": 31,
+    "missing_count": 0,
+    "missing": []
+  }
+}

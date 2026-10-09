@@ -1,0 +1,131 @@
+{
+  "experiment_id": "EXP_H123_V1",
+  "phase": "VALIDATION",
+  "correction_pass": "2026-09-03-determinism-closure",
+  "status": "PASS",
+  "sections": {
+    "upstream_integrity": "PASS",
+    "dataset_integrity": "PASS",
+    "feature_integrity": "PASS",
+    "h1_validation": "PASS",
+    "h2_validation": "PASS",
+    "h3_validation": "PASS",
+    "result_mathematics": "PASS",
+    "provenance": "PASS",
+    "isolation": "PASS",
+    "acceptance_criteria": "PASS"
+  },
+  "individual_tests": {
+    "T-CRITERION-PREREGISTERED": "PASS",
+    "T-NO-RESULT-BACKWARD": "PASS",
+    "T-FROZEN-UPSTREAM": "PASS",
+    "T-NO-RETRAIN": "PASS",
+    "T-75-FEATURES": "PASS",
+    "T-SEED-SET": "PASS",
+    "T-TAU-PROVENANCE": "PASS",
+    "T-H2-AE-ONLY": "PASS",
+    "T-H3-NO-RESELECT": "PASS",
+    "T-PROT-ISOLATION": "PASS",
+    "T-DEV-TEST-ISOLATION": "PASS",
+    "T-HASH-CONSISTENCY": "PASS",
+    "T-DETERMINISTIC": "PASS",
+    "T-PROVENANCE-COMPLETE": "PASS",
+    "T-AE-VAL-FPR-CONSISTENCY": "PASS",
+    "T-RF-PREDICTION-REUSE": "PASS"
+  },
+  "individual_tests_summary": "16 PASS / 0 FAIL / 0 INCONCLUSIVE",
+  "t_deterministic_evidence": {
+    "method": "empirical_second_run",
+    "script": "scripts/run_determinism_check.py",
+    "artifacts": "results/evaluation/EXP_H123_V1/determinism_check/",
+    "fields_compared": 17,
+    "fields_pass": 17,
+    "fields_fail": 0,
+    "float_tolerance": 1e-8,
+    "actual_max_float_diff": 0.0,
+    "result": "PASS — all 17 fields match with exact zero difference"
+  },
+  "h1_boundary_correction": {
+    "defect_corrected": true,
+    "file": "scripts/evaluate_sprint9.py",
+    "old_code": "elif diff < 0:",
+    "new_code": "elif diff < -config[\"h1_epsilon\"]:  # DD-7 LOCKED",
+    "verdict_impact": "NONE — actual diff=0.01222799 outside defect zone (-0.005, 0)",
+    "h1_verdict_unchanged": "SUPPORTED"
+  },
+  "h1_std_correction": {
+    "stored_value": 0.0004912372482943444,
+    "actual_ddof": 0,
+    "actual_ddof_name": "population standard deviation (numpy default)",
+    "note": "stacking_std_macro_f1 is reported for transparency only and does not participate in the locked H1 verdict function"
+  },
+  "provenance_split": {
+    "original_artifacts_generated_by": "pre-correction evaluate_sprint9.py",
+    "defect_in_original_run": "elif diff < 0 (non-verdict-affecting; diff=0.0122 outside zone)",
+    "corrected_code_used_for": "determinism verification run only",
+    "original_verdicts_unchanged": true
+  },
+  "final_design_approval": {
+    "dd_approval_documented": true,
+    "dd_approval_source": "docs/sprint9_discussion_v1.md Section M and N",
+    "dd_approval_date": "2026-09-02",
+    "separate_final_design_document_approval_recorded": true,
+    "final_design_approval_source": "docs/sprint9_final_design.md Section 21",
+    "final_design_approval_timestamp": "2026-09-03T20:59:24+05:30",
+    "final_design_approval_statement": "I explicitly approve docs/sprint9_final_design.md as the Final Design for Sprint 9.",
+    "accurate_lifecycle_state": "FINAL DESIGN: APPROVED — 2026-09-03",
+    "note": "Freeze requires separate explicit human 'proceed to freeze'"
+  },
+  "h1_verdict_verified": "SUPPORTED",
+  "h2_verdict_verified": "NOT_SUPPORTED",
+  "h3_verdict_verified": "NOT_SUPPORTED",
+  "h1_numbers_unchanged": true,
+  "h2_numbers_unchanged": true,
+  "h3_numbers_unchanged": true,
+  "static_locked_values": {
+    "epsilon_0005": "PASS",
+    "tau_11160": "PASS",
+    "supported_threshold_2": "PASS",
+    "multiplier_3": "PASS",
+    "fpr_cap_002": "PASS",
+    "seeds_42_123_2024": "PASS",
+    "n_features_75": "PASS",
+    "n_validation_11200": "PASS",
+    "n_dev_test_81749": "PASS",
+    "n_prot_583": "PASS"
+  },
+  "dataset_sha256_unchanged": true,
+  "checkpoint_sha256_unchanged": true,
+  "feature_set_unchanged": "EXP_MI_V1_1",
+  "dd_decisions_unchanged": "DD-1 through DD-8 all confirmed unchanged",
+  "no_retraining": true,
+  "no_sprint18_changes": true,
+  "no_dd_changes": true,
+  "new_files": [
+    "scripts/run_determinism_check.py",
+    "tests/test_h1_verdict_boundary.py",
+    "results/evaluation/EXP_H123_V1/determinism_check/rerun_h1_results.json",
+    "results/evaluation/EXP_H123_V1/determinism_check/rerun_h2_results.json",
+    "results/evaluation/EXP_H123_V1/determinism_check/rerun_h3_results.json",
+    "results/evaluation/EXP_H123_V1/determinism_check/rerun_runtime_report.json",
+    "results/evaluation/EXP_H123_V1/determinism_check/comparison.json",
+    "results/evaluation/EXP_H123_V1/determinism_check/README.md"
+  ],
+  "corrected_files": [
+    "scripts/evaluate_sprint9.py (H1 boundary line 260)",
+    "results/evaluation/EXP_H123_V1/metadata.json (provenance_note added)",
+    "results/evaluation/EXP_H123_V1/validation_report.md",
+    "results/evaluation/EXP_H123_V1/validation_summary.json"
+  ],
+  "freeze_ready": "PENDING_HUMAN_FREEZE_APPROVAL",
+  "lifecycle": {
+    "PLAN": "READY",
+    "DESIGN": "READY",
+    "DISCUSSION": "COMPLETE — DD-1 THROUGH DD-8 APPROVED",
+    "FINAL DESIGN": "APPROVED — 2026-09-03",
+    "IMPLEMENTATION": "COMPLETE",
+    "TEST": "COMPLETE — 16/16 PASS",
+    "VALIDATE": "COMPLETE",
+    "FREEZE": "NOT STARTED"
+  }
+}

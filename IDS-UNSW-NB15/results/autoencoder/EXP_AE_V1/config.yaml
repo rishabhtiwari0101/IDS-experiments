@@ -1,0 +1,20 @@
+ae_seed: 42
+architecture: 75->12->6->12->75
+batch_size: 256
+experiment_id: EXP_AE_V1
+loss: MSELoss
+lr: 0.001
+max_epochs: 150
+monitor_split_seed: 42
+optimizer: Adam
+patience: 5
+primary_threshold: DEFERRED_TO_SPRINT_8
+scaler: fresh_normal_ae_fit_only
+sprint: 7
+threshold_candidates:
+- p95
+- p99
+- p999
+- mean2sigma
+- mean3sigma
+weight_decay: 0.0001

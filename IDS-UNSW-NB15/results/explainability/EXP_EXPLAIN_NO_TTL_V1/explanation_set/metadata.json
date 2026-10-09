@@ -1,0 +1,10 @@
+{
+  "experiment_id": "EXP_EXPLAIN_NO_TTL_V1",
+  "source_experiment": "EXP_NO_TTL_V1",
+  "n_features": 72,
+  "total_rows": 2000,
+  "benign_rows": 1000,
+  "attack_rows": 1000,
+  "sampling_seed": 42,
+  "created_at": "2026-09-09T05:03:30Z"
+}

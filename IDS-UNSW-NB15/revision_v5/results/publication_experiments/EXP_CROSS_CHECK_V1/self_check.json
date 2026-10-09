@@ -1,0 +1,15 @@
+{
+  "experiment_id": "EXP_CROSS_CHECK_V1",
+  "timestamp_utc": "2026-09-28T09:52:33.600610+00:00",
+  "zero_training_guard": "PASS",
+  "headline_tier_rule_hash": "PASS",
+  "frozen_baseline_342_342": "PASS",
+  "cross_stage_reconciliation_s1_s3": "PASS",
+  "cross_stage_reconciliation_s3_s6": "PASS",
+  "cross_stage_reconciliation_s4_mcnemar": "PASS",
+  "historical_zeroday_reconciliation": "PASS",
+  "h1_macro_f1_reconciliation": "PASS",
+  "partitions_integrity": "PASS",
+  "alert_budget_integrity": "PASS",
+  "overall_status": "PASS"
+}

@@ -1,0 +1,75 @@
+{
+  "experiment_id": "EXP_OOF_STACK_V1",
+  "h1_seed": 2024,
+  "oof_seed": 7,
+  "oof_n_splits": 5,
+  "feature_set": "EXP_MI_V1_1",
+  "feature_count": 75,
+  "train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+  "train_rows": 162395,
+  "class_counts": {
+    "1": 117595,
+    "0": 44800
+  },
+  "oof_fixed_epoch_count": 18,
+  "oof_pos_weight": 0.38096857859602873,
+  "resolved_dataset_paths": {
+    "train": {
+      "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\train.csv",
+      "sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+      "rows": 162395,
+      "sprint6_access": "ALLOWED"
+    },
+    "validation": {
+      "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\validation.csv",
+      "sha256": "13caf21a076a33f50243f48f404b7e7525969f71d4b9d7c0f3768aef23589180",
+      "rows": 11200,
+      "sprint6_access": "FORBIDDEN"
+    },
+    "development_test": {
+      "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\development_test.csv",
+      "sha256": "04725e85732ab2fc6d9eaaa6105418b22b083b5c651067e7b0785464f414e508",
+      "rows": 81749,
+      "sprint6_access": "FORBIDDEN"
+    },
+    "protected_backdoor": {
+      "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\protected_unseen_attack.csv",
+      "sha256": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+      "rows": 583,
+      "sprint6_access": "FORBIDDEN"
+    },
+    "excluded_backdoor": {
+      "path": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\data\\splits\\excluded_train_backdoor.csv",
+      "sha256": "b3f6e7e60c9815a53f40eb2d41df8b67d29f884b922a487c3fe83c02e0db0a02",
+      "rows": 1746,
+      "sprint6_access": "FORBIDDEN"
+    }
+  },
+  "meta_config": {
+    "solver": "lbfgs",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 1000,
+    "random_state": 2024
+  },
+  "scaling_limitation": "SVM/NN OOF predictions use scaling statistics computed on the full frozen TRAIN, including rows in the OOF held-out fold. This is a bounded, label-independent leakage channel accepted for feature-space consistency.",
+  "meta_evaluation_limitation": "H1 Macro-F1 is computed by evaluating the meta-learner on the same OOF matrix used to train it. No separate meta-learner holdout exists under the current data-isolation rules. This is in-sample evaluation at the meta-learner level and is NOT a fully held-out end-to-end generalisation estimate.",
+  "sprint5_reference": {
+    "model": "RF",
+    "macro_f1": 0.9508532447968256,
+    "label": "Frozen Sprint 5 single-CV reference; not a matched 3-seed H1 baseline."
+  },
+  "environment": {
+    "torch": "2.7.1+cu118",
+    "sklearn": "1.9.0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU"
+  },
+  "git_commit": "2c8cdb62a30a637b1acd11623b0b2cda012c3c15",
+  "timestamp_utc": "2026-09-01T18:24:39.037580+00:00",
+  "runtimes": {
+    "oof_seconds": 683.8067958000029,
+    "meta_seconds": 0.26538799999980256,
+    "total_seconds": 687.5346021000005
+  }
+}

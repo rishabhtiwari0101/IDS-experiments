@@ -1,0 +1,233 @@
+{
+  "creation_timestamp_utc": "2026-10-06T06:27:01.803734+00:00",
+  "sprint": 3,
+  "step": "s08_oof_stacking",
+  "protocol": {
+    "oof_n_splits": 5,
+    "oof_cv_seed": 42,
+    "meta_params": {
+      "C": 1.0,
+      "solver": "lbfgs",
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "penalty": "l2"
+    },
+    "seeds": [
+      42,
+      123,
+      2024
+    ]
+  },
+  "k_star": 69,
+  "selected_features_sha256": "6fc304d041a6704bf45ac9d2533e8c4ac65c8216e0ac7751395d412f5759203c",
+  "leakage_assertions_passed": true,
+  "per_seed_results": {
+    "42": {
+      "fold_records": [
+        {
+          "fold": 1,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 2,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 3,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 4,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 5,
+          "train_n": 272372,
+          "val_n": 68092,
+          "val_benign": 8960,
+          "val_attack": 59132
+        }
+      ],
+      "meta_lr_params": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "random_state": 42
+      },
+      "meta_in_sample_metrics": {
+        "macro_f1": 0.9993833110304132,
+        "precision": 0.9998951391942631,
+        "recall": 0.9997801558525894,
+        "f1_attack": 0.9998376442175974,
+        "fpr": 0.0006919642857142857,
+        "confusion_matrix": [
+          [
+            44769,
+            31
+          ],
+          [
+            65,
+            295599
+          ]
+        ]
+      },
+      "oof_csv": "results\\cicids2017_revision_v1\\stacking\\oof_predictions_seed42.csv",
+      "oof_csv_sha256": "2edc391c335977024b0c71474669223357e08be4cde1d6b3340537dc0dc379cf",
+      "meta_lr_artifact": "cicids2017\\models\\seed_42\\meta_lr.pkl",
+      "meta_lr_sha256": "b0b15bee5b59f9dca714074fd009f161794c05cfc7c8fccdd4b29cfa8568be60",
+      "limitation": "In-sample meta-learner evaluation on OOF matrix. No held-out meta-layer validation exists under current data-isolation rules."
+    },
+    "123": {
+      "fold_records": [
+        {
+          "fold": 1,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 2,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 3,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 4,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 5,
+          "train_n": 272372,
+          "val_n": 68092,
+          "val_benign": 8960,
+          "val_attack": 59132
+        }
+      ],
+      "meta_lr_params": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "random_state": 123
+      },
+      "meta_in_sample_metrics": {
+        "macro_f1": 0.9994218540910125,
+        "precision": 0.9999052870141731,
+        "recall": 0.9997903025055468,
+        "f1_attack": 0.9998477914539975,
+        "fpr": 0.000625,
+        "confusion_matrix": [
+          [
+            44772,
+            28
+          ],
+          [
+            62,
+            295602
+          ]
+        ]
+      },
+      "oof_csv": "results\\cicids2017_revision_v1\\stacking\\oof_predictions_seed123.csv",
+      "oof_csv_sha256": "289aea6f11c797728aff537f1961f95993735bb636ec1029c5e8304fa3d3bd83",
+      "meta_lr_artifact": "cicids2017\\models\\seed_123\\meta_lr.pkl",
+      "meta_lr_sha256": "83a979cbd45a6e634079bfd63b40c9f19c5fb0f524633e8c2f7406a290056f05",
+      "limitation": "In-sample meta-learner evaluation on OOF matrix. No held-out meta-layer validation exists under current data-isolation rules."
+    },
+    "2024": {
+      "fold_records": [
+        {
+          "fold": 1,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 2,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 3,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 4,
+          "train_n": 272371,
+          "val_n": 68093,
+          "val_benign": 8960,
+          "val_attack": 59133
+        },
+        {
+          "fold": 5,
+          "train_n": 272372,
+          "val_n": 68092,
+          "val_benign": 8960,
+          "val_attack": 59132
+        }
+      ],
+      "meta_lr_params": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "random_state": 2024
+      },
+      "meta_in_sample_metrics": {
+        "macro_f1": 0.9994154136476687,
+        "precision": 0.9998985228306718,
+        "recall": 0.9997936847231993,
+        "f1_attack": 0.9998461010287555,
+        "fpr": 0.0006696428571428571,
+        "confusion_matrix": [
+          [
+            44770,
+            30
+          ],
+          [
+            61,
+            295603
+          ]
+        ]
+      },
+      "oof_csv": "results\\cicids2017_revision_v1\\stacking\\oof_predictions_seed2024.csv",
+      "oof_csv_sha256": "7d64029c79a2b2754d06dc3025c05eb9a4d012e1cdb023ae1ba81328a54c84d3",
+      "meta_lr_artifact": "cicids2017\\models\\seed_2024\\meta_lr.pkl",
+      "meta_lr_sha256": "81e07dcc18264362ca08f0308948eb0a8343f0f7d2522fb03ab30b60430bde83",
+      "limitation": "In-sample meta-learner evaluation on OOF matrix. No held-out meta-layer validation exists under current data-isolation rules."
+    }
+  }
+}

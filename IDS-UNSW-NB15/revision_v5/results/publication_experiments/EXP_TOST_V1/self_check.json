@@ -1,0 +1,56 @@
+{
+  "experiment_id": "EXP_TOST_V1",
+  "timestamp_utc": "2026-09-28T08:21:02.604294+00:00",
+  "zero_training_guard": "PASS",
+  "evaluation_population": "protected_backdoor",
+  "total_pairs": 583,
+  "contingency_counts": {
+    "A_both_correct": 582,
+    "B_canon_only": 0,
+    "C_nottl_only": 0,
+    "D_neither_correct": 1
+  },
+  "mcnemar_cross_check": {
+    "source_file": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_STATS_ROBUSTNESS_V1\\paired_tests\\mcnemar_results.csv",
+    "actual_csv_columns": [
+      "model",
+      "A_both_correct",
+      "B_canon_only",
+      "C_nottl_only",
+      "D_neither_correct",
+      "total_pairs",
+      "discordant_pairs",
+      "discordance_rate",
+      "canon_detected",
+      "nottl_detected",
+      "delta_detections",
+      "test_status",
+      "raw_p",
+      "interpretation",
+      "holm_adjusted_p"
+    ],
+    "rf_row_found": true,
+    "counts_match": true
+  },
+  "exact_paired_equivalence": {
+    "equivalence_margin_delta": 0.01,
+    "alpha": 0.05,
+    "discordant_pairs": 0,
+    "discordant_rate": 0.0,
+    "exact_p_value": 0.00285310956917081,
+    "one_sided_95_upper_bound": 0.005125297922243234,
+    "two_sided_95_interval": [
+      0.0,
+      0.006307433113897528
+    ],
+    "is_equivalent": true
+  },
+  "nan_inf_check": {
+    "p_canonical": true,
+    "p_no_ttl": true,
+    "observed_delta": true,
+    "exact_p_value": true,
+    "q_ub_onesided": true
+  },
+  "overall_status": "PASS"
+}

@@ -1,0 +1,250 @@
+{
+  "creation_timestamp_utc": "2026-10-06T13:22:18.452749+00:00",
+  "sprint": 5,
+  "step": "s20_treeshap_ablation_shift",
+  "rf_seed": 42,
+  "shap_seed": 42,
+  "shap_n_sample": 2000,
+  "frozen_shortcuts": [
+    "Destination Port",
+    "Init_Win_bytes_backward"
+  ],
+  "shortcut_sha256_verified": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+  "k_star_original": 69,
+  "D_ablated": 67,
+  "rf_orig_sha256": "490029f886b177703e353df7934f64975b533f0e4ab216f1bb9430146958cb0e",
+  "rf_abl_sha256": "e7e9cafbd49ec538cc8508ccdad63dd825247126548fdc0fcac4b093e74a4ec6",
+  "shap_compute_time_orig_s": 634.611117800001,
+  "shap_compute_time_abl_s": 300.52,
+  "shortcut_shap_mass_pct_in_original": 13.968755737695473,
+  "shortcut_shap_orig": {
+    "Destination Port": 0.061521623326547016,
+    "Init_Win_bytes_backward": 0.02442574075265523
+  },
+  "total_shap_orig": 0.6152828905674717,
+  "top20_original_rf": [
+    {
+      "rank": 1,
+      "feature": "Bwd Packet Length Std",
+      "mean_abs_shap": 0.0757638942273816,
+      "is_candidate": false
+    },
+    {
+      "rank": 2,
+      "feature": "Destination Port",
+      "mean_abs_shap": 0.061521623326547016,
+      "is_candidate": true
+    },
+    {
+      "rank": 3,
+      "feature": "Average Packet Size",
+      "mean_abs_shap": 0.05478010072034616,
+      "is_candidate": false
+    },
+    {
+      "rank": 4,
+      "feature": "Packet Length Variance",
+      "mean_abs_shap": 0.0376335026535579,
+      "is_candidate": false
+    },
+    {
+      "rank": 5,
+      "feature": "Fwd Packet Length Max",
+      "mean_abs_shap": 0.032152536331111245,
+      "is_candidate": false
+    },
+    {
+      "rank": 6,
+      "feature": "Packet Length Std",
+      "mean_abs_shap": 0.03156581668580347,
+      "is_candidate": false
+    },
+    {
+      "rank": 7,
+      "feature": "Bwd Packet Length Mean",
+      "mean_abs_shap": 0.028725681173174655,
+      "is_candidate": false
+    },
+    {
+      "rank": 8,
+      "feature": "Avg Bwd Segment Size",
+      "mean_abs_shap": 0.02672233177084476,
+      "is_candidate": false
+    },
+    {
+      "rank": 9,
+      "feature": "Init_Win_bytes_backward",
+      "mean_abs_shap": 0.02442574075265523,
+      "is_candidate": true
+    },
+    {
+      "rank": 10,
+      "feature": "Packet Length Mean",
+      "mean_abs_shap": 0.02181026043234958,
+      "is_candidate": false
+    },
+    {
+      "rank": 11,
+      "feature": "Max Packet Length",
+      "mean_abs_shap": 0.016898815426525878,
+      "is_candidate": false
+    },
+    {
+      "rank": 12,
+      "feature": "Bwd Header Length",
+      "mean_abs_shap": 0.014129999546642104,
+      "is_candidate": false
+    },
+    {
+      "rank": 13,
+      "feature": "Fwd Packet Length Mean",
+      "mean_abs_shap": 0.013176776346416414,
+      "is_candidate": false
+    },
+    {
+      "rank": 14,
+      "feature": "Subflow Bwd Bytes",
+      "mean_abs_shap": 0.01301851215584475,
+      "is_candidate": false
+    },
+    {
+      "rank": 15,
+      "feature": "Total Length of Bwd Packets",
+      "mean_abs_shap": 0.01204664855050009,
+      "is_candidate": false
+    },
+    {
+      "rank": 16,
+      "feature": "Avg Fwd Segment Size",
+      "mean_abs_shap": 0.011382161692443032,
+      "is_candidate": false
+    },
+    {
+      "rank": 17,
+      "feature": "Init_Win_bytes_forward",
+      "mean_abs_shap": 0.01039157080959829,
+      "is_candidate": true
+    },
+    {
+      "rank": 18,
+      "feature": "Bwd Packet Length Max",
+      "mean_abs_shap": 0.009646425905615506,
+      "is_candidate": false
+    },
+    {
+      "rank": 19,
+      "feature": "Fwd Packet Length Std",
+      "mean_abs_shap": 0.006598836654925971,
+      "is_candidate": false
+    },
+    {
+      "rank": 20,
+      "feature": "Fwd Header Length",
+      "mean_abs_shap": 0.006126509256490699,
+      "is_candidate": false
+    }
+  ],
+  "top20_ablated_rf": [
+    {
+      "rank": 1,
+      "feature": "Bwd Packet Length Std",
+      "mean_abs_shap": 0.0747264890109581
+    },
+    {
+      "rank": 2,
+      "feature": "Average Packet Size",
+      "mean_abs_shap": 0.0561253212443255
+    },
+    {
+      "rank": 3,
+      "feature": "Packet Length Variance",
+      "mean_abs_shap": 0.039605614178356
+    },
+    {
+      "rank": 4,
+      "feature": "Packet Length Std",
+      "mean_abs_shap": 0.0340962355921316
+    },
+    {
+      "rank": 5,
+      "feature": "Bwd Packet Length Mean",
+      "mean_abs_shap": 0.0312510084504268
+    },
+    {
+      "rank": 6,
+      "feature": "Fwd Packet Length Max",
+      "mean_abs_shap": 0.0283543078246742
+    },
+    {
+      "rank": 7,
+      "feature": "Avg Bwd Segment Size",
+      "mean_abs_shap": 0.0275735357474835
+    },
+    {
+      "rank": 8,
+      "feature": "Packet Length Mean",
+      "mean_abs_shap": 0.0196719525113716
+    },
+    {
+      "rank": 9,
+      "feature": "Fwd Packet Length Mean",
+      "mean_abs_shap": 0.018664624308241
+    },
+    {
+      "rank": 10,
+      "feature": "Init_Win_bytes_forward",
+      "mean_abs_shap": 0.0167809687195048
+    },
+    {
+      "rank": 11,
+      "feature": "Subflow Bwd Bytes",
+      "mean_abs_shap": 0.0166670508748069
+    },
+    {
+      "rank": 12,
+      "feature": "Total Length of Bwd Packets",
+      "mean_abs_shap": 0.0165822924365727
+    },
+    {
+      "rank": 13,
+      "feature": "Bwd Header Length",
+      "mean_abs_shap": 0.0165159961644259
+    },
+    {
+      "rank": 14,
+      "feature": "Max Packet Length",
+      "mean_abs_shap": 0.0157412432401089
+    },
+    {
+      "rank": 15,
+      "feature": "Avg Fwd Segment Size",
+      "mean_abs_shap": 0.0128912716714515
+    },
+    {
+      "rank": 16,
+      "feature": "Bwd Packet Length Max",
+      "mean_abs_shap": 0.0109010563141329
+    },
+    {
+      "rank": 17,
+      "feature": "Subflow Fwd Bytes",
+      "mean_abs_shap": 0.0100160134339024
+    },
+    {
+      "rank": 18,
+      "feature": "URG Flag Count",
+      "mean_abs_shap": 0.0093269584367404
+    },
+    {
+      "rank": 19,
+      "feature": "Fwd Header Length",
+      "mean_abs_shap": 0.0086798714887678
+    },
+    {
+      "rank": 20,
+      "feature": "Fwd Packet Length Std",
+      "mean_abs_shap": 0.0076706504195466
+    }
+  ],
+  "shift_table_csv": "results\\cicids2017_revision_v1\\ablation\\s20_shap_ablation_shift_table.csv"
+}

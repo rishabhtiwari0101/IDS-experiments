@@ -1,0 +1,160 @@
+# publication_experiments/configs/no_ttl.yaml
+# EXP_NO_TTL_V1 — Controlled No-TTL Feature Ablation Experiment
+# ----------------------------------------------------------------
+# Scientific purpose: Determine how supervised IDS performance changes
+# when exactly {sttl, ct_state_ttl, dttl} are removed from the 75
+# canonical features. This is a controlled feature-ablation experiment,
+# NOT proof of causal shortcut learning.
+#
+# Interpretation: performance degradation after TTL-feature removal provides
+# evidence consistent with dependence on TTL-related features.
+
+experiment:
+  id: EXP_NO_TTL_V1
+  parent_experiment: EXP_MI_V1_1        # canonical 75-feature baseline
+  canonical_commit: f694e19
+  stage: A_setup_only                    # no training until Stage B approval
+
+# ── Feature representation ────────────────────────────────────────────────
+features:
+  canonical_source: results/feature_selection/EXP_MI_V1_1/selected_features.json
+  canonical_count: 75
+  removed:
+    - sttl
+    - ct_state_ttl
+    - dttl
+  removed_count: 3
+  final_count: 72                        # 75 - 3 = 72  (MUST be verified at runtime)
+  output_path: results/publication_experiments/EXP_NO_TTL_V1/features/no_ttl_features.json
+
+# ── Seeds (canonical 3-seed protocol) ────────────────────────────────────
+seeds:
+  - 42
+  - 123
+  - 2024
+
+# ── Models to train ───────────────────────────────────────────────────────
+models:
+  # Stacking MUST retain all four base learners + LR meta-learner
+  stacking:
+    base_learners:
+      - DT
+      - RF
+      - SVM
+      - NN
+    meta_learner: LogisticRegression
+    oof_n_splits: 5
+    oof_random_state: 7                  # matches canonical oof_runner.py
+
+  # Individual base models also evaluated separately
+  base_models:
+    - DT
+    - RF
+    - SVM
+    - NN
+
+# ── Neural Network (IDSNet) dimensional adaptation ─────────────────────────
+# Feature representation: 75 → 72 features (controlled ablation of sttl, ct_state_ttl, dttl).
+# Scaler: newly fitted StandardScaler on 72-feature TRAIN (canonical 75-feature scaler incompatible).
+# Architecture: first-layer weight matrix adapted (W1: 72 -> 128), while hidden sizes (128 -> 64 -> 2),
+# learning rate (0.001), weight decay (0.0001), batch size (256), patience (5), and seeds remain identical.
+neural_network:
+  input_dim: 72                          # input layer dimension adapted for 72 ablated features
+  hidden_sizes:
+    - 128
+    - 64
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  batch_size: 256
+  patience: 5
+
+# ── Scaler strategy ───────────────────────────────────────────────────────
+# The canonical 75-feature SVM/NN scalers (n_features_in_=75) CANNOT be
+# applied to a 72-feature matrix. New 72-feature scalers must be fitted.
+#
+# NEW SCALER RULE:
+#   - Fit new StandardScaler on TRAIN (benign + attack) 72-feature matrix
+#   - For AE unseen-family study: separate benign-only scaler on TRAIN benign
+#   - Never fit on VALIDATION, DEV_TEST, or PROTECTED_BACKDOOR
+scaler:
+  supervised_scaler: new                # must fit new scaler for SVM/NN/AE
+  fit_population: TRAIN_all_72_features
+  note: "Canonical SVM scaler has n_features_in_=75 — incompatible. New scaler required."
+
+# ── Data partitions ───────────────────────────────────────────────────────
+data:
+  train: data/splits/train.csv
+  validation: data/splits/validation.csv
+  dev_test: data/splits/development_test.csv
+  protected_backdoor: data/splits/protected_unseen_attack.csv
+  row_id_column: id                      # stable row identifier for alignment
+
+# ── Evaluation ────────────────────────────────────────────────────────────
+evaluation:
+  dev_test: true
+  protected_backdoor: true              # evaluate ONLY after model is frozen
+  canonical_ref:
+    rf_backdoor_detected: 582
+    rf_backdoor_total: 583
+    stacking_backdoor_detected: 582
+    stacking_backdoor_total: 583
+  metrics:
+    - TP
+    - TN
+    - FP
+    - FN
+    - detection_rate
+    - macro_f1
+    - attack_precision
+    - attack_recall
+    - attack_f1
+    - benign_fpr
+
+# ── Statistical comparison & Locked Seed Mapping ──────────────────────────
+statistical_comparison:
+  test: mcnemar_exact
+  alignment_key: id                      # row-level pairing by ID
+  require_alignment_audit: true
+  paired_seed_mapping:
+    primary_paired_seed:
+      canonical_seed: 42
+      no_ttl_seed: 42
+      status: LOCKED_MANDATORY
+      description: "Primary benchmark comparison strictly pairs canonical seed-42 with No-TTL seed-42 on identical row IDs"
+    multi_seed_pairs:
+      - canonical_seed: 42
+        no_ttl_seed: 42
+      - canonical_seed: 123
+        no_ttl_seed: 123
+      - canonical_seed: 2024
+        no_ttl_seed: 2024
+    cross_seed_pairing_allowed: false   # Canonical 42 vs No-TTL 123 is strictly disallowed
+  populations:
+    - protected_backdoor
+    - dev_test_attack_rows
+
+# ── Output paths (ISOLATION MANDATE: All write destinations under publication_experiments) ─
+output:
+  base: results/publication_experiments/EXP_NO_TTL_V1
+  features: results/publication_experiments/EXP_NO_TTL_V1/features
+  checkpoints: results/publication_experiments/EXP_NO_TTL_V1/checkpoints
+  scalers: results/publication_experiments/EXP_NO_TTL_V1/scalers
+  predictions: results/publication_experiments/EXP_NO_TTL_V1/predictions
+  metrics: results/publication_experiments/EXP_NO_TTL_V1/metrics
+  comparison: results/publication_experiments/EXP_NO_TTL_V1/comparison
+  logs: results/publication_experiments/EXP_NO_TTL_V1/logs
+  config_used: results/publication_experiments/EXP_NO_TTL_V1/config_used.yaml
+  metadata: results/publication_experiments/EXP_NO_TTL_V1/metadata.json
+
+# ── Frozen Artifact Protection ────────────────────────────────────────────
+frozen_artifact_protection:
+  enforce_destination_isolation: true
+  allowed_output_prefix: results/publication_experiments/
+  forbidden_overwrite_targets:
+    - results/checkpoints/
+    - results/zero_day/
+    - results/autoencoder/
+    - results/oof_stacking/
+    - results/explainability/
+    - results/feature_selection/
+    - data/splits/

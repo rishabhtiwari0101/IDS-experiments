@@ -1,0 +1,203 @@
+{
+  "experiment_id": "EXP_MI_V1_1",
+  "protocol_version": "1.1",
+  "dataset": "UNSW-NB15",
+  "created_at": "2026-08-31T18:04:06.674804+00:00",
+  "git_commit": "7cdc5179278169b7d11cb68b08e4f2338ead587b",
+  "protocol_amendment": {
+    "file": "results/feature_selection/EXP_MI_V1_1/protocol_amendment.md",
+    "previous_candidate_k": [
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "new_candidate_k": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      75,
+      100,
+      150
+    ],
+    "reason": "Initial K grid produced a monotonic mean inner-CV Macro-F1 curve through its upper boundary; the project sanity check therefore required human review. The grid was expanded once to include higher-dimensional candidate feature sets before final K selection.",
+    "timing": "Before rerunning the expanded K-selection experiment; no TEST, outer VALIDATION, protected Backdoor, or archived Backdoor data were used.",
+    "v1_results_preserved_at": "results/feature_selection/EXP_MI_V1/"
+  },
+  "v1_original_results": {
+    "experiment_id": "EXP_MI_V1",
+    "k_results": [
+      {
+        "k": 10,
+        "mean_macro_f1": 0.824852
+      },
+      {
+        "k": 20,
+        "mean_macro_f1": 0.864436
+      },
+      {
+        "k": 30,
+        "mean_macro_f1": 0.897442
+      },
+      {
+        "k": 40,
+        "mean_macro_f1": 0.916198
+      },
+      {
+        "k": 50,
+        "mean_macro_f1": 0.91956
+      }
+    ],
+    "sanity_status": "REVIEW_REQUIRED",
+    "sanity_condition": "MONOTONIC"
+  },
+  "input_train_file": "data/splits/train.csv",
+  "input_train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+  "input_train_row_count": 162395,
+  "input_encoded_feature_count": 193,
+  "discrete_feature_count": 154,
+  "continuous_feature_count": 39,
+  "categorical_cols": [
+    "proto",
+    "service",
+    "state"
+  ],
+  "class_balance": {
+    "normal_count": 44800,
+    "attack_count": 117595,
+    "normal_pct": 27.5871,
+    "attack_pct": 72.4129,
+    "note": "No rebalancing applied."
+  },
+  "mi_estimator": "mutual_info_classif",
+  "mi_n_neighbors": 3,
+  "mi_random_state": 42,
+  "mi_target": "label",
+  "mi_representation": "encoded_unscaled",
+  "candidate_k": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    75,
+    100,
+    150
+  ],
+  "cv_method": "StratifiedKFold",
+  "cv_n_splits": 5,
+  "cv_shuffle": true,
+  "cv_random_state": 42,
+  "cv_stratify_on": "label",
+  "evaluator": {
+    "model": "LogisticRegression",
+    "solver": "liblinear",
+    "C": 1.0,
+    "max_iter": 1000,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "role": "Fixed K-selection evaluator only. NOT a research model."
+  },
+  "selection_metric": "macro_f1",
+  "tie_break": "smaller_k",
+  "selected_k": 75,
+  "final_refit_done": true,
+  "k_selection_summary": [
+    {
+      "k": 75,
+      "mean_macro_f1": 0.9197990515818126,
+      "std_macro_f1": 0.002393015762549829
+    },
+    {
+      "k": 100,
+      "mean_macro_f1": 0.9197745089556408,
+      "std_macro_f1": 0.0024359998134812276
+    },
+    {
+      "k": 150,
+      "mean_macro_f1": 0.919749784356419,
+      "std_macro_f1": 0.0025059066515268767
+    },
+    {
+      "k": 50,
+      "mean_macro_f1": 0.9195596022615871,
+      "std_macro_f1": 0.002323491374166627
+    },
+    {
+      "k": 40,
+      "mean_macro_f1": 0.9161980424895063,
+      "std_macro_f1": 0.002121616543684624
+    },
+    {
+      "k": 30,
+      "mean_macro_f1": 0.8974419682681883,
+      "std_macro_f1": 0.0009172058055581843
+    },
+    {
+      "k": 20,
+      "mean_macro_f1": 0.8644358901566622,
+      "std_macro_f1": 0.0024279743501289023
+    },
+    {
+      "k": 10,
+      "mean_macro_f1": 0.8248515782961743,
+      "std_macro_f1": 0.003434718125413348
+    }
+  ],
+  "source_family_report": {
+    "candidate": {
+      "proto": 133,
+      "service": 13,
+      "state": 8,
+      "numeric": 39
+    },
+    "selected": {
+      "proto": 25,
+      "service": 6,
+      "state": 5,
+      "numeric": 39
+    },
+    "note": "No quota applied. Natural MI result reported."
+  },
+  "selection_sanity": {
+    "status": "REVIEW_REQUIRED",
+    "condition": "MONOTONIC",
+    "reason": "Mean macro-F1 is monotonically non-decreasing through K=150 within tolerance=1e-4. REVIEW_REQUIRED flag is retained and documented. Human review: APPROVED. K=75 accepted as final selection.",
+    "flat_range": 0.09494747,
+    "flat_tolerance": 0.001,
+    "is_monotonic": true,
+    "monotonic_tolerance": 0.0001,
+    "human_reviewed": true,
+    "human_decision": "APPROVED"
+  },
+  "runtime_benchmark": {
+    "enabled": true,
+    "affects_selection": false,
+    "benchmark_duration_s": 0.077,
+    "estimated_full_runtime_s": 54.3,
+    "actual_full_runtime_s": 544.1
+  },
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.0"
+  },
+  "final_refit_timestamp": "2026-08-31T18:23:17.708857+00:00",
+  "final_refit_git_commit": "7cdc5179278169b7d11cb68b08e4f2338ead587b",
+  "human_review": {
+    "decision": "APPROVED",
+    "selected_k": 75,
+    "rationale": "K=75 is the highest mean inner-CV macro-F1 under the predefined rule. Practical plateau begins at K=75. Improvements beyond K=75 are negligible.",
+    "sanity_status_retained": "REVIEW_REQUIRED",
+    "monotonic_flag_retained": true,
+    "timestamp": "2026-08-31T18:23:17.708857+00:00"
+  },
+  "runtime_final_refit": {
+    "refit_duration_s": 29.8,
+    "total_script_duration_s": 33.8
+  }
+}

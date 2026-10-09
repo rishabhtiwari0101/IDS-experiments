@@ -1,0 +1,96 @@
+{
+  "stage": "A_extension_audit",
+  "timestamp_utc": "2026-09-08T17:43:00Z",
+  "repository": "c:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15",
+  "canonical_frozen_commit": "f694e19",
+  "audit_items": {
+    "1_canonical_prediction_provenance": {
+      "status": "VERIFIED_PASS",
+      "canonical_primary_prediction_source": "results/zero_day/EXP_ZERODAY_V1/predictions/zero_day_backdoor_predictions.csv",
+      "canonical_prediction_generation_script": "scripts/run_sprint13_zero_day.py (lines 280-294)",
+      "canonical_seed": 42,
+      "canonical_meta_learner_checkpoint": "results/checkpoints/EXP_OOF_STACK_V1/seed_42/meta_learner.joblib",
+      "canonical_aggregation_method": "single_seed_42 (not multi-seed aggregate)",
+      "canonical_headline_result": "582/583 Backdoor detected (99.83%)",
+      "stable_id_column": "source_row_uid (format: UNSW_NB15_testing-set.csv:<id>, 100% matched to id in protected_unseen_attack.csv)"
+    },
+    "2_exact_canonical_prediction_generation_mechanism": {
+      "status": "VERIFIED_PASS",
+      "dt_model": "results/checkpoints/EXP_BASE_MODELS_V1/dt/dt_final.joblib",
+      "rf_model": "results/checkpoints/EXP_BASE_MODELS_V1/rf/rf_final.joblib",
+      "svm_model": "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_final.joblib",
+      "svm_scaler": "results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_scaler.joblib",
+      "nn_model": "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_final.pt",
+      "nn_scaler": "results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_scaler.joblib",
+      "meta_learner": "results/checkpoints/EXP_OOF_STACK_V1/seed_42/meta_learner.joblib",
+      "meta_features": "[dt_prob, rf_prob, svm_decision_score, nn_prob]",
+      "decision_threshold": "probability >= 0.5"
+    },
+    "3_exact_canonical_stacking_aggregation": {
+      "status": "VERIFIED_PASS",
+      "single_seed_evaluation": "Direct inference per seed (seed 42 for Backdoor headline)",
+      "multi_seed_evaluation": "Seeds 42, 123, 2024 evaluated individually and averaged as summary metric; no ensemble probability averaging"
+    },
+    "4_paired_comparison_mapping": {
+      "status": "VERIFIED_PASS",
+      "primary_paired_comparison": "Canonical Seed-42 <-> No-TTL Seed-42",
+      "multi_seed_pairs": [
+        {"canonical": 42, "no_ttl": 42},
+        {"canonical": 123, "no_ttl": 123},
+        {"canonical": 2024, "no_ttl": 2024}
+      ],
+      "cross_seed_pairing_allowed": false,
+      "alignment_key": "id"
+    },
+    "5_threshold_rule_verification": {
+      "status": "VERIFIED_PASS",
+      "canonical_ae_threshold_rule": "mean + 3sigma",
+      "canonical_ae_threshold_value": 11.160062745213509,
+      "canonical_ae_backdoor_result": "0/583 detected",
+      "new_ae_primary_rule": "mean3sigma",
+      "comparability_rationale": "Section 28 rule: avoids simultaneous feature representation + threshold confounding",
+      "secondary_sensitivity_rules": ["p95", "p99", "p999", "mean2sigma"]
+    },
+    "6_ae_monitor_compatibility_with_72_features": {
+      "status": "VERIFIED_PASS",
+      "function": "src.models.autoencoder.ae_trainer.create_monitor_split",
+      "empirical_test": "Tested with (44800, 72) feature matrix",
+      "result": {
+        "ae_fit_count": 40320,
+        "monitor_count": 4480,
+        "disjoint": true,
+        "shape_ae_fit": [40320, 72],
+        "shape_monitor": [4480, 72],
+        "compatible": true
+      },
+      "trainer_adapter_note": "AETrainer.fit() in canonical src contains assert shape[1] == 75; publication_experiments/utils/ae_family_eval.py will provide minimal 72-feature trainer adapter for Stage C"
+    },
+    "7_family_count_reconciliation": {
+      "status": "VERIFIED_PASS",
+      "BACKDOOR": {"file": "protected_unseen_attack.csv", "actual": 583, "expected": 583, "unique_ids": 583, "match": true},
+      "WORMS": {"file": "development_test.csv", "actual": 44, "expected": 44, "small_n_warning": true, "match": true},
+      "SHELLCODE": {"file": "development_test.csv", "actual": 378, "expected": 378, "match": true},
+      "ANALYSIS": {"file": "development_test.csv", "actual": 677, "expected": 677, "match": true}
+    },
+    "8_dev_test_family_count_reconciliation": {
+      "status": "VERIFIED_PASS",
+      "total_rows": 81749,
+      "normal_rows": 37000,
+      "attack_rows": 44749,
+      "attack_categories": {
+        "Generic": 18871,
+        "Exploits": 11132,
+        "Fuzzers": 6062,
+        "DoS": 4089,
+        "Reconnaissance": 3496,
+        "Analysis": 677,
+        "Shellcode": 378,
+        "Worms": 44
+      },
+      "attack_sum": 44749,
+      "reconciliation_match": true
+    }
+  },
+  "overall_verdict": "STAGE_A_EXTENSION_AUDIT_PASS",
+  "stage_b_readiness": "APPROVED_TO_PROCEED"
+}

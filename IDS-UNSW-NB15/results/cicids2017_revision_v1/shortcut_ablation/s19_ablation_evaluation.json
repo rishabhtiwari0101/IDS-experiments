@@ -1,0 +1,473 @@
+{
+  "creation_timestamp_utc": "2026-10-06T13:12:30.057252+00:00",
+  "sprint": 5,
+  "step": "s19_evaluate_shortcut_ablation",
+  "frozen_shortcuts": [
+    "Destination Port",
+    "Init_Win_bytes_backward"
+  ],
+  "shortcut_sha256_verified": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+  "k_star_original": 69,
+  "D_ablated": 67,
+  "alpha": 0.05,
+  "delta_materiality": 0.01,
+  "bot_n": 1948,
+  "bot_thresh": 20,
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "per_seed_results": {
+    "42": {
+      "seed": 42,
+      "n_dev_total": 743921,
+      "n_dev_benign": 617209,
+      "n_dev_attack": 126712,
+      "rf_orig_macro_f1": 0.9985423673289298,
+      "rf_abl_macro_f1": 0.9970896101384652,
+      "delta_rf_f1": 0.0014527571904645598,
+      "dt_abl_metrics": {
+        "macro_f1": 0.9941458223228141,
+        "precision": 0.9812284045305939,
+        "recall": 0.9995501609950123,
+        "f1_attack": 0.9903045466984636,
+        "fpr": 0.003925736662945615,
+        "n_tp": 126655,
+        "n_fp": 2423,
+        "n_fn": 57,
+        "n_tn": 614786,
+        "confusion_matrix": [
+          [
+            614786,
+            2423
+          ],
+          [
+            57,
+            126655
+          ]
+        ]
+      },
+      "rf_abl_metrics": {
+        "macro_f1": 0.9970896101384652,
+        "precision": 0.9909773847718913,
+        "recall": 0.9994081065723847,
+        "f1_attack": 0.9951748905706046,
+        "fpr": 0.001868086823102061,
+        "n_tp": 126637,
+        "n_fp": 1153,
+        "n_fn": 75,
+        "n_tn": 616056,
+        "confusion_matrix": [
+          [
+            616056,
+            1153
+          ],
+          [
+            75,
+            126637
+          ]
+        ]
+      },
+      "svm_abl_metrics": {
+        "macro_f1": 0.8616195429524327,
+        "precision": 0.6512676499921264,
+        "recall": 0.9791732432603069,
+        "f1_attack": 0.7822471329226851,
+        "fpr": 0.10764100977140645,
+        "n_tp": 124073,
+        "n_fp": 66437,
+        "n_fn": 2639,
+        "n_tn": 550772,
+        "confusion_matrix": [
+          [
+            550772,
+            66437
+          ],
+          [
+            2639,
+            124073
+          ]
+        ]
+      },
+      "nn_abl_metrics": {
+        "macro_f1": 0.9028513103310791,
+        "precision": 0.7325090243294764,
+        "recall": 0.9977192373255888,
+        "f1_attack": 0.8447883568715107,
+        "fpr": 0.07479800197339961,
+        "n_tp": 126423,
+        "n_fp": 46166,
+        "n_fn": 289,
+        "n_tn": 571043,
+        "confusion_matrix": [
+          [
+            571043,
+            46166
+          ],
+          [
+            289,
+            126423
+          ]
+        ]
+      },
+      "stacking_abl_metrics": {
+        "macro_f1": 0.9979545887399611,
+        "precision": 0.9938935371960504,
+        "recall": 0.9993370793610707,
+        "f1_attack": 0.9966078750816549,
+        "fpr": 0.0012605130514947126,
+        "n_tp": 126628,
+        "n_fp": 778,
+        "n_fn": 84,
+        "n_tn": 616431,
+        "confusion_matrix": [
+          [
+            616431,
+            778
+          ],
+          [
+            84,
+            126628
+          ]
+        ]
+      },
+      "zero_day_bot": {
+        "rf_orig_detected": 0,
+        "rf_abl_detected": 0,
+        "delta_bot_rf": 0,
+        "rf_bot_material": false,
+        "stack_orig_detected": 0,
+        "stack_abl_detected": 0,
+        "delta_bot_stack": 0,
+        "stack_bot_material": false
+      },
+      "mcnemar": {
+        "seed": 42,
+        "b_orig_correct_abl_wrong": 835,
+        "c_orig_wrong_abl_correct": 221,
+        "n_discordant": 1056,
+        "mcnemar_p": 1.9774037416191377e-84,
+        "H1_rejected_shortcuts_matter": true
+      }
+    },
+    "123": {
+      "seed": 123,
+      "n_dev_total": 743921,
+      "n_dev_benign": 617209,
+      "n_dev_attack": 126712,
+      "rf_orig_macro_f1": 0.9985731623298741,
+      "rf_abl_macro_f1": 0.9970801482518995,
+      "delta_rf_f1": 0.0014930140779746415,
+      "dt_abl_metrics": {
+        "macro_f1": 0.9944341186026218,
+        "precision": 0.9821493653021502,
+        "recall": 0.9995659448197487,
+        "f1_attack": 0.9907811210500995,
+        "fpr": 0.003729692859306977,
+        "n_tp": 126657,
+        "n_fp": 2302,
+        "n_fn": 55,
+        "n_tn": 614907,
+        "confusion_matrix": [
+          [
+            614907,
+            2302
+          ],
+          [
+            55,
+            126657
+          ]
+        ]
+      },
+      "rf_abl_metrics": {
+        "macro_f1": 0.9970801482518995,
+        "precision": 0.9909540503317892,
+        "recall": 0.9994002146600164,
+        "f1_attack": 0.995159211643039,
+        "fpr": 0.0018729474132749197,
+        "n_tp": 126636,
+        "n_fp": 1156,
+        "n_fn": 76,
+        "n_tn": 616053,
+        "confusion_matrix": [
+          [
+            616053,
+            1156
+          ],
+          [
+            76,
+            126636
+          ]
+        ]
+      },
+      "svm_abl_metrics": {
+        "macro_f1": 0.8616195429524327,
+        "precision": 0.6512676499921264,
+        "recall": 0.9791732432603069,
+        "f1_attack": 0.7822471329226851,
+        "fpr": 0.10764100977140645,
+        "n_tp": 124073,
+        "n_fp": 66437,
+        "n_fn": 2639,
+        "n_tn": 550772,
+        "confusion_matrix": [
+          [
+            550772,
+            66437
+          ],
+          [
+            2639,
+            124073
+          ]
+        ]
+      },
+      "nn_abl_metrics": {
+        "macro_f1": 0.9223598026114015,
+        "precision": 0.779523768377134,
+        "recall": 0.9967485321042995,
+        "f1_attack": 0.8748536715454363,
+        "fpr": 0.05787666738495388,
+        "n_tp": 126300,
+        "n_fp": 35722,
+        "n_fn": 412,
+        "n_tn": 581487,
+        "confusion_matrix": [
+          [
+            581487,
+            35722
+          ],
+          [
+            412,
+            126300
+          ]
+        ]
+      },
+      "stacking_abl_metrics": {
+        "macro_f1": 0.9979901629033028,
+        "precision": 0.9939640353837822,
+        "recall": 0.9993844308352801,
+        "f1_attack": 0.9966668634279755,
+        "fpr": 0.001245931280976136,
+        "n_tp": 126634,
+        "n_fp": 769,
+        "n_fn": 78,
+        "n_tn": 616440,
+        "confusion_matrix": [
+          [
+            616440,
+            769
+          ],
+          [
+            78,
+            126634
+          ]
+        ]
+      },
+      "zero_day_bot": {
+        "rf_orig_detected": 0,
+        "rf_abl_detected": 0,
+        "delta_bot_rf": 0,
+        "rf_bot_material": false,
+        "stack_orig_detected": 0,
+        "stack_abl_detected": 0,
+        "delta_bot_stack": 0,
+        "stack_bot_material": false
+      },
+      "mcnemar": {
+        "seed": 123,
+        "b_orig_correct_abl_wrong": 836,
+        "c_orig_wrong_abl_correct": 205,
+        "n_discordant": 1041,
+        "mcnemar_p": 6.842703414800922e-91,
+        "H1_rejected_shortcuts_matter": true
+      }
+    },
+    "2024": {
+      "seed": 2024,
+      "n_dev_total": 743921,
+      "n_dev_benign": 617209,
+      "n_dev_attack": 126712,
+      "rf_orig_macro_f1": 0.9985731266312297,
+      "rf_abl_macro_f1": 0.9970778420291828,
+      "delta_rf_f1": 0.0014952846020468424,
+      "dt_abl_metrics": {
+        "macro_f1": 0.9942606894397841,
+        "precision": 0.9815861058798911,
+        "recall": 0.9995659448197487,
+        "f1_attack": 0.9904944378189212,
+        "fpr": 0.0038495874169041603,
+        "n_tp": 126657,
+        "n_fp": 2376,
+        "n_fn": 55,
+        "n_tn": 614833,
+        "confusion_matrix": [
+          [
+            614833,
+            2376
+          ],
+          [
+            55,
+            126657
+          ]
+        ]
+      },
+      "rf_abl_metrics": {
+        "macro_f1": 0.9970778420291828,
+        "precision": 0.990923246660772,
+        "recall": 0.999423890397121,
+        "f1_attack": 0.9951554156794795,
+        "fpr": 0.001879428200172065,
+        "n_tp": 126639,
+        "n_fp": 1160,
+        "n_fn": 73,
+        "n_tn": 616049,
+        "confusion_matrix": [
+          [
+            616049,
+            1160
+          ],
+          [
+            73,
+            126639
+          ]
+        ]
+      },
+      "svm_abl_metrics": {
+        "macro_f1": 0.8616195429524327,
+        "precision": 0.6512676499921264,
+        "recall": 0.9791732432603069,
+        "f1_attack": 0.7822471329226851,
+        "fpr": 0.10764100977140645,
+        "n_tp": 124073,
+        "n_fp": 66437,
+        "n_fn": 2639,
+        "n_tn": 550772,
+        "confusion_matrix": [
+          [
+            550772,
+            66437
+          ],
+          [
+            2639,
+            124073
+          ]
+        ]
+      },
+      "nn_abl_metrics": {
+        "macro_f1": 0.9180794721168359,
+        "precision": 0.7690654097472155,
+        "recall": 0.9966617210682492,
+        "f1_attack": 0.8681953644091391,
+        "fpr": 0.06144110017838366,
+        "n_tp": 126289,
+        "n_fp": 37922,
+        "n_fn": 423,
+        "n_tn": 579287,
+        "confusion_matrix": [
+          [
+            579287,
+            37922
+          ],
+          [
+            423,
+            126289
+          ]
+        ]
+      },
+      "stacking_abl_metrics": {
+        "macro_f1": 0.9979238517506279,
+        "precision": 0.9937766337317439,
+        "recall": 0.9993528631858072,
+        "f1_attack": 0.996556948078777,
+        "fpr": 0.0012848160023590065,
+        "n_tp": 126630,
+        "n_fp": 793,
+        "n_fn": 82,
+        "n_tn": 616416,
+        "confusion_matrix": [
+          [
+            616416,
+            793
+          ],
+          [
+            82,
+            126630
+          ]
+        ]
+      },
+      "zero_day_bot": {
+        "rf_orig_detected": 0,
+        "rf_abl_detected": 0,
+        "delta_bot_rf": 0,
+        "rf_bot_material": false,
+        "stack_orig_detected": 0,
+        "stack_abl_detected": 0,
+        "delta_bot_stack": 0,
+        "stack_bot_material": false
+      },
+      "mcnemar": {
+        "seed": 2024,
+        "b_orig_correct_abl_wrong": 845,
+        "c_orig_wrong_abl_correct": 213,
+        "n_discordant": 1058,
+        "mcnemar_p": 1.5466514567385078e-89,
+        "H1_rejected_shortcuts_matter": true
+      }
+    }
+  },
+  "mcnemar_per_seed": [
+    {
+      "seed": 42,
+      "b_orig_correct_abl_wrong": 835,
+      "c_orig_wrong_abl_correct": 221,
+      "n_discordant": 1056,
+      "mcnemar_p": 1.9774037416191377e-84,
+      "H1_rejected_shortcuts_matter": true
+    },
+    {
+      "seed": 123,
+      "b_orig_correct_abl_wrong": 836,
+      "c_orig_wrong_abl_correct": 205,
+      "n_discordant": 1041,
+      "mcnemar_p": 6.842703414800922e-91,
+      "H1_rejected_shortcuts_matter": true
+    },
+    {
+      "seed": 2024,
+      "b_orig_correct_abl_wrong": 845,
+      "c_orig_wrong_abl_correct": 213,
+      "n_discordant": 1058,
+      "mcnemar_p": 1.5466514567385078e-89,
+      "H1_rejected_shortcuts_matter": true
+    }
+  ],
+  "tost_rf_macro_f1": {
+    "mean_delta": 0.0014803519568286811,
+    "se_delta": 1.3812942818343094e-05,
+    "n_seeds": 3,
+    "t_lower": 831.1300573533965,
+    "t_upper": -616.7873244112421,
+    "p_lower": 7.238208417081893e-07,
+    "p_upper": 1.3143087887811452e-06,
+    "equivalence_accepted": true,
+    "delta": 0.01,
+    "alpha": 0.05
+  },
+  "mean_delta_rf_f1": 0.0014803519568286811,
+  "material_f1_change": false,
+  "H1_verdict": {
+    "description": "Removing shortcuts does NOT significantly change RF error pattern",
+    "rejected_count": 3,
+    "n_seeds": 3,
+    "majority_rejected": true,
+    "conclusion": "SHORTCUTS SIGNIFICANTLY CHANGE ERRORS"
+  },
+  "H2_verdict": {
+    "description": "|\u0394Macro-F1| < 0.01 (shortcuts give negligible boost)",
+    "tost_equivalence_accepted": true,
+    "mean_delta_rf_f1": 0.0014803519568286811,
+    "delta": 0.01,
+    "conclusion": "SHORTCUT CONTRIBUTION IS NEGLIGIBLE (H2 CONFIRMED)"
+  }
+}

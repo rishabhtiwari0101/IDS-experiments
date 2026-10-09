@@ -1,0 +1,228 @@
+# Master Configuration and Pre-Registration Block for Reviewer Revision (Paper ID 59)
+# Dataset: CIC-IDS2017 Full Pipeline Revision
+# Generated: Sprint 1 Freeze & Pre-Registration (Rule G7)
+
+protocol_version: "2.0"
+dataset_name: "CIC-IDS2017"
+
+# -----------------------------------------------------------------------------
+# 0. PRE-FLIGHT DECISIONS (Explicitly marked pending user input)
+# -----------------------------------------------------------------------------
+preflight_decisions:
+  P1_repo_root: "c:/Users/Atul2/OneDrive/Desktop/Papers/IDS-UNSW-NB15"
+  P2_active_submission_format: "PENDING_USER_CONFIRMATION"  # LaTeX (publication/main_6page.tex) vs Word (FINAL_PAPER.docx)
+  P3_heavy_root: "."                                       # Locked: Papers-Only critical override (<CURRENT_REPO_ROOT>)
+  P4_cicids2017_version: "MachineLearningCSV_original"     # Locked: Original Official UNB MachineLearningCSV Release
+  P5_venue_page_limit_and_deadline: "PENDING_USER_CONFIRMATION" # e.g. 6 pages IEEE format, deadline date
+  author_email_confirmation: "PENDING_USER_CONFIRMATION"   # Confirm Dr. Juily Tarade email in manuscript
+
+# -----------------------------------------------------------------------------
+# 1. RANDOM SEEDS & REPRODUCIBILITY (Rule G11)
+# -----------------------------------------------------------------------------
+seeds:
+  primary: 42
+  evaluation_seeds:
+    - 42
+    - 123
+    - 2024
+  split_seed: 20260928  # Reused from UNSW Tier B for exact cross-dataset methodology parity
+split_seed: 20260928
+
+# -----------------------------------------------------------------------------
+# 2. POPULATIONS & PRE-REGISTRATION BOUNDARIES (Section 4.1 - 4.3)
+# -----------------------------------------------------------------------------
+populations:
+  min_calibration_benign: 18500
+  min_eval_control_benign: 18500
+  min_dev_benign: 18500
+  target_train_benign: 44800                               # Locked: Parity with UNSW benign TRAIN (44,800)
+  train_benign_subsample_seed: 20260928                    # Fixed seed for stratified benign subsampling
+  headline_min_family_size: 200
+  supplementary_min_family_size: 30
+  
+  # Target attack labels mapped from CIC-IDS2017 in Sprint 2
+  protected_family: "PROTECTED_BOT"                        # Locked: Bot (N=1,948)
+  unseen_families:
+    - "UNSEEN_XSS"                                         # Locked: Web Attack XSS (N=652)
+    - "UNSEEN_INFILTRATION"                                # Locked: Infiltration (N=36)
+  excluded_small_families:
+    - "Web Attack Sql Injection"                           # Locked: SQL Injection (N=21, <30)
+    - "Heartbleed"                                         # Locked: Heartbleed (N=11, <30)
+
+split:
+  method: "stratified_row_fallback"
+  block_minutes: null
+  fallback_method: "stratified_row"
+  fallback_reason: "Timestamp column absent in official MachineLearningCSV release"
+  minimum_blocks: null
+  log_fallbacks: true
+  stratify_by_day: true
+
+# -----------------------------------------------------------------------------
+# 3. OPERATING POINTS & ALERTS BUDGETS (Section 4.4 - 4.5)
+# -----------------------------------------------------------------------------
+operating_points:
+  stacking_probability_threshold: 0.5
+  ae_primary_threshold: "mu+3sigma"
+  ae_additional_thresholds:
+    - "p95"
+    - "p99"
+    - "MAD"
+
+matched_fpr_budgets:
+  alpha_rates:
+    - 0.001  # 0.1%
+    - 0.005  # 0.5%
+    - 0.010  # 1.0%
+    - 0.050  # 5.0%
+  calibration_population: "CALIBRATION"
+  evaluation_population: "EVAL_CONTROL"
+  min_expected_false_alarms: 20  # Flag as 'low resolution' if fewer than 20
+
+metrics:
+  primary_cross_dataset_operational: "alerts_per_10000_benign_flows"
+  precision_standardization_prevalence: 0.0306  # pi = 0.0306 from UNSW natural prevalence
+
+# -----------------------------------------------------------------------------
+# 4. HYPOTHESES, MATERIALITY & STATISTICAL TESTING (Section 4.6)
+# -----------------------------------------------------------------------------
+hypotheses:
+  H1: "Ablation impact: Removing frozen shortcut set materially degrades Linear SVM"
+  H2: "Tree invariant resilience: RF and Stacking stay within materiality bound after shortcut removal"
+  H3: "AE zero-day suppression: AE records zero observed detections on PROTECTED_BOT at mu+3sigma"
+  H4: "Hybrid fusion utility: OR-fusion provides at least one additional zero-day rescue (Q3 > 0)"
+
+materiality:
+  delta_macro_f1: 0.01
+  delta_protected_recall_pct: 0.01  # |Delta BD| >= 1% of N(PROTECTED_BOT)
+
+statistical_tests:
+  significance_level: 0.05
+  pairwise_comparison_test: "mcnemar_exact"
+  fwer_correction: "holm_bonferroni"
+  zero_count_ci: "clopper_pearson"
+  recall_ci: "wilson_score"
+  equivalence_test: "tost"
+  tost_margin: 0.01
+
+# -----------------------------------------------------------------------------
+# 5. SHORTCUT ATTRIBUTION RULE (Section 4.7)
+# -----------------------------------------------------------------------------
+shortcut_rule:
+  candidate_pool:
+    - "Destination Port"
+    - "Init_Win_bytes_forward"
+    - "Init_Win_bytes_backward"
+    - "Flow Duration"
+  shap_sample_size: 2000
+  top_k: 10
+  fallback_top_k: 3
+  output_frozen_file: "shortcut_list_frozen.json"
+
+# -----------------------------------------------------------------------------
+# 6. FEATURE ENGINEERING & SELECTION (Section 4.8 - 4.9)
+# -----------------------------------------------------------------------------
+preprocessing:
+  one_hot_encoding:
+    handle_unknown: "ignore"
+    sparse_output: false
+  scaler:
+    type: "StandardScaler"
+    fit_on: "TRAIN_ONLY"
+  heavy_tail_sensitivity:
+    enabled: true
+    skewness_threshold: 5.0
+    min_value: 0.0
+    transform: "log1p"
+
+mi_selection:
+  estimator: "knn"
+  n_neighbors: 3
+  seed: 42
+  subsample_max_rows: 100000
+  plateau_delta: 0.005
+  grid:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
+    - 60
+    - "ALL"
+
+# -----------------------------------------------------------------------------
+# 7. CANONICAL MODEL HYPERPARAMETERS (Section 7 Reconciliation)
+# -----------------------------------------------------------------------------
+models:
+  decision_tree:
+    criterion: "entropy"
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+    class_weight: "balanced"
+    random_state: 42
+
+  random_forest:
+    n_estimators: 300
+    criterion: "gini"
+    max_features: 0.3
+    max_depth: null
+    bootstrap: true
+    class_weight: "balanced"
+    random_state: 42
+    n_jobs: -1
+
+  linear_svm:
+    C: 0.1
+    loss: "squared_hinge"
+    penalty: "l2"
+    dual: "auto"
+    max_iter: 2000
+    class_weight: "balanced"
+    random_state: 42
+
+  idsnet_mlp:
+    hidden_dim_1: 128
+    hidden_dim_2: 64
+    dropout_1: 0.3
+    dropout_2: 0.2
+    optimizer: "Adam"
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    loss: "BCELoss"
+    batch_size: 256
+    epochs: 18
+
+  stacking:
+    n_splits: 5
+    splitter: "StratifiedKFold"
+    meta_learner: "LogisticRegression"
+    meta_params:
+      C: 1.0
+      penalty: "l2"
+      solver: "lbfgs"
+      class_weight: "balanced"
+      max_iter: 1000
+      random_state: 42
+
+  autoencoder:
+    architecture: "D->12->6->12->D"
+    bottleneck_dim: 6
+    intermediate_dim: 12
+    optimizer: "Adam"
+    learning_rate: 0.001
+    weight_decay: 0.00001
+    loss: "MSELoss"
+    batch_size: 128
+    max_epochs: 150
+    early_stopping_patience: 15
+    internal_fit_fraction: 0.90
+    internal_monitor_fraction: 0.10
+
+  isolation_forest:
+    n_estimators: 200
+    max_samples: "auto"
+    contamination: "auto"
+    max_features: 1.0
+    random_state: 42
+    n_jobs: -1

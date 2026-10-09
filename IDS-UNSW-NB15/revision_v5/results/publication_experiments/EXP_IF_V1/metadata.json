@@ -1,0 +1,36 @@
+{
+  "experiment_id": "EXP_IF_V1",
+  "blueprint_version": "5.0",
+  "timestamp_utc": "2026-09-28T07:21:30.363238+00:00",
+  "config_path": "revision_v5\\publication_experiments\\stage_f\\configs\\stage_f.yaml",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "parameters": {
+    "n_estimators": 200,
+    "max_samples": "auto",
+    "contamination": "auto",
+    "max_features": 1.0
+  },
+  "training_rows": 44800,
+  "ae_scaler_sha256": "c0128d42ed9ef5be695f261be75155e7de4ddf8e51b926e3ce516c4a88ad8211",
+  "checkpoint_hashes": {
+    "seed_42": "8a69ad43ef083b782ec35b69ae1aca095bac2f6268c061bd654549f0eaf81a29",
+    "seed_123": "c68769e31646291fdae0c81bf1a652c4260c7bed9e2cb18cf0a6ebc5e24934e2",
+    "seed_2024": "d70b62b2e0a2cc9c8f1803b73322be665006b1991b23688ab839a846111ce4dc"
+  },
+  "artifact_hashes": {
+    "calibration_benign_scores.csv": "ccf9604e54493343a782047ab70e5d0e5775e010c597878cf59cc9f06d4768e4",
+    "dev_test_scores.csv": "c70d9f336183c5077aab74615ff510616143bf2dfd5581f1988dc7f22ebfb40c",
+    "zeroday_scores.csv": "1a5e9bdbd4ef35f2c5cbc7d36c730352d7d4d16090abccdad3d326d6ac72b915",
+    "unseen_family_scores.csv": "a9ff25d56ef923a9ae488740d764d3b6c939f94901348815b602429595517596",
+    "threshold_sweep.csv": "29f1e9c1d4f41eb41cd91634effaa510793a10b8772b5a821eee0bbaac4d7fd5",
+    "dev_test_metrics.json": "b7afa6d6af70f6a63dee67e8f99ff149db301e6e4a74876a89492a7a57a8c7a5",
+    "backdoor_detection.csv": "4e9342155ee7f252ccabda21b2db5409c404c42db6a31508a76ee104603d2687",
+    "unseen_family_detection.csv": "72bdb9bbe3d36c5a9cf168bcd9376ea0445d98cb402b21a2b3aaee301d438114",
+    "if_summary_mean_sd.csv": "5da37ea2e3622932426bb60d1494e12b03fa675c532d18e6f5b4a18ecbaff591"
+  },
+  "status": "PASS"
+}

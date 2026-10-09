@@ -1,0 +1,202 @@
+# results/base_models/EXP_BASE_MODELS_V1/config.yaml
+# Sprint 5 Base Models Experiment Configuration
+# Experiment ID: EXP_BASE_MODELS_V1
+# Status: IMPLEMENTED (not yet FROZEN)
+
+experiment_id: EXP_BASE_MODELS_V1
+sprint: 5
+protocol_version: "1.0"
+
+# ---------------------------------------------------------------------------
+# Feature set (FROZEN from Sprint 4)
+# ---------------------------------------------------------------------------
+feature_set:
+  id: EXP_MI_V1_1
+  feature_count: 75
+  source: results/feature_selection/EXP_MI_V1_1/selected_features.json
+
+# ---------------------------------------------------------------------------
+# Data (FROZEN from Sprint 3)
+# ---------------------------------------------------------------------------
+data:
+  train: data/splits/train.csv
+  # The following are NOT used for model training/tuning:
+  forbidden_for_tuning:
+    - data/splits/validation.csv
+    - data/splits/development_test.csv
+    - data/splits/protected_unseen_attack.csv
+    - data/splits/excluded_train_backdoor.csv
+  frozen_train_counts:
+    n_rows: 162395
+    n_normal: 44800
+    n_attack: 117595
+
+# ---------------------------------------------------------------------------
+# Cross-validation (frozen)
+# ---------------------------------------------------------------------------
+cv:
+  method: StratifiedKFold
+  n_splits: 5
+  shuffle: true
+  random_state: 0   # Model CV seed (intentionally different from MI seed=42)
+  stratify_on: label
+
+# ---------------------------------------------------------------------------
+# Primary tuning metric
+# ---------------------------------------------------------------------------
+tuning:
+  primary_metric: macro_f1
+  tolerance: 1.0e-6
+  tie_hierarchy:
+    - higher_mean_macro_f1
+    - lower_std_macro_f1
+    - model_specific_simplicity
+    - deterministic_serialised_config
+
+# ---------------------------------------------------------------------------
+# Decision Tree
+# ---------------------------------------------------------------------------
+decision_tree:
+  backend: sklearn.tree.DecisionTreeClassifier
+  representation: encoded_unscaled
+  baseline:
+    criterion: gini
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+    class_weight: balanced
+    random_state: 42
+  tuning_grid:
+    criterion: [gini, entropy]
+    max_depth: [5, 10, 20, null]
+    min_samples_leaf: [1, 5, 10]
+  fixed_params:
+    min_samples_split: 2
+    class_weight: balanced
+    random_state: 42
+  grid_size: 24
+
+# ---------------------------------------------------------------------------
+# Random Forest
+# ---------------------------------------------------------------------------
+random_forest:
+  backend: sklearn.ensemble.RandomForestClassifier
+  representation: encoded_unscaled
+  baseline:
+    n_estimators: 300
+    criterion: gini
+    max_depth: null
+    min_samples_leaf: 1
+    max_features: sqrt
+    class_weight: balanced
+    random_state: 42
+    n_jobs: -1
+  tuning_grid:
+    n_estimators: [100, 300]
+    max_depth: [10, 20, null]
+    min_samples_leaf: [1, 5]
+    max_features: [sqrt, 0.3]
+  fixed_params:
+    criterion: gini
+    class_weight: balanced
+    random_state: 42
+    n_jobs: -1
+  grid_size: 24
+
+# ---------------------------------------------------------------------------
+# LinearSVC
+# ---------------------------------------------------------------------------
+linear_svc:
+  backend: sklearn.svm.LinearSVC
+  representation: encoded_scaled
+  scaler: StandardScaler
+  scaler_policy: fit_on_inner_train_only
+  baseline:
+    C: 1.0
+    class_weight: balanced
+    max_iter: 5000
+    random_state: 42
+  tuning_grid:
+    C: [0.01, 0.1, 1.0, 10.0]
+  fixed_params:
+    class_weight: balanced
+    max_iter: 5000
+    random_state: 42
+  grid_size: 4
+  output_contract:
+    predict: true
+    decision_function: true
+    predict_proba: false   # NOT available — CalibratedClassifierCV reserved for future sprint
+
+# ---------------------------------------------------------------------------
+# Neural Network
+# ---------------------------------------------------------------------------
+neural_network:
+  framework: PyTorch
+  representation: encoded_scaled
+  scaler: StandardScaler
+  scaler_policy: fit_on_inner_train_only
+  input_dim: 75
+  architectures:
+    A: [128, 64]
+    B: [256, 128]
+  loss: BCEWithLogitsLoss
+  optimizer: Adam
+  batch_size: 256
+  early_stopping_patience: 5
+  early_stopping_monitor: inner_val_loss
+  pos_weight:
+    source: frozen_train_counts
+    formula: n_normal / n_attack
+    n_normal: 44800
+    n_attack: 117595
+    value: 0.380786   # approximate; exact computed at runtime
+  baseline:
+    hidden_sizes: [128, 64]
+    learning_rate: 0.001
+    weight_decay: 0.0001
+  tuning_grid:
+    hidden_sizes: [[128, 64], [256, 128]]
+    learning_rate: [0.001, 0.0001]
+    weight_decay: [0.0001, 0.001]
+  fixed_params:
+    optimizer: Adam
+    batch_size: 256
+    patience: 5
+  grid_size: 8
+  final_refit:
+    epoch_count_method: median_best_epoch_across_inner_folds
+    no_early_stopping: true
+    fresh_scaler: true
+  output_contract:
+    predict: true
+    sigmoid_probability: true
+
+# ---------------------------------------------------------------------------
+# Checkpoint paths
+# ---------------------------------------------------------------------------
+checkpoints:
+  root: results/checkpoints/EXP_BASE_MODELS_V1
+  dt: results/checkpoints/EXP_BASE_MODELS_V1/dt
+  rf: results/checkpoints/EXP_BASE_MODELS_V1/rf
+  svm: results/checkpoints/EXP_BASE_MODELS_V1/svm
+  nn: results/checkpoints/EXP_BASE_MODELS_V1/nn
+
+# ---------------------------------------------------------------------------
+# Result artifact paths
+# ---------------------------------------------------------------------------
+results:
+  root: results/base_models/EXP_BASE_MODELS_V1
+  baseline_results: results/base_models/EXP_BASE_MODELS_V1/baseline_results.csv
+  tuning_results: results/base_models/EXP_BASE_MODELS_V1/tuning_results.csv
+  fold_results: results/base_models/EXP_BASE_MODELS_V1/fold_results.csv
+  selected_configs: results/base_models/EXP_BASE_MODELS_V1/selected_configs.json
+  nn_epoch_diagnostics: results/base_models/EXP_BASE_MODELS_V1/nn_epoch_diagnostics.json
+  metadata: results/base_models/EXP_BASE_MODELS_V1/metadata.json
+  runtime_report: results/base_models/EXP_BASE_MODELS_V1/runtime_report.json
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+logging:
+  log_dir: results/logs/EXP_BASE_MODELS_V1

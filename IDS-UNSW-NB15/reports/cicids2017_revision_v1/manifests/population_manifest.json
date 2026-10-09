@@ -1,0 +1,232 @@
+{
+  "dataset_name": "CIC-IDS2017",
+  "variant": "MachineLearningCSV Original",
+  "generation_timestamp_utc": "2026-10-06T04:50:12.771499+00:00",
+  "split_seed": 20260928,
+  "split_method": "STRATIFIED_ROW_FALLBACK",
+  "fallback_reason": "Timestamp column absent in official MachineLearningCSV release",
+  "total_cleaned_flows": 2519404,
+  "total_assigned_population_flows": 1124053,
+  "explicitly_logged_removals_count": 1395351,
+  "populations": [
+    {
+      "population_name": "TRAIN",
+      "filename": "train.csv",
+      "relative_path": "cicids2017/DATA/splits/train.csv",
+      "rows": 340464,
+      "size_bytes": 145805510,
+      "sha256": "baae4da2e2aaf66a604df6bf9b1aed7c830ddbf4f55ac2a5ab1bfadaecf4ff99",
+      "md5": "3f70fe73f37bc2439751ad46598b802a",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "DoS Hulk": 120902,
+        "DDoS": 89608,
+        "PortScan": 63091,
+        "BENIGN": 44800,
+        "DoS GoldenEye": 7200,
+        "FTP-Patator": 4152,
+        "DoS slowloris": 3769,
+        "DoS Slowhttptest": 3660,
+        "SSH-Patator": 2253,
+        "Web Attack Brute Force": 1029
+      },
+      "family_distribution": {
+        "DoS": 135531,
+        "DDoS": 89608,
+        "PortScan": 63091,
+        "BENIGN": 44800,
+        "Brute Force": 6405,
+        "Web Attack": 1029
+      },
+      "shard_distribution": {
+        "Wednesday-workingHours.pcap_ISCX.csv": 144017,
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": 91641,
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": 65691,
+        "Tuesday-WorkingHours.pcap_ISCX.csv": 14979,
+        "Monday-WorkingHours.pcap_ISCX.csv": 10748,
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": 5245,
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": 4332,
+        "Friday-WorkingHours-Morning.pcap_ISCX.csv": 3811
+      }
+    },
+    {
+      "population_name": "DEV_TEST",
+      "filename": "dev_test.csv",
+      "relative_path": "cicids2017/DATA/splits/dev_test.csv",
+      "rows": 743921,
+      "size_bytes": 299398181,
+      "sha256": "7adcc73ac9014aa612a048a9d7577ce0cdf71d555e49e047bf77b680387c9a39",
+      "md5": "77f256d9e5230175ead988523a6f2231",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "BENIGN": 617209,
+        "DoS Hulk": 51815,
+        "DDoS": 38403,
+        "PortScan": 27039,
+        "DoS GoldenEye": 3086,
+        "FTP-Patator": 1779,
+        "DoS slowloris": 1615,
+        "DoS Slowhttptest": 1568,
+        "SSH-Patator": 966,
+        "Web Attack Brute Force": 441
+      },
+      "family_distribution": {
+        "BENIGN": 617209,
+        "DoS": 58084,
+        "DDoS": 38403,
+        "PortScan": 27039,
+        "Brute Force": 2745,
+        "Web Attack": 441
+      },
+      "shard_distribution": {
+        "Wednesday-workingHours.pcap_ISCX.csv": 174990,
+        "Monday-WorkingHours.pcap_ISCX.csv": 148076,
+        "Tuesday-WorkingHours.pcap_ISCX.csv": 120863,
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": 72265,
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": 66418,
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": 62861,
+        "Friday-WorkingHours-Morning.pcap_ISCX.csv": 52497,
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": 45951
+      }
+    },
+    {
+      "population_name": "CALIBRATION",
+      "filename": "calibration.csv",
+      "relative_path": "cicids2017/DATA/splits/calibration.csv",
+      "rows": 18500,
+      "size_bytes": 7324093,
+      "sha256": "945c867d525a8e17f42643008911ebdf05087283a6b44493701f8b16f7c01034",
+      "md5": "a48de91631fe2f155b652954a51f3c58",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "BENIGN": 18500
+      },
+      "family_distribution": {
+        "BENIGN": 18500
+      },
+      "shard_distribution": {
+        "Monday-WorkingHours.pcap_ISCX.csv": 4438,
+        "Tuesday-WorkingHours.pcap_ISCX.csv": 3540,
+        "Wednesday-workingHours.pcap_ISCX.csv": 3504,
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": 2166,
+        "Friday-WorkingHours-Morning.pcap_ISCX.csv": 1574,
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": 1364,
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": 1074,
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": 840
+      }
+    },
+    {
+      "population_name": "EVAL_CONTROL",
+      "filename": "eval_control.csv",
+      "relative_path": "cicids2017/DATA/splits/eval_control.csv",
+      "rows": 18500,
+      "size_bytes": 7327503,
+      "sha256": "a72268d83996d780c8bbe9491b8423c4d57c19a7ac053f34a0a8a1c66c15bef7",
+      "md5": "0cda5c13b8f98242e69dc0360580dc76",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "BENIGN": 18500
+      },
+      "family_distribution": {
+        "BENIGN": 18500
+      },
+      "shard_distribution": {
+        "Monday-WorkingHours.pcap_ISCX.csv": 4438,
+        "Tuesday-WorkingHours.pcap_ISCX.csv": 3540,
+        "Wednesday-workingHours.pcap_ISCX.csv": 3504,
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": 2166,
+        "Friday-WorkingHours-Morning.pcap_ISCX.csv": 1574,
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": 1364,
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": 1074,
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": 840
+      }
+    },
+    {
+      "population_name": "PROTECTED_BOT",
+      "filename": "protected_bot.csv",
+      "relative_path": "cicids2017/DATA/splits/protected_bot.csv",
+      "rows": 1948,
+      "size_bytes": 743659,
+      "sha256": "8755a461308afd03c1978c45b8a128bf0a3f881876860ec0eebd7350e67e829e",
+      "md5": "5ec6eb8f81f12e8e83e956e420e17ec8",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "Bot": 1948
+      },
+      "family_distribution": {
+        "Bot": 1948
+      },
+      "shard_distribution": {
+        "Friday-WorkingHours-Morning.pcap_ISCX.csv": 1948
+      }
+    },
+    {
+      "population_name": "UNSEEN_XSS",
+      "filename": "unseen_xss.csv",
+      "relative_path": "cicids2017/DATA/splits/unseen_xss.csv",
+      "rows": 652,
+      "size_bytes": 261945,
+      "sha256": "4622fdf32590930275cdf34f4aece4e9f47cf53fb12538c7415ccec7794b5aed",
+      "md5": "c582c5dd9598920e3b62117d4bf63327",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "Web Attack XSS": 652
+      },
+      "family_distribution": {
+        "Web Attack": 652
+      },
+      "shard_distribution": {
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": 652
+      }
+    },
+    {
+      "population_name": "UNSEEN_INFILTRATION",
+      "filename": "unseen_infiltration.csv",
+      "relative_path": "cicids2017/DATA/splits/unseen_infiltration.csv",
+      "rows": 36,
+      "size_bytes": 20540,
+      "sha256": "6035857c265457b5eb961f8df4f64d477fe8808277b2410d3705e8bf6581f31d",
+      "md5": "88f091cdc33d9a08c617e468ea7768ff",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "Infiltration": 36
+      },
+      "family_distribution": {
+        "Infiltration": 36
+      },
+      "shard_distribution": {
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": 36
+      }
+    },
+    {
+      "population_name": "EXCLUDED_SMALL",
+      "filename": "excluded_small.csv",
+      "relative_path": "cicids2017/DATA/splits/excluded_small.csv",
+      "rows": 32,
+      "size_bytes": 16379,
+      "sha256": "ae87e08e039edecef7f864d166441140b001c52ec073691299cf1e92e8f3644d",
+      "md5": "83427b28d3044eff05882401a654e37c",
+      "split_seed": 20260928,
+      "split_method": "STRATIFIED_ROW_FALLBACK",
+      "class_distribution": {
+        "Web Attack Sql Injection": 21,
+        "Heartbleed": 11
+      },
+      "family_distribution": {
+        "Web Attack": 21,
+        "Heartbleed": 11
+      },
+      "shard_distribution": {
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": 21,
+        "Wednesday-workingHours.pcap_ISCX.csv": 11
+      }
+    }
+  ]
+}

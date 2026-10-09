@@ -1,0 +1,11 @@
+{
+  "c01_detected": 582,
+  "c06_detected": 582,
+  "c01_dev_test_fpr": 0.191892,
+  "c06_dev_test_fpr": 0.192243,
+  "fpr_delta": 0.0003509999999999902,
+  "fpr_cap": 0.02,
+  "n_prot": 583,
+  "h3_verdict": "NOT_SUPPORTED",
+  "evidence_source": "EXP_FUSION_V1 frozen artifacts \u2014 no new H3 inference"
+}

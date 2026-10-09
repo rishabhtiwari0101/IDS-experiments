@@ -1,0 +1,218 @@
+[
+  {
+    "path": "results/zero_day/EXP_ZERODAY_V1/predictions/zero_day_backdoor_predictions.csv",
+    "experiment_id": "EXP_ZERODAY_V1",
+    "file_size_bytes": 82950,
+    "sha256": "515bdbe67d84ea096ffec9e9cbbbb1ac218cee35181adf7a60c74906809bfd69",
+    "row_count": 583,
+    "column_names": "['source_row_uid', 'label', 'attack_cat', 'dt_prediction', 'dt_score', 'rf_prediction', 'rf_score', 'svm_prediction', 'svm_score', 'nn_prediction', 'nn_score', 'stacking_prediction', 'stacking_score', 'reconstruction_error', 'ae_flag', 'c01_prediction', 'c06_prediction', 'supervised_detected', 'ae_detected', 'quadrant']",
+    "source_classification": "canonical stacking / canonical supervised"
+  },
+  {
+    "path": "results/checkpoints/EXP_AE_V1/ae_final.pt",
+    "experiment_id": "EXP_AE_V1",
+    "file_size_bytes": 11739,
+    "sha256": "4ab66af8d4a6e61212ef5d78360f30a8caa68aa85dac3d54042218e010f9a1d6",
+    "row_count": null,
+    "column_names": "N/A",
+    "source_classification": "canonical AE"
+  },
+  {
+    "path": "results/autoencoder/EXP_AE_V1/threshold/threshold_calibration.json",
+    "experiment_id": "EXP_AE_V1",
+    "file_size_bytes": 1528,
+    "sha256": "29bd47b8a0dd886383d312e1364320c9ada62d78989c4c5f847a96f8c1882971",
+    "row_count": null,
+    "column_names": "N/A",
+    "source_classification": "canonical AE"
+  },
+  {
+    "path": "results/publication_experiments/EXP_NO_TTL_V1/features/no_ttl_features.json",
+    "experiment_id": "EXP_NO_TTL_V1",
+    "file_size_bytes": 2231,
+    "sha256": "563a03bb86706cc8fa0819be18dbe403b423df00af0dbab063e5096afa641a8a",
+    "row_count": null,
+    "column_names": "N/A",
+    "source_classification": "Stage-B No-TTL"
+  },
+  {
+    "path": "results/publication_experiments/EXP_NO_TTL_V1/predictions/seed_42/predictions_protected_backdoor.csv",
+    "experiment_id": "EXP_NO_TTL_V1",
+    "file_size_bytes": 48741,
+    "sha256": "09cafa991bb93521f8d8e5848d56b129104e5e57b475cc4d7d363d34836e8e19",
+    "row_count": 583,
+    "column_names": "['id', 'true_label', 'dt_pred', 'dt_prob', 'rf_pred', 'rf_prob', 'svm_pred', 'svm_score', 'nn_pred', 'nn_prob', 'stacking_pred', 'stacking_prob']",
+    "source_classification": "Stage-B No-TTL"
+  },
+  {
+    "path": "results/publication_experiments/EXP_NO_TTL_V1/predictions/seed_123/predictions_protected_backdoor.csv",
+    "experiment_id": "EXP_NO_TTL_V1",
+    "file_size_bytes": 48387,
+    "sha256": "01f3fdf71f6c4e85b71fd27e4781eb875707f0fbdb95d6623212fef825b7b1db",
+    "row_count": 583,
+    "column_names": "['id', 'true_label', 'dt_pred', 'dt_prob', 'rf_pred', 'rf_prob', 'svm_pred', 'svm_score', 'nn_pred', 'nn_prob', 'stacking_pred', 'stacking_prob']",
+    "source_classification": "Stage-B No-TTL"
+  },
+  {
+    "path": "results/publication_experiments/EXP_NO_TTL_V1/predictions/seed_2024/predictions_protected_backdoor.csv",
+    "experiment_id": "EXP_NO_TTL_V1",
+    "file_size_bytes": 49134,
+    "sha256": "5622a720cf11413458c54cdfd45503416641711adf61a7e1a3edf6a41b21a48c",
+    "row_count": 583,
+    "column_names": "['id', 'true_label', 'dt_pred', 'dt_prob', 'rf_pred', 'rf_prob', 'svm_pred', 'svm_score', 'nn_pred', 'nn_prob', 'stacking_pred', 'stacking_prob']",
+    "source_classification": "Stage-B No-TTL"
+  },
+  {
+    "path": "results/publication_experiments/EXP_NO_TTL_V1/predictions/seed_42/predictions_dev_test.csv",
+    "experiment_id": "EXP_NO_TTL_V1",
+    "file_size_bytes": 6776844,
+    "sha256": "850ff8cba5207ce0cb29f6fdfbb6477f00c4aeed0eee985ae21d66d3c8a7eb02",
+    "row_count": 81749,
+    "column_names": "['id', 'true_label', 'dt_pred', 'dt_prob', 'rf_pred', 'rf_prob', 'svm_pred', 'svm_score', 'nn_pred', 'nn_prob', 'stacking_pred', 'stacking_prob']",
+    "source_classification": "Stage-B No-TTL"
+  },
+  {
+    "path": "results/publication_experiments/EXP_NO_TTL_V1/predictions/seed_123/predictions_dev_test.csv",
+    "experiment_id": "EXP_NO_TTL_V1",
+    "file_size_bytes": 6749578,
+    "sha256": "8b9ac0b891757f309543063a79bf6ab13b771958b2b54d970b36857c6d6ad2a1",
+    "row_count": 81749,
+    "column_names": "['id', 'true_label', 'dt_pred', 'dt_prob', 'rf_pred', 'rf_prob', 'svm_pred', 'svm_score', 'nn_pred', 'nn_prob', 'stacking_pred', 'stacking_prob']",
+    "source_classification": "Stage-B No-TTL"
+  },
+  {
+    "path": "results/publication_experiments/EXP_NO_TTL_V1/predictions/seed_2024/predictions_dev_test.csv",
+    "experiment_id": "EXP_NO_TTL_V1",
+    "file_size_bytes": 6751210,
+    "sha256": "0d47c4212afe6f14a1da4b206deac26df18255ce07659a2d908f304efa859e87",
+    "row_count": 81749,
+    "column_names": "['id', 'true_label', 'dt_pred', 'dt_prob', 'rf_pred', 'rf_prob', 'svm_pred', 'svm_score', 'nn_pred', 'nn_prob', 'stacking_pred', 'stacking_prob']",
+    "source_classification": "Stage-B No-TTL"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_42/BACKDOOR/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 47678,
+    "sha256": "8f6b627361ed3a5fbea43f4c574398cf9e0771bee057ebf3a79d2e068c93f72f",
+    "row_count": 583,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_42/WORMS/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 3536,
+    "sha256": "678feba923c986612e35f46d6cb12f649d321ab5ecb6583032a706204b2d2f06",
+    "row_count": 44,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_42/SHELLCODE/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 31233,
+    "sha256": "a7472cb1a88675005ccf1eb6695e09684c92039e18b7d0deb956c0c85664ec82",
+    "row_count": 378,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_42/ANALYSIS/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 55169,
+    "sha256": "52b746f17521ed784b61ffca07bc68c158c570e38367295d31352b8193b4f292",
+    "row_count": 677,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_123/BACKDOOR/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 47669,
+    "sha256": "0e64a8ffbe2202eb0534f66236a56ec0ae9388000f6339945a1e8d578dacc478",
+    "row_count": 583,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_123/WORMS/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 3529,
+    "sha256": "cbe684d4bed12ae561b16dbb3793620d1b492e27e564119539506bece293934a",
+    "row_count": 44,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_123/SHELLCODE/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 31221,
+    "sha256": "379dc160e6da6e2b7996e1ece605548198443a6772bade79b650276da3733775",
+    "row_count": 378,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_123/ANALYSIS/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 55167,
+    "sha256": "5426cfb719f0091b17a5b4c940ea8e46f17c6850f51c59dda530f5ffbdc9292e",
+    "row_count": 677,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_2024/BACKDOOR/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 47687,
+    "sha256": "c48e010da0faa0f243cc7a76f6efd146c68563441f1d0f827af81b9db35513f9",
+    "row_count": 583,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_2024/WORMS/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 3533,
+    "sha256": "6a082399759104c8b09e8aa98deb643cceb34f654062871c293dedc585e9c2c3",
+    "row_count": 44,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_2024/SHELLCODE/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 31243,
+    "sha256": "557baa12b184c175b77da849c5a5f936687607f5d931a806e98e4c9a60951252",
+    "row_count": 378,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/evaluations/seed_2024/ANALYSIS/predictions.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 55186,
+    "sha256": "63b3537900c71472c0679a0a39c8937bfa517c40a5466fa2392bebc35e8dbc78",
+    "row_count": 677,
+    "column_names": "['source_row_uid', 'raw_id', 'label', 'attack_cat', 'reconstruction_error', 'ae_prediction', 'threshold_used']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "results/publication_experiments/EXP_AE_UNSEEN_FAMILY_V1/statistics/secondary_threshold_matrix.csv",
+    "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+    "file_size_bytes": 6923,
+    "sha256": "57e6441a69716e18d7a5eb04e7318b631551820a8cc854419f9498a0520e4f73",
+    "row_count": 60,
+    "column_names": "['seed', 'threshold_rule', 'threshold_value', 'val_fpr', 'family', 'target_count', 'detected_count', 'detection_rate', 'detection_rate_pct', 'benign_devtest_fp', 'benign_devtest_fpr', 'benign_devtest_fpr_pct', 'small_n_warning']",
+    "source_classification": "Stage-C"
+  },
+  {
+    "path": "data/splits/protected_unseen_attack.csv",
+    "experiment_id": "DATA_SPLIT",
+    "file_size_bytes": 95769,
+    "sha256": "6ffd23479b575e438ad90678268f40f674a663c2b9507aaf65089623397a9d91",
+    "row_count": 583,
+    "column_names": "['id', 'dur', 'proto', 'service', 'state', 'spkts', 'dpkts', 'sbytes', 'dbytes', 'rate', 'sttl', 'dttl', 'sload', 'dload', 'sloss', 'dloss', 'sinpkt', 'dinpkt', 'sjit', 'djit', 'swin', 'stcpb', 'dtcpb', 'dwin', 'tcprtt', 'synack', 'ackdat', 'smean', 'dmean', 'trans_depth', 'response_body_len', 'ct_srv_src', 'ct_state_ttl', 'ct_dst_ltm', 'ct_src_dport_ltm', 'ct_dst_sport_ltm', 'ct_dst_src_ltm', 'is_ftp_login', 'ct_ftp_cmd', 'ct_flw_http_mthd', 'ct_src_ltm', 'ct_srv_dst', 'is_sm_ips_ports', 'attack_cat', 'label']",
+    "source_classification": "derived"
+  }
+]

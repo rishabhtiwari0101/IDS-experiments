@@ -1,0 +1,14 @@
+{
+  "experiment_id": "EXP_INTEGRATED_PUBLICATION_V1",
+  "timestamp": "2026-09-08T17:57:49.752613+00:00",
+  "git_commit": "e08366f9b41c2c77ab8d71c4d75deb3bcce2123e",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "source_manifest_hash": "c1ab2309dcc6e4b93a2ea3447998e3008ed654c864ee5552403c58b5add8b099",
+  "config_hash": "dc3d899bc75194bf97d8a9ca1f3bc1d5cb7b944e31e0e419cef13f873c103f42",
+  "script_hash": "3767d36301ae43c91c27c5414be2fb5eb0d5ada64fe5c75f02fd502553a90f94",
+  "derivation_registry_hash": "13cb8e5aa369f17cf5c41c8b09b4b0042a27c650f0d21f25faf5cb0b384fb822",
+  "pre_execution_hash_count": 427,
+  "post_execution_hash_count": 427,
+  "isolation_verified": true
+}

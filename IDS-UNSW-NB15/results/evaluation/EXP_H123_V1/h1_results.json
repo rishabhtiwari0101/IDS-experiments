@@ -1,0 +1,38 @@
+{
+  "stacking_macro_f1_seed_42": 0.8926091690431182,
+  "stacking_macro_f1_seed_123": 0.8926186397931948,
+  "stacking_macro_f1_seed_2024": 0.8936559437082856,
+  "stacking_mean_macro_f1": 0.8929612508481996,
+  "stacking_std_macro_f1": 0.0004912372482943444,
+  "rf_dev_test_macro_f1": 0.8807332603329192,
+  "diff": 0.01222799051528034,
+  "h1_verdict": "SUPPORTED",
+  "epsilon": 0.005,
+  "stacking_weighted_f1_seed_42": 0.8942785181961372,
+  "stacking_weighted_f1_seed_123": 0.8942887133079468,
+  "stacking_weighted_f1_seed_2024": 0.8952902782179714,
+  "stacking_mean_weighted_f1": 0.8946191699073518,
+  "stacking_balanced_acc_seed_42": 0.8879307887296892,
+  "stacking_balanced_acc_seed_123": 0.8879349419253215,
+  "stacking_balanced_acc_seed_2024": 0.8890714257241442,
+  "stacking_mean_balanced_acc": 0.8883123854597184,
+  "n_dev_test": 81749,
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "sprint6_oof_reference": {
+    "mean_macro_f1": 0.9472415941099953,
+    "std_macro_f1": 0.00026253378581352256,
+    "label": "Sprint 6 OOF in-sample reference \u2014 NOT held-out Dev TEST"
+  },
+  "sprint5_rf_reference": {
+    "macro_f1": 0.9508532447968256,
+    "label": "Frozen Sprint 5 single-CV reference; not a matched 3-seed H1 baseline."
+  },
+  "limitations": [
+    "L1",
+    "L2"
+  ]
+}

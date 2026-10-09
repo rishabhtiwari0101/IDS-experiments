@@ -1,0 +1,25 @@
+{
+  "c01_detected": 582,
+  "c01_missed": 1,
+  "c01_dev_test_fpr": 0.191892,
+  "c06_detected": 582,
+  "c06_missed": 1,
+  "c06_dev_test_fpr": 0.192243,
+  "fpr_delta": 0.0003509999999999902,
+  "fpr_cap": 0.02,
+  "n_prot": 583,
+  "pp_per_row": 0.1716,
+  "h3_verdict": "NOT_SUPPORTED",
+  "h3_verdict_reason": "C06 detected_count == C01 detected_count; primary condition fails.",
+  "fpr_cap_determinative": false,
+  "evidence_source": "EXP_FUSION_V1 frozen artifacts",
+  "mandatory_wording": "Sprint 9 H3 formalizes the Sprint 8 H-FUSION/H-PROT-BACKDOOR findings under explicit pre-registered criteria and does not reopen those frozen decisions.",
+  "disclosures": [
+    "L6",
+    "L7"
+  ],
+  "sprint8_verdicts": {
+    "H-FUSION": "FALSE",
+    "H-PROT-BACKDOOR": "FALSE"
+  }
+}

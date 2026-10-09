@@ -1,0 +1,38 @@
+{
+  "experiment_id": "EXP_FINAL_PUBLICATION_AUDIT_V1",
+  "timestamp": "2026-09-08T18:43:04.747259+00:00",
+  "manuscript_state": "STALE",
+  "substantial_manuscript_update_required": true,
+  "core_gates": {
+    "G1_numerical_consistency": "PASS",
+    "G2_methodology_consistency": "PASS",
+    "G3_leakage_integrity": "PASS",
+    "G4_statistical_validity": "PASS",
+    "G5_claims_safety": "PASS",
+    "G6_table_figure_consistency": "PASS",
+    "G7_reproducibility": "PASS",
+    "G8_frozen_artifact_integrity": "PASS",
+    "G9_reviewer_risk": "PASS"
+  },
+  "revision_flags": {
+    "R_MANUSCRIPT_SUBSTANTIAL_UPDATE": true,
+    "R_LEAKAGE_DOCUMENTATION_GAP": false,
+    "R_DERIVATION_REGISTRY_DOCUMENTATION_GAP": false,
+    "R_FIGURE_E8_UPSTREAM_DEFECT": false,
+    "R_REVIEWER_RISK_REQUIRES_REVISION": true,
+    "R6_MINOR_WORDING_FORMATTING": false
+  },
+  "safety_flags": {
+    "critical_numerical_failure": false,
+    "critical_methodology_failure": false,
+    "actual_leakage_found": false,
+    "critical_statistical_failure": false,
+    "unsupported_core_claim": false,
+    "table_figure_evidence_inconsistency": false,
+    "reproducibility_untraceable": false,
+    "frozen_artifact_modified": false,
+    "critical_reviewer_risk": false
+  },
+  "final_verdict": "READY WITH MINOR REVISIONS",
+  "decision_rationale": "Verdict is READY WITH MINOR REVISIONS. All 9 core integrity gates passed cleanly. Active revision flags: ['R_MANUSCRIPT_SUBSTANTIAL_UPDATE', 'R_REVIEWER_RISK_REQUIRES_REVISION']. Substantial manuscript update required: True."
+}

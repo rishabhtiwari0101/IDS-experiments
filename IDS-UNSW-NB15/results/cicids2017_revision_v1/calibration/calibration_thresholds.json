@@ -1,0 +1,604 @@
+{
+  "timestamp_utc": "2026-10-06T09:38:22.769347+00:00",
+  "sprint": 4,
+  "calibration_rows": 18500,
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "scaled_mad_constant": 1.4826,
+  "autoencoder_thresholds": {
+    "standard": {
+      "42": {
+        "stats": {
+          "mean": 0.2096298336982727,
+          "std": 2.8155887126922607,
+          "median": 0.05283062160015106,
+          "raw_mad": 0.04635556787252426,
+          "scaled_mad": 0.06872676492780447,
+          "min": 0.0012977462029084563,
+          "max": 344.3107604980469,
+          "p50": 0.05283062160015106,
+          "p95": 0.5767556428909302,
+          "p99": 2.38435435295105,
+          "p999": 18.710525512695312
+        },
+        "thresholds": {
+          "mu_plus_3sigma": {
+            "rule": "mu_plus_3sigma",
+            "threshold_value": 8.656395971775055,
+            "formula": "mean + 3*std(ddof=0)",
+            "calibration_fps": 42,
+            "calibration_fpr": 0.00227027027027027,
+            "calibration_total": 18500
+          },
+          "p95": {
+            "rule": "p95",
+            "threshold_value": 0.5767556428909302,
+            "formula": "percentile(95.0)",
+            "calibration_fps": 925,
+            "calibration_fpr": 0.05,
+            "calibration_total": 18500
+          },
+          "p99": {
+            "rule": "p99",
+            "threshold_value": 2.38435435295105,
+            "formula": "percentile(99.0)",
+            "calibration_fps": 185,
+            "calibration_fpr": 0.01,
+            "calibration_total": 18500
+          },
+          "p999": {
+            "rule": "p999",
+            "threshold_value": 18.710525512695312,
+            "formula": "percentile(99.9)",
+            "calibration_fps": 19,
+            "calibration_fpr": 0.0010270270270270271,
+            "calibration_total": 18500
+          },
+          "raw_mad_k3": {
+            "rule": "raw_mad_k3",
+            "threshold_value": 0.19189732521772385,
+            "formula": "median + 3*raw_mad",
+            "calibration_fps": 2804,
+            "calibration_fpr": 0.15156756756756756,
+            "calibration_total": 18500
+          },
+          "scaled_mad_k3": {
+            "rule": "scaled_mad_k3",
+            "threshold_value": 0.25901091638356444,
+            "formula": "median + 3*1.4826*raw_mad",
+            "calibration_fps": 1850,
+            "calibration_fpr": 0.1,
+            "calibration_total": 18500
+          }
+        }
+      },
+      "123": {
+        "stats": {
+          "mean": 0.23019973933696747,
+          "std": 3.100900173187256,
+          "median": 0.0485202893614769,
+          "raw_mad": 0.04288066178560257,
+          "scaled_mad": 0.06357486916333437,
+          "min": 0.001544513856060803,
+          "max": 380.3059387207031,
+          "p50": 0.0485202893614769,
+          "p95": 0.633800208568573,
+          "p99": 2.614123582839966,
+          "p999": 20.96755027770996
+        },
+        "thresholds": {
+          "mu_plus_3sigma": {
+            "rule": "mu_plus_3sigma",
+            "threshold_value": 9.532900258898735,
+            "formula": "mean + 3*std(ddof=0)",
+            "calibration_fps": 45,
+            "calibration_fpr": 0.0024324324324324323,
+            "calibration_total": 18500
+          },
+          "p95": {
+            "rule": "p95",
+            "threshold_value": 0.633800208568573,
+            "formula": "percentile(95.0)",
+            "calibration_fps": 925,
+            "calibration_fpr": 0.05,
+            "calibration_total": 18500
+          },
+          "p99": {
+            "rule": "p99",
+            "threshold_value": 2.614123582839966,
+            "formula": "percentile(99.0)",
+            "calibration_fps": 185,
+            "calibration_fpr": 0.01,
+            "calibration_total": 18500
+          },
+          "p999": {
+            "rule": "p999",
+            "threshold_value": 20.96755027770996,
+            "formula": "percentile(99.9)",
+            "calibration_fps": 19,
+            "calibration_fpr": 0.0010270270270270271,
+            "calibration_total": 18500
+          },
+          "raw_mad_k3": {
+            "rule": "raw_mad_k3",
+            "threshold_value": 0.1771622747182846,
+            "formula": "median + 3*raw_mad",
+            "calibration_fps": 3431,
+            "calibration_fpr": 0.18545945945945946,
+            "calibration_total": 18500
+          },
+          "scaled_mad_k3": {
+            "rule": "scaled_mad_k3",
+            "threshold_value": 0.23924489685147998,
+            "formula": "median + 3*1.4826*raw_mad",
+            "calibration_fps": 2510,
+            "calibration_fpr": 0.13567567567567568,
+            "calibration_total": 18500
+          }
+        }
+      },
+      "2024": {
+        "stats": {
+          "mean": 0.22837083041667938,
+          "std": 3.0156431198120117,
+          "median": 0.05277962237596512,
+          "raw_mad": 0.046899501234292984,
+          "scaled_mad": 0.06953320052996277,
+          "min": 0.0007643808494322002,
+          "max": 375.52227783203125,
+          "p50": 0.05277962237596512,
+          "p95": 0.6474558115005493,
+          "p99": 2.822331666946411,
+          "p999": 19.47865104675293
+        },
+        "thresholds": {
+          "mu_plus_3sigma": {
+            "rule": "mu_plus_3sigma",
+            "threshold_value": 9.275300189852715,
+            "formula": "mean + 3*std(ddof=0)",
+            "calibration_fps": 42,
+            "calibration_fpr": 0.00227027027027027,
+            "calibration_total": 18500
+          },
+          "p95": {
+            "rule": "p95",
+            "threshold_value": 0.6474558115005493,
+            "formula": "percentile(95.0)",
+            "calibration_fps": 925,
+            "calibration_fpr": 0.05,
+            "calibration_total": 18500
+          },
+          "p99": {
+            "rule": "p99",
+            "threshold_value": 2.822331666946411,
+            "formula": "percentile(99.0)",
+            "calibration_fps": 185,
+            "calibration_fpr": 0.01,
+            "calibration_total": 18500
+          },
+          "p999": {
+            "rule": "p999",
+            "threshold_value": 19.47865104675293,
+            "formula": "percentile(99.9)",
+            "calibration_fps": 19,
+            "calibration_fpr": 0.0010270270270270271,
+            "calibration_total": 18500
+          },
+          "raw_mad_k3": {
+            "rule": "raw_mad_k3",
+            "threshold_value": 0.19347812607884407,
+            "formula": "median + 3*raw_mad",
+            "calibration_fps": 3355,
+            "calibration_fpr": 0.18135135135135136,
+            "calibration_total": 18500
+          },
+          "scaled_mad_k3": {
+            "rule": "scaled_mad_k3",
+            "threshold_value": 0.26137922396585345,
+            "formula": "median + 3*1.4826*raw_mad",
+            "calibration_fps": 2091,
+            "calibration_fpr": 0.11302702702702702,
+            "calibration_total": 18500
+          }
+        }
+      }
+    },
+    "log1p": {
+      "42": {
+        "stats": {
+          "mean": 0.17614363133907318,
+          "std": 1.0209287405014038,
+          "median": 0.06768916547298431,
+          "raw_mad": 0.054466068744659424,
+          "scaled_mad": 0.08075139352083206,
+          "min": 0.0029655208345502615,
+          "max": 72.48175811767578,
+          "p50": 0.06768916547298431,
+          "p95": 0.5638938546180725,
+          "p99": 1.1888318061828613,
+          "p999": 18.011953353881836
+        },
+        "thresholds": {
+          "mu_plus_3sigma": {
+            "rule": "mu_plus_3sigma",
+            "threshold_value": 3.2389298528432846,
+            "formula": "mean + 3*std(ddof=0)",
+            "calibration_fps": 53,
+            "calibration_fpr": 0.002864864864864865,
+            "calibration_total": 18500
+          },
+          "p95": {
+            "rule": "p95",
+            "threshold_value": 0.5638938546180725,
+            "formula": "percentile(95.0)",
+            "calibration_fps": 925,
+            "calibration_fpr": 0.05,
+            "calibration_total": 18500
+          },
+          "p99": {
+            "rule": "p99",
+            "threshold_value": 1.1888318061828613,
+            "formula": "percentile(99.0)",
+            "calibration_fps": 185,
+            "calibration_fpr": 0.01,
+            "calibration_total": 18500
+          },
+          "p999": {
+            "rule": "p999",
+            "threshold_value": 18.011953353881836,
+            "formula": "percentile(99.9)",
+            "calibration_fps": 19,
+            "calibration_fpr": 0.0010270270270270271,
+            "calibration_total": 18500
+          },
+          "raw_mad_k3": {
+            "rule": "raw_mad_k3",
+            "threshold_value": 0.23108737170696259,
+            "formula": "median + 3*raw_mad",
+            "calibration_fps": 2705,
+            "calibration_fpr": 0.14621621621621622,
+            "calibration_total": 18500
+          },
+          "scaled_mad_k3": {
+            "rule": "scaled_mad_k3",
+            "threshold_value": 0.3099433460354805,
+            "formula": "median + 3*1.4826*raw_mad",
+            "calibration_fps": 1872,
+            "calibration_fpr": 0.10118918918918919,
+            "calibration_total": 18500
+          }
+        }
+      },
+      "123": {
+        "stats": {
+          "mean": 0.16780763864517212,
+          "std": 0.8861929774284363,
+          "median": 0.06538748741149902,
+          "raw_mad": 0.04459229111671448,
+          "scaled_mad": 0.06611253080964088,
+          "min": 0.0021740845404565334,
+          "max": 83.41708374023438,
+          "p50": 0.06538748741149902,
+          "p95": 0.5611019134521484,
+          "p99": 1.1041795015335083,
+          "p999": 8.775866508483887
+        },
+        "thresholds": {
+          "mu_plus_3sigma": {
+            "rule": "mu_plus_3sigma",
+            "threshold_value": 2.826386570930481,
+            "formula": "mean + 3*std(ddof=0)",
+            "calibration_fps": 47,
+            "calibration_fpr": 0.0025405405405405407,
+            "calibration_total": 18500
+          },
+          "p95": {
+            "rule": "p95",
+            "threshold_value": 0.5611019134521484,
+            "formula": "percentile(95.0)",
+            "calibration_fps": 925,
+            "calibration_fpr": 0.05,
+            "calibration_total": 18500
+          },
+          "p99": {
+            "rule": "p99",
+            "threshold_value": 1.1041795015335083,
+            "formula": "percentile(99.0)",
+            "calibration_fps": 185,
+            "calibration_fpr": 0.01,
+            "calibration_total": 18500
+          },
+          "p999": {
+            "rule": "p999",
+            "threshold_value": 8.775866508483887,
+            "formula": "percentile(99.9)",
+            "calibration_fps": 19,
+            "calibration_fpr": 0.0010270270270270271,
+            "calibration_total": 18500
+          },
+          "raw_mad_k3": {
+            "rule": "raw_mad_k3",
+            "threshold_value": 0.19916436076164246,
+            "formula": "median + 3*raw_mad",
+            "calibration_fps": 3322,
+            "calibration_fpr": 0.17956756756756756,
+            "calibration_total": 18500
+          },
+          "scaled_mad_k3": {
+            "rule": "scaled_mad_k3",
+            "threshold_value": 0.2637250798404217,
+            "formula": "median + 3*1.4826*raw_mad",
+            "calibration_fps": 2378,
+            "calibration_fpr": 0.12854054054054054,
+            "calibration_total": 18500
+          }
+        }
+      },
+      "2024": {
+        "stats": {
+          "mean": 0.176550954580307,
+          "std": 0.8139655590057373,
+          "median": 0.08006696403026581,
+          "raw_mad": 0.05851901322603226,
+          "scaled_mad": 0.08676028900891541,
+          "min": 0.0032991229090839624,
+          "max": 78.52216339111328,
+          "p50": 0.08006696403026581,
+          "p95": 0.5661330819129944,
+          "p99": 1.4842082262039185,
+          "p999": 6.519631862640381
+        },
+        "thresholds": {
+          "mu_plus_3sigma": {
+            "rule": "mu_plus_3sigma",
+            "threshold_value": 2.618447631597519,
+            "formula": "mean + 3*std(ddof=0)",
+            "calibration_fps": 44,
+            "calibration_fpr": 0.0023783783783783785,
+            "calibration_total": 18500
+          },
+          "p95": {
+            "rule": "p95",
+            "threshold_value": 0.5661330819129944,
+            "formula": "percentile(95.0)",
+            "calibration_fps": 925,
+            "calibration_fpr": 0.05,
+            "calibration_total": 18500
+          },
+          "p99": {
+            "rule": "p99",
+            "threshold_value": 1.4842082262039185,
+            "formula": "percentile(99.0)",
+            "calibration_fps": 185,
+            "calibration_fpr": 0.01,
+            "calibration_total": 18500
+          },
+          "p999": {
+            "rule": "p999",
+            "threshold_value": 6.519631862640381,
+            "formula": "percentile(99.9)",
+            "calibration_fps": 19,
+            "calibration_fpr": 0.0010270270270270271,
+            "calibration_total": 18500
+          },
+          "raw_mad_k3": {
+            "rule": "raw_mad_k3",
+            "threshold_value": 0.2556240037083626,
+            "formula": "median + 3*raw_mad",
+            "calibration_fps": 2766,
+            "calibration_fpr": 0.14951351351351352,
+            "calibration_total": 18500
+          },
+          "scaled_mad_k3": {
+            "rule": "scaled_mad_k3",
+            "threshold_value": 0.34034783105701205,
+            "formula": "median + 3*1.4826*raw_mad",
+            "calibration_fps": 1747,
+            "calibration_fpr": 0.09443243243243243,
+            "calibration_total": 18500
+          }
+        }
+      }
+    }
+  },
+  "isolation_forest_thresholds": {
+    "42": {
+      "stats": {
+        "mean": 0.37392982576131684,
+        "std": 0.06907933360203268,
+        "median": 0.3467354376697834,
+        "raw_mad": 0.0234613301530458,
+        "scaled_mad": 0.0347837680849057,
+        "min": 0.31818395501877467,
+        "max": 0.7304639293481013,
+        "p50": 0.3467354376697834,
+        "p95": 0.5399265607517855,
+        "p99": 0.6301348422460699,
+        "p999": 0.6959497640109108
+      },
+      "thresholds": {
+        "mu_plus_3sigma": {
+          "rule": "mu_plus_3sigma",
+          "threshold_value": 0.581167826567415,
+          "formula": "mean + 3*std(ddof=0)",
+          "calibration_fps": 412,
+          "calibration_fpr": 0.02227027027027027,
+          "calibration_total": 18500
+        },
+        "p95": {
+          "rule": "p95",
+          "threshold_value": 0.5399265607517855,
+          "formula": "percentile(95.0)",
+          "calibration_fps": 925,
+          "calibration_fpr": 0.05,
+          "calibration_total": 18500
+        },
+        "p99": {
+          "rule": "p99",
+          "threshold_value": 0.6301348422460699,
+          "formula": "percentile(99.0)",
+          "calibration_fps": 185,
+          "calibration_fpr": 0.01,
+          "calibration_total": 18500
+        },
+        "p999": {
+          "rule": "p999",
+          "threshold_value": 0.6959497640109108,
+          "formula": "percentile(99.9)",
+          "calibration_fps": 19,
+          "calibration_fpr": 0.0010270270270270271,
+          "calibration_total": 18500
+        },
+        "raw_mad_k3": {
+          "rule": "raw_mad_k3",
+          "threshold_value": 0.4171194281289208,
+          "formula": "median + 3*raw_mad",
+          "calibration_fps": 3247,
+          "calibration_fpr": 0.17551351351351352,
+          "calibration_total": 18500
+        },
+        "scaled_mad_k3": {
+          "rule": "scaled_mad_k3",
+          "threshold_value": 0.4510867419245005,
+          "formula": "median + 3*1.4826*raw_mad",
+          "calibration_fps": 2184,
+          "calibration_fpr": 0.11805405405405406,
+          "calibration_total": 18500
+        }
+      }
+    },
+    "123": {
+      "stats": {
+        "mean": 0.3741472676221806,
+        "std": 0.07139631419306781,
+        "median": 0.3458139978831861,
+        "raw_mad": 0.023308435372856484,
+        "scaled_mad": 0.03455708628379702,
+        "min": 0.3167721788592258,
+        "max": 0.727559957429142,
+        "p50": 0.3458139978831861,
+        "p95": 0.5420353297064565,
+        "p99": 0.6361698529829173,
+        "p999": 0.7028362301128422
+      },
+      "thresholds": {
+        "mu_plus_3sigma": {
+          "rule": "mu_plus_3sigma",
+          "threshold_value": 0.588336210201384,
+          "formula": "mean + 3*std(ddof=0)",
+          "calibration_fps": 429,
+          "calibration_fpr": 0.023189189189189188,
+          "calibration_total": 18500
+        },
+        "p95": {
+          "rule": "p95",
+          "threshold_value": 0.5420353297064565,
+          "formula": "percentile(95.0)",
+          "calibration_fps": 925,
+          "calibration_fpr": 0.05,
+          "calibration_total": 18500
+        },
+        "p99": {
+          "rule": "p99",
+          "threshold_value": 0.6361698529829173,
+          "formula": "percentile(99.0)",
+          "calibration_fps": 185,
+          "calibration_fpr": 0.01,
+          "calibration_total": 18500
+        },
+        "p999": {
+          "rule": "p999",
+          "threshold_value": 0.7028362301128422,
+          "formula": "percentile(99.9)",
+          "calibration_fps": 19,
+          "calibration_fpr": 0.0010270270270270271,
+          "calibration_total": 18500
+        },
+        "raw_mad_k3": {
+          "rule": "raw_mad_k3",
+          "threshold_value": 0.41573930400175557,
+          "formula": "median + 3*raw_mad",
+          "calibration_fps": 3472,
+          "calibration_fpr": 0.18767567567567567,
+          "calibration_total": 18500
+        },
+        "scaled_mad_k3": {
+          "rule": "scaled_mad_k3",
+          "threshold_value": 0.4494852567345772,
+          "formula": "median + 3*1.4826*raw_mad",
+          "calibration_fps": 2416,
+          "calibration_fpr": 0.1305945945945946,
+          "calibration_total": 18500
+        }
+      }
+    },
+    "2024": {
+      "stats": {
+        "mean": 0.3711023274730539,
+        "std": 0.06962002885613813,
+        "median": 0.3482759597232168,
+        "raw_mad": 0.02851577265473726,
+        "scaled_mad": 0.04227748453791346,
+        "min": 0.31462921976634134,
+        "max": 0.7358014378121867,
+        "p50": 0.3482759597232168,
+        "p95": 0.5347069457902878,
+        "p99": 0.6299218147834822,
+        "p999": 0.705991680526707
+      },
+      "thresholds": {
+        "mu_plus_3sigma": {
+          "rule": "mu_plus_3sigma",
+          "threshold_value": 0.5799624140414683,
+          "formula": "mean + 3*std(ddof=0)",
+          "calibration_fps": 422,
+          "calibration_fpr": 0.02281081081081081,
+          "calibration_total": 18500
+        },
+        "p95": {
+          "rule": "p95",
+          "threshold_value": 0.5347069457902878,
+          "formula": "percentile(95.0)",
+          "calibration_fps": 925,
+          "calibration_fpr": 0.05,
+          "calibration_total": 18500
+        },
+        "p99": {
+          "rule": "p99",
+          "threshold_value": 0.6299218147834822,
+          "formula": "percentile(99.0)",
+          "calibration_fps": 185,
+          "calibration_fpr": 0.01,
+          "calibration_total": 18500
+        },
+        "p999": {
+          "rule": "p999",
+          "threshold_value": 0.705991680526707,
+          "formula": "percentile(99.9)",
+          "calibration_fps": 19,
+          "calibration_fpr": 0.0010270270270270271,
+          "calibration_total": 18500
+        },
+        "raw_mad_k3": {
+          "rule": "raw_mad_k3",
+          "threshold_value": 0.43382327768742857,
+          "formula": "median + 3*raw_mad",
+          "calibration_fps": 2552,
+          "calibration_fpr": 0.13794594594594595,
+          "calibration_total": 18500
+        },
+        "scaled_mad_k3": {
+          "rule": "scaled_mad_k3",
+          "threshold_value": 0.4751084133369572,
+          "formula": "median + 3*1.4826*raw_mad",
+          "calibration_fps": 1660,
+          "calibration_fpr": 0.08972972972972973,
+          "calibration_total": 18500
+        }
+      }
+    }
+  }
+}

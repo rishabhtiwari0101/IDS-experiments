@@ -1,0 +1,296 @@
+{
+  "experiment_id": "EXP_NO_TTL_V1",
+  "audit_revision": 3,
+  "audit_date_utc": "2026-09-08T14:45:00Z",
+  "audit_status": "PASS",
+  "stage": "STAGE_B_COMPLETE",
+  "correction_log": [
+    {
+      "id": 1,
+      "location": "Section 5, Table 5.2",
+      "issue": "Canonical Seed-42 TP listed as 43,769; TN listed as 30,090 (attack sum = 45,212; benign sum = 37,190)",
+      "corrected": "TP = 43,306; TN = 29,900 (attack sum = 44,749; benign sum = 37,000; delta_tp = -200, delta_tn = +55)",
+      "source": "results/final_reproducibility/EXP_FINAL_REPRO_V1/stacking/metrics.json (per_seed.seed_42)"
+    },
+    {
+      "id": 2,
+      "location": "Section 5, Table 5.2",
+      "issue": "Derived canonical Attack Precision listed as 86.04% and Attack F1 as 91.10%",
+      "corrected": "Attack Precision = 85.91%; Attack F1 = 91.02%",
+      "source": "Recomputed directly from verified confusion matrix"
+    },
+    {
+      "id": 3,
+      "location": "Section 8, Table 8.1 & 8.2",
+      "issue": "Unmeasured placeholder values (582/583* for Seed-123 Backdoor) and deltas against placeholders",
+      "corrected": "Explicit N/A for unmeasured cells; deltas left N/A; verified on-disk DEV TEST F1 values cited",
+      "source": "results/evaluation/EXP_H123_V1/h1_results.json and canonical checkpoints"
+    }
+  ],
+
+  "A_experiment_configuration": {
+    "experiment_id": "EXP_NO_TTL_V1",
+    "parent_experiment": "EXP_MI_V1_1",
+    "canonical_commit": "f694e19",
+    "seeds": [42, 123, 2024],
+    "oof_folds": 5,
+    "oof_seed": 7,
+    "meta_learner": "LogisticRegression (C=1.0, solver=lbfgs)",
+    "base_learners": ["DT", "RF (n=300)", "LinearSVC (C=0.1)", "IDSNet (input_dim=72, hidden=[128,64])"],
+    "scaler_strategy": "Fresh 72-feature StandardScaler fitted on TRAIN only",
+    "runtime_seconds": 2949.1,
+    "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "stage_c_started": false,
+    "manuscript_modified": false
+  },
+
+  "B_feature_verification": {
+    "canonical_count": 75,
+    "removed_features": ["sttl", "ct_state_ttl", "dttl"],
+    "removed_count": 3,
+    "final_count": 72,
+    "sttl_absent": true,
+    "ct_state_ttl_absent": true,
+    "dttl_absent": true,
+    "count_eq_72": true,
+    "feature_hash_sha256": "21c949fc5709c21d3568a420559f3bc42ba52f26e4be95ee551901b7de9bbe96",
+    "hash_matches_expected": true,
+    "status": "PASS"
+  },
+
+  "C_seed_wise_results": {
+    "protected_backdoor": {
+      "total_rows": 583,
+      "seed_42": {
+        "DT": {"detected": 581, "rate": 0.9966},
+        "RF": {"detected": 582, "rate": 0.9983},
+        "SVM": {"detected": 566, "rate": 0.9708},
+        "NN": {"detected": 572, "rate": 0.9811},
+        "Stacking": {"detected": 580, "rate": 0.9949}
+      },
+      "seed_123": {
+        "DT": {"detected": 581, "rate": 0.9966},
+        "RF": {"detected": 582, "rate": 0.9983},
+        "SVM": {"detected": 566, "rate": 0.9708},
+        "NN": {"detected": 581, "rate": 0.9966},
+        "Stacking": {"detected": 582, "rate": 0.9983}
+      },
+      "seed_2024": {
+        "DT": {"detected": 582, "rate": 0.9983},
+        "RF": {"detected": 582, "rate": 0.9983},
+        "SVM": {"detected": 566, "rate": 0.9708},
+        "NN": {"detected": 571, "rate": 0.9794},
+        "Stacking": {"detected": 581, "rate": 0.9966}
+      }
+    },
+    "dev_test_macro_f1": {
+      "total_rows": 81749,
+      "seed_42": {
+        "DT": 0.8560, "RF": 0.8791, "SVM": 0.7939, "NN": 0.8874, "Stacking": 0.8909
+      },
+      "seed_123": {
+        "DT": 0.8556, "RF": 0.8786, "SVM": 0.7939, "NN": 0.8746, "Stacking": 0.8864
+      },
+      "seed_2024": {
+        "DT": 0.8556, "RF": 0.8784, "SVM": 0.7939, "NN": 0.8783, "Stacking": 0.8884
+      }
+    },
+    "multi_seed_summary": {
+      "Stacking": {
+        "dev_macro_f1_mean": 0.8886, "dev_macro_f1_std": 0.0018,
+        "backdoor_detected_mean": 581.0, "backdoor_detected_std": 0.82,
+        "backdoor_rate_mean": 0.9966
+      },
+      "RF": {
+        "dev_macro_f1_mean": 0.8787, "dev_macro_f1_std": 0.0003,
+        "backdoor_detected_mean": 582.0, "backdoor_detected_std": 0.0,
+        "backdoor_rate_mean": 0.9983
+      },
+      "DT": {
+        "dev_macro_f1_mean": 0.8557, "dev_macro_f1_std": 0.0002,
+        "backdoor_detected_mean": 581.3, "backdoor_detected_std": 0.47,
+        "backdoor_rate_mean": 0.9971
+      },
+      "SVM": {
+        "dev_macro_f1_mean": 0.7939, "dev_macro_f1_std": 0.0,
+        "backdoor_detected_mean": 566.0, "backdoor_detected_std": 0.0,
+        "backdoor_rate_mean": 0.9708
+      },
+      "NN": {
+        "dev_macro_f1_mean": 0.8801, "dev_macro_f1_std": 0.0054,
+        "backdoor_detected_mean": 574.7, "backdoor_detected_std": 4.50,
+        "backdoor_rate_mean": 0.9857
+      }
+    }
+  },
+
+  "D_canonical_baseline": {
+    "source": "results/zero_day/EXP_ZERODAY_V1/predictions/zero_day_backdoor_predictions.csv",
+    "seed": 42,
+    "meta_learner_checkpoint": "results/checkpoints/EXP_OOF_STACK_V1/seed_42/meta_learner.joblib",
+    "headline_582_confirmed": true,
+    "backdoor": {
+      "Stacking": {"detected": 582, "rate": 0.9983},
+      "RF": {"detected": 582, "rate": 0.9983},
+      "DT": {"detected": 577, "rate": 0.9897},
+      "SVM": {"detected": 577, "rate": 0.9897},
+      "NN": {"detected": 578, "rate": 0.9914}
+    },
+    "dev_test_seed_42": {
+      "Stacking": {"macro_f1": 0.8926, "fpr": 0.1919},
+      "RF": {"macro_f1": 0.8807, "fpr": 0.2310},
+      "DT": {"macro_f1": 0.8499, "fpr": 0.2795},
+      "SVM": {"macro_f1": 0.8236, "fpr": 0.3106},
+      "NN": {"macro_f1": 0.8943, "fpr": 0.1524}
+    }
+  },
+
+  "E_canonical_vs_nottl_comparison": {
+    "paired_seed_mapping": "canonical_seed_42 <-> no_ttl_seed_42",
+    "alignment_key": "id",
+    "Stacking": {
+      "canon_backdoor": "582/583 (99.83%)", "nottl_backdoor": "580/583 (99.49%)",
+      "delta_backdoor": -2, "delta_backdoor_pp": -0.34,
+      "canon_macro_f1": 0.8926, "nottl_macro_f1": 0.8909, "delta_macro_f1": -0.0017,
+      "canon_fpr": 0.1919, "nottl_fpr": 0.1904, "delta_fpr": -0.0015,
+      "canon_confusion_matrix": {"tp": 43306, "tn": 29900, "fp": 7100, "fn": 1443},
+      "nottl_confusion_matrix": {"tp": 43106, "tn": 29955, "fp": 7045, "fn": 1643},
+      "delta_tp": -200, "delta_tn": 55, "delta_fp": -55, "delta_fn": 200
+    },
+
+    "RF": {
+      "canon_backdoor": "582/583 (99.83%)", "nottl_backdoor": "582/583 (99.83%)",
+      "delta_backdoor": 0, "delta_backdoor_pp": 0.0,
+      "canon_macro_f1": 0.8807, "nottl_macro_f1": 0.8791, "delta_macro_f1": -0.0016,
+      "canon_fpr": 0.2310, "nottl_fpr": 0.2326, "delta_fpr": 0.0016
+    },
+    "DT": {
+      "canon_backdoor": "577/583 (98.97%)", "nottl_backdoor": "581/583 (99.66%)",
+      "delta_backdoor": 4, "delta_backdoor_pp": 0.69,
+      "canon_macro_f1": 0.8499, "nottl_macro_f1": 0.8560, "delta_macro_f1": 0.0062,
+      "canon_fpr": 0.2795, "nottl_fpr": 0.2676, "delta_fpr": -0.0120
+    },
+    "SVM": {
+      "canon_backdoor": "577/583 (98.97%)", "nottl_backdoor": "566/583 (97.08%)",
+      "delta_backdoor": -11, "delta_backdoor_pp": -1.89,
+      "canon_macro_f1": 0.8236, "nottl_macro_f1": 0.7939, "delta_macro_f1": -0.0297,
+      "canon_fpr": 0.3106, "nottl_fpr": 0.3181, "delta_fpr": 0.0075
+    },
+    "NN": {
+      "canon_backdoor": "578/583 (99.14%)", "nottl_backdoor": "572/583 (98.11%)",
+      "delta_backdoor": -6, "delta_backdoor_pp": -1.03,
+      "canon_macro_f1": 0.8943, "nottl_macro_f1": 0.8874, "delta_macro_f1": -0.0069,
+      "canon_fpr": 0.1524, "nottl_fpr": 0.1594, "delta_fpr": 0.0069
+    }
+  },
+
+  "H_row_alignment_audit": {
+    "backdoor_rows_in_split": 583,
+    "backdoor_unique_ids": true,
+    "canon_id_count": 583,
+    "nottl_id_count": 583,
+    "canon_vs_split_exact_match": true,
+    "nottl_vs_split_exact_match": true,
+    "all_three_identical": true,
+    "labels_all_attack": true,
+    "positional_pairing_risk": "NONE — merged on id column",
+    "status": "PASS"
+  },
+
+  "I_paired_statistical_test": {
+    "primary_test": "Stacking_Backdoor (Canonical_Seed42 vs NoTTL_Seed42)",
+    "test_used": "Exact binomial McNemar (exact two-sided, mandatory for discordant<25)",
+    "contingency_table": {
+      "A_both_correct": 580,
+      "B_canon_correct_nottl_miss": 2,
+      "C_canon_miss_nottl_correct": 0,
+      "D_both_miss": 1
+    },
+    "discordant_pairs": 2,
+    "statistic": 0.5,
+    "p_value": 0.5,
+    "significant_at_0_05": false,
+    "interpretation": "NOT SIGNIFICANT. No statistically significant difference in Backdoor detection between Canonical (99.83%) and No-TTL (99.49%) Stacking. Only 2 discordant pairs, both in direction of canonical being correct.",
+    "secondary_tests": {
+      "Stacking_DEV_TEST": {"discordant": 1269, "p_value": 5.20e-5, "significant": true},
+      "RF_DEV_TEST": {"discordant": 1060, "p_value": 5.61e-5, "significant": true},
+      "DT_DEV_TEST": {"discordant": 6720, "p_value": 2.45e-8, "significant": true},
+      "SVM_DEV_TEST": {"discordant": 7610, "p_value": 7.08e-181, "significant": true},
+      "NN_DEV_TEST": {"discordant": 2033, "p_value": 4.07e-35, "significant": true},
+      "SVM_Backdoor": {"discordant": 17, "p_value": 0.01273, "significant": true},
+      "NN_Backdoor": {"discordant": 8, "p_value": 0.0703, "significant": false},
+      "DT_Backdoor": {"discordant": 6, "p_value": 0.21875, "significant": false},
+      "RF_Backdoor": {"discordant": 0, "p_value": 1.0, "significant": false}
+    }
+  },
+
+  "J_artifact_inventory": {
+    "all_in_publication_experiments": true,
+    "features": ["features/no_ttl_features.json"],
+    "scalers": ["scalers/supervised_scaler_72.joblib"],
+    "config": ["config_used.yaml"],
+    "metadata": ["metadata.json"],
+    "comparison": [
+      "comparison/canonical_vs_no_ttl_comparison.json",
+      "comparison/canonical_vs_no_ttl_comparison.csv"
+    ],
+    "multi_seed_summary": ["metrics/multi_seed_summary.json"],
+    "per_seed": {
+      "checkpoints_per_seed": ["dt_final.joblib", "rf_final.joblib", "svm_final.joblib", "nn_final.pt", "meta_learner.joblib"],
+      "predictions_per_seed": ["oof_predictions.csv", "predictions_dev_test.csv", "predictions_protected_backdoor.csv"],
+      "metrics_per_seed": ["metrics_dev_test.json", "metrics_protected_backdoor.json"],
+      "seeds_present": [42, 123, 2024]
+    },
+    "total_files": 46
+  },
+
+  "K_frozen_artifact_integrity": {
+    "train_csv_hash_match": true,
+    "validation_csv_hash_match": true,
+    "dev_test_csv_hash_match": true,
+    "protected_backdoor_csv_hash_match": true,
+    "canonical_feature_file_sha256": "6a1816143a4fbe1141e406a820c5adbd0b1452b45172a9d7de8767a897db1024",
+    "all_outputs_in_publication_experiments": true,
+    "no_forbidden_dir_writes": true,
+    "manuscript_modified": false,
+    "canonical_checkpoints_modified": false,
+    "stage_c_triggered": false,
+    "post_run_canonical_hash_verification": "PASS — logged in training run"
+  },
+
+  "L_model_sanity_check": {
+    "stacking_architecture_correct": true,
+    "base_learners_present": {
+      "DT": true, "RF": true, "SVM": true, "IDSNet": true
+    },
+    "oof_5fold_seed7_confirmed": true,
+    "meta_learner_4_features": {
+      "42": true, "123": true, "2024": true
+    },
+    "nn_input_dim_72": {
+      "42": true, "123": true, "2024": true
+    },
+    "nn_hidden1_128": {
+      "42": true, "123": true, "2024": true
+    }
+  },
+
+  "M_scientific_interpretation": {
+    "framing": "Controlled feature-ablation experiment — NOT definitive causal proof of shortcut learning",
+    "stacking_backdoor_change": "MINIMAL: -2 flows (-0.34 pp), non-significant (p=0.50)",
+    "rf_backdoor_change": "NONE: identical 582/583",
+    "svm_backdoor_change": "MODERATE: -11 flows (-1.89 pp), statistically significant (p=0.013)",
+    "dt_backdoor_change": "SLIGHT IMPROVEMENT: +4 flows",
+    "ensemble_overall": "Minimal degradation — ensemble robustness confirmed",
+    "overall_assessment": "similar_performance_for_ensemble_moderate_degradation_for_SVM",
+    "ttl_dependence_evidence": "Consistent with moderate TTL-feature dependence in linear models; minimal dependence in ensemble models"
+  },
+
+  "N_final_status": {
+    "all_checks_passed": true,
+    "total_check_categories": 16,
+    "failures": 0,
+    "status": "PASS",
+    "next_action": "STOP — Await explicit user approval before Stage C (EXP_AE_UNSEEN_FAMILY_V1)"
+  }
+}

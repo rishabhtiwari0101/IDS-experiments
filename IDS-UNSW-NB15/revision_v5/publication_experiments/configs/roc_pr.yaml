@@ -1,0 +1,21 @@
+# roc_pr.yaml
+# ROC / PR / PR-AUC / F2 analysis configuration (S2)
+# Blueprint reference: §6 (B2), §16 (C3)
+# Committed before S2 execution per blueprint Rule 14
+
+experiment_id: EXP_ROC_PR_V1
+score_inputs:
+  supervised_probabilities: results/publication_experiments/EXP_PROB_INFERENCE_V1/zeroday_probabilities.csv
+  ae_reconstruction_errors: results/publication_experiments/EXP_PROB_INFERENCE_V1/ae_zeroday_reconstruction_errors.csv
+  if_scores: results/publication_experiments/EXP_IF_V1/scores/zeroday_scores.csv
+matched_fpr_results: results/publication_experiments/EXP_MATCHED_FPR_V1/matched_fpr_table.csv
+headline_tier_decision: results/publication_experiments/EXP_MATCHED_FPR_V1/headline_tier_decision.json
+population: ZERO_DAY_COMBINED
+models: [dt, rf, svm, nn, stacking, ae, if]
+seeded_models:
+  stacking: [42, 123, 2024]
+  if: [42, 123, 2024]
+budgets: ["1/1000", "1/200", "1/100", "1/20"]
+curve_aggregation: "plot_all_seeds_main_seed_42"
+output_dir: results/publication_experiments/EXP_ROC_PR_V1
+figures_dir: results/publication_experiments/EXP_ROC_PR_V1/figures

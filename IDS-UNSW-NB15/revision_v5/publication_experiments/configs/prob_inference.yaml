@@ -1,0 +1,25 @@
+# prob_inference.yaml
+# Phase 1 probability inference configuration
+# Blueprint reference: §16 (C2), §6 (BATCH-A, S1)
+# Committed before S1 execution per blueprint Rule 14
+
+experiment_id: EXP_PROB_INFERENCE_V1
+populations_manifest: publication_experiments/configs/populations.yaml
+seeds: [42, 123, 2024]
+checkpoints:
+  dt: results/checkpoints/EXP_BASE_MODELS_V1/dt/dt_final.joblib
+  rf: results/checkpoints/EXP_BASE_MODELS_V1/rf/rf_final.joblib
+  svm: results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_final.joblib
+  svm_scaler: results/checkpoints/EXP_BASE_MODELS_V1/svm/svm_scaler.joblib
+  nn: results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_final.pt
+  nn_scaler: results/checkpoints/EXP_BASE_MODELS_V1/nn/nn_scaler.joblib
+  ae: results/checkpoints/EXP_AE_V1/ae_final.pt
+  ae_scaler: results/checkpoints/EXP_AE_V1/ae_scaler.joblib
+  meta_seed_42: results/checkpoints/EXP_OOF_STACK_V1/seed_42/meta_learner.joblib
+  meta_seed_123: results/checkpoints/EXP_OOF_STACK_V1/seed_123/meta_learner.joblib
+  meta_seed_2024: results/checkpoints/EXP_OOF_STACK_V1/seed_2024/meta_learner.joblib
+features: results/feature_selection/EXP_MI_V1_1/selected_features.json
+output_dir: results/publication_experiments/EXP_PROB_INFERENCE_V1
+calibration_source: populations.calibration_benign
+calibration_n_from_manifest: true
+prohibited: [fit, fit_transform, backward, model.train, optim]

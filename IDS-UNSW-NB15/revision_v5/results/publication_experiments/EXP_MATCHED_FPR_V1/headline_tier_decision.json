@@ -1,0 +1,367 @@
+{
+  "rule_name": "Rule 15 verbatim headline-tier decision rule",
+  "headline_tier_rule": "A (model, seed, budget) cell is shift_affected if the nominal budget lies outside the Clopper-Pearson 95% CI of the realized Tier-A held-out control FPR. If no cell is shift_affected, Tier A is the headline tier and Tier B is a robustness table. If any cell is shift_affected, Tier B is the headline tier for all matched-FPR recall/F2 claims and Tier A is reported as the partition-shifted operating point. Tiers are never mixed within one comparison table. (Identical to Rule 15; committed before S3 runs.)",
+  "rule_text": "A (model, seed, budget) cell is shift_affected if the nominal budget lies outside the Clopper-Pearson 95% CI of the realized Tier-A held-out control FPR. If no cell is shift_affected, Tier A is the headline tier and Tier B is a robustness table. If any cell is shift_affected, Tier B is the headline tier for all matched-FPR recall/F2 claims and Tier A is reported as the partition-shifted operating point. Tiers are never mixed within one comparison table. (Identical to Rule 15; committed before S3 runs.)",
+  "headline_tier_rule_sha256": "f663657c93046446d0753f56de95fe79f5bbf279b965056082b258801752751f",
+  "rule_text_sha256": "f663657c93046446d0753f56de95fe79f5bbf279b965056082b258801752751f",
+  "timestamp_utc": "2026-09-28T07:36:47.116538+00:00",
+  "total_cells_evaluated": 44,
+  "shift_affected_cells_count": 43,
+  "headline_tier": "B",
+  "tier_a_role": "partition_shifted_operating_point",
+  "tier_b_role": "headline",
+  "decision_summary": "43 of 44 (model, seed, budget) cells are shift-affected (nominal budget lies outside the Clopper-Pearson 95% CI of the realized Tier-A control FPR). Per Rule 15, Tier B is the HEADLINE tier for all matched-FPR recall/F2 claims, and Tier A is reported alongside as the partition-shifted operating point.",
+  "supplementary_note": {
+    "shift_affected_overall": "43/44",
+    "shift_affected_excluding_tie_unattainable": "34/35",
+    "tie_unattainable_cells_count": 9,
+    "analysis": "consistent with partition shift and not attributable to score ties. Tier B coverage is by construction (random halves of one pool).",
+    "tier_b_coverage": "Tier B coverage is by construction (random halves of one pool)."
+  },
+  "shift_affected_cells": [
+    {
+      "model": "dt",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0,
+      "tier_a_realized_control_fpr": 0.0,
+      "control_fpr_ci_lower": 0.0,
+      "control_fpr_ci_upper": 9.969447488130901e-05
+    },
+    {
+      "model": "dt",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.0,
+      "tier_a_realized_control_fpr": 0.0,
+      "control_fpr_ci_lower": 0.0,
+      "control_fpr_ci_upper": 9.969447488130901e-05
+    },
+    {
+      "model": "dt",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.0,
+      "tier_a_realized_control_fpr": 0.0,
+      "control_fpr_ci_lower": 0.0,
+      "control_fpr_ci_upper": 9.969447488130901e-05
+    },
+    {
+      "model": "dt",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.0,
+      "tier_a_realized_control_fpr": 0.0,
+      "control_fpr_ci_lower": 0.0,
+      "control_fpr_ci_upper": 9.969447488130901e-05
+    },
+    {
+      "model": "rf",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.0022972972972972973,
+      "control_fpr_ci_lower": 0.0018353991417833235,
+      "control_fpr_ci_upper": 0.002839871668442057
+    },
+    {
+      "model": "rf",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.004910714285714286,
+      "tier_a_realized_control_fpr": 0.020324324324324326,
+      "control_fpr_ci_lower": 0.018910760719541325,
+      "control_fpr_ci_upper": 0.02181386089807029
+    },
+    {
+      "model": "rf",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.05327027027027027,
+      "control_fpr_ci_lower": 0.05100364482276004,
+      "control_fpr_ci_upper": 0.05560732940401697
+    },
+    {
+      "model": "rf",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.049553571428571426,
+      "tier_a_realized_control_fpr": 0.20086486486486488,
+      "control_fpr_ci_lower": 0.19679260594982856,
+      "control_fpr_ci_upper": 0.2049841265830829
+    },
+    {
+      "model": "svm",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.00227027027027027,
+      "control_fpr_ci_lower": 0.0018112482601000163,
+      "control_fpr_ci_upper": 0.002809989219473887
+    },
+    {
+      "model": "svm",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.009486486486486487,
+      "control_fpr_ci_lower": 0.008523911238613634,
+      "control_fpr_ci_upper": 0.010527181523619514
+    },
+    {
+      "model": "svm",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.018864864864864866,
+      "control_fpr_ci_lower": 0.01750297281242591,
+      "control_fpr_ci_upper": 0.020302995571950252
+    },
+    {
+      "model": "svm",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.13727027027027028,
+      "control_fpr_ci_lower": 0.13377883022929432,
+      "control_fpr_ci_upper": 0.1408187464485481
+    },
+    {
+      "model": "nn",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.0018108108108108108,
+      "control_fpr_ci_lower": 0.0014036206038444239,
+      "control_fpr_ci_upper": 0.002299103464586816
+    },
+    {
+      "model": "nn",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.017243243243243243,
+      "control_fpr_ci_lower": 0.015941307930118442,
+      "control_fpr_ci_upper": 0.018621717726710733
+    },
+    {
+      "model": "nn",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.033945945945945945,
+      "control_fpr_ci_lower": 0.03212389438483721,
+      "control_fpr_ci_upper": 0.03584161415095953
+    },
+    {
+      "model": "nn",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.15221621621621623,
+      "control_fpr_ci_lower": 0.14856977049172673,
+      "control_fpr_ci_upper": 0.1559173363092304
+    },
+    {
+      "model": "stacking_seed_42",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.00048648648648648646,
+      "control_fpr_ci_lower": 0.00028834739964023713,
+      "control_fpr_ci_upper": 0.0007687498314635922
+    },
+    {
+      "model": "stacking_seed_42",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.020324324324324326,
+      "control_fpr_ci_lower": 0.018910760719541325,
+      "control_fpr_ci_upper": 0.02181386089807029
+    },
+    {
+      "model": "stacking_seed_42",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.046675675675675675,
+      "control_fpr_ci_lower": 0.0445484356025608,
+      "control_fpr_ci_upper": 0.048874424838005005
+    },
+    {
+      "model": "stacking_seed_42",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.20032432432432432,
+      "control_fpr_ci_lower": 0.1962562257155977,
+      "control_fpr_ci_upper": 0.20443951087804385
+    },
+    {
+      "model": "stacking_seed_123",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.00048648648648648646,
+      "control_fpr_ci_lower": 0.00028834739964023713,
+      "control_fpr_ci_upper": 0.0007687498314635922
+    },
+    {
+      "model": "stacking_seed_123",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.02027027027027027,
+      "control_fpr_ci_lower": 0.01885858466312111,
+      "control_fpr_ci_upper": 0.021757938615941042
+    },
+    {
+      "model": "stacking_seed_123",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.04678378378378378,
+      "control_fpr_ci_lower": 0.04465416952104504,
+      "control_fpr_ci_upper": 0.04898488943652566
+    },
+    {
+      "model": "stacking_seed_123",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.19962162162162161,
+      "control_fpr_ci_lower": 0.19555894877058758,
+      "control_fpr_ci_upper": 0.20373149310462602
+    },
+    {
+      "model": "stacking_seed_2024",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.00048648648648648646,
+      "control_fpr_ci_lower": 0.00028834739964023713,
+      "control_fpr_ci_upper": 0.0007687498314635922
+    },
+    {
+      "model": "stacking_seed_2024",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.02110810810810811,
+      "control_fpr_ci_lower": 0.01966760620128634,
+      "control_fpr_ci_upper": 0.022624441881875106
+    },
+    {
+      "model": "stacking_seed_2024",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.04818918918918919,
+      "control_fpr_ci_lower": 0.04602899444910795,
+      "control_fpr_ci_upper": 0.05042064545916107
+    },
+    {
+      "model": "stacking_seed_2024",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.20043243243243244,
+      "control_fpr_ci_lower": 0.19636350083491694,
+      "control_fpr_ci_upper": 0.20454843494643973
+    },
+    {
+      "model": "ae",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.0005675675675675675,
+      "control_fpr_ci_lower": 0.00035136651426203913,
+      "control_fpr_ci_upper": 0.0008674571661510373
+    },
+    {
+      "model": "ae",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.0058108108108108104,
+      "control_fpr_ci_lower": 0.0050618299971744015,
+      "control_fpr_ci_upper": 0.006638876117761085
+    },
+    {
+      "model": "ae",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.013621621621621621,
+      "control_fpr_ci_lower": 0.012465311187246218,
+      "control_fpr_ci_upper": 0.014855170414669714
+    },
+    {
+      "model": "ae",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.053864864864864866,
+      "control_fpr_ci_lower": 0.05158618036106529,
+      "control_fpr_ci_upper": 0.05621388647030664
+    },
+    {
+      "model": "if_seed_42",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.00026785714285714287,
+      "tier_a_realized_control_fpr": 0.0002702702702702703,
+      "control_fpr_ci_lower": 0.0001296124647348067,
+      "control_fpr_ci_upper": 0.0004969802949378812
+    },
+    {
+      "model": "if_seed_42",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.004910714285714286,
+      "tier_a_realized_control_fpr": 0.004243243243243243,
+      "control_fpr_ci_lower": 0.0036065658603458943,
+      "control_fpr_ci_upper": 0.0049595529903580585
+    },
+    {
+      "model": "if_seed_42",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.008459459459459459,
+      "control_fpr_ci_lower": 0.007551490054529566,
+      "control_fpr_ci_upper": 0.009445792417900183
+    },
+    {
+      "model": "if_seed_42",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.05732432432432433,
+      "control_fpr_ci_lower": 0.054976993378690844,
+      "control_fpr_ci_upper": 0.05974143147219035
+    },
+    {
+      "model": "if_seed_123",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0009821428571428572,
+      "tier_a_realized_control_fpr": 0.00021621621621621621,
+      "control_fpr_ci_lower": 9.335128927228891e-05,
+      "control_fpr_ci_upper": 0.0004259874478397082
+    },
+    {
+      "model": "if_seed_123",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.0022162162162162164,
+      "control_fpr_ci_lower": 0.0017629987323620811,
+      "control_fpr_ci_upper": 0.0027501729713017655
+    },
+    {
+      "model": "if_seed_123",
+      "nominal_budget_str": "1/100",
+      "tier_a_calibration_fpr": 0.01,
+      "tier_a_realized_control_fpr": 0.0071081081081081085,
+      "control_fpr_ci_lower": 0.006277459284904763,
+      "control_fpr_ci_upper": 0.008017467140640219
+    },
+    {
+      "model": "if_seed_123",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.05916216216216216,
+      "control_fpr_ci_lower": 0.0567793639055859,
+      "control_fpr_ci_upper": 0.06161443930988839
+    },
+    {
+      "model": "if_seed_2024",
+      "nominal_budget_str": "1/1000",
+      "tier_a_calibration_fpr": 0.0008928571428571428,
+      "tier_a_realized_control_fpr": 0.0,
+      "control_fpr_ci_lower": 0.0,
+      "control_fpr_ci_upper": 9.969447488130901e-05
+    },
+    {
+      "model": "if_seed_2024",
+      "nominal_budget_str": "1/200",
+      "tier_a_calibration_fpr": 0.005,
+      "tier_a_realized_control_fpr": 0.004243243243243243,
+      "control_fpr_ci_lower": 0.0036065658603458943,
+      "control_fpr_ci_upper": 0.0049595529903580585
+    },
+    {
+      "model": "if_seed_2024",
+      "nominal_budget_str": "1/20",
+      "tier_a_calibration_fpr": 0.05,
+      "tier_a_realized_control_fpr": 0.058297297297297296,
+      "control_fpr_ci_lower": 0.05593110613305843,
+      "control_fpr_ci_upper": 0.06073310720978011
+    }
+  ]
+}

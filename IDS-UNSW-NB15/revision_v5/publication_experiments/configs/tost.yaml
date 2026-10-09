@@ -1,0 +1,26 @@
+# tost.yaml
+# Statistical testing configuration for RF equivalence (S4)
+# Blueprint reference: §16 (C4), §8.1 (Req 2.3)
+# Committed before S4 execution per blueprint Rule 14
+
+experiment_id: EXP_TOST_V1
+model: RF
+paired_predictions_input:
+  canonical: results/zero_day/EXP_ZERODAY_V1/predictions/zero_day_backdoor_predictions.csv
+  no_ttl: results/publication_experiments/EXP_NO_TTL_V1/predictions/seed_42/predictions_protected_backdoor.csv
+  no_ttl_seed: 42
+aggregate_fallback_input: results/publication_experiments/EXP_STATS_ROBUSTNESS_V1/paired_tests/mcnemar_results.csv
+population: protected_backdoor
+expected_n: 583
+equivalence_margin: 0.01        # proportion = 1 percentage point
+margin_units: proportion
+alpha: 0.05
+margin_status: "specified after the paired counts were observed (post-hoc); committed before S4 execution"
+materiality_reference_detections: 6
+materiality_reference_rate: 0.0102916
+output_dir: results/publication_experiments/EXP_TOST_V1
+assert_contingency:
+  A: 582
+  B: 0
+  C: 0
+  D: 1

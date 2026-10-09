@@ -1,0 +1,179 @@
+{
+  "experiment_id": "EXP_NO_TTL_V1",
+  "parent_experiment": "EXP_MI_V1_1",
+  "canonical_commit": "f694e19",
+  "timestamp_utc": "2026-09-08T13:26:15.058107+00:00",
+  "runtime_seconds": 3392.0549417,
+  "feature_count": 72,
+  "feature_hash": "21c949fc5709c21d3568a420559f3bc42ba52f26e4be95ee551901b7de9bbe96",
+  "removed_features": [
+    "sttl",
+    "ct_state_ttl",
+    "dttl"
+  ],
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "paired_comparison_mapping": "canonical_seed_42 <-> nottl_seed_42",
+  "canonical_prediction_provenance": "zero_day_backdoor_predictions.csv (seed 42)",
+  "output_paths": {
+    "checkpoints": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\checkpoints",
+    "scalers": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\scalers",
+    "predictions": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\predictions",
+    "metrics": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\metrics",
+    "comparison": "C:\\Users\\Atul2\\OneDrive\\Desktop\\Papers\\IDS-UNSW-NB15\\results\\publication_experiments\\EXP_NO_TTL_V1\\comparison"
+  },
+  "multi_seed_summary": {
+    "Stacking": {
+      "dev_macro_f1_mean": 0.888583935584748,
+      "dev_macro_f1_std": 0.0018259370494046671,
+      "backdoor_detected_mean": 581.0,
+      "backdoor_detected_std": 0.816496580927726,
+      "backdoor_rate_mean": 0.9965694682675815,
+      "dev_fpr_mean": 0.1965855855855856,
+      "dev_fpr_std": 0.004566225792221961,
+      "per_seed_macro_f1": {
+        "42": 0.8909000391431565,
+        "123": 0.8864370373095554,
+        "2024": 0.8884147303015322
+      },
+      "per_seed_backdoor_detected": {
+        "42": 580,
+        "123": 582,
+        "2024": 581
+      }
+    },
+    "RF": {
+      "dev_macro_f1_mean": 0.8787043360070075,
+      "dev_macro_f1_std": 0.00027024798689481987,
+      "backdoor_detected_mean": 582.0,
+      "backdoor_detected_std": 0.0,
+      "backdoor_rate_mean": 0.9982847341337907,
+      "dev_fpr_mean": 0.23317117117117117,
+      "dev_fpr_std": 0.0007206080993088698,
+      "per_seed_macro_f1": {
+        "42": 0.8790669176935485,
+        "123": 0.878627696260577,
+        "2024": 0.8784183940668968
+      },
+      "per_seed_backdoor_detected": {
+        "42": 582,
+        "123": 582,
+        "2024": 582
+      }
+    },
+    "DT": {
+      "dev_macro_f1_mean": 0.8557306437939459,
+      "dev_macro_f1_std": 0.00020051602089770412,
+      "backdoor_detected_mean": 581.3333333333334,
+      "backdoor_detected_std": 0.4714045207910317,
+      "backdoor_rate_mean": 0.997141223556318,
+      "dev_fpr_mean": 0.2673333333333333,
+      "dev_fpr_std": 0.000512960030467993,
+      "per_seed_macro_f1": {
+        "42": 0.8560141788722904,
+        "123": 0.8555928645459008,
+        "2024": 0.8555848879636465
+      },
+      "per_seed_backdoor_detected": {
+        "42": 581,
+        "123": 581,
+        "2024": 582
+      }
+    },
+    "SVM": {
+      "dev_macro_f1_mean": 0.7938988819388962,
+      "dev_macro_f1_std": 0.0,
+      "backdoor_detected_mean": 566.0,
+      "backdoor_detected_std": 0.0,
+      "backdoor_rate_mean": 0.9708404802744427,
+      "dev_fpr_mean": 0.31805405405405407,
+      "dev_fpr_std": 0.0,
+      "per_seed_macro_f1": {
+        "42": 0.7938988819388962,
+        "123": 0.7938988819388962,
+        "2024": 0.7938988819388962
+      },
+      "per_seed_backdoor_detected": {
+        "42": 566,
+        "123": 566,
+        "2024": 566
+      }
+    },
+    "NN": {
+      "dev_macro_f1_mean": 0.8800966911302738,
+      "dev_macro_f1_std": 0.005392594897642711,
+      "backdoor_detected_mean": 574.6666666666666,
+      "backdoor_detected_std": 4.496912521077347,
+      "backdoor_rate_mean": 0.9857061177815895,
+      "dev_fpr_mean": 0.18835135135135136,
+      "dev_fpr_std": 0.020959559656128675,
+      "per_seed_macro_f1": {
+        "42": 0.8874053156892155,
+        "123": 0.8745560795936731,
+        "2024": 0.8783286781079328
+      },
+      "per_seed_backdoor_detected": {
+        "42": 572,
+        "123": 581,
+        "2024": 571
+      }
+    }
+  },
+  "seed_42_headline_results": {
+    "stacking_backdoor": {
+      "detected": 580,
+      "detection_rate": 0.9948542024013722,
+      "missed": 3
+    },
+    "stacking_dev_test": {
+      "n": 81749,
+      "TP": 43106,
+      "TN": 29955,
+      "FP": 7045,
+      "FN": 1643,
+      "detection_rate": 0.9632840957339829,
+      "benign_fpr": 0.1904054054054054,
+      "accuracy": 0.8937234706234939,
+      "balanced_accuracy": 0.8864393451642887,
+      "macro_precision": 0.903763637485911,
+      "macro_recall": 0.8864393451642887,
+      "macro_f1": 0.8909000391431565,
+      "attack_precision": 0.8595242368048494,
+      "attack_recall": 0.9632840957339829,
+      "attack_f1": 0.9084510010537408,
+      "benign_precision": 0.9480030381669726,
+      "benign_recall": 0.8095945945945946,
+      "benign_f1": 0.8733490772325724
+    },
+    "rf_backdoor": {
+      "detected": 582,
+      "detection_rate": 0.9982847341337907,
+      "missed": 1
+    },
+    "rf_dev_test": {
+      "n": 81749,
+      "TP": 43822,
+      "TN": 28393,
+      "FP": 8607,
+      "FN": 927,
+      "detection_rate": 0.9792844532838723,
+      "benign_fpr": 0.23262162162162162,
+      "accuracy": 0.8833747201800634,
+      "balanced_accuracy": 0.8733314158311254,
+      "macro_precision": 0.9021092427420263,
+      "macro_recall": 0.8733314158311254,
+      "macro_f1": 0.8790669176935485,
+      "attack_precision": 0.8358351294131111,
+      "attack_recall": 0.9792844532838723,
+      "attack_f1": 0.9018913745909569,
+      "benign_precision": 0.9683833560709414,
+      "benign_recall": 0.7673783783783784,
+      "benign_f1": 0.8562424607961401
+    }
+  },
+  "scientific_interpretation": "Controlled feature ablation: performance changes observed after removing {sttl, ct_state_ttl, dttl} provide empirical evidence regarding model dependence on TTL features. This is a controlled ablation experiment, not automatic causal proof.",
+  "status": "STAGE_B_COMPLETE"
+}

@@ -1,0 +1,16 @@
+{
+  "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+  "protocol_version": "Stage C Master Protocol",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "primary_seed": 42,
+  "feature_count": 72,
+  "feature_hash": "21c949fc5709c21d3568a420559f3bc42ba52f26e4be95ee551901b7de9bbe96",
+  "architecture": "72 \u2192 12 \u2192 6 \u2192 12 \u2192 72",
+  "all_gates_passed": true,
+  "timestamp_utc": "2026-09-08T15:53:24.490556+00:00",
+  "runtime_seconds": 381.19
+}

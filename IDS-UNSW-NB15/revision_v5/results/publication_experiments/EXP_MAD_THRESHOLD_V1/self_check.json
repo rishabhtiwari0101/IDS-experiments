@@ -1,0 +1,25 @@
+{
+  "experiment_id": "EXP_MAD_THRESHOLD_V1",
+  "timestamp_utc": "2026-09-28T08:39:52.425018+00:00",
+  "zero_training_guard": "PASS",
+  "calibration_rows": 11200,
+  "calibration_source": "untouched_val",
+  "uids_match_populations_manifest": true,
+  "legacy_re_max_diff_within_1e4": true,
+  "threshold_config_stats_match": true,
+  "rules_computed_count": 11,
+  "primary_rules_count": 6,
+  "sensitivity_rules_count": 5,
+  "threshold_monotonicity_checks": {
+    "percentiles_increasing": true,
+    "mean_sigmas_increasing": true,
+    "raw_mad_increasing": true,
+    "scaled_mad_increasing": true
+  },
+  "nan_inf_check": {
+    "re_vector": true,
+    "threshold_values": true,
+    "calibration_fprs": true
+  },
+  "overall_status": "PASS"
+}

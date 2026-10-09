@@ -1,0 +1,19 @@
+{
+  "family": "WORMS",
+  "target_count": 44,
+  "detected_count": 0,
+  "missed_count": 44,
+  "detection_rate": 0.0,
+  "benign_val_fpr": 0.000625,
+  "benign_devtest_fp": 13,
+  "benign_devtest_n": 37000,
+  "benign_devtest_fpr": 0.00035135135135135135,
+  "threshold_rule": "mean3sigma",
+  "threshold_value": 11.584431141614914,
+  "ae_training_rows": 40320,
+  "feature_count": 72,
+  "architecture": "72\u219212\u21926\u219212\u219272",
+  "experiment_id": "EXP_AE_UNSEEN_FAMILY_V1",
+  "ae_checkpoint_hash": "825173382dce361dc8c1b6e4edfc9a7c6e35d8e33f2a970a5bbea45adcd2676d",
+  "small_n_warning": true
+}

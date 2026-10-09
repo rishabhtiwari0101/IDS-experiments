@@ -1,0 +1,9 @@
+{
+  "stage_d_statistics_carried_forward": true,
+  "exact_mcnemar_reconciled": true,
+  "holm_step_down_reconciled": true,
+  "clopper_pearson_exact_bounds_reconciled": true,
+  "secondary_effects_marked_descriptive_only": true,
+  "no_post_hoc_materiality_thresholds_invented": true,
+  "status": "PASS"
+}

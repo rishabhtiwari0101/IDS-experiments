@@ -1,0 +1,50 @@
+{
+  "experiment_id": "EXP_PROB_INFERENCE_V1",
+  "timestamp_utc": "2026-09-28T06:51:03.869320+00:00",
+  "zero_training_guard": "PASS",
+  "row_counts": {
+    "dev_test": 81749,
+    "calibration_benign": 11200,
+    "zeroday_combined": 37583,
+    "backdoor": 583,
+    "benign_control": 37000,
+    "unseen_families": 1099
+  },
+  "uid_set_assertions": {
+    "calibration_benign_match": true,
+    "benign_control_match": true,
+    "cal_control_is_subset": true,
+    "eval_control_is_subset": true,
+    "tier_b_halves_disjoint": true,
+    "tier_b_halves_union_equals_benign_control": true
+  },
+  "nan_inf_check": {
+    "dev_test_probabilities.csv": true,
+    "calibration_benign_probabilities.csv": true,
+    "zeroday_probabilities.csv": true,
+    "ae_dev_test_reconstruction_errors.csv": true,
+    "ae_calibration_benign_reconstruction_errors.csv": true,
+    "ae_zeroday_reconstruction_errors.csv": true,
+    "ae_unseen_family_reconstruction_errors.csv": true
+  },
+  "probability_range_check": {
+    "dt_prob": true,
+    "rf_prob": true,
+    "nn_prob": true,
+    "stack_42": true
+  },
+  "reproduction_assertions": {
+    "backdoor_stack_detections": 582,
+    "benign_control_stack_fps": 7100,
+    "benign_control_stack_fpr": 0.1918918918918919,
+    "per_row_backdoor_match": true,
+    "per_row_benign_control_match": true
+  },
+  "unseen_family_counts": {
+    "Analysis": 677,
+    "Shellcode": 378,
+    "Worms": 44
+  },
+  "legacy_ae_validation_re_max_diff": 3.762084384106856e-05,
+  "overall_status": "PASS"
+}

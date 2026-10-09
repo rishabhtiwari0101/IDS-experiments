@@ -1,0 +1,117 @@
+data:
+  dev_test: data/splits/development_test.csv
+  protected_backdoor: data/splits/protected_unseen_attack.csv
+  row_id_column: id
+  train: data/splits/train.csv
+  validation: data/splits/validation.csv
+evaluation:
+  canonical_ref:
+    rf_backdoor_detected: 582
+    rf_backdoor_total: 583
+    stacking_backdoor_detected: 582
+    stacking_backdoor_total: 583
+  dev_test: true
+  metrics:
+  - TP
+  - TN
+  - FP
+  - FN
+  - detection_rate
+  - macro_f1
+  - attack_precision
+  - attack_recall
+  - attack_f1
+  - benign_fpr
+  protected_backdoor: true
+experiment:
+  canonical_commit: f694e19
+  id: EXP_NO_TTL_V1
+  parent_experiment: EXP_MI_V1_1
+  stage: A_setup_only
+features:
+  canonical_count: 75
+  canonical_source: results/feature_selection/EXP_MI_V1_1/selected_features.json
+  final_count: 72
+  output_path: results/publication_experiments/EXP_NO_TTL_V1/features/no_ttl_features.json
+  removed:
+  - sttl
+  - ct_state_ttl
+  - dttl
+  removed_count: 3
+frozen_artifact_protection:
+  allowed_output_prefix: results/publication_experiments/
+  enforce_destination_isolation: true
+  forbidden_overwrite_targets:
+  - results/checkpoints/
+  - results/zero_day/
+  - results/autoencoder/
+  - results/oof_stacking/
+  - results/explainability/
+  - results/feature_selection/
+  - data/splits/
+models:
+  base_models:
+  - DT
+  - RF
+  - SVM
+  - NN
+  stacking:
+    base_learners:
+    - DT
+    - RF
+    - SVM
+    - NN
+    meta_learner: LogisticRegression
+    oof_n_splits: 5
+    oof_random_state: 7
+neural_network:
+  batch_size: 256
+  hidden_sizes:
+  - 128
+  - 64
+  input_dim: 72
+  learning_rate: 0.001
+  patience: 5
+  weight_decay: 0.0001
+output:
+  base: results/publication_experiments/EXP_NO_TTL_V1
+  checkpoints: results/publication_experiments/EXP_NO_TTL_V1/checkpoints
+  comparison: results/publication_experiments/EXP_NO_TTL_V1/comparison
+  config_used: results/publication_experiments/EXP_NO_TTL_V1/config_used.yaml
+  features: results/publication_experiments/EXP_NO_TTL_V1/features
+  logs: results/publication_experiments/EXP_NO_TTL_V1/logs
+  metadata: results/publication_experiments/EXP_NO_TTL_V1/metadata.json
+  metrics: results/publication_experiments/EXP_NO_TTL_V1/metrics
+  predictions: results/publication_experiments/EXP_NO_TTL_V1/predictions
+  scalers: results/publication_experiments/EXP_NO_TTL_V1/scalers
+scaler:
+  fit_population: TRAIN_all_72_features
+  note: "Canonical SVM scaler has n_features_in_=75 \u2014 incompatible. New scaler\
+    \ required."
+  supervised_scaler: new
+seeds:
+- 42
+- 123
+- 2024
+statistical_comparison:
+  alignment_key: id
+  paired_seed_mapping:
+    cross_seed_pairing_allowed: false
+    multi_seed_pairs:
+    - canonical_seed: 42
+      no_ttl_seed: 42
+    - canonical_seed: 123
+      no_ttl_seed: 123
+    - canonical_seed: 2024
+      no_ttl_seed: 2024
+    primary_paired_seed:
+      canonical_seed: 42
+      description: Primary benchmark comparison strictly pairs canonical seed-42 with
+        No-TTL seed-42 on identical row IDs
+      no_ttl_seed: 42
+      status: LOCKED_MANDATORY
+  populations:
+  - protected_backdoor
+  - dev_test_attack_rows
+  require_alignment_audit: true
+  test: mcnemar_exact

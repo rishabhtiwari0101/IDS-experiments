@@ -1,0 +1,335 @@
+{
+  "creation_timestamp_utc": "2026-10-06T13:22:42.058065+00:00",
+  "sprint": 5,
+  "step": "s21_train_ft_transformer_cic",
+  "dataset": "CIC-IDS-2017",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "frozen_shortcuts": [
+    "Destination Port",
+    "Init_Win_bytes_backward"
+  ],
+  "shortcut_sha256_verified": "5e2942c8a5e5083f71d214ecb2c62d015025bba9cbbad2583ff2b36eb5f86ab2",
+  "k_star_original": 69,
+  "D_ablated": 67,
+  "architecture": {
+    "d_model": 64,
+    "n_heads": 4,
+    "n_blocks": 3,
+    "ffn_dim": 128,
+    "dropout": 0.1,
+    "cls_token": true,
+    "input_norm": "StandardScaler",
+    "seq_len_full": 70,
+    "seq_len_ablated": 68
+  },
+  "training": {
+    "lr": 0.0001,
+    "wd": 1e-05,
+    "batch": 512,
+    "epochs": 30
+  },
+  "device": "cuda",
+  "results": {
+    "full": {
+      "variant": "full",
+      "feat_label": "K*=69",
+      "D": 69,
+      "per_seed": {
+        "42": {
+          "dev_test_metrics": {
+            "macro_f1": 0.9855111118494273,
+            "precision": 0.9535951698022299,
+            "recall": 0.9996448639434308,
+            "f1_attack": 0.97607718181573,
+            "fpr": 0.009986892608500525,
+            "n_tp": 126667,
+            "n_fp": 6164,
+            "n_fn": 45,
+            "n_tn": 611045,
+            "confusion_matrix": [
+              [
+                611045,
+                6164
+              ],
+              [
+                45,
+                126667
+              ]
+            ]
+          },
+          "zero_day_bot": {
+            "n_attack": 1948,
+            "detected": 0,
+            "missed": 1948,
+            "recall": 0.0,
+            "wilson_ci_95": [
+              0.0,
+              0.0019681203118900557
+            ]
+          },
+          "eval_control": {
+            "n_control": 18500,
+            "fp": 192,
+            "fpr": 0.010378378378378378,
+            "alerts_per_10k": 103.78378378378378
+          },
+          "precision_natural": 0.0,
+          "precision_standardized_pi0306": 0.0,
+          "training_time_seconds": 3255.734126800002,
+          "model_sha256": "dd5c6494540a1389bad8c31b41ee6f5d3682254cf60cb554dcd9c75a66905857",
+          "artifact": "cicids2017\\models\\ft_transformer\\full\\seed_42\\ft_model.pt",
+          "D": 69,
+          "seq_len": 70
+        },
+        "123": {
+          "dev_test_metrics": {
+            "macro_f1": 0.9906282848373544,
+            "precision": 0.9718787487311986,
+            "recall": 0.9974351284803333,
+            "f1_attack": 0.9844911121843306,
+            "fpr": 0.005925059420714863,
+            "n_tp": 126387,
+            "n_fp": 3657,
+            "n_fn": 325,
+            "n_tn": 613552,
+            "confusion_matrix": [
+              [
+                613552,
+                3657
+              ],
+              [
+                325,
+                126387
+              ]
+            ]
+          },
+          "zero_day_bot": {
+            "n_attack": 1948,
+            "detected": 0,
+            "missed": 1948,
+            "recall": 0.0,
+            "wilson_ci_95": [
+              0.0,
+              0.0019681203118900557
+            ]
+          },
+          "eval_control": {
+            "n_control": 18500,
+            "fp": 121,
+            "fpr": 0.00654054054054054,
+            "alerts_per_10k": 65.4054054054054
+          },
+          "precision_natural": 0.0,
+          "precision_standardized_pi0306": 0.0,
+          "training_time_seconds": 1650.1923133000018,
+          "model_sha256": "b14cc12c1e3b748853fdd8442b46a3e5e78d694698b729779cc5d0bdbe2dafda",
+          "artifact": "cicids2017\\models\\ft_transformer\\full\\seed_123\\ft_model.pt",
+          "D": 69,
+          "seq_len": 70
+        },
+        "2024": {
+          "dev_test_metrics": {
+            "macro_f1": 0.9829555959026633,
+            "precision": 0.9454618725652622,
+            "recall": 0.9998263779278995,
+            "f1_attack": 0.9718844693337425,
+            "fpr": 0.01184039766108401,
+            "n_tp": 126690,
+            "n_fp": 7308,
+            "n_fn": 22,
+            "n_tn": 609901,
+            "confusion_matrix": [
+              [
+                609901,
+                7308
+              ],
+              [
+                22,
+                126690
+              ]
+            ]
+          },
+          "zero_day_bot": {
+            "n_attack": 1948,
+            "detected": 0,
+            "missed": 1948,
+            "recall": 0.0,
+            "wilson_ci_95": [
+              0.0,
+              0.0019681203118900557
+            ]
+          },
+          "eval_control": {
+            "n_control": 18500,
+            "fp": 223,
+            "fpr": 0.012054054054054054,
+            "alerts_per_10k": 120.54054054054055
+          },
+          "precision_natural": 0.0,
+          "precision_standardized_pi0306": 0.0,
+          "training_time_seconds": 1682.1538403000013,
+          "model_sha256": "9e46fd942bb95f613b81c66b839419e5852701aa0d787c92eaf3248a3e4dd5b8",
+          "artifact": "cicids2017\\models\\ft_transformer\\full\\seed_2024\\ft_model.pt",
+          "D": 69,
+          "seq_len": 70
+        }
+      },
+      "mean_dev_test_macro_f1": 0.9863649975298151,
+      "std_dev_test_macro_f1": 0.003190023974675965,
+      "mean_zero_day_bot_recall": 0.0
+    },
+    "ablated": {
+      "variant": "ablated",
+      "feat_label": "D=67",
+      "D": 67,
+      "per_seed": {
+        "42": {
+          "dev_test_metrics": {
+            "macro_f1": 0.9753707506437629,
+            "precision": 0.9237129063593272,
+            "recall": 0.9981059410316308,
+            "f1_attack": 0.9594695575979881,
+            "fpr": 0.016922954785170016,
+            "n_tp": 126472,
+            "n_fp": 10445,
+            "n_fn": 240,
+            "n_tn": 606764,
+            "confusion_matrix": [
+              [
+                606764,
+                10445
+              ],
+              [
+                240,
+                126472
+              ]
+            ]
+          },
+          "zero_day_bot": {
+            "n_attack": 1948,
+            "detected": 0,
+            "missed": 1948,
+            "recall": 0.0,
+            "wilson_ci_95": [
+              0.0,
+              0.0019681203118900557
+            ]
+          },
+          "eval_control": {
+            "n_control": 18500,
+            "fp": 337,
+            "fpr": 0.018216216216216215,
+            "alerts_per_10k": 182.16216216216216
+          },
+          "precision_natural": 0.0,
+          "precision_standardized_pi0306": 0.0,
+          "training_time_seconds": 1652.9339978999997,
+          "model_sha256": "584f39bf905176646e8e8bd342be68371e5661f4033d1a77a23695e6845f1981",
+          "artifact": "cicids2017\\models\\ft_transformer\\ablated\\seed_42\\ft_model.pt",
+          "D": 67,
+          "seq_len": 68
+        },
+        "123": {
+          "dev_test_metrics": {
+            "macro_f1": 0.9830116331045187,
+            "precision": 0.9511535497907444,
+            "recall": 0.9936549024559631,
+            "f1_attack": 0.9719398192106096,
+            "fpr": 0.010476192019234975,
+            "n_tp": 125908,
+            "n_fp": 6466,
+            "n_fn": 804,
+            "n_tn": 610743,
+            "confusion_matrix": [
+              [
+                610743,
+                6466
+              ],
+              [
+                804,
+                125908
+              ]
+            ]
+          },
+          "zero_day_bot": {
+            "n_attack": 1948,
+            "detected": 0,
+            "missed": 1948,
+            "recall": 0.0,
+            "wilson_ci_95": [
+              0.0,
+              0.0019681203118900557
+            ]
+          },
+          "eval_control": {
+            "n_control": 18500,
+            "fp": 208,
+            "fpr": 0.011243243243243243,
+            "alerts_per_10k": 112.43243243243244
+          },
+          "precision_natural": 0.0,
+          "precision_standardized_pi0306": 0.0,
+          "training_time_seconds": 1672.7774202,
+          "model_sha256": "dc72fc9b5612896110c81e06a8d8d63c6b27b60f755c11c458e62f76431ff9e5",
+          "artifact": "cicids2017\\models\\ft_transformer\\ablated\\seed_123\\ft_model.pt",
+          "D": 67,
+          "seq_len": 68
+        },
+        "2024": {
+          "dev_test_metrics": {
+            "macro_f1": 0.9830244522080377,
+            "precision": 0.9478049585289398,
+            "recall": 0.9974272365679652,
+            "f1_attack": 0.9719831729844881,
+            "fpr": 0.011276569201032389,
+            "n_tp": 126386,
+            "n_fp": 6960,
+            "n_fn": 326,
+            "n_tn": 610249,
+            "confusion_matrix": [
+              [
+                610249,
+                6960
+              ],
+              [
+                326,
+                126386
+              ]
+            ]
+          },
+          "zero_day_bot": {
+            "n_attack": 1948,
+            "detected": 0,
+            "missed": 1948,
+            "recall": 0.0,
+            "wilson_ci_95": [
+              0.0,
+              0.0019681203118900557
+            ]
+          },
+          "eval_control": {
+            "n_control": 18500,
+            "fp": 218,
+            "fpr": 0.011783783783783783,
+            "alerts_per_10k": 117.83783783783784
+          },
+          "precision_natural": 0.0,
+          "precision_standardized_pi0306": 0.0,
+          "training_time_seconds": 1663.2764317000037,
+          "model_sha256": "c7e20e61c488d6b8365134ef4e80b2c1032824c1fb1b32f774ccfb924305f829",
+          "artifact": "cicids2017\\models\\ft_transformer\\ablated\\seed_2024\\ft_model.pt",
+          "D": 67,
+          "seq_len": 68
+        }
+      },
+      "mean_dev_test_macro_f1": 0.980468945318773,
+      "std_dev_test_macro_f1": 0.0036049718251862936,
+      "mean_zero_day_bot_recall": 0.0
+    }
+  },
+  "note": "FT-Transformer reported as representative modern deep tabular baseline. Not an exhaustive NIDS survey. Hyperparameters fixed; not tuned. Evaluated on DEV_TEST (threshold=0.5) for informational comparison only."
+}

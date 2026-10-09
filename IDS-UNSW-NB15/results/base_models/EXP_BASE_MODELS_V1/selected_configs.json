@@ -1,0 +1,60 @@
+{
+  "dt": {
+    "config": {
+      "min_samples_split": 2,
+      "class_weight": "balanced",
+      "random_state": 42,
+      "criterion": "entropy",
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "mean_macro_f1": 0.9388952272152782,
+    "std_macro_f1": 0.002022534185433608
+  },
+  "rf": {
+    "config": {
+      "criterion": "gini",
+      "class_weight": "balanced",
+      "random_state": 42,
+      "n_jobs": -1,
+      "n_estimators": 300,
+      "max_depth": null,
+      "min_samples_leaf": 1,
+      "max_features": 0.3
+    },
+    "mean_macro_f1": 0.9508532447968256,
+    "std_macro_f1": 0.0020002077505539163
+  },
+  "svm": {
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 5000,
+      "random_state": 42,
+      "C": 0.1
+    },
+    "mean_macro_f1": 0.9202929348313965,
+    "std_macro_f1": 0.001702636282124847
+  },
+  "nn": {
+    "config": {
+      "hidden_sizes": [
+        128,
+        64
+      ],
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    },
+    "mean_macro_f1": 0.9242675746647988,
+    "std_macro_f1": 0.004916534820245159,
+    "final_epoch_count": 18,
+    "best_epochs": [
+      18,
+      17,
+      21,
+      26,
+      16
+    ],
+    "diagnostic_flag": false,
+    "range_median_ratio": 0.5555555555555556
+  }
+}

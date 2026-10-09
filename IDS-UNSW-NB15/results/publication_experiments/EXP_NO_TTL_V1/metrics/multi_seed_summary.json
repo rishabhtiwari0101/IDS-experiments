@@ -1,0 +1,97 @@
+{
+  "Stacking": {
+    "dev_macro_f1_mean": 0.888583935584748,
+    "dev_macro_f1_std": 0.0018259370494046671,
+    "backdoor_detected_mean": 581.0,
+    "backdoor_detected_std": 0.816496580927726,
+    "backdoor_rate_mean": 0.9965694682675815,
+    "dev_fpr_mean": 0.1965855855855856,
+    "dev_fpr_std": 0.004566225792221961,
+    "per_seed_macro_f1": {
+      "42": 0.8909000391431565,
+      "123": 0.8864370373095554,
+      "2024": 0.8884147303015322
+    },
+    "per_seed_backdoor_detected": {
+      "42": 580,
+      "123": 582,
+      "2024": 581
+    }
+  },
+  "RF": {
+    "dev_macro_f1_mean": 0.8787043360070075,
+    "dev_macro_f1_std": 0.00027024798689481987,
+    "backdoor_detected_mean": 582.0,
+    "backdoor_detected_std": 0.0,
+    "backdoor_rate_mean": 0.9982847341337907,
+    "dev_fpr_mean": 0.23317117117117117,
+    "dev_fpr_std": 0.0007206080993088698,
+    "per_seed_macro_f1": {
+      "42": 0.8790669176935485,
+      "123": 0.878627696260577,
+      "2024": 0.8784183940668968
+    },
+    "per_seed_backdoor_detected": {
+      "42": 582,
+      "123": 582,
+      "2024": 582
+    }
+  },
+  "DT": {
+    "dev_macro_f1_mean": 0.8557306437939459,
+    "dev_macro_f1_std": 0.00020051602089770412,
+    "backdoor_detected_mean": 581.3333333333334,
+    "backdoor_detected_std": 0.4714045207910317,
+    "backdoor_rate_mean": 0.997141223556318,
+    "dev_fpr_mean": 0.2673333333333333,
+    "dev_fpr_std": 0.000512960030467993,
+    "per_seed_macro_f1": {
+      "42": 0.8560141788722904,
+      "123": 0.8555928645459008,
+      "2024": 0.8555848879636465
+    },
+    "per_seed_backdoor_detected": {
+      "42": 581,
+      "123": 581,
+      "2024": 582
+    }
+  },
+  "SVM": {
+    "dev_macro_f1_mean": 0.7938988819388962,
+    "dev_macro_f1_std": 0.0,
+    "backdoor_detected_mean": 566.0,
+    "backdoor_detected_std": 0.0,
+    "backdoor_rate_mean": 0.9708404802744427,
+    "dev_fpr_mean": 0.31805405405405407,
+    "dev_fpr_std": 0.0,
+    "per_seed_macro_f1": {
+      "42": 0.7938988819388962,
+      "123": 0.7938988819388962,
+      "2024": 0.7938988819388962
+    },
+    "per_seed_backdoor_detected": {
+      "42": 566,
+      "123": 566,
+      "2024": 566
+    }
+  },
+  "NN": {
+    "dev_macro_f1_mean": 0.8800966911302738,
+    "dev_macro_f1_std": 0.005392594897642711,
+    "backdoor_detected_mean": 574.6666666666666,
+    "backdoor_detected_std": 4.496912521077347,
+    "backdoor_rate_mean": 0.9857061177815895,
+    "dev_fpr_mean": 0.18835135135135136,
+    "dev_fpr_std": 0.020959559656128675,
+    "per_seed_macro_f1": {
+      "42": 0.8874053156892155,
+      "123": 0.8745560795936731,
+      "2024": 0.8783286781079328
+    },
+    "per_seed_backdoor_detected": {
+      "42": 572,
+      "123": 581,
+      "2024": 571
+    }
+  }
+}

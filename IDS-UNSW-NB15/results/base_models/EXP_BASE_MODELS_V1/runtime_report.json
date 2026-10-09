@@ -1,0 +1,50 @@
+{
+  "experiment_id": "EXP_BASE_MODELS_V1",
+  "benchmark_n_rows": 10000,
+  "benchmark_n_folds": 2,
+  "train_sha256": "4a259324e604f013287a5de5fe49c46bf19418d815b550c5d1a5820b569ac41c",
+  "models": {
+    "dt": {
+      "benchmark_n_rows": 9999,
+      "benchmark_n_folds": 2,
+      "benchmark_runtime_seconds": 0.135,
+      "estimated_full_tuning_seconds": 131.9,
+      "estimated_full_tuning_minutes": 2.2,
+      "grid_size": 24
+    },
+    "rf": {
+      "benchmark_n_rows": 9999,
+      "benchmark_n_folds": 2,
+      "benchmark_runtime_seconds": 0.506,
+      "estimated_full_tuning_seconds": 493.2,
+      "estimated_full_tuning_minutes": 8.22,
+      "grid_size": 24
+    },
+    "svm": {
+      "benchmark_n_rows": 9999,
+      "benchmark_n_folds": 2,
+      "benchmark_runtime_seconds": 2.392,
+      "estimated_full_tuning_seconds": 388.4,
+      "estimated_full_tuning_minutes": 6.47,
+      "grid_size": 4
+    },
+    "nn": {
+      "benchmark_n_rows": 9999,
+      "benchmark_n_folds": 2,
+      "benchmark_epochs": 3,
+      "device": "cuda",
+      "benchmark_runtime_seconds": 2.728,
+      "estimated_full_tuning_seconds": 4431.4,
+      "estimated_full_tuning_minutes": 73.86,
+      "grid_size": 8
+    }
+  },
+  "total_estimated_minutes": 90.75,
+  "runtime_warning_threshold_minutes": 120.0,
+  "within_threshold": true,
+  "environment": {
+    "python": "3.11.9",
+    "torch": "2.7.1+cu118",
+    "cuda_available": true
+  }
+}

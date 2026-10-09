@@ -1,0 +1,449 @@
+{
+  "creation_timestamp_utc": "2026-10-06T05:54:09.728620+00:00",
+  "sprint": 3,
+  "step": "s07_base_models_training",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "k_star": 69,
+  "selected_features_sha256": "6fc304d041a6704bf45ac9d2533e8c4ac65c8216e0ac7751395d412f5759203c",
+  "D_input": 69,
+  "train_rows": 340464,
+  "n_benign": 44800,
+  "n_attack": 295664,
+  "device": "cuda",
+  "canonical_hyperparameters": {
+    "DT": {
+      "criterion": "entropy",
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "class_weight": "balanced"
+    },
+    "RF": {
+      "n_estimators": 300,
+      "criterion": "gini",
+      "max_features": 0.3,
+      "max_depth": null,
+      "bootstrap": true,
+      "class_weight": "balanced",
+      "n_jobs": -1
+    },
+    "SVM": {
+      "C": 0.1,
+      "loss": "squared_hinge",
+      "penalty": "l2",
+      "dual": "auto",
+      "class_weight": "balanced",
+      "max_iter": 2000
+    },
+    "IDSNet": {
+      "lr": 0.001,
+      "weight_decay": 1e-05,
+      "batch_size": 256,
+      "epochs": 18,
+      "pos_weight": null,
+      "architecture": "Input(D)->Linear(128)->BN->ReLU->Dropout(0.3)->Linear(64)->BN->ReLU->Dropout(0.2)->Linear(1)",
+      "input_dim": "DYNAMIC = X_train.shape[1]"
+    }
+  },
+  "per_seed_results": {
+    "42": {
+      "dt": {
+        "params": {
+          "criterion": "entropy",
+          "max_depth": null,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "class_weight": "balanced",
+          "random_state": 42
+        },
+        "train_metrics": {
+          "macro_f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_attack": 1.0,
+          "fpr": 0.0,
+          "confusion_matrix": [
+            [
+              44800,
+              0
+            ],
+            [
+              0,
+              295664
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_42\\dt_model.pkl",
+        "sha256": "ff0f95fef6f72ff92930a698dac4144fa7868f4caade77234b68f8223975c3ad",
+        "train_time_s": 11.571143600000141
+      },
+      "rf": {
+        "params": {
+          "n_estimators": 300,
+          "criterion": "gini",
+          "max_features": 0.3,
+          "max_depth": null,
+          "bootstrap": true,
+          "class_weight": "balanced",
+          "n_jobs": -1,
+          "random_state": 42
+        },
+        "train_metrics": {
+          "macro_f1": 0.999890777086017,
+          "precision": 1.0,
+          "recall": 0.999942502299908,
+          "f1_attack": 0.9999712503234338,
+          "fpr": 0.0,
+          "confusion_matrix": [
+            [
+              44800,
+              0
+            ],
+            [
+              17,
+              295647
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_42\\rf_model.pkl",
+        "sha256": "490029f886b177703e353df7934f64975b533f0e4ab216f1bb9430146958cb0e",
+        "train_time_s": 73.60452009999972
+      },
+      "svm": {
+        "params": {
+          "C": 0.1,
+          "loss": "squared_hinge",
+          "penalty": "l2",
+          "dual": "auto",
+          "class_weight": "balanced",
+          "max_iter": 2000,
+          "random_state": 42
+        },
+        "train_metrics": {
+          "macro_f1": 0.9291203823365191,
+          "precision": 0.9880429779545626,
+          "recall": 0.9728779966448401,
+          "f1_attack": 0.9804018473389117,
+          "fpr": 0.07770089285714285,
+          "confusion_matrix": [
+            [
+              41319,
+              3481
+            ],
+            [
+              8019,
+              287645
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_42\\svm_model.pkl",
+        "sha256": "9151bff3b90b80b189cd6458cde99f8bff0eaf0d7e0a80dc020ae35fe214488d",
+        "train_time_s": 218.95553710000058
+      },
+      "nn": {
+        "params": {
+          "lr": 0.001,
+          "wd": 1e-05,
+          "batch": 256,
+          "epochs": 18,
+          "pos_weight": null,
+          "input_dim": 69
+        },
+        "train_metrics": {
+          "macro_f1": 0.9865838586974858,
+          "precision": 0.993598257004428,
+          "recall": 0.9994960495697819,
+          "f1_attack": 0.9965384271678669,
+          "fpr": 0.0425,
+          "confusion_matrix": [
+            [
+              42896,
+              1904
+            ],
+            [
+              149,
+              295515
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_42\\nn_model.pt",
+        "sha256": "ebeb4a86f5318a23990caa2d7f578bc5e43b4e08272c95c199f5818cd6837f69"
+      }
+    },
+    "123": {
+      "dt": {
+        "params": {
+          "criterion": "entropy",
+          "max_depth": null,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "class_weight": "balanced",
+          "random_state": 123
+        },
+        "train_metrics": {
+          "macro_f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_attack": 1.0,
+          "fpr": 0.0,
+          "confusion_matrix": [
+            [
+              44800,
+              0
+            ],
+            [
+              0,
+              295664
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_123\\dt_model.pkl",
+        "sha256": "f9f392404fbcab0041d835125cccef0464086cedc8e3447385192be2e8e7acbb",
+        "train_time_s": 9.805165300000226
+      },
+      "rf": {
+        "params": {
+          "n_estimators": 300,
+          "criterion": "gini",
+          "max_features": 0.3,
+          "max_depth": null,
+          "bootstrap": true,
+          "class_weight": "balanced",
+          "n_jobs": -1,
+          "random_state": 123
+        },
+        "train_metrics": {
+          "macro_f1": 0.9998843533035998,
+          "precision": 1.0,
+          "recall": 0.9999391200822555,
+          "f1_attack": 0.9999695591145085,
+          "fpr": 0.0,
+          "confusion_matrix": [
+            [
+              44800,
+              0
+            ],
+            [
+              18,
+              295646
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_123\\rf_model.pkl",
+        "sha256": "a2c6192a2c7f4eb1fa96f7397e9a316a85b68c88c60a8dbf5ddb36577749d189",
+        "train_time_s": 81.72519300000022
+      },
+      "svm": {
+        "params": {
+          "C": 0.1,
+          "loss": "squared_hinge",
+          "penalty": "l2",
+          "dual": "auto",
+          "class_weight": "balanced",
+          "max_iter": 2000,
+          "random_state": 123
+        },
+        "train_metrics": {
+          "macro_f1": 0.9291203823365191,
+          "precision": 0.9880429779545626,
+          "recall": 0.9728779966448401,
+          "f1_attack": 0.9804018473389117,
+          "fpr": 0.07770089285714285,
+          "confusion_matrix": [
+            [
+              41319,
+              3481
+            ],
+            [
+              8019,
+              287645
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_123\\svm_model.pkl",
+        "sha256": "d1fe0d2913f2575ed2c104306161479f72ff5e37f892169002ab59f6c451d9b3",
+        "train_time_s": 255.69659709999905
+      },
+      "nn": {
+        "params": {
+          "lr": 0.001,
+          "wd": 1e-05,
+          "batch": 256,
+          "epochs": 18,
+          "pos_weight": null,
+          "input_dim": 69
+        },
+        "train_metrics": {
+          "macro_f1": 0.9863273811104216,
+          "precision": 0.9932723747307438,
+          "recall": 0.9997057470642351,
+          "f1_attack": 0.9964786773716673,
+          "fpr": 0.0446875,
+          "confusion_matrix": [
+            [
+              42798,
+              2002
+            ],
+            [
+              87,
+              295577
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_123\\nn_model.pt",
+        "sha256": "2cafa4a0d324b55680ed9cc410e9a09dc68b2960fc69822bb70cc7bc47ec64e8"
+      }
+    },
+    "2024": {
+      "dt": {
+        "params": {
+          "criterion": "entropy",
+          "max_depth": null,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "class_weight": "balanced",
+          "random_state": 2024
+        },
+        "train_metrics": {
+          "macro_f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_attack": 1.0,
+          "fpr": 0.0,
+          "confusion_matrix": [
+            [
+              44800,
+              0
+            ],
+            [
+              0,
+              295664
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_2024\\dt_model.pkl",
+        "sha256": "f0ce512c82184a5193a030ddbbd8c72739e074b7738efb2d872f7c4f529f51e1",
+        "train_time_s": 9.108861999999135
+      },
+      "rf": {
+        "params": {
+          "n_estimators": 300,
+          "criterion": "gini",
+          "max_features": 0.3,
+          "max_depth": null,
+          "bootstrap": true,
+          "class_weight": "balanced",
+          "n_jobs": -1,
+          "random_state": 2024
+        },
+        "train_metrics": {
+          "macro_f1": 0.9998715061036405,
+          "precision": 1.0,
+          "recall": 0.9999323556469506,
+          "f1_attack": 0.9999661766794969,
+          "fpr": 0.0,
+          "confusion_matrix": [
+            [
+              44800,
+              0
+            ],
+            [
+              20,
+              295644
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_2024\\rf_model.pkl",
+        "sha256": "48160bc4c757af4676d4860b71e82d60daa49dcda59b1ad06a52c23403df127f",
+        "train_time_s": 77.85839959999976
+      },
+      "svm": {
+        "params": {
+          "C": 0.1,
+          "loss": "squared_hinge",
+          "penalty": "l2",
+          "dual": "auto",
+          "class_weight": "balanced",
+          "max_iter": 2000,
+          "random_state": 2024
+        },
+        "train_metrics": {
+          "macro_f1": 0.9291203823365191,
+          "precision": 0.9880429779545626,
+          "recall": 0.9728779966448401,
+          "f1_attack": 0.9804018473389117,
+          "fpr": 0.07770089285714285,
+          "confusion_matrix": [
+            [
+              41319,
+              3481
+            ],
+            [
+              8019,
+              287645
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_2024\\svm_model.pkl",
+        "sha256": "364d0971ca8ce49053589354359b7fd456d351734579d89c35c468f1c988c633",
+        "train_time_s": 213.01020850000168
+      },
+      "nn": {
+        "params": {
+          "lr": 0.001,
+          "wd": 1e-05,
+          "batch": 256,
+          "epochs": 18,
+          "pos_weight": null,
+          "input_dim": 69
+        },
+        "train_metrics": {
+          "macro_f1": 0.984786217924281,
+          "precision": 0.9939212285517033,
+          "recall": 0.9981938957735809,
+          "f1_attack": 0.9960529801771518,
+          "fpr": 0.040290178571428574,
+          "confusion_matrix": [
+            [
+              42995,
+              1805
+            ],
+            [
+              534,
+              295130
+            ]
+          ]
+        },
+        "artifact": "cicids2017\\models\\seed_2024\\nn_model.pt",
+        "sha256": "37380b8251e9f6ca0411795fa4c19c4eb549942069799e9855649b5881410dad"
+      }
+    }
+  },
+  "model_artifacts": {
+    "42": {
+      "seed_dir": "cicids2017\\models\\seed_42",
+      "dt_sha256": "ff0f95fef6f72ff92930a698dac4144fa7868f4caade77234b68f8223975c3ad",
+      "rf_sha256": "490029f886b177703e353df7934f64975b533f0e4ab216f1bb9430146958cb0e",
+      "svm_sha256": "9151bff3b90b80b189cd6458cde99f8bff0eaf0d7e0a80dc020ae35fe214488d",
+      "nn_sha256": "ebeb4a86f5318a23990caa2d7f578bc5e43b4e08272c95c199f5818cd6837f69"
+    },
+    "123": {
+      "seed_dir": "cicids2017\\models\\seed_123",
+      "dt_sha256": "f9f392404fbcab0041d835125cccef0464086cedc8e3447385192be2e8e7acbb",
+      "rf_sha256": "a2c6192a2c7f4eb1fa96f7397e9a316a85b68c88c60a8dbf5ddb36577749d189",
+      "svm_sha256": "d1fe0d2913f2575ed2c104306161479f72ff5e37f892169002ab59f6c451d9b3",
+      "nn_sha256": "2cafa4a0d324b55680ed9cc410e9a09dc68b2960fc69822bb70cc7bc47ec64e8"
+    },
+    "2024": {
+      "seed_dir": "cicids2017\\models\\seed_2024",
+      "dt_sha256": "f0ce512c82184a5193a030ddbbd8c72739e074b7738efb2d872f7c4f529f51e1",
+      "rf_sha256": "48160bc4c757af4676d4860b71e82d60daa49dcda59b1ad06a52c23403df127f",
+      "svm_sha256": "364d0971ca8ce49053589354359b7fd456d351734579d89c35c468f1c988c633",
+      "nn_sha256": "37380b8251e9f6ca0411795fa4c19c4eb549942069799e9855649b5881410dad"
+    }
+  }
+}

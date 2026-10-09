@@ -1,0 +1,11 @@
+{
+  "seed": 2024,
+  "ae_fit_count": 40320,
+  "monitor_count": 4480,
+  "validation_count": 11200,
+  "fit_monitor_overlap": 0,
+  "fit_val_overlap": 0,
+  "monitor_val_overlap": 0,
+  "pairwise_disjoint": true,
+  "status": "PASS"
+}

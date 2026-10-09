@@ -1,0 +1,157 @@
+{
+  "creation_timestamp_utc": "2026-10-06T05:36:50.458189+00:00",
+  "sprint": 3,
+  "step": "s06_mutual_information",
+  "estimator": "mutual_info_classif",
+  "n_neighbors": 3,
+  "mi_seed": 42,
+  "subsample_max_rows": 100000,
+  "subsample_seed": 42,
+  "subsample_actual_rows": 100000,
+  "cv_n_splits": 5,
+  "cv_seed": 42,
+  "candidate_k_grid": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    69
+  ],
+  "plateau_delta_threshold": 0.005,
+  "k_star": 69,
+  "rule_applied": "NO_PLATEAU_DETECTED_USE_ALL",
+  "selected_feature_count": 69,
+  "selected_features": [
+    "Average Packet Size",
+    "Destination Port",
+    "Packet Length Std",
+    "Packet Length Variance",
+    "Packet Length Mean",
+    "Total Length of Bwd Packets",
+    "Subflow Bwd Bytes",
+    "Max Packet Length",
+    "Avg Bwd Segment Size",
+    "Bwd Packet Length Mean",
+    "Init_Win_bytes_forward",
+    "Bwd Packet Length Max",
+    "Subflow Fwd Bytes",
+    "Total Length of Fwd Packets",
+    "Fwd Packet Length Max",
+    "Init_Win_bytes_backward",
+    "Fwd IAT Max",
+    "Fwd IAT Total",
+    "Fwd Header Length",
+    "Fwd IAT Mean",
+    "Flow IAT Max",
+    "Bwd Header Length",
+    "Bwd IAT Max",
+    "Fwd Packet Length Mean",
+    "Avg Fwd Segment Size",
+    "Flow Bytes/s",
+    "Flow Duration",
+    "Bwd IAT Total",
+    "Bwd Packet Length Std",
+    "Bwd Packets/s",
+    "Bwd IAT Mean",
+    "Fwd Packets/s",
+    "Flow Packets/s",
+    "Bwd Packet Length Min",
+    "Fwd Packet Length Min",
+    "Min Packet Length",
+    "Subflow Bwd Packets",
+    "Total Backward Packets",
+    "Flow IAT Mean",
+    "Fwd Packet Length Std",
+    "Flow IAT Std",
+    "Total Fwd Packets",
+    "Subflow Fwd Packets",
+    "Fwd IAT Std",
+    "Active Min",
+    "Active Mean",
+    "Active Max",
+    "Idle Max",
+    "Bwd IAT Std",
+    "Bwd IAT Min",
+    "Idle Min",
+    "Idle Mean",
+    "Flow IAT Min",
+    "Fwd IAT Min",
+    "act_data_pkt_fwd",
+    "Idle Std",
+    "Active Std",
+    "URG Flag Count",
+    "min_seg_size_forward",
+    "Down/Up Ratio",
+    "PSH Flag Count",
+    "FIN Flag Count",
+    "ACK Flag Count",
+    "Fwd PSH Flags",
+    "SYN Flag Count",
+    "RST Flag Count",
+    "CWE Flag Count",
+    "ECE Flag Count",
+    "Fwd URG Flags"
+  ],
+  "feature_ordering": "by MI score descending (rank 1 = highest MI)",
+  "all_features_D": 69,
+  "k_selection_summary": [
+    {
+      "k": 10,
+      "mean_macro_f1": 0.7507997524791697,
+      "std_macro_f1": 0.07141315878040753
+    },
+    {
+      "k": 20,
+      "mean_macro_f1": 0.8694739437276988,
+      "std_macro_f1": 0.004369579504542018
+    },
+    {
+      "k": 30,
+      "mean_macro_f1": 0.882937947940045,
+      "std_macro_f1": 0.004503048171808044
+    },
+    {
+      "k": 40,
+      "mean_macro_f1": 0.8929156028568015,
+      "std_macro_f1": 0.0037291674834099985
+    },
+    {
+      "k": 50,
+      "mean_macro_f1": 0.8988206696989373,
+      "std_macro_f1": 0.004552635284457166
+    },
+    {
+      "k": 60,
+      "mean_macro_f1": 0.924060411059427,
+      "std_macro_f1": 0.012292253528012479
+    },
+    {
+      "k": 69,
+      "mean_macro_f1": 0.9368768853494368,
+      "std_macro_f1": 0.006637687742612695
+    }
+  ],
+  "candidate_pool_mi": {
+    "Destination Port": {
+      "mi_score": 0.29150733727799727,
+      "rank": 2
+    },
+    "Init_Win_bytes_forward": {
+      "mi_score": 0.2593631562263292,
+      "rank": 11
+    },
+    "Init_Win_bytes_backward": {
+      "mi_score": 0.21351730215287534,
+      "rank": 16
+    },
+    "Flow Duration": {
+      "mi_score": 0.15665460364357298,
+      "rank": 27
+    }
+  },
+  "train_file": "cicids2017\\DATA\\splits\\train.csv",
+  "train_sha256": "baae4da2e2aaf66a604df6bf9b1aed7c830ddbf4f55ac2a5ab1bfadaecf4ff99",
+  "train_rows": 340464
+}
